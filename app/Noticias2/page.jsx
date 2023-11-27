@@ -36,9 +36,26 @@ const Noticia2 = () => {
                             <p className={styles.texto}>Minecraft Legends já está disponível no Nintendo Switch, PlayStation 5|4, Steam, Windows 11|10, PC Game Pass, Xbox Game Pass, Xbox Series X|S, Xbox One e Xbox Cloud Gaming. Se você for assinante do Game Pass, poderá jogar o jogo básico imediatamente, sem nenhum custo adicional!</p>
                         </div>
                         <div className={styles.textos}>
+                            <p className={styles.tituloHeader}>EDIÇÕES DO MINECRAFT LEGENDS</p>
                             <p className={styles.texto}>Você pode escolher entre a Edição Padrão do Minecraft Legends (ou seja, o jogo base) por US$ 39,99 e a Edição Deluxe por US$ 49,99, que inclui o jogo base e o pacote Deluxe Skin por um preço com desconto. O Deluxe Skin Pack inclui uma skin de herói e quatro skins de montaria, além de uma skin de montaria adicional quando estiver disponível após o lançamento. Você também pode comprar o Deluxe Skin Pack separadamente por US$ 14,99, mas a Deluxe Edition economiza US$ 5!</p>
-                            
-
+                        </div>
+                        <div className={styles.textos}>
+                            <p className={styles.tituloHeader}>MODOS DE JOGO DO MINECRAFT LEGENDS</p>
+                            <p className={styles.texto}>A história de Minecraft Legends só pode ser vivenciada no modo campanha, onde você luta para salvar o Overworld sozinho ou em cooperação com até três amigos. Quanto mais jogadores heróicos participarem, mais forte será o seu time contra os piglins, cujos números permanecem os mesmos, independentemente do tamanho do seu time.</p>
+                            <p className={styles.texto}>O modo PvP é onde você enfrenta seus amigos em partidas intensas. Em partidas organizadas públicas, você será dividido em duas equipes de quatro jogadores. Você precisa proteger sua base enquanto elabora planos tortuosos sobre como destruir a de seus oponentes! O time que for o primeiro a destruir a base do outro vence. Certifique-se de explorar o mapa para proteger os recursos com antecedência e lembre-se: sempre. Ser. Reunião.</p>
+                        </div> 
+                        <iframe className={styles.video} src="https://www.youtube.com/embed/lw6f-tJKoao?si=iMsnDFKAgngqLfqC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <div className={styles.textos}>
+                        <p className={styles.tituloHeader}>LOST LEGENDS</p>
+                        <p className={styles.texto}>Lost Legends é outra maneira de experimentar mais Minecraft Legends depois de concluir a campanha – além de reproduzi-la, é claro. Lost Legends são desafios mensais que você poderá baixar sem nenhum custo extra para testar suas habilidades em cenários únicos. E assim como no jogo principal, você pode jogar com até três amigos no modo cooperativo. Depois de ganhar, você receberá a recompensa cosmética exclusiva daquele mês!</p>
+                        <p className={styles.texto}>Se você mal pode esperar para colocar sua espada em novas estratégias, então tenho boas notícias! A primeira Lenda Perdida já está disponível. Em Portal Pile, você deve proteger sua vila de 20 ondas de porquinhos cada vez mais resistentes. Se a fonte da vila ainda estiver de pé após o ataque, você (e seus amigos, se eles entrarem na briga) ganharão a armadura Portal Buster exclusiva para o seu herói! Mas não conte seus golens antes de eles serem gerados – este é um desafio muito difícil, então há uma dura batalha entre você e seu prêmio.</p>
+                        </div>
+                        <div className={styles.textos}>
+                            <p className={styles.tituloHeader}>MERCADO DE LENDAS DO MINECRAFT</p>
+                            <p className={styles.texto}>Assim como sua contraparte do Minecraft: Bedrock Edition, o Minecraft Legends Marketplace é onde você pode obter conteúdo extra com curadoria para o seu jogo, feito por criadores da comunidade e também pela Blackbird Interactive. No momento, a seleção está limitada a skins de heróis e montarias, mas no futuro lançaremos novas experiências chamadas Mitos, que incluem DLCs, minijogos e muito mais. Certifique-se de verificar este espaço ou o mercado do jogo para atualizações!</p>
+                        </div>
+                        <div className={styles.textos}>
+                            <p className={styles.texto}>Agora, se você me dá licença, divaguei por tanto tempo que os porquinhos fizeram algum progresso significativo em meu mundo superior. É hora de chutar alguns porquinhos e fazê-los se arrepender do dia em que pisaram no meu mundo superior. Venha, cavalo-esfregão! O mundo superior precisa de nós!</p>
                         </div>
                     </div>
                 </div>
