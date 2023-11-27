@@ -33,9 +33,12 @@ const Noticia2 = () => {
 
                         <div className={styles.textos}>
                             <p className={styles.tituloHeader}>PLATAFORMAS DE LENDAS DE MINECRAFT</p>
-                            <p className={styles.texto}>Minecraft Legends já está disponível no Nintendo Switch, PlayStation 5|4, Steam, Windows 11|10, PC Game Pass, Xbox Game Pass, Xbox Series X|S, Xbox One e Xbox Cloud Gaming. Se você for assinante do Game Pass, poderá jogar o jogo básico imediatamente, sem nenhum custo adicional!
-</p>
+                            <p className={styles.texto}>Minecraft Legends já está disponível no Nintendo Switch, PlayStation 5|4, Steam, Windows 11|10, PC Game Pass, Xbox Game Pass, Xbox Series X|S, Xbox One e Xbox Cloud Gaming. Se você for assinante do Game Pass, poderá jogar o jogo básico imediatamente, sem nenhum custo adicional!</p>
+                        </div>
+                        <div className={styles.textos}>
+                            <p className={styles.texto}>Você pode escolher entre a Edição Padrão do Minecraft Legends (ou seja, o jogo base) por US$ 39,99 e a Edição Deluxe por US$ 49,99, que inclui o jogo base e o pacote Deluxe Skin por um preço com desconto. O Deluxe Skin Pack inclui uma skin de herói e quatro skins de montaria, além de uma skin de montaria adicional quando estiver disponível após o lançamento. Você também pode comprar o Deluxe Skin Pack separadamente por US$ 14,99, mas a Deluxe Edition economiza US$ 5!</p>
                             
+
                         </div>
                     </div>
                 </div>
