@@ -9,7 +9,7 @@ import styles from './page.module.css';
 const Page_de_encantamentos = () => {
     return (
         <main className={styles.main}>
-            {/* <Header /> */}
+            <Header />
             <div className={styles.titles_container}>
                 <h1 className={styles.titles}>Encantamentos</h1>
                 <h2 className={styles.subTitles}>Encantamentos</h2>
@@ -48,7 +48,7 @@ const Page_de_encantamentos = () => {
                                 <img className={styles.book5} src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                             </span>
                         </li>
-                        
+
                     </ul>
                     <button className={styles.arrows}>
                         <MdArrowForwardIos />
