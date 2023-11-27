@@ -1,14 +1,21 @@
 .main {
     color: #141414;
+    background-image: url('/bg-wool-dark.png');
 }
+.main_container {
+    width: 80%;
+    margin: 0 auto;
 
+}
 .encantamentos_container {
     position: relative;
-    margin-top: 20rem;
     display: flex;
     flex-direction: row-reverse;
     align-content: stretch;
     justify-content: space-around;
+    background-color: white;
+    padding: 20rem 0;
+    width: 100%;
 }
 .encantamentos_list {
     list-style: none;
@@ -31,6 +38,7 @@
     justify-content: center;
     position: absolute;
 }
+
 
 
 .book0 {
@@ -61,9 +69,15 @@
 .encantamento:nth-child(6) { transform: rotate(300deg) translateX(10rem); }
 
 
-
-
-
+.book_name {
+    margin-top: 0.6rem;
+    font-family: 'Minecraft-Font';
+    padding: 0.5rem 1rem;
+    background-color: #1a0a17;
+    color: #a4a2a4;
+    text-shadow: #2c262c;
+    border: 1px solid #2c262c;
+}
 
 
 
