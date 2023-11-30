@@ -16,20 +16,24 @@ const Page_de_encantamentos = () => {
             </div>
             <div className={styles.main_container}>
                 <nav className={styles.encantamentos_container}>
+                    <img className={styles.encantamentos_img} src="/Book_29.webp" alt="encantamento1" width={96} height={96} />
                     <ul className={styles.encantamentos_list}>
-                        Centro
+
+
                         <li className={styles.encantamento}>
                             <span className={styles.book}>
                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                <p className={styles.book_name}>afiacao</p>
+                                <p className={styles.book_name}>inquebravel</p>
                             </span>
                         </li>
+
                         <li className={styles.encantamento}>
                             <span className={styles.book1}>
-                                <img  src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
+                                <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                 <p className={styles.book_name}>protecao</p>
                             </span>
                         </li>
+
                         <li className={styles.encantamento}>
                             <span className={styles.book2}>
                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
@@ -39,27 +43,37 @@ const Page_de_encantamentos = () => {
                         <li className={styles.encantamento}>
                             <span className={styles.book3}>
                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
+                                <p className={styles.book_name}>inquebravel</p>
                             </span>
                         </li>
                         <li className={styles.encantamento}>
                             <span className={styles.book4}>
                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
+                                <p className={styles.book_name}>inquebravel</p>
                             </span>
                         </li>
                         <li className={styles.encantamento}>
                             <span className={styles.book5}>
                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
+                                <p className={styles.book_name}>Respiracao aquatica</p>
                             </span>
                         </li>
 
+
                     </ul>
+                </nav>
+                <div className={styles.arrows_container}>
+                    <button className={styles.arrows}>
+                        <MdArrowBackIos />
+
+                    </button>
+                    <h2>
+                        Pag 1 / 1
+                    </h2>
                     <button className={styles.arrows}>
                         <MdArrowForwardIos />
                     </button>
-                    <button className={styles.arrows}>
-                        <MdArrowBackIos />
-                    </button>
-                </nav>
+                </div>
             </div>
         </main>
 
