@@ -19,6 +19,7 @@ const Page_de_encantamentos = () => {
     const router = useRouter();
 
     const [bookPopUp, setBookPopUp] = useState(false);
+    const [styleBooks, setStyleBooks] = useState(styles.book);
 
     // encantamentos em si
 
@@ -33,6 +34,10 @@ const Page_de_encantamentos = () => {
     const [tipoEncanto , setTipoEncanto] = useState("");
     const [dano , setDano] = useState("");
     const [defesa , setDefesa] = useState("");
+
+    let bookStyles = 0;
+    
+    console.log(bookStyles);
 
 
     const handleBookPopUp = () => {
@@ -75,7 +80,7 @@ const Page_de_encantamentos = () => {
                                             encantamentos ? (
                                                 encantamentos.map((encantamento) => (
                                                     <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
-                                                        <span className={`${styles.book}`}>
+                                                        <span className={styles.book}>
                                                             <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                                             <p className={styles.book_name}>{encantamento.titulo}</p>
                                                         </span>
