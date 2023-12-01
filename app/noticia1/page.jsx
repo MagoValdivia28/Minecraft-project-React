@@ -2,7 +2,9 @@ import Header from "../components/header/header";
 import styles from "./noticia1.module.css";
 const Noticia1 = () => {
     return (
+
         <>
+            <Header />
             <div className={styles.main}>
                 <img className={styles.img1} src="https://www.minecraft.net/content/dam/games/minecraft/key-art/highlight-tails.jpg" />
                 <div className={styles.article1}>
