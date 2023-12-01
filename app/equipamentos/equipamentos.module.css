@@ -17,6 +17,7 @@
 .itemArmadura {
     display: flex;
     background-image: url(../../public/inventory/slot.png);
+    padding: 8px;
     width: 54px;
     height: 54px;
     margin: 2px;
@@ -28,9 +29,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 3px;
-
 }
+
+.itemPeitoral {
+    padding: 4px     !important;
+}
+
+.itemCalca {
+    padding: 6px     !important;
+}
+
 
 .hidden {
     display: none;
