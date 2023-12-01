@@ -141,12 +141,12 @@
 .text {
     color: white;
     font-family: 'Title-Minecraft-Font';
-    font-size: 1.75rem;
+    font-size: 1.2rem;
     position: absolute;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
-    margin-left:  -3%;
+    margin-left:  -3.3%;
 }
 
 .card2 {
@@ -185,7 +185,7 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
-    margin-left:  -3%;
+    margin-left:  -3.2%;
 }
 
 .card3 {
@@ -210,7 +210,7 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
-    margin-left:  -3%;
+    margin-left:  -3.2%;
 }
 
 .card3:hover {
