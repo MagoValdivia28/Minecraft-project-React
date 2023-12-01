@@ -1,12 +1,11 @@
 .main {
-    padding-top: 6%;
     background-color: #f8f5f4;
 }
 
 .img1 {
     background-repeat: no-repeat;
     background-size: cover;
-    height: 600px;
+    height: 100%;
     overflow: hidden;
     position: relative;
     width: 96%;
@@ -38,7 +37,7 @@
 
 .img {
     width: 100%;
-    padding-top: 1em;
+    padding-top: 1em;   
 }
 
 .imgUltima {

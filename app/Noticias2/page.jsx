@@ -1,7 +1,9 @@
 import styles from "../Noticias2/page.module.css";
+import Header from "../components/header/header";
 const Noticia2 = () => {
     return (
         <>
+        <Header />
             <div className={styles.main}>
                 <img className={styles.img1} src="https://www.minecraft.net/content/dam/games/badger/key-art/TheArrival_1170x500.png.transform/minecraft-image-large/image.png" />
                 <div className={styles.article1}>
@@ -57,6 +59,7 @@ const Noticia2 = () => {
                         <div className={styles.textos}>
                             <p className={styles.texto}>Agora, se você me dá licença, divaguei por tanto tempo que os porquinhos fizeram algum progresso significativo em meu mundo superior. É hora de chutar alguns porquinhos e fazê-los se arrepender do dia em que pisaram no meu mundo superior. Venha, cavalo-esfregão! O mundo superior precisa de nós!</p>
                         </div>
+                        <img className={styles.img} src="https://www.minecraft.net/content/dam/games/badger/key-art/hero_end.jpg" />
                     </div>
                 </div>
             </div>
