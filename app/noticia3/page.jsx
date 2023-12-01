@@ -1,7 +1,6 @@
 
 import Styles from "./page.module.css";
 import { FaGithub } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
 import { SiLinktree } from "react-icons/si"; 
 
 export default function NoticiaPage() {
@@ -19,7 +18,7 @@ export default function NoticiaPage() {
                     <h1>MILHÕES DE JOGADORES</h1>
                     <h1>CONTANDO A SUA HISTÓRIA</h1>
 
-                    <p className={Styles.description}>Um sincero ‘Obrigado!’!</p>
+                    <p className={Styles.description}>Um sincero Obrigado!!</p>
                 </div>
 
                 <div className={Styles.text2}>
