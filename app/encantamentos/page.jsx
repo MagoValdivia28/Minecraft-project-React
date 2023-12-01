@@ -6,6 +6,9 @@ import Header from '../components/header/header';
 import styles from './page.module.css';
 import { useState } from 'react';
 import BookPopUp from '../components/bookPopUp/bookpopup';
+import axios from "axios";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 
 
@@ -13,7 +16,10 @@ import BookPopUp from '../components/bookPopUp/bookpopup';
 
 const Page_de_encantamentos = () => {
 
+    const router = useRouter();
+
     const [bookPopUp, setBookPopUp] = useState(false);
+
 
     const handleBookPopUp = () => {
         setBookPopUp(!bookPopUp);
