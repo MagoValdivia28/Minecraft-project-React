@@ -12,6 +12,7 @@ export default function Home() {
             <h1 className={styles.tituloHeader}>Minecraft news</h1>
           </div>
           <div>
+
             <img className={styles.imagemHeader} src="" />
             <img className={styles.img12} src="traçadoQuadriculado.png" alt="" />
           </div>
@@ -33,27 +34,36 @@ export default function Home() {
         </div>
 
         <div className={styles.cardContainer}>
-          <Link href={"noticia3"}>
-          <div className={styles.card1}>
-            <div className={styles.text}>
-              <p> MINECRAFT DUNGEONS PASSA DE 25 MILHÕES DE JOGADORES</p>
+          <Link className={styles.card} href={"noticia3"}>
+
+            <div className={styles.textCard}>
+              <h2> MINECRAFT DUNGEONS PASSA DE 25 MILHÕES DE JOGADORES</h2>
+              <div className={styles.subTitle_card}>
+                <p>Segunda desc</p>
+              </div>
             </div>
-          </div>
           </Link>
 
-          <Link href={"equipamentos"}>
-          <div className={styles.card2}>
-            <div className={styles.textCard2}>
-              <p>VEJA TODOS OS ARMAMENTOS DO MINECRAFT AGORA MESMO!!</p>
+          <Link className={styles.card} href={"equipamentos"}>
+
+
+
+            <div className={styles.textCard}>
+              <h2>VEJA TODOS OS ARMAMENTOS DO MINECRAFT AGORA MESMO!!</h2>
+              <div className={styles.subTitle_card}>
+                <p>Segunda desc</p>
+              </div>
             </div>
-          </div>
+
           </Link>
-          <Link href={"encantamentos"}>
-          <div className={styles.card3}>
-            <div className={styles.lastCard}>
-              <p>VEJA TODOS OS ENCANTAMENTOS DO MINECRAFT AGORA MESMO!!</p>
+          <Link className={styles.card} href={"encantamentos"}>
+
+            <div className={styles.textCard}>
+              <h2>VEJA TODOS OS ENCANTAMENTOS DO MINECRAFT AGORA MESMO!!</h2>
+              <div className={styles.subTitle_card}>
+                <p>Segunda desc</p>
+              </div>
             </div>
-          </div>
           </Link>
         </div>
 
