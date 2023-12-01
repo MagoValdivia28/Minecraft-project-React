@@ -77,24 +77,26 @@ const equipamentoPage = () => {
             <div className={styles.bg}>
                 <div className={styles.boxInventory}>
                     <div className={styles.armadura}>
-                        <div onClick={() => handleEquipamento('capacete')} className={styles.itemArmadura}>
-                            <img style={{ backgroundColor: corCapacete }} id='capaceteImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/capaceteFinal.png"} alt="capacete" />
-                        </div>
-                        <div onClick={() => handleEquipamento('peitoral')} className={`${styles.itemArmadura} ${styles.itemPeitoral}`}>
-                            <img style={{ backgroundColor: corPeitoral }} id='peitoralImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/peitoralFinal.png"} alt="peitoral" />
-                        </div>
-                        <div onClick={() => handleEquipamento('calca')} className={`${styles.itemArmadura} ${styles.itemCalca}`}>
-                            <img style={{ backgroundColor: corCalca }} id="calcaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/calcaFinal.png"} alt="calça" />
-                        </div>
-                        <div onClick={() => handleEquipamento('bota')} className={`${styles.itemArmadura} ${styles.itemCalca}`}>
-                            <img style={{ backgroundColor: corBota }} id="botaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/botaFinal.png"} alt="bota" />
-                        </div>
-                        <div onClick={() => handleEquipamento('espada')} className={`${styles.itemArmadura}`}>
-                            <img style={{ backgroundColor: corEspada }} id="espadaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/espadaFinal.png"} alt="espada" />
+                        <div className={styles.armaduraSlotInventario}>
+                            <div onClick={() => handleEquipamento('capacete')} className={styles.itemArmadura}>
+                                <img style={{ backgroundColor: corCapacete }} id='capaceteImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/capaceteFinal.png"} alt="capacete" />
+                            </div>
+                            <div onClick={() => handleEquipamento('peitoral')} className={`${styles.itemArmadura} ${styles.itemPeitoral}`}>
+                                <img style={{ backgroundColor: corPeitoral }} id='peitoralImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/peitoralFinal.png"} alt="peitoral" />
+                            </div>
+                            <div onClick={() => handleEquipamento('calca')} className={`${styles.itemArmadura} ${styles.itemCalca}`}>
+                                <img style={{ backgroundColor: corCalca }} id="calcaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/calcaFinal.png"} alt="calça" />
+                            </div>
+                            <div onClick={() => handleEquipamento('bota')} className={`${styles.itemArmadura} ${styles.itemCalca}`}>
+                                <img style={{ backgroundColor: corBota }} id="botaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/botaFinal.png"} alt="bota" />
+                            </div>
+                            <div onClick={() => handleEquipamento('espada')} className={`${styles.itemArmadura}`}>
+                                <img style={{ backgroundColor: corEspada }} id="espadaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/espadaFinal.png"} alt="espada" />
+                            </div>
                         </div>
                         {
                             equipamento == 'capacete' ? (
-                                <div>
+                                <div className={styles.containerCreation}>
                                     <h1>Capacete</h1>
                                     {dados.length ? (
                                         equipamentos ? (
@@ -118,7 +120,7 @@ const equipamentoPage = () => {
                                             <p>Carregando...</p>
                                         )
                                     ) : (
-                                        <p>Não há alunos cadastrados</p>
+                                        <p>Não há capacetes cadastrados</p>
                                     )}
                                     <form onSubmit={(e) => handleSend(e, 'capacete')}>
                                         <input value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome do equipamento' />

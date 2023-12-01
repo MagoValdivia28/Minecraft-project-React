@@ -1,13 +1,19 @@
 .bg {
     background-color: black;
-    padding: 10px;
-    
+    padding: 35px;
 }
 
-.boxInventory {
-    margin-top: 70px;
+.boxInventory { 
+    height: 100vh;
     background-color: #c6c6c6;
-    padding: 10px;
+}
+
+.boxInventory .armadura {
+    display: flex;
+}
+
+.armadura .armaduraSlotInventario {
+    padding: 2;
 }
 
 .sword {
@@ -59,4 +65,9 @@
     border-bottom: #2a641c 5px solid;
     border-right: #2a641c 5px solid;
     border-top: #a0e081 5px solid;
+    cursor: pointer;
 }
+
+/* .containerCreation {
+
+} */
