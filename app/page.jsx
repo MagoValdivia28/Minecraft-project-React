@@ -23,6 +23,8 @@ export default function Home() {
             <div className={styles.container3}>
               <h1>Atualização Trails & Tales está no ar!</h1>
             </div>
+            </Link>
+            <Link href={"noticia2"}>
             <div className={styles.container4}>
               <h1>Minecraft Legends lançou!</h1>
             </div>
