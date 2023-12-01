@@ -25,10 +25,6 @@
     border: 0.3rem solid #141414;
     -webkit-box-shadow: inset 0 4px #cacaca, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
     box-shadow: inset 0 4px #cacaca, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
-    color: white;
-    font-family: 'Minecraft-Font';
-    font-size: 2rem;
-    text-shadow: #3b3b3b 2rem 2rem 2rem;
     margin-top: 3rem;
 }
 
@@ -39,5 +35,11 @@
     color: white;
     -webkit-box-shadow: inset 0 4px #3b3b3b, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
     box-shadow: inset 0 4px #3b3b3b, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
+}
 
+.textButton{
+    color: white;
+    font-family: 'Minecraft-Font';
+    font-size: 2rem;
+    text-shadow: 2px 2px 2px rgba(2, 4, 4 , 3); /* Sombra do texto */
 }

@@ -6,7 +6,9 @@ const BookPopUp = ({ handleBookPopUp }) => {
             <div className={stlyes.book_container}>
 
             </div>
-            <button onClick={() => handleBookPopUp()} className={stlyes.exitButton}>Feito</button>
+            <button onClick={() => handleBookPopUp()} className={stlyes.exitButton}>
+                <p className={stlyes.textButton}>Feito</p>
+            </button>
         </div>
     )
 }
