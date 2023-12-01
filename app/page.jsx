@@ -19,19 +19,34 @@ export default function Home() {
           <div className={styles.divHeader2}>
             <h1 className={styles.tituloCards}>Featured</h1>
           </div>
-          <div className={styles.container2}>
-            <Link href={"noticia1"}>
-              <div className={styles.container3}>
+
+
+
+
+
+          <div className={styles.container_mainNews}>
+
+            <Link className={styles.mainCard} href={"noticia1"}>
+              <div className={styles.textMainCard}>
                 <h1>Atualização Trails & Tales está no ar!</h1>
               </div>
             </Link>
-            <Link href={"noticia2"} className={styles.link}>
-              <div className={styles.container4}>
+
+            <Link  className={styles.mainCard} href={"noticia2"}>
+              <div className={styles.textMainCard}>
                 <h1>Minecraft Legends lançou!</h1>
               </div>
             </Link>
+
           </div>
+
+
         </div>
+
+
+
+
+
 
         <div className={styles.cardContainer}>
           <Link className={styles.card} href={"noticia3"}>
