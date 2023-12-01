@@ -1,15 +1,41 @@
 .main {
     color: #141414;
+    background-image: url('/bg-wool-dark.png');
+}
+
+.main_container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 10rem 0;
+
+}
+
+.books_list {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
 }
 
 .encantamentos_container {
     position: relative;
-    margin-top: 20rem;
     display: flex;
     flex-direction: row-reverse;
     align-content: stretch;
     justify-content: space-around;
+    width: 100%;
 }
+
+.arrows_container {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15rem;
+}
+
 .encantamentos_list {
     list-style: none;
     padding: 0;
@@ -22,9 +48,10 @@
     align-items: center;
     justify-content: center;
 }
-.encantamento{
-    width: 50px; 
-    height: 50px; 
+
+.encantamento {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -33,67 +60,125 @@
 }
 
 
+
 .book0 {
     rotate: 360deg;
 }
+
 .book1 {
     rotate: 300deg;
 }
+
 .book2 {
     rotate: 240deg;
 }
+
 .book3 {
     rotate: 180deg;
 }
+
 .book4 {
     rotate: 120deg;
 }
+
 .book5 {
     rotate: 60deg;
 }
 
 
-.encantamento:nth-child(1) { transform: rotate(0deg) translateX(10rem); }
-.encantamento:nth-child(2) { transform: rotate(60deg) translateX(10rem); }
-.encantamento:nth-child(3) { transform: rotate(120deg) translateX(10rem); }
-.encantamento:nth-child(4) { transform: rotate(180deg) translateX(10rem); }
-.encantamento:nth-child(5) { transform: rotate(240deg) translateX(10rem); }
-.encantamento:nth-child(6) { transform: rotate(300deg) translateX(10rem); }
+.encantamento:nth-child(1) {
+    transform: rotate(0deg) translateX(10rem);
+}
+
+.encantamento:nth-child(2) {
+    transform: rotate(60deg) translateX(10rem);
+}
+
+.encantamento:nth-child(3) {
+    transform: rotate(120deg) translateX(10rem);
+}
+
+.encantamento:nth-child(4) {
+    transform: rotate(180deg) translateX(10rem);
+}
+
+.encantamento:nth-child(5) {
+    transform: rotate(240deg) translateX(10rem);
+}
+
+.encantamento:nth-child(6) {
+    transform: rotate(300deg) translateX(10rem);
+}
 
 
+    .encantamento:hover {
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+
+        .book_name {
+            display: block;
+        }
+
+    }
 
 
+.book_name {
+    display: none;
+    margin-top: 0.6rem;
+    font-family: 'Minecraft-Font';
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    text-shadow: #2c262c 2px 2px 2px;
+    right: 0;
+    position: absolute;
+    font-size: 1.5rem;
+    border: 5px solid #361071;
+}
 
-
+.book_name::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 85%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #361071 transparent;
+}
 
 
 .arrows {
     padding: 1.8rem 1.3rem;
     background-color: #3b8526;
-    -webkit-box-shadow: inset 0 4px #6bc349, inset 0 -4px #2a631c, 0 4px rgba(0,0,0,.25);
-    box-shadow: inset 0 4px #6bc349, inset 0 -4px #2a631c, 0 4px rgba(0,0,0,.25);
+    -webkit-box-shadow: inset 0 4px #6bc349, inset 0 -4px #2a631c, 0 4px rgba(0, 0, 0, .25);
+    box-shadow: inset 0 4px #6bc349, inset 0 -4px #2a631c, 0 4px rgba(0, 0, 0, .25);
     color: #fff;
     text-shadow: 0 1px 0 #2a631c;
     border: none;
 }
-.arrows:active{
+
+.arrows:active {
     background: #4a494b;
     color: #fff;
     text-shadow: 0 -1px 0 #000;
     -webkit-box-shadow: inset 0 -2px #8d8e92, inset 0 2px #000;
     box-shadow: inset 0 -2px #8d8e92, inset 0 2px #000;
-    -webkit-transition: all .25s,opacity .75s .5s;
-    transition: all .25s,opacity .75s .5s;
+    -webkit-transition: all .25s, opacity .75s .5s;
+    transition: all .25s, opacity .75s .5s;
 }
 
 
 
 .titles {
     font-family: 'Title-Minecraft-Font';
+    margin-top: 7rem;
 }
+
 .subTitles {
     font-family: 'Minecraft-Enchantment-Font';
 }
+
 .titles_container {
     display: flex;
     flex-direction: column;

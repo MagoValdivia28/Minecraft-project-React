@@ -1,12 +1,11 @@
 .main {
-    padding-top: 6%;
     background-color: #f8f5f4;
 }
 
 .img1 {
     background-repeat: no-repeat;
     background-size: cover;
-    height: 600px;
+    height: 100%;
     overflow: hidden;
     position: relative;
     width: 96%;
@@ -23,7 +22,7 @@
     margin-top: -1.5%;
 }
 
-.article2 {
+.article2{
     display: inline-block;
 }
 
@@ -38,7 +37,7 @@
 
 .img {
     width: 100%;
-    padding-top: 1em;
+    padding-top: 1em;   
 }
 
 .imgUltima {
@@ -148,18 +147,8 @@
     border-top: 1px solid #b3b3b3;
 }
 
-.links {
-    color: #288123;
-}
-
-.links:hover {
-    background-color: black;
-    color: #196d17;
-}
-
-.textos{
-    padding:5px;
-    padding-left:100px;
-    padding-right:100px;
-
+.textos {
+    padding: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
