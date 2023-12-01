@@ -1,4 +1,5 @@
 import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
 import styles from "./noticia1.module.css";
 const Noticia1 = () => {
     return (
@@ -40,6 +41,7 @@ const Noticia1 = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
