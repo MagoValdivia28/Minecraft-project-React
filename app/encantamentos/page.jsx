@@ -70,9 +70,27 @@ const Page_de_encantamentos = () => {
                             <nav className={styles.encantamentos_container}>
                                 <img className={styles.encantamentos_img} src="/Book_29.webp" alt="encantamento1" width={96} height={96} />
                                 <ul className={styles.encantamentos_list}>
+                                    {
+                                        dados.length ? (
+                                            encantamentos ? (
+                                                encantamentos.map((encantamento) => (
+                                                    <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
+                                                        <span className={`${styles.book}`}>
+                                                            <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
+                                                            <p className={styles.book_name}>{encantamento.titulo}</p>
+                                                        </span>
+                                                    </li>
+                                                ))
+                                            ) : (
+                                                <p>Carregando...</p>
+                                            )
+                                        ) : (
+                                            <p>Nenhum encantamento econtrado</p>
+                                        )
+                                    }
 
 
-                                    <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
+                                    {/* <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
                                         <span className={styles.book}>
                                             <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                             <p className={styles.book_name}>inquebravel</p>
@@ -109,7 +127,7 @@ const Page_de_encantamentos = () => {
                                             <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                             <p className={styles.book_name}>Respiracao aquatica</p>
                                         </span>
-                                    </li>
+                                    </li> */}
 
 
                                 </ul>
