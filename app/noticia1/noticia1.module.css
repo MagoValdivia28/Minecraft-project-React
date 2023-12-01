@@ -26,6 +26,11 @@
 .article2 {
     display: inline-block;
 }
+/* .article4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
 
 .news {
     background-color: #252525;
@@ -157,9 +162,27 @@
     color: #196d17;
 }
 
-.textos{
-    padding:5px;
-    padding-left:100px;
-    padding-right:100px;
+.textos {
+        padding: 2px 0px 5px 0px;
+}
 
+.quemFez {
+    float: left;
+    padding-top: 16%;
+    margin-left: -20%;
+    
+    width: 50%;
+}
+
+.paddingDiv{
+    padding-left: 10%;
+}
+
+.img2{
+    width: 100%;
+}
+
+.section{
+    display: flex;
+    flex-direction:row;
 }
