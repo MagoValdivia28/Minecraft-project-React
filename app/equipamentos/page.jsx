@@ -4,14 +4,18 @@ import Header from '../components/header/header';
 import styles from './equipamentos.module.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useRouter } from "next/navigation";
 
 const equipamentoPage = () => {
+    const router = useRouter();
     const [dados, setDados] = useState([]);
     const [equipamentos, setEquipamentos] = useState([]);
 
     const [equipamento, setEquipamento] = useState(null);
 
-    const [corCapacete, setCorCapacete] = useState(null);
+    // Cor dos equipamentos
+
+    const [corCapacete, setCorCapacete] = useState('#000');
 
     const [corPeitoral, setCorPeitoral] = useState(null);
 
@@ -20,6 +24,37 @@ const equipamentoPage = () => {
     const [corBota, setCorBota] = useState(null);
 
     const [corEspada, setCorEspada] = useState(null);
+
+    // Enviar Inputs
+
+    const [nome, setNome] = useState('');
+    const [descricao, setDescricao] = useState('');
+    const [material, setMaterial] = useState('');
+    const [dano, setDano] = useState(0);
+    const [defesa, setDefesa] = useState(0);
+
+    const handleEquipamento = (item) => {
+        let itemEquipamento = document.getElementById(`${item}Img`);
+        itemEquipamento.classList.remove(`${styles.hidden}`);
+        setEquipamento(item);
+    }
+
+    const handleSend = async (e, tipo) => {
+        e.preventDefault();
+        try {
+            await axios.post("/api/equipamentos", { nome, descricao, material, tipo, dano, defesa, cor: corCapacete });
+            setNome('');
+            setDescricao('');
+            setMaterial('');
+            setDano('');
+            setDefesa('');
+            console.log(corCapacete);
+            router.push(`/equipamentos/`);
+            setDados([...dados, { nome, descricao, material, tipo, dano, defesa, cor: corCapacete }]);
+        } catch (error) {
+            console.error("Error submitting data:", error);
+        }
+    }
 
     useEffect(() => {
         async function fetchEquipamentos() {
@@ -35,12 +70,6 @@ const equipamentoPage = () => {
 
         fetchEquipamentos();
     }, []);
-
-    const handleEquipamento = (item) => {
-        let itemEquipamento = document.getElementById(`${item}Img`);
-        itemEquipamento.classList.remove(`${styles.hidden}`);
-        setEquipamento(item);
-    }
 
     return (
         <>
@@ -91,12 +120,14 @@ const equipamentoPage = () => {
                                     ) : (
                                         <p>Não há alunos cadastrados</p>
                                     )}
-                                    <input type="text" placeholder='Nome do equipamento' />
-                                    <input type="text" placeholder='Descrição do equipamento' />
-                                    <input type="text" placeholder='Material do equipamento' />
-                                    <input type="number" placeholder='Valor da defesa' />
-                                    <input type="color" onChange={(e) => setCorCapacete(e.target.value)} />
-                                    <button className={styles.buttonSend}>Cadastrar Capacete</button>
+                                    <form onSubmit={(e) => handleSend(e, 'capacete')}>
+                                        <input value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome do equipamento' />
+                                        <input value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição do equipamento' />
+                                        <input value={material} onChange={(e) => setMaterial(e.target.value)} type="text" placeholder='Material do equipamento' />
+                                        <input value={defesa} onChange={(e) => setDefesa(Number(e.target.value))} type="number" placeholder='Valor da defesa' />
+                                        <input value={corCapacete} type="color" onChange={(e) => setCorCapacete(e.target.value)} />
+                                        <button type="submit" className={styles.buttonSend}>Cadastrar Capacete</button>
+                                    </form>
                                 </div>
                             ) : null
                         }
