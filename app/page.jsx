@@ -32,7 +32,7 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link  className={styles.mainCard} href={"noticia2"}>
+            <Link className={styles.mainCard} href={"noticia2"}>
               <div className={styles.textMainCard}>
                 <h1>Minecraft Legends lançou!</h1>
               </div>
@@ -44,14 +44,13 @@ export default function Home() {
         </div>
 
 
-
-
-
-
         <div className={styles.cardContainer}>
           <Link className={styles.card} href={"noticia3"}>
 
             <div className={styles.textCard}>
+              <div className={styles.newsTitle}>
+                <p>NEWS</p>
+              </div>
               <h2> MINECRAFT DUNGEONS PASSA DE 25 MILHÕES DE JOGADORES</h2>
               <div className={styles.subTitle_card}>
                 <p>Segunda desc</p>
@@ -64,6 +63,9 @@ export default function Home() {
 
 
             <div className={styles.textCard}>
+              <div className={styles.newsTitle}>
+                <p>NEWS</p>
+              </div>
               <h2>VEJA TODOS OS ARMAMENTOS DO MINECRAFT AGORA MESMO!!</h2>
               <div className={styles.subTitle_card}>
                 <p>Segunda desc</p>
@@ -74,6 +76,9 @@ export default function Home() {
           <Link className={styles.card} href={"encantamentos"}>
 
             <div className={styles.textCard}>
+              <div className={styles.newsTitle}>
+                <p>NEWS</p>
+              </div>
               <h2>VEJA TODOS OS ENCANTAMENTOS DO MINECRAFT AGORA MESMO!!</h2>
               <div className={styles.subTitle_card}>
                 <p>Segunda desc</p>

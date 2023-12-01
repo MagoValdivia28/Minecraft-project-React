@@ -6,48 +6,52 @@
     font-family: 'Title-Minecraft-Font';
 } */
 .container1 {
-    background: rgba(38, 36, 35, 255);
+  background: rgba(38, 36, 35, 255);
 }
-.back{
+
+.back {
   background-color: #ebe4e2;
 }
-.divHeader{
-    background-color: #52a535;
-    padding-top: 6%;
-    padding-bottom: 4.7%;
-    text-align: center;
+
+.divHeader {
+  background-color: #52a535;
+  padding-top: 6%;
+  padding-bottom: 4.7%;
+  text-align: center;
 }
-.divHeader2{
+
+.divHeader2 {
   margin-top: -5%;
   margin-bottom: 2%;
-    text-align: center;
+  text-align: center;
 }
 
 .tituloHeader {
-    font-family: 'Title-Minecraft-Font';
-    color: white;
-    padding-top: 1em;
-    font-size: 4rem;
-    text-transform: uppercase;
-    padding-bottom: 8px;
+  font-family: 'Title-Minecraft-Font';
+  color: white;
+  padding-top: 1em;
+  font-size: 4rem;
+  text-transform: uppercase;
+  padding-bottom: 8px;
 
 }
 
-.tituloCards{
-    font-family: 'Title-Minecraft-Font';
-    color: white;
-    padding-top: 1em;
-    font-size: 3rem;
-    text-transform: uppercase;
-    padding-bottom: 8px;
-    text-align: center;
-    align-items: center;
+.tituloCards {
+  font-family: 'Title-Minecraft-Font';
+  color: white;
+  padding-top: 1em;
+  font-size: 3rem;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  text-align: center;
+  align-items: center;
 
 }
+
 .container_mainNews {
-    display: flex;
-    color: white;
-    width: 100%;
+  display: flex;
+  color: white;
+  width: 100%;
 }
 
 .mainCard {
@@ -60,10 +64,11 @@
 }
 
 .mainCard:nth-child(1) {
-  background-image: url("https://www.minecraft.net/content/dam/games/minecraft/screenshots/1-17-caves-and-cliffs-update/1-17-caves-and-cliffs-update-1.jpg");
+  background-image: url("https://www.minecraft.net/content/dam/games/badger/key-art/highlight-legends.jpg");
 }
+
 .mainCard:nth-child(2) {
-  background-image: url("/armamentoMIne.jpg");
+  background-image: url("https://www.minecraft.net/content/dam/games/minecraft/key-art/highlight-tails.jpg");
 }
 
 .textMainCard {
@@ -80,31 +85,11 @@
   justify-content: center;
   text-align: center;
   flex-direction: column;
-
-
 }
-
-
-/* 
-.container4 {
-    background-image: url(	https://www.minecraft.net/content/dam/games/badger/key-art/highlight-legends.jpg);
-    background-image: url(	https://www.minecraft.net/content/dam/games/minecraft/key-art/highlight-tails.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 330px;
-    width: 85vh;
-    margin-left: 5%;
-    position: relative;
-    transition: transform 0.3s;
-
-} */
-
-
-
 .cardContainer {
   display: flex;
   width: 100%;
-  
+
 }
 .card {
   background-color: #52a535;
@@ -120,11 +105,20 @@
 .card:nth-child(1) {
   background-image: url("https://www.minecraft.net/content/dam/games/minecraft/screenshots/1-17-caves-and-cliffs-update/1-17-caves-and-cliffs-update-1.jpg");
 }
+
 .card:nth-child(2) {
   background-image: url("/armamentoMIne.jpg");
 }
-.card:nth-child(3){
+
+.card:nth-child(3) {
   background-image: url("/encantamentoMine.png");
+}
+
+
+.newsTitle {
+  background-color: white;
+  color: black;
+  padding: 2% 3%;
 }
 
 
@@ -155,13 +149,15 @@
     display: block;
   }
 }
+
 .footerimg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    margin-top: 10%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-top: 10%;
 }
-.img12{
+
+.img12 {
   margin-top: -4%;
   width: 100%;
 }
