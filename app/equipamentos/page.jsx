@@ -97,7 +97,6 @@ const equipamentoPage = () => {
                         {
                             equipamento == 'capacete' ? (
                                 <div className={styles.containerCreation}>
-                                    <h1>Capacete</h1>
                                     {dados.length ? (
                                         equipamentos ? (
                                             <div className={styles.equipamentosPredefinidos}>
@@ -122,17 +121,17 @@ const equipamentoPage = () => {
                                     ) : (
                                         <p>Não há capacetes cadastrados</p>
                                     )}
-                                    <form onSubmit={(e) => handleSend(e, 'capacete')}>
-                                        <input value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome do equipamento' />
-                                        <input value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição do equipamento' />
-                                        <input value={material} onChange={(e) => setMaterial(e.target.value)} type="text" placeholder='Material do equipamento' />
-                                        <input value={defesa} onChange={(e) => setDefesa(Number(e.target.value))} type="number" placeholder='Valor da defesa' />
-                                        <input value={corCapacete} type="color" onChange={(e) => setCorCapacete(e.target.value)} />
-                                        <button type="submit" className={styles.buttonSend}>Cadastrar Capacete</button>
-                                    </form>
                                 </div>
                             ) : null
                         }
+                        <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, 'capacete')}>
+                            <input value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome do equipamento' />
+                            <input value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição do equipamento' />
+                            <input value={material} onChange={(e) => setMaterial(e.target.value)} type="text" placeholder='Material do equipamento' />
+                            <input value={defesa} onChange={(e) => setDefesa(Number(e.target.value))} type="number" placeholder='Valor da defesa' />
+                            <input value={corCapacete} type="color" onChange={(e) => setCorCapacete(e.target.value)} />
+                            <button type="submit" className={styles.buttonSend}>Cadastrar Capacete</button>
+                        </form>
                         {
                             equipamento == 'peitoral' ? (
                                 <div>

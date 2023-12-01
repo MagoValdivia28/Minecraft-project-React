@@ -1,20 +1,27 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url(../../fonts/Minecraft.ttf);
+}
+
 .bg {
     background-color: black;
-    padding: 35px;
+    padding: 30px;
 }
 
 .boxInventory { 
-    height: 100vh;
     background-color: #c6c6c6;
-}
-
-.boxInventory .armadura {
     display: flex;
+    align-items: center;
+    height: 95vh;
 }
 
-.armadura .armaduraSlotInventario {
-    padding: 2;
+.armadura {
+    display: flex;
+    margin-left: 10px;
+
 }
+
+
 
 .sword {
     display: flex;
@@ -66,7 +73,33 @@
     border-right: #2a641c 5px solid;
     border-top: #a0e081 5px solid;
     cursor: pointer;
+    width: 100%;
 }
+
+.formEquipamento {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+}
+
+.formEquipamento input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #000;
+    border-bottom: #fff 3px solid;
+    border-left: #979797 3px solid;
+    border-top: #979797 3px solid;
+    background-color: #c6c6c6;
+    color: #fff;
+    font-family: 'Minecraft', sans-serif;
+    text-shadow: 2px 2px #3F3F3F;
+    font-size: 20px;
+}
+
+.formEquipamento input::placeholder {
+    color: #AAAAAA;
+  }
 
 /* .containerCreation {
 
