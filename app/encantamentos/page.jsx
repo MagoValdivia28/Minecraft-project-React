@@ -20,13 +20,39 @@ const Page_de_encantamentos = () => {
 
     const [bookPopUp, setBookPopUp] = useState(false);
 
+    // encantamentos em si
+
+    const [dados , setDados] = useState([]);
+    const [encantamentos, setEncantamentos] = useState([]);
+    const [encantamento, setEncantamento] = useState({});
+
+    // inputs 
+
+    const [titulo , setTitulo] = useState("");
+    const [descricao , setDescricao] = useState("");
+    const [tipoEncanto , setTipoEncanto] = useState("");
+    const [dano , setDano] = useState("");
+    const [defesa , setDefesa] = useState("");
+
 
     const handleBookPopUp = () => {
         setBookPopUp(!bookPopUp);
         console.log("clicou");
     }
 
-
+    useEffect(() => {
+        async function fetchEncantamentos() {
+            try {
+                const response = await axios.get("/api/encantamentos");
+                setEncantamentos(response.data);
+                setDados(response.data);
+                console.log(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchEncantamentos();
+    } , []);
 
 
     return (
