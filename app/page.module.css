@@ -6,251 +6,158 @@
     font-family: 'Title-Minecraft-Font';
 } */
 .container1 {
-    background: rgba(38, 36, 35, 255);
+  background: rgba(38, 36, 35, 255);
 }
-.back{
+
+.back {
   background-color: #ebe4e2;
 }
-.divHeader{
-    background-color: #52a535;
-    padding-top: 6%;
-    padding-bottom: 4.7%;
-    text-align: center;
+
+.divHeader {
+  background-color: #52a535;
+  padding-top: 6%;
+  padding-bottom: 4.7%;
+  text-align: center;
 }
-.divHeader2{
+
+.divHeader2 {
   margin-top: -5%;
   margin-bottom: 2%;
-    text-align: center;
+  text-align: center;
 }
 
 .tituloHeader {
-    font-family: 'Title-Minecraft-Font';
-    color: white;
-    padding-top: 1em;
-    font-size: 4rem;
-    text-transform: uppercase;
-    padding-bottom: 8px;
+  font-family: 'Title-Minecraft-Font';
+  color: white;
+  padding-top: 1em;
+  font-size: 4rem;
+  text-transform: uppercase;
+  padding-bottom: 8px;
 
 }
 
-.tituloCards{
-    font-family: 'Title-Minecraft-Font';
-    color: white;
-    padding-top: 1em;
-    font-size: 3rem;
-    text-transform: uppercase;
-    padding-bottom: 8px;
-    text-align: center;
-    align-items: center;
-
-}
-.container2 {
-    display: flex;
-    align-items: center;
-    text-align: flex-end;
-    padding: 7vh;
-    color: white;
-}
-
-.container3 {
-    background-image: url(	https://www.minecraft.net/content/dam/games/minecraft/key-art/highlight-tails.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 330px;
-    width: 600px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-
-.container3 h1 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
-    padding: 10px;
-    margin: 0;;
-    color: white;
-    transition: transform 0.3s, top 0.3s;
-    /* Adicione uma transição suave para o efeito de hover */
-}
-
-.container3:hover {
-    transform: scale(1.05);
-    /* Aplica um leve zoom quando o mouse passa sobre o contêiner */
-    cursor: pointer;
-}
-
-
-
-.container4 {
-    background-image: url(	https://www.minecraft.net/content/dam/games/badger/key-art/highlight-legends.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 330px;
-    width: 85vh;
-    margin-left: 5%;
-    position: relative;
-    transition: transform 0.3s;
+.tituloCards {
+  font-family: 'Title-Minecraft-Font';
+  color: white;
+  padding-top: 1em;
+  font-size: 3rem;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  text-align: center;
+  align-items: center;
 
 }
 
-.container4 h1 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
-    padding: 10px;
-    margin: 0;
-    color: white;
-    transition: transform 0.3s, top 0.3s;
+.container_mainNews {
+  display: flex;
+  color: white;
+  width: 100%;
 }
 
-.container4:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-}
-.card1 {
-  background-color: #ebe4e2;
-  width: 25rem;
+.mainCard {
+  width: 45%;
   height: 25rem;
-  padding: 1%;
   margin: 1.5%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  background-image: url("https://www.minecraft.net/content/dam/games/dungeons/key-art/md25-header.jpg.transform/minecraft-image-medium/image.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
-  background-repeat: no-repeat;
-}
-.card1:hover {
-  .text{
-    color: white;
-    font-family: 'Title-Minecraft-Font';
-    font-size: 1.75rem;
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    height: 40%;
-    margin-left:  -3%;
-  }
-  transform: scale(1.02);
-  cursor: pointer;
-}
-.text {
-    color: white;
-    font-family: 'Title-Minecraft-Font';
-    font-size: 1.2rem;
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    margin-left:  -3.3%;
 }
 
-.card2 {
-  background-color: #ebe4e2;
-  width: 25rem;
-  height: 25rem;
+.mainCard:nth-child(1) {
+  background-image: url("https://www.minecraft.net/content/dam/games/badger/key-art/highlight-legends.jpg");
+}
+
+.mainCard:nth-child(2) {
+  background-image: url("https://www.minecraft.net/content/dam/games/minecraft/key-art/highlight-tails.jpg");
+}
+
+.textMainCard {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  color: white;
+  bottom: 0;
   padding: 1%;
-  margin: 1.5%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  background-image: url("../public/armamentoMIne.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  background-repeat: no-repeat;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
 }
-.card2:hover {
-  .textCard2{
-    color: white;
-    font-family: 'Title-Minecraft-Font';
-    font-size: 1.75rem;
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    height: 40%;
-    margin-left:  -3%;
-  }
-  transform: scale(1.05);
-  cursor: pointer;
-}
-.textCard2 {
-    color: white;
-    font-family: 'Title-Minecraft-Font';
-    font-size: 1.75rem;
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    margin-left:  -3.2%;
-}
-
-.card3 {
-  background-color: #ebe4e2;
-  width: 25rem;
-  height: 25rem;
-  padding: 1%;
-  margin: 1.5%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  background-image: url("../public/encantamentoMine.png");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  background-repeat: no-repeat;
-}
-.link{
-  padding: 0;
-  margin: 0;
-}
-
-.lastCard{
-    color: white;
-    font-family: 'Title-Minecraft-Font';
-    font-size: 1.75rem;
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    margin-left:  -3.2%;
-}
-
-.card3:hover {
-  .lastCard{
-    color: white;
-    font-family: 'Title-Minecraft-Font';
-    font-size: 1.75rem;
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    height: 40%;
-    margin-left:  -3%;
-  }
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
 .cardContainer {
+  display: flex;
+  width: 100%;
 
-    justify-content: space-between;
-    /* Espaçamento entre os cards */
-    background-color: #ebe4e2;
-    display: flex;
-    padding-top: 6%;
-    margin-bottom: -3%;
+}
+.card {
+  background-color: #52a535;
+  width: 30%;
+  height: 25rem;
+  margin: 1.5%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.card:nth-child(1) {
+  background-image: url("https://www.minecraft.net/content/dam/games/minecraft/screenshots/1-17-caves-and-cliffs-update/1-17-caves-and-cliffs-update-1.jpg");
+}
+
+.card:nth-child(2) {
+  background-image: url("/armamentoMIne.jpg");
+}
+
+.card:nth-child(3) {
+  background-image: url("/encantamentoMine.png");
+}
+
+
+.newsTitle {
+  background-color: white;
+  color: black;
+  padding: 2% 3%;
+}
+
+
+.textCard {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  color: white;
+  bottom: 0;
+  padding: 1%;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+
+}
+
+.subTitle_card {
+  margin-top: 2%;
+  display: none;
+}
+
+.card:hover {
+  .subTitle_card {
+    display: block;
   }
-
+}
 
 .footerimg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    margin-top: 10%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-top: 10%;
 }
-.img12{
+
+.img12 {
   margin-top: -4%;
   width: 100%;
 }
