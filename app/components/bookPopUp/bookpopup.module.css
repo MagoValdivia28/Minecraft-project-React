@@ -41,5 +41,5 @@
     color: white;
     font-family: 'Minecraft-Font';
     font-size: 2rem;
-    text-shadow: 2px 2px 2px rgba(2, 4, 4 , 3); /* Sombra do texto */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0 , 1); /* Sombra do texto */
 }
