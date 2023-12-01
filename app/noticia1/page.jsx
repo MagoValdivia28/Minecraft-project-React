@@ -1,5 +1,4 @@
 import Header from "../components/header/header";
-import Footer from "../components/footer/footer";
 import styles from "./noticia1.module.css";
 const Noticia1 = () => {
     return (
@@ -57,7 +56,6 @@ const Noticia1 = () => {
                     <img className={styles.imgUltima} src="https://cdn2.unrealengine.com/fortnite-airphoria-4-1920x1080-378ef0c7e625.jpg" />
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

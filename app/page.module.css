@@ -201,6 +201,10 @@
   position: relative;
   background-repeat: no-repeat;
 }
+.link{
+  padding: 0;
+  margin: 0;
+}
 
 .lastCard{
     color: white;

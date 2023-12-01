@@ -1,5 +1,6 @@
 import Header from './components/header/header'
 import styles from './page.module.css'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -18,12 +19,14 @@ export default function Home() {
             <h1 className={styles.tituloCards}>Featured</h1>
           </div>
           <div className={styles.container2}>
+            <Link href={"noticia1"} className={styles.link}>
             <div className={styles.container3}>
               <h1>Atualização Trails & Tales está no ar!</h1>
             </div>
             <div className={styles.container4}>
               <h1>Minecraft Legends lançou!</h1>
             </div>
+            </Link>
           </div>
         </div>
 
