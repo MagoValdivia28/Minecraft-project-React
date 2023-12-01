@@ -1,12 +1,27 @@
+'use client';
 
 import { MdArrowBackIos } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
 import Header from '../components/header/header';
 import styles from './page.module.css';
+import { useState } from 'react';
+
+
 
 
 
 const Page_de_encantamentos = () => {
+
+    const [bookPopUp, setBookPopUp] = useState(false);
+
+    const handleBookPopUp = () => {
+        setBookPopUp(!bookPopUp);
+        console.log("clicou");
+    }
+
+
+
+
     return (
         <main className={styles.main}>
             <Header />
@@ -20,39 +35,39 @@ const Page_de_encantamentos = () => {
                     <ul className={styles.encantamentos_list}>
 
 
-                        <li className={styles.encantamento}>
+                        <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
                             <span className={styles.book}>
                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                 <p className={styles.book_name}>inquebravel</p>
                             </span>
                         </li>
 
-                        <li className={styles.encantamento}>
+                        <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
                             <span className={styles.book1}>
                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                 <p className={styles.book_name}>protecao</p>
                             </span>
                         </li>
 
-                        <li className={styles.encantamento}>
+                        <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
                             <span className={styles.book2}>
                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                 <p className={styles.book_name}>inquebravel</p>
                             </span>
                         </li>
-                        <li className={styles.encantamento}>
+                        <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
                             <span className={styles.book3}>
                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                 <p className={styles.book_name}>inquebravel</p>
                             </span>
                         </li>
-                        <li className={styles.encantamento}>
+                        <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
                             <span className={styles.book4}>
                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                 <p className={styles.book_name}>inquebravel</p>
                             </span>
                         </li>
-                        <li className={styles.encantamento}>
+                        <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
                             <span className={styles.book5}>
                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                 <p className={styles.book_name}>Respiracao aquatica</p>
