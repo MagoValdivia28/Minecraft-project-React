@@ -8,7 +8,7 @@
     padding: 30px;
 }
 
-.boxInventory { 
+.boxInventory {
     background-color: #c6c6c6;
     display: flex;
     align-items: center;
@@ -17,14 +17,9 @@
 
 .armadura {
     display: flex;
-    margin-left: 10px;
+    width: 100%;
     justify-content: space-between;
-}
-
-
-
-.sword {
-    display: flex;
+    margin: 0 10px;
 }
 
 .itemArmadura {
@@ -33,7 +28,6 @@
     padding: 8px;
     width: 54px;
     height: 54px;
-    margin: 2px;
 }
 
 .itemArmadura .itemDoItem {
@@ -45,11 +39,11 @@
 }
 
 .itemPeitoral {
-    padding: 4px     !important;
+    padding: 4px !important;
 }
 
 .itemCalca {
-    padding: 6px     !important;
+    padding: 6px !important;
 }
 
 
@@ -59,6 +53,16 @@
 
 .espadaSlot {
     margin-top: 10px;
+}
+
+.armadura .containerCreation {
+    height: 54px;
+    display: flex;
+    align-items: center;
+}
+
+.armadura .peitoralCreation {
+    margin-top: 54px;
 }
 
 .buttonSend {
@@ -76,10 +80,9 @@
     width: 100%;
 }
 
-.formEquipamento {
+.armadura .formEquipamento {
     display: flex;
     flex-direction: column;
-    
     align-items: center;
 }
 
@@ -112,8 +115,12 @@
 
 .formEquipamento input::placeholder {
     color: rgb(225, 225, 225);
-  }
+}
 
-/* .containerCreation {
+.equipamentosPredefinidos {
+    display: flex;
+    flex-direction: row;
+    /* ficar no comeco */
+    justify-content: flex-start;
 
-} */
+}

@@ -101,26 +101,23 @@ const equipamentoPage = () => {
                                         {dados.length ? (
                                             equipamentos ? (
                                                 <div className={styles.equipamentosPredefinidos}>
-                                                    {dados.map((equipamento) => (
-                                                        equipamento.tipo == 'capacete' ? (
-                                                            <div key={equipamento.id}>
-                                                                <div>
-                                                                    <p>
-                                                                        <strong>ID:</strong> {equipamento.id}
-                                                                    </p>
-                                                                    <p>
-                                                                        <strong>Nome:</strong> {equipamento.nome}
-                                                                    </p>
+                                                    {dados.some(equipamento => equipamento.tipo == 'capacete') ? (
+                                                        dados.map((equipamento) => (
+                                                            equipamento.tipo == 'capacete' ? (
+                                                                <div className={styles.itemArmadura} key={equipamento.id}>
+                                                                    <img style={{ backgroundColor: equipamento.cor }} id='capaceteImg' className={`${styles.itemDoItem}`} src={"inventory/capaceteFinal.png"} alt="capacete" />
                                                                 </div>
-                                                            </div>
-                                                        ) : null
-                                                    ))}
+                                                            ) : null
+                                                        ))
+                                                    ) : (
+                                                        <p>Não há capacetes cadastrados</p>
+                                                    )}
                                                 </div>
                                             ) : (
                                                 <p>Carregando...</p>
                                             )
                                         ) : (
-                                            <p>Não há capacetes cadastrados</p>
+                                            <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
                                     <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, 'capacete')}>
@@ -136,38 +133,39 @@ const equipamentoPage = () => {
                         }
                         {
                             equipamento == 'peitoral' ? (
-                                <div>
-                                    <h1>Peitoral</h1>
-                                    {dados.length ? (
-                                        equipamentos ? (
-                                            <div className={styles.equipamentosPredefinidos}>
-                                                {dados.map((equipamento) => (
-                                                    equipamento.tipo == 'peitoral' ? (
-                                                        <div key={equipamento.id}>
-                                                            <div>
-                                                                <p>
-                                                                    <strong>ID:</strong> {equipamento.id}
-                                                                </p>
-                                                                <p>
-                                                                    <strong>Nome:</strong> {equipamento.nome}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    ) : null
-                                                ))}
-                                            </div>
+                                <>
+                                    <div className={`${styles.containerCreation} ${styles.peitoralCreation}`}>
+                                        {dados.length ? (
+                                            equipamentos ? (
+                                                <div className={styles.equipamentosPredefinidos}>
+                                                    {dados.some(equipamento => equipamento.tipo == 'peitoral') ? (
+                                                        dados.map((equipamento) => (
+                                                            equipamento.tipo == 'peitoral' ? (
+                                                                <div className={styles.itemArmadura} key={equipamento.id}>
+                                                                    <img style={{ backgroundColor: equipamento.cor }} id='peitoralImg' className={`${styles.itemDoItem}`} src={"inventory/peitoralFinal.png"} alt="peitoral" />
+                                                                </div>
+                                                            ) : null
+                                                        ))
+                                                    ) : (
+                                                        <p>Não há peitorais cadastrados</p>
+                                                    )}
+                                                </div>
+                                            ) : (
+                                                <p>Carregando...</p>
+                                            )
                                         ) : (
-                                            <p>Carregando...</p>
-                                        )
-                                    ) : (
-                                        <p>Não há alunos cadastrados</p>
-                                    )}
-                                    <input type="text" placeholder='Nome do equipamento' />
-                                    <input type="text" placeholder='Descrição do equipamento' />
-                                    <input type="text" placeholder='Material do equipamento' />
-                                    <input type="number" placeholder='Valor da defesa' />
-                                    <input type="color" onChange={(e) => setCorPeitoral(e.target.value)} />
-                                </div>
+                                            <p>Não há equipamentos cadastrados</p>
+                                        )}
+                                    </div>
+                                    <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, 'peitoral')}>
+                                        <input onChange={(e) => setNome(e.target.value)} value={nome} type="text" placeholder='Nome do equipamento' />
+                                        <input onChange={(e) => setDescricao(e.target.value)} value={descricao} type="text" placeholder='Descrição do equipamento' />
+                                        <input onChange={(e) => setMaterial(e.target.value)} value={material} type="text" placeholder='Material do equipamento' />
+                                        <input onChange={(e) => setDefesa(e.target.value)} value={defesa} type="number" placeholder='Valor da defesa' />
+                                        <input onChange={(e) => setCorPeitoral(e.target.value)} value={corCapacete} type="color" />
+                                        <button type="submit" className={styles.buttonSend}>Cadastrar Peitoral</button>
+                                    </form>
+                                </>
                             ) : null
                         }
                         {
