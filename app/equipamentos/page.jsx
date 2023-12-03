@@ -15,7 +15,7 @@ const equipamentoPage = () => {
 
     // Cor dos equipamentos
 
-    const [corCapacete, setCorCapacete] = useState('#000');
+    const [corCapacete, setCorCapacete] = useState(null);
 
     const [corPeitoral, setCorPeitoral] = useState(null);
 
@@ -33,24 +33,134 @@ const equipamentoPage = () => {
     const [dano, setDano] = useState(0);
     const [defesa, setDefesa] = useState(0);
 
-    const handleEquipamento = (item) => {
-        let itemEquipamento = document.getElementById(`${item}Img`);
-        itemEquipamento.classList.remove(`${styles.hidden}`);
-        setEquipamento(item);
+    const handleCorEquipamentos = (e, equip) => {
+        if (equip == 'Capacete') {
+            setCorCapacete(e.target.value);
+            setCorPeitoral(null);
+            setCorCalca(null);
+            setCorBota(null);
+            setCorEspada(null);
+        } else if (equip == 'Peitoral') {
+            setCorCapacete(null);
+            setCorPeitoral(e.target.value);
+            setCorCalca(null);
+            setCorBota(null);
+            setCorEspada(null);
+        } else if (equip == 'Calca') {
+            setCorCapacete(null);
+            setCorPeitoral(null);
+            setCorCalca(e.target.value);
+            setCorBota(null);
+            setCorEspada(null);
+        } else if (equip == 'Bota') {
+            setCorCapacete(null);
+            setCorPeitoral(null);
+            setCorCalca(null);
+            setCorBota(e.target.value);
+            setCorEspada(null);
+        } else if (equip == 'Espada') {
+            setCorCapacete(null);
+            setCorPeitoral(null);
+            setCorCalca(null);
+            setCorBota(null);
+            setCorEspada(e.target.value);
+        } else {
+            console.log('Não foi possível alterar a cor do equipamento');
+        }
     }
+
+    useEffect(() => {
+        if (equipamento) {
+            if (equipamento == 'capacete') {
+                let capacete = document.getElementById('capaceteImg');
+                let peitoral = document.getElementById('peitoralImg');
+                let calca = document.getElementById('calcaImg');
+                let bota = document.getElementById('botaImg');
+                let espada = document.getElementById('espadaImg');
+                capacete.classList.remove(`${styles.hidden}`);
+                peitoral.classList.add(`${styles.hidden}`);
+                calca.classList.add(`${styles.hidden}`);
+                bota.classList.add(`${styles.hidden}`);
+                espada.classList.add(`${styles.hidden}`);
+            }
+            if (equipamento == 'peitoral') {
+                let capacete = document.getElementById('capaceteImg');
+                let peitoral = document.getElementById('peitoralImg');
+                let calca = document.getElementById('calcaImg');
+                let bota = document.getElementById('botaImg');
+                let espada = document.getElementById('espadaImg');
+                capacete.classList.add(`${styles.hidden}`);
+                peitoral.classList.remove(`${styles.hidden}`);
+                calca.classList.add(`${styles.hidden}`);
+                bota.classList.add(`${styles.hidden}`);
+                espada.classList.add(`${styles.hidden}`);
+            }
+            if (equipamento == 'calca') {
+                let capacete = document.getElementById('capaceteImg');
+                let peitoral = document.getElementById('peitoralImg');
+                let calca = document.getElementById('calcaImg');
+                let bota = document.getElementById('botaImg');
+                let espada = document.getElementById('espadaImg');
+                capacete.classList.add(`${styles.hidden}`);
+                peitoral.classList.add(`${styles.hidden}`);
+                calca.classList.remove(`${styles.hidden}`);
+                bota.classList.add(`${styles.hidden}`);
+                espada.classList.add(`${styles.hidden}`);
+            }
+            if (equipamento == 'bota') {
+                let capacete = document.getElementById('capaceteImg');
+                let peitoral = document.getElementById('peitoralImg');
+                let calca = document.getElementById('calcaImg');
+                let bota = document.getElementById('botaImg');
+                let espada = document.getElementById('espadaImg');
+                capacete.classList.add(`${styles.hidden}`);
+                peitoral.classList.add(`${styles.hidden}`);
+                calca.classList.add(`${styles.hidden}`);
+                bota.classList.remove(`${styles.hidden}`);
+                espada.classList.add(`${styles.hidden}`);
+            }
+            if (equipamento == 'espada') {
+                let capacete = document.getElementById('capaceteImg');
+                let peitoral = document.getElementById('peitoralImg');
+                let calca = document.getElementById('calcaImg');
+                let bota = document.getElementById('botaImg');
+                let espada = document.getElementById('espadaImg');
+                capacete.classList.add(`${styles.hidden}`);
+                peitoral.classList.add(`${styles.hidden}`);
+                calca.classList.add(`${styles.hidden}`);
+                bota.classList.add(`${styles.hidden}`);
+                espada.classList.remove(`${styles.hidden}`);
+            }
+        } else {
+            console.log('Não há equipamento selecionado');
+        }
+    }, [corCapacete, corPeitoral, corCalca, corBota, corEspada])
 
     const handleSend = async (e, tipo) => {
         e.preventDefault();
         try {
-            await axios.post("/api/equipamentos", { nome, descricao, material, tipo, dano, defesa, cor: corCapacete });
+            if (tipo == 'capacete') {
+                var cor = corCapacete;
+            } else if (tipo == 'peitoral') {
+                var cor = corPeitoral;
+            } else if (tipo == 'calca') {
+                var cor = corCalca;
+            } else if (tipo == 'bota') {
+                var cor = corBota;
+            } else if (tipo == 'espada') {
+                var cor = corEspada;
+            } else {
+                console.log('Não foi possível definir a cor do equipamento');
+            }
+            await axios.post("/api/equipamentos", { nome, descricao, material, tipo, dano, defesa, cor });
             setNome('');
             setDescricao('');
             setMaterial('');
             setDano('');
             setDefesa('');
-            console.log(corCapacete);
+            console.log(cor);
             router.push(`/equipamentos/`);
-            setDados([...dados, { nome, descricao, material, tipo, dano, defesa, cor: corCapacete }]);
+            setDados([...dados, { nome, descricao, material, tipo, dano, defesa, cor }]);
         } catch (error) {
             console.error("Error submitting data:", error);
         }
@@ -78,19 +188,19 @@ const equipamentoPage = () => {
                 <div className={styles.boxInventory}>
                     <div className={styles.armadura}>
                         <div className={styles.armaduraSlotInventario}>
-                            <div onClick={() => handleEquipamento('capacete')} className={styles.itemArmadura}>
+                            <div onClick={() => { setEquipamento('capacete'); setCorCapacete('#000'); setCorPeitoral(null); setCorCalca(null); setCorBota(null); setCorEspada(null) }} className={styles.itemArmadura}>
                                 <img style={{ backgroundColor: corCapacete }} id='capaceteImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/capaceteFinal.png"} alt="capacete" />
                             </div>
-                            <div onClick={() => handleEquipamento('peitoral')} className={`${styles.itemArmadura} ${styles.itemPeitoral}`}>
+                            <div onClick={() => { setEquipamento('peitoral'); setCorPeitoral('#000'); setCorCalca(null); setCorBota(null); setCorEspada(null); setCorCapacete(null) }} className={`${styles.itemArmadura} ${styles.itempeitoral}`}>
                                 <img style={{ backgroundColor: corPeitoral }} id='peitoralImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/peitoralFinal.png"} alt="peitoral" />
                             </div>
-                            <div onClick={() => handleEquipamento('calca')} className={`${styles.itemArmadura} ${styles.itemCalca}`}>
+                            <div onClick={() => { setEquipamento('calca'); setCorCalca('#000'); setCorBota(null); setCorEspada(null); setCorCapacete(null); setCorPeitoral(null) }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
                                 <img style={{ backgroundColor: corCalca }} id="calcaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/calcaFinal.png"} alt="calça" />
                             </div>
-                            <div onClick={() => handleEquipamento('bota')} className={`${styles.itemArmadura} ${styles.itemCalca}`}>
+                            <div onClick={() => { setEquipamento('bota'); setCorBota('#000'); setCorCapacete(null); setCorPeitoral(null); setCorCalca(null); setCorEspada(null) }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
                                 <img style={{ backgroundColor: corBota }} id="botaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/botaFinal.png"} alt="bota" />
                             </div>
-                            <div onClick={() => handleEquipamento('espada')} className={`${styles.itemArmadura}`}>
+                            <div onClick={() => { setEquipamento('espada'); setCorEspada('#000'); setCorCapacete(null); setCorPeitoral(null); setCorCalca(null); setCorBota(null) }} className={`${styles.itemArmadura}`}>
                                 <img style={{ backgroundColor: corEspada }} id="espadaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/espadaFinal.png"} alt="espada" />
                             </div>
                         </div>
@@ -104,7 +214,7 @@ const equipamentoPage = () => {
                                                     {dados.some(equipamento => equipamento.tipo == 'capacete') ? (
                                                         dados.map((equipamento) => (
                                                             equipamento.tipo == 'capacete' ? (
-                                                                <div className={styles.itemArmadura} key={equipamento.id}>
+                                                                <div className={`${styles.itemArmadura} ${styles[`item${equipamento.nome}`]}`} key={equipamento.id}>
                                                                     <img style={{ backgroundColor: equipamento.cor }} id='capaceteImg' className={`${styles.itemDoItem}`} src={"inventory/capaceteFinal.png"} alt="capacete" />
                                                                 </div>
                                                             ) : null
@@ -125,7 +235,7 @@ const equipamentoPage = () => {
                                         <input value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição do equipamento' />
                                         <input value={material} onChange={(e) => setMaterial(e.target.value)} type="text" placeholder='Material do equipamento' />
                                         <input value={defesa} onChange={(e) => setDefesa(Number(e.target.value))} type="number" placeholder='Valor da defesa' />
-                                        <input value={corCapacete} type="color" onChange={(e) => setCorCapacete(e.target.value)} />
+                                        <input value={corCapacete} type="color" onChange={(e) => handleCorEquipamentos(e, 'Capacete')} />
                                         <button type="submit" className={styles.buttonSend}>Cadastrar Capacete</button>
                                     </form>
                                 </>
@@ -141,7 +251,7 @@ const equipamentoPage = () => {
                                                     {dados.some(equipamento => equipamento.tipo == 'peitoral') ? (
                                                         dados.map((equipamento) => (
                                                             equipamento.tipo == 'peitoral' ? (
-                                                                <div className={styles.itemArmadura} key={equipamento.id}>
+                                                                <div className={`${styles.itemArmadura} ${styles.itempeitoral}`} key={equipamento.id}>
                                                                     <img style={{ backgroundColor: equipamento.cor }} id='peitoralImg' className={`${styles.itemDoItem}`} src={"inventory/peitoralFinal.png"} alt="peitoral" />
                                                                 </div>
                                                             ) : null
@@ -162,7 +272,7 @@ const equipamentoPage = () => {
                                         <input onChange={(e) => setDescricao(e.target.value)} value={descricao} type="text" placeholder='Descrição do equipamento' />
                                         <input onChange={(e) => setMaterial(e.target.value)} value={material} type="text" placeholder='Material do equipamento' />
                                         <input onChange={(e) => setDefesa(e.target.value)} value={defesa} type="number" placeholder='Valor da defesa' />
-                                        <input onChange={(e) => setCorPeitoral(e.target.value)} value={corCapacete} type="color" />
+                                        <input onChange={(e) => handleCorEquipamentos(e, 'Peitoral')} value={corPeitoral} type="color" />
                                         <button type="submit" className={styles.buttonSend}>Cadastrar Peitoral</button>
                                     </form>
                                 </>
@@ -170,117 +280,118 @@ const equipamentoPage = () => {
                         }
                         {
                             equipamento == 'calca' ? (
-                                <div>
-                                    <h1>Calça</h1>
-                                    {dados.length ? (
-                                        equipamentos ? (
-                                            <div className={styles.equipamentosPredefinidos}>
-                                                {dados.map((equipamento) => (
-                                                    equipamento.tipo == 'calca' ? (
-                                                        <div key={equipamento.id}>
-                                                            <div>
-                                                                <p>
-                                                                    <strong>ID:</strong> {equipamento.id}
-                                                                </p>
-                                                                <p>
-                                                                    <strong>Nome:</strong> {equipamento.nome}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    ) : null
-                                                ))}
-                                            </div>
+                                <>
+                                    <div className={`${styles.containerCreation} ${styles.calcaCreation}`}>
+                                        {dados.length ? (
+                                            equipamentos ? (
+                                                <div className={styles.equipamentosPredefinidos}>
+                                                    {dados.some(equipamento => equipamento.tipo == 'calca') ? (
+                                                        dados.map((equipamento) => (
+                                                            equipamento.tipo == 'calca' ? (
+                                                                <div className={`${styles.itemArmadura} ${styles.itemcalca}`} key={equipamento.id}>
+                                                                    <img style={{ backgroundColor: equipamento.cor }} id='calcaImg' className={`${styles.itemDoItem}`} src={"inventory/calcaFinal.png"} alt="calça" />
+                                                                </div>
+                                                            ) : null
+                                                        ))
+                                                    ) : (
+                                                        <p>Não há calças cadastradas</p>
+                                                    )}
+                                                </div>
+                                            ) : (
+                                                <p>Carregando...</p>
+                                            )
                                         ) : (
-                                            <p>Carregando...</p>
-                                        )
-                                    ) : (
-                                        <p>Não há alunos cadastrados</p>
-                                    )}
-                                    <input type="text" placeholder='Nome do equipamento' />
-                                    <input type="text" placeholder='Descrição do equipamento' />
-                                    <input type="text" placeholder='Material do equipamento' />
-                                    <input type="number" placeholder='Valor da defesa' />
-                                    <input type="color" onChange={(e) => setCorCalca(e.target.value)} />
-                                </div>
+                                            <p>Não há equipamentos cadastrados</p>
+                                        )}
+                                    </div>
+                                    <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, 'calca')}>
+                                        <input onChange={(e) => setNome(e.target.value)} value={nome} type="text" placeholder='Nome do equipamento' />
+                                        <input onChange={(e) => setDescricao(e.target.value)} value={descricao} type="text" placeholder='Descrição do equipamento' />
+                                        <input onChange={(e) => setMaterial(e.target.value)} value={material} type="text" placeholder='Material do equipamento' />
+                                        <input onChange={(e) => setDefesa(e.target.value)} value={defesa} type="number" placeholder='Valor da defesa' />
+                                        <input onChange={(e) => handleCorEquipamentos(e, 'Calca')} value={corCalca} type="color" />
+                                        <button type="submit" className={styles.buttonSend}>Cadastrar Calça</button>
+                                    </form>
+                                </>
                             ) : null
                         }
                         {
                             equipamento == 'bota' ? (
-                                <div>
-                                    <h1>Bota</h1>
-                                    {dados.length ? (
-                                        equipamentos ? (
-                                            <div className={styles.equipamentosPredefinidos}>
-                                                {dados.map((equipamento) => (
-                                                    equipamento.tipo == 'bota' ? (
-                                                        <div key={equipamento.id}>
-                                                            <div>
-                                                                <p>
-                                                                    <strong>ID:</strong> {equipamento.id}
-                                                                </p>
-                                                                <p>
-                                                                    <strong>Nome:</strong> {equipamento.nome}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    ) : null
-                                                ))}
-                                            </div>
+                                <>
+                                    <div className={`${styles.containerCreation} ${styles.botaCreation}`}>
+                                        {dados.length ? (
+                                            equipamentos ? (
+                                                <div className={styles.equipamentosPredefinidos}>
+                                                    {dados.some(equipamento => equipamento.tipo == 'bota') ? (
+                                                        dados.map((equipamento) => (
+                                                            equipamento.tipo == 'bota' ? (
+                                                                <div className={`${styles.itemArmadura} ${styles.itemcalca}`} key={equipamento.id}>
+                                                                    <img style={{ backgroundColor: equipamento.cor }} id='botaImg' className={`${styles.itemDoItem}`} src={"inventory/botaFinal.png"} alt="bota" />
+                                                                </div>
+                                                            ) : null
+                                                        ))
+                                                    ) : (
+                                                        <p>Não há botas cadastradas</p>
+                                                    )}
+                                                </div>
+                                            ) : (
+                                                <p>Carregando...</p>
+                                            )
                                         ) : (
-                                            <p>Carregando...</p>
-                                        )
-                                    ) : (
-                                        <p>Não há alunos cadastrados</p>
-                                    )
-                                    }
-                                    <input type="text" placeholder='Nome do equipamento' />
-                                    <input type="text" placeholder='Descrição do equipamento' />
-                                    <input type="text" placeholder='Material do equipamento' />
-                                    <input type="number" placeholder='Valor da defesa' />
-                                    <input type="color" onChange={(e) => setCorBota(e.target.value)} />
-                                </div>
-
+                                            <p>Não há equipamentos cadastrados</p>
+                                        )}
+                                    </div>
+                                    <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, 'bota')}>
+                                        <input onChange={(e) => setNome(e.target.value)} value={nome} type="text" placeholder='Nome do equipamento' />
+                                        <input onChange={(e) => setDescricao(e.target.value)} value={descricao} type="text" placeholder='Descrição do equipamento' />
+                                        <input onChange={(e) => setMaterial(e.target.value)} value={material} type="text" placeholder='Material do equipamento' />
+                                        <input onChange={(e) => setDefesa(e.target.value)} value={defesa} type="number" placeholder='Valor da defesa' />
+                                        <input value={corBota} type="color" onChange={(e) => handleCorEquipamentos(e, 'Bota')} />
+                                        <button type="submit" className={styles.buttonSend}>Cadastrar Bota</button>
+                                    </form>
+                                </>
                             ) : null
                         }
                         {
                             equipamento == 'espada' ? (
-                                <div>
-                                    <h1>Espada</h1>
-                                    {dados.length ? (
-                                        equipamentos ? (
-                                            <div className={styles.equipamentosPredefinidos}>
-                                                {dados.map((equipamento) => (
-                                                    equipamento.tipo == 'espada' ? (
-                                                        <div key={equipamento.id}>
-                                                            <div>
-                                                                <p>
-                                                                    <strong>ID:</strong> {equipamento.id}
-                                                                </p>
-                                                                <p>
-                                                                    <strong>Nome:</strong> {equipamento.nome}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    ) : null
-                                                ))}
-                                            </div>
+                                <>
+                                    <div className={`${styles.containerCreation} ${styles.espadaCreation}`}>
+                                        {dados.length ? (
+                                            equipamentos ? (
+                                                <div className={styles.equipamentosPredefinidos}>
+                                                    {dados.some(equipamento => equipamento.tipo == 'espada') ? (
+                                                        dados.map((equipamento) => (
+                                                            equipamento.tipo == 'espada' ? (
+                                                                <div className={`${styles.itemArmadura} ${styles[`item${equipamento.nome}`]}`} key={equipamento.id}>
+                                                                    <img style={{ backgroundColor: equipamento.cor }} id='espadaImg' className={`${styles.itemDoItem}`} src={"inventory/espadaFinal.png"} alt="espada" />
+                                                                </div>
+                                                            ) : null
+                                                        ))
+                                                    ) : (
+                                                        <p>Não há espadas cadastradas</p>
+                                                    )}
+                                                </div>
+                                            ) : (
+                                                <p>Carregando...</p>
+                                            )
                                         ) : (
-                                            <p>Carregando...</p>
-                                        )
-                                    ) : (
-                                        <p>Não há alunos cadastrados</p>
-                                    )}
-                                    <input type="text" placeholder='Nome do equipamento' />
-                                    <input type="text" placeholder='Descrição do equipamento' />
-                                    <input type="text" placeholder='Material do equipamento' />
-                                    <input type="number" placeholder='Valor do ataque' />
-                                    <input type="color" onChange={(e) => setCorEspada(e.target.value)} />
-                                </div>
+                                            <p>Não há equipamentos cadastrados</p>
+                                        )}
+                                    </div>
+                                    <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, 'espada')}>
+                                        <input onChange={(e) => setNome(e.target.value)} value={nome} type="text" placeholder='Nome do equipamento' />
+                                        <input onChange={(e) => setDescricao(e.target.value)} value={descricao} type="text" placeholder='Descrição do equipamento' />
+                                        <input onChange={(e) => setMaterial(e.target.value)} value={material} type="text" placeholder='Material do equipamento' />
+                                        <input onChange={(e) => setDano(e.target.value)} value={dano} type="number" placeholder='Valor do ataque' />
+                                        <input type="color" onChange={(e) => handleCorEquipamentos(e, 'Espada')} />
+                                        <button type="submit" className={styles.buttonSend}>Cadastrar Espada</button>
+                                    </form>
+                                </>
                             ) : null
                         }
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

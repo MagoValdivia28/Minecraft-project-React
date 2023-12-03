@@ -12,14 +12,14 @@
     background-color: #c6c6c6;
     display: flex;
     align-items: center;
-    height: 95vh;
+    height: 95vh;       
 }
 
 .armadura {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin: 0 10px;
+    margin: 0 3%;
 }
 
 .itemArmadura {
@@ -38,11 +38,11 @@
     transform: translate(-50%, -50%);
 }
 
-.itemPeitoral {
+.itempeitoral {
     padding: 4px !important;
 }
 
-.itemCalca {
+.itemcalca {
     padding: 6px !important;
 }
 
@@ -51,18 +51,38 @@
     display: none;
 }
 
-.espadaSlot {
-    margin-top: 10px;
-}
 
 .armadura .containerCreation {
     height: 54px;
     display: flex;
     align-items: center;
+    margin-right: auto;
+
+}
+
+.armadura .containerCreation p {
+    color: #fff;
+    font-family: 'Minecraft', sans-serif;
+    text-shadow: 2px 2px #3F3F3F;
+    font-size: 20px;
+    margin-left: 1rem;
+
 }
 
 .armadura .peitoralCreation {
     margin-top: 54px;
+}
+
+.armadura .calcaCreation {
+    margin-top: 108px;
+}
+
+.armadura .botaCreation {
+    margin-top: 162px;
+}
+
+.armadura .espadaCreation {
+    margin-top: 216px;
 }
 
 .buttonSend {
@@ -84,10 +104,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.3889rem;
 }
 
 .formEquipamento input {
-    margin-bottom: 10px;
     padding: 5px;
     border: 1px solid #000;
     border-bottom: #fff 3px solid;
@@ -100,6 +120,24 @@
     font-size: 20px;
 }
 
+.formEquipamento input[type="color"] {
+    padding: 0;
+    border: none;
+    background-color: #aeaeae;
+    cursor: pointer;
+    width: 50%;
+    height: 30px;
+}
+
+.formEquipamento input[type="color"]:focus {
+    padding: 0;
+    border: none;
+    background-color: #aeaeae;
+    cursor: pointer;
+    width: 50%;
+    height: 30px;
+}
+
 .formEquipamento input:focus {
     outline: none;
     border: 1px solid #000;
@@ -108,9 +146,7 @@
     border-top: #6c6c6c 3px solid;
     background-color: #aeaeae;
     color: #fff;
-    font-family: 'Minecraft', sans-serif;
-    text-shadow: 2px 2px #3F3F3F;
-    font-size: 20px;
+
 }
 
 .formEquipamento input::placeholder {
