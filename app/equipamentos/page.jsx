@@ -6,6 +6,10 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useRouter } from "next/navigation";
 
+// components
+
+import CadastroEquipamento from "../components/cadastroEquipamento/CadastroEquipamento";
+
 const equipamentoPage = () => {
     const router = useRouter();
     const [dados, setDados] = useState([]);
@@ -136,36 +140,6 @@ const equipamentoPage = () => {
         }
     }, [corCapacete, corPeitoral, corCalca, corBota, corEspada])
 
-    const handleSend = async (e, tipo) => {
-        e.preventDefault();
-        try {
-            if (tipo == 'capacete') {
-                var cor = corCapacete;
-            } else if (tipo == 'peitoral') {
-                var cor = corPeitoral;
-            } else if (tipo == 'calca') {
-                var cor = corCalca;
-            } else if (tipo == 'bota') {
-                var cor = corBota;
-            } else if (tipo == 'espada') {
-                var cor = corEspada;
-            } else {
-                console.log('Não foi possível definir a cor do equipamento');
-            }
-            await axios.post("/api/equipamentos", { nome, descricao, material, tipo, dano, defesa, cor });
-            setNome('');
-            setDescricao('');
-            setMaterial('');
-            setDano('');
-            setDefesa('');
-            console.log(cor);
-            router.push(`/equipamentos/`);
-            setDados([...dados, { nome, descricao, material, tipo, dano, defesa, cor }]);
-        } catch (error) {
-            console.error("Error submitting data:", error);
-        }
-    }
-
     useEffect(() => {
         async function fetchEquipamentos() {
             try {
@@ -230,14 +204,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, 'capacete')}>
-                                        <input value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome do equipamento' />
-                                        <input value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição do equipamento' />
-                                        <input value={material} onChange={(e) => setMaterial(e.target.value)} type="text" placeholder='Material do equipamento' />
-                                        <input value={defesa} onChange={(e) => setDefesa(Number(e.target.value))} type="number" placeholder='Valor da defesa' />
-                                        <input value={corCapacete} type="color" onChange={(e) => handleCorEquipamentos(e, 'Capacete')} />
-                                        <button type="submit" className={styles.buttonSend}>Cadastrar Capacete</button>
-                                    </form>
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Capacete')} setDados={setDados} />
                                 </>
                             ) : null
                         }
@@ -267,14 +234,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, 'peitoral')}>
-                                        <input onChange={(e) => setNome(e.target.value)} value={nome} type="text" placeholder='Nome do equipamento' />
-                                        <input onChange={(e) => setDescricao(e.target.value)} value={descricao} type="text" placeholder='Descrição do equipamento' />
-                                        <input onChange={(e) => setMaterial(e.target.value)} value={material} type="text" placeholder='Material do equipamento' />
-                                        <input onChange={(e) => setDefesa(e.target.value)} value={defesa} type="number" placeholder='Valor da defesa' />
-                                        <input onChange={(e) => handleCorEquipamentos(e, 'Peitoral')} value={corPeitoral} type="color" />
-                                        <button type="submit" className={styles.buttonSend}>Cadastrar Peitoral</button>
-                                    </form>
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Peitoral')} setDados={setDados} />
                                 </>
                             ) : null
                         }
@@ -304,14 +264,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, 'calca')}>
-                                        <input onChange={(e) => setNome(e.target.value)} value={nome} type="text" placeholder='Nome do equipamento' />
-                                        <input onChange={(e) => setDescricao(e.target.value)} value={descricao} type="text" placeholder='Descrição do equipamento' />
-                                        <input onChange={(e) => setMaterial(e.target.value)} value={material} type="text" placeholder='Material do equipamento' />
-                                        <input onChange={(e) => setDefesa(e.target.value)} value={defesa} type="number" placeholder='Valor da defesa' />
-                                        <input onChange={(e) => handleCorEquipamentos(e, 'Calca')} value={corCalca} type="color" />
-                                        <button type="submit" className={styles.buttonSend}>Cadastrar Calça</button>
-                                    </form>
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Calca')} setDados={setDados} />
                                 </>
                             ) : null
                         }
@@ -341,14 +294,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, 'bota')}>
-                                        <input onChange={(e) => setNome(e.target.value)} value={nome} type="text" placeholder='Nome do equipamento' />
-                                        <input onChange={(e) => setDescricao(e.target.value)} value={descricao} type="text" placeholder='Descrição do equipamento' />
-                                        <input onChange={(e) => setMaterial(e.target.value)} value={material} type="text" placeholder='Material do equipamento' />
-                                        <input onChange={(e) => setDefesa(e.target.value)} value={defesa} type="number" placeholder='Valor da defesa' />
-                                        <input value={corBota} type="color" onChange={(e) => handleCorEquipamentos(e, 'Bota')} />
-                                        <button type="submit" className={styles.buttonSend}>Cadastrar Bota</button>
-                                    </form>
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Bota')} setDados={setDados} />
                                 </>
                             ) : null
                         }
@@ -378,14 +324,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, 'espada')}>
-                                        <input onChange={(e) => setNome(e.target.value)} value={nome} type="text" placeholder='Nome do equipamento' />
-                                        <input onChange={(e) => setDescricao(e.target.value)} value={descricao} type="text" placeholder='Descrição do equipamento' />
-                                        <input onChange={(e) => setMaterial(e.target.value)} value={material} type="text" placeholder='Material do equipamento' />
-                                        <input onChange={(e) => setDano(e.target.value)} value={dano} type="number" placeholder='Valor do ataque' />
-                                        <input type="color" onChange={(e) => handleCorEquipamentos(e, 'Espada')} />
-                                        <button type="submit" className={styles.buttonSend}>Cadastrar Espada</button>
-                                    </form>
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Espada')} setDados={setDados} />
                                 </>
                             ) : null
                         }

@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url(../../../fonts/Minecraft.ttf);
+}
+
+.formEquipamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3889rem;
+}
+
+.formEquipamento input {
+    padding: 5px;
+    border: 1px solid #000;
+    border-bottom: #fff 3px solid;
+    border-left: #6c6c6c 3px solid;
+    border-top: #6c6c6c 3px solid;
+    background-color: #aeaeae;
+    color: #fff;
+    font-family: 'Minecraft', sans-serif;
+    text-shadow: 2px 2px #3F3F3F;
+    font-size: 20px;
+}
+
+.formEquipamento input[type="color"] {
+    padding: 0;
+    border: none;
+    background-color: #aeaeae;
+    cursor: pointer;
+    width: 50%;
+    height: 30px;
+}
+
+.formEquipamento input[type="color"]:focus {
+    padding: 0;
+    border: none;
+    background-color: #aeaeae;
+    cursor: pointer;
+    width: 50%;
+    height: 30px;
+}
+
+.formEquipamento input:focus {
+    outline: none;
+    border: 1px solid #000;
+    border-bottom: #fff 3px solid;
+    border-left: #6c6c6c 3px solid;
+    border-top: #6c6c6c 3px solid;
+    background-color: #aeaeae;
+    color: #fff;
+
+}
+
+.formEquipamento input::placeholder {
+    color: rgb(225, 225, 225);
+}
+
+.buttonSend {
+    background-color: green;
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.0rem;
+    text-shadow: #000 2px 2px 2px;
+    font-family: 'Title-Minecraft-Font';
+    border-left: #2a641c 5px solid;
+    border-bottom: #2a641c 5px solid;
+    border-right: #2a641c 5px solid;
+    border-top: #a0e081 5px solid;
+    cursor: pointer;
+    width: 100%;
+}
