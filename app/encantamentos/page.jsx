@@ -119,6 +119,19 @@ const Page_de_encantamentos = () => {
         }
     }
 
+    const handleDelete = async (id) => {
+        console.log("clicou no delete");
+        console.log(id);
+        try {
+            const response = await axios.delete(`/api/encantamentos/${id}`);
+            console.log(response.data);
+            router.push("/encantamentos");
+            setDados(dados.filter((encantamento) => encantamento.id !== id));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
     const handleBookStyle = () => {
         if (bookStyles == 0) {
@@ -146,7 +159,10 @@ const Page_de_encantamentos = () => {
         console.log("clicou");
     }
 
-
+    const handleBook = (encantamento) => {
+        setEncantamento(encantamento);
+        console.log(encantamento);
+    }
 
 
     useEffect(() => {
@@ -204,11 +220,15 @@ const Page_de_encantamentos = () => {
                                             encantamentos ? (
                                                 dados.map((encantamento) =>
                                                 (
-                                                    <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
-                                                        <span className={styleBooks}>
+                                                    <li className={styles.encantamento}>
+                                                        <span onClick={() => handleBookPopUp()} className={styleBooks}>
                                                             <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                                             <p className={styles.book_name}>{encantamento.titulo}</p>
                                                         </span>
+
+                                                        <button onClick={() => handleDelete(encantamento.id)} className={styles.delete_button}>
+                                                            <p className={styles.delete_text}>Deletar</p>
+                                                        </button>
                                                     </li>
                                                 ))
                                             ) : (
@@ -218,47 +238,6 @@ const Page_de_encantamentos = () => {
                                             <p>Nenhum encantamento econtrado</p>
                                         )
                                     }
-
-
-                                    {/* <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
-                                        <span className={styles.book}>
-                                            <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                            <p className={styles.book_name}>inquebravel</p>
-                                        </span>
-                                    </li>
-
-                                    <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
-                                        <span className={styles.book1}>
-                                            <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                            <p className={styles.book_name}>protecao</p>
-                                        </span>
-                                    </li>
-
-                                    <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
-                                        <span className={styles.book2}>
-                                            <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                            <p className={styles.book_name}>inquebravel</p>
-                                        </span>
-                                    </li>
-                                    <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
-                                        <span className={styles.book3}>
-                                            <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                            <p className={styles.book_name}>inquebravel</p>
-                                        </span>
-                                    </li>
-                                    <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
-                                        <span className={styles.book4}>
-                                            <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                            <p className={styles.book_name}>inquebravel</p>
-                                        </span>
-                                    </li>
-                                    <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
-                                        <span className={styles.book5}>
-                                            <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                            <p className={styles.book_name}>Respiracao aquatica</p>
-                                        </span>
-                                    </li> */}
-
 
                                 </ul>
                             </nav>
