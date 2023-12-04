@@ -38,6 +38,7 @@ const Page_de_encantamentos = () => {
     const [dano, setDano] = useState("");
     const [defesa, setDefesa] = useState("");
     const [nivel, setNivel] = useState("");
+    const { id } = encantamento;
 
     function sendErrorMsg(msg) {
         setErrorMSG(msg);
@@ -108,30 +109,22 @@ const Page_de_encantamentos = () => {
                 dano: dano,
                 defesa: defesa,
                 nivel: nivel,
+    
             });
-            console.log(response.data);
+            
             router.push("/encantamentos");
             setDados([...dados, { titulo: titulo, descricao: descricao, tipoEncanto: tipoEncanto, dano: dano, defesa: defesa, nivel: nivel }])
-
+            setTitulo("");
+            setDescricao("");
+            setTipoEncanto("");
+            setDano("");
+            setDefesa("");
+            setNivel("");
         }
         catch (error) {
             console.log(error);
         }
     }
-
-    const handleDelete = async (id) => {
-        console.log("clicou no delete");
-        console.log(id);
-        try {
-            const response = await axios.delete(`/api/encantamentos/${id}`);
-            console.log(response.data);
-            router.push("/encantamentos");
-            setDados(dados.filter((encantamento) => encantamento.id !== id));
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
 
     const handleBookStyle = () => {
         if (bookStyles == 0) {
@@ -171,7 +164,6 @@ const Page_de_encantamentos = () => {
                 const response = await axios.get("/api/encantamentos");
                 setEncantamentos(response.data);
                 setDados(response.data);
-                console.log(response.data);
                 handleBookStyle();
             } catch (error) {
                 console.log(error);
@@ -179,6 +171,27 @@ const Page_de_encantamentos = () => {
         }
         fetchEncantamentos();
     }, []);
+
+    useEffect(() => {
+        async function fetchEncantamentosID() {
+            try {
+                const response = await axios.get(`/api/encantamentos/${id}`);
+                setEncantamento(response.data);
+            } catch (error) {
+            }
+        }
+        fetchEncantamentosID();
+    }, [id]);
+
+    const deleteEncantamento = async (id) => {
+        try {
+            const response = await axios.delete(`/api/encantamentos/${id}`);    
+            router.push("/encantamentos");
+            setDados(dados.filter((encantamento) => encantamento.id !== id));
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     console.log(bookStyles);
@@ -226,7 +239,7 @@ const Page_de_encantamentos = () => {
                                                             <p className={styles.book_name}>{encantamento.titulo}</p>
                                                         </span>
 
-                                                        <button onClick={() => handleDelete(encantamento.id)} className={styles.delete_button}>
+                                                        <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
                                                             <p className={styles.delete_text}>Deletar</p>
                                                         </button>
                                                     </li>
