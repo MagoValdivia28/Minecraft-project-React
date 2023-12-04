@@ -1,0 +1,60 @@
+.titulo{
+    text-align: center;
+    padding-top: 7%;
+}
+.titulo h1{
+    font-family: 'Minecraft-Font';
+    font-size: 50px;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+}
+.main{
+    background-image: url("/backgroundBatalha.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    color: #fff;
+}
+.opacidadeImg{
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+.espadaX {
+    max-width: 32%;
+    min-width: 32%;
+    margin-left: auto;
+    margin-right: 25.7%;
+    display: block;
+    width: 70%;
+     /* Ajuste este valor para alterar o tamanho da imagem */
+}
+.batalhaConteiner{
+    display: flex;
+    justify-content: space-around;
+
+}
+.usuario{
+    max-width: 33%;
+    min-width: 33%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+    
+.mob{
+
+    max-width: 33%;
+    min-width: 33%;
+    align-items: center;
+    justify-content: center;
+}
+
+.textop {
+    font-size: 3.9vh;
+    font-family: 'Minecraft-Font';
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    text-align: center;
+}
