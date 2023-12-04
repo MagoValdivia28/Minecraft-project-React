@@ -42,6 +42,10 @@ const Page_de_encantamentos = () => {
 
     function sendErrorMsg(msg) {
         setErrorMSG(msg);
+        setTimeout(function () {
+            setErrorMSG('');
+            setErrorType('');
+          }, 5000);
     }
 
     function sendType(type) {
@@ -96,9 +100,6 @@ const Page_de_encantamentos = () => {
     const handleSend = async (e, tipo) => {
         e.preventDefault();
         try {
-            // let errors = [];
-            // verificacoesEncantamento(titulo, descricao, tipoEncanto, dano, defesa, nivel, errors);
-
             if (validation() == false) {
                 sendErrorMsg();
             }
@@ -121,6 +122,8 @@ const Page_de_encantamentos = () => {
             setDano("");
             setDefesa("");
             setNivel("");
+            sendErrorMsg("Encantamento criado com sucesso");
+            sendType("success");
         }
         catch (error) {
             console.log(error);
@@ -151,11 +154,6 @@ const Page_de_encantamentos = () => {
     const handleBookPopUp = () => {
         setBookPopUp(!bookPopUp);
         console.log("clicou");
-    }
-
-    const handleBook = (encantamento) => {
-        setEncantamento(encantamento);
-        console.log(encantamento);
     }
 
 
@@ -247,7 +245,7 @@ const Page_de_encantamentos = () => {
                                                         <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
                                                             <p className={styles.delete_text}>Deletar</p>
                                                         </button>
-                                                        <button onClick={() => updateEncantamento(encantamento)} className={styles.update_button}>
+                                                        <button onClick={() => editEncantamento(encantamento)} className={styles.update_button}>
                                                             <p className={styles.update_text}>Atualizar</p>
                                                         </button>
                                                     </li>
