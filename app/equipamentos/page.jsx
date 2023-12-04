@@ -27,7 +27,9 @@ const equipamentoPage = () => {
 
     const [corEspada, setCorEspada] = useState(null);
 
-    
+
+
+
     const handleCorEquipamentos = (e, equip) => {
         if (equip == 'Capacete') {
             setCorCapacete(e.target.value);
