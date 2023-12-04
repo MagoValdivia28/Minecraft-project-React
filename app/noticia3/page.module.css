@@ -38,13 +38,13 @@
   }
 
 .divs > div h1 {
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 20px;
   }
 
   .h1{
     font-family: 'Minecraft', sans-serif;
-    font-size: 30px;
+    font-size: 25px;
     margin: 2%;
   }
 
@@ -55,7 +55,7 @@
   }
 
 .p{
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 1%;
     margin-bottom: 40px;
   }
@@ -70,17 +70,15 @@
 
 .descriptionimg{
     text-align: left;
-    font-size: 19px;
+    font-size: 12px;
     padding-left: 13%;
-    margin-top: 20px;
     letter-spacing: 0.75px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 
 @media screen and (max-width: 768px) {
 .divs {
     flex-direction: column;
-    
     }
   
 .divs > div {
