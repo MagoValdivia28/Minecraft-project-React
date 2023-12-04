@@ -102,18 +102,19 @@ const Page_de_encantamentos = () => {
             if (validation() == false) {
                 sendErrorMsg();
             }
-            const response = await axios.post("/api/encantamentos", {
+            const responseLog = await axios.post("/api/encantamentos", {
                 titulo: titulo,
                 descricao: descricao,
                 tipoEncanto: tipoEncanto,
                 dano: dano,
                 defesa: defesa,
                 nivel: nivel,
-    
+
             });
-            
+
             router.push("/encantamentos");
-            setDados([...dados, { titulo: titulo, descricao: descricao, tipoEncanto: tipoEncanto, dano: dano, defesa: defesa, nivel: nivel }])
+            const response = await axios.get("/api/encantamentos");
+            setDados(response.data);
             setTitulo("");
             setDescricao("");
             setTipoEncanto("");
@@ -180,12 +181,16 @@ const Page_de_encantamentos = () => {
             } catch (error) {
             }
         }
-        fetchEncantamentosID();
+        if (id) {
+            fetchEncantamentosID();
+        }
     }, [id]);
+
+
 
     const deleteEncantamento = async (id) => {
         try {
-            const response = await axios.delete(`/api/encantamentos/${id}`);    
+            const response = await axios.delete(`/api/encantamentos/${id}`);
             router.push("/encantamentos");
             setDados(dados.filter((encantamento) => encantamento.id !== id));
         } catch (error) {
@@ -241,6 +246,9 @@ const Page_de_encantamentos = () => {
 
                                                         <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
                                                             <p className={styles.delete_text}>Deletar</p>
+                                                        </button>
+                                                        <button onClick={() => updateEncantamento(encantamento)} className={styles.update_button}>
+                                                            <p className={styles.update_text}>Atualizar</p>
                                                         </button>
                                                     </li>
                                                 ))
