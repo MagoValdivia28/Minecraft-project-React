@@ -4,14 +4,12 @@ import Header from '../components/header/header';
 import styles from './equipamentos.module.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useRouter } from "next/navigation";
 
 // components
 
 import CadastroEquipamento from "../components/cadastroEquipamento/CadastroEquipamento";
 
 const equipamentoPage = () => {
-    const router = useRouter();
     const [dados, setDados] = useState([]);
     const [equipamentos, setEquipamentos] = useState([]);
 
@@ -29,14 +27,7 @@ const equipamentoPage = () => {
 
     const [corEspada, setCorEspada] = useState(null);
 
-    // Enviar Inputs
-
-    const [nome, setNome] = useState('');
-    const [descricao, setDescricao] = useState('');
-    const [material, setMaterial] = useState('');
-    const [dano, setDano] = useState(0);
-    const [defesa, setDefesa] = useState(0);
-
+    
     const handleCorEquipamentos = (e, equip) => {
         if (equip == 'Capacete') {
             setCorCapacete(e.target.value);
@@ -204,7 +195,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Capacete')} setDados={setDados} />
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Capacete')} setDados={setDados} value={corCapacete} dados={dados} />
                                 </>
                             ) : null
                         }
@@ -234,7 +225,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Peitoral')} setDados={setDados} />
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Peitoral')} setDados={setDados} value={corPeitoral} dados={dados} />
                                 </>
                             ) : null
                         }
@@ -264,7 +255,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Calca')} setDados={setDados} />
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Calca')} setDados={setDados} value={corCalca} dados={dados} />
                                 </>
                             ) : null
                         }
@@ -294,7 +285,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Bota')} setDados={setDados} />
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Bota')} setDados={setDados} value={corBota} dados={dados} />
                                 </>
                             ) : null
                         }
@@ -324,7 +315,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Espada')} setDados={setDados} />
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Espada')} setDados={setDados} value={corEspada} dados={dados} />
                                 </>
                             ) : null
                         }
