@@ -23,34 +23,34 @@ const membroPage = () => {
                 </div>
                 <div className={styles.equipe}>
                     <div className={styles.umAoTres}>
-                        <div className={styles.cardPessoa}>
+                        <div className={styles.cardPessoa1}>
                             <img className={styles.imgPessoa} src="/imagemfacemine1.webp" />
                             <h2 className={styles.pessoa}>Felipe Pedro</h2>
                             <p>Tech Lead/Desenvolvedor</p>
                         </div>
-                        <div className={styles.cardPessoa}>
+                        <div className={styles.cardPessoa2}>
                             <img className={styles.imgPessoa} src="/imagemfacemine2.jpeg" />
                             <h2 className={styles.pessoa}>Guilherme Rocha</h2>
                             <p>Desenvolvedor</p>
                         </div>
-                        <div className={styles.cardPessoa}>
+                        <div className={styles.cardPessoa3}>
                             <img className={styles.imgPessoa} src="/imagemfacemine3.png" />
                             <h2 className={styles.pessoa}>Matheus Coco</h2>
                             <p>Desenvolvedor</p>
                         </div>
                     </div>
                     <div className={styles.quatroAoSeis}>
-                        <div className={styles.cardPessoa}>
+                        <div className={styles.cardPessoa4}>
                             <img className={styles.imgPessoa} src="/imagemfacemine4.png" />
                             <h2 className={styles.pessoa}>Matheus Gomes</h2>
                             <p>Desenvolvedor</p>
                         </div>
-                        <div className={styles.cardPessoa}>
-                            <img className={styles.imgPessoa} src="/imagemfacemine5.jpg" />
+                        <div className={styles.cardPessoa5}>
+                            <img className={styles.imgPessoa} src="/imagemfacemine5.png" />
                             <h2 className={styles.pessoa}>Pedro Isac</h2>
                             <p>Desenvolvedor</p>
                         </div>
-                        <div className={styles.cardPessoa}>
+                        <div className={styles.cardPessoa6}>
                             <img className={styles.imgPessoa} src="/imagemfacemine6.png" />
                             <h2 className={styles.pessoa}>Thayna Vazzoler</h2>
                             <p>Desenvolvedor</p>
@@ -58,7 +58,7 @@ const membroPage = () => {
 
                     </div>
                     <div className={styles.cardCriarMembro}>
-                        <img className={styles.imgPessoa} src="/" />
+                        
                     </div>
                 </div>
                 <div>
