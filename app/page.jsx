@@ -32,9 +32,9 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link className={styles.mainCard} href={"noticia2"}>
+            <Link className={styles.mainCard} href={"Noticia2"}>
               <div className={styles.textMainCard}>
-                <h1>Minecraft Legends lançou!</h1>
+                <h1>Novidade! Minecraft Legends lançou!</h1>
               </div>
             </Link>
 
