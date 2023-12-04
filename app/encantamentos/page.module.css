@@ -59,9 +59,14 @@
     position: absolute;
 }
 
+.encantamento_create {
+    background-color: #361071;
+    margin-bottom: 15rem;
+}
 
 
-.book0 {
+
+.book {
     rotate: 360deg;
 }
 

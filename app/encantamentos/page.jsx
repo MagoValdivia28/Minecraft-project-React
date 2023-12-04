@@ -10,7 +10,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-
+let bookStyles = 0;
 
 
 
@@ -23,27 +23,131 @@ const Page_de_encantamentos = () => {
 
     // encantamentos em si
 
-    const [dados , setDados] = useState([]);
+    const [dados, setDados] = useState([]);
     const [encantamentos, setEncantamentos] = useState([]);
     const [encantamento, setEncantamento] = useState({});
 
+    const [errorMSG, setErrorMSG] = useState("");
+    const [errorType, setErrorType] = useState("");
+
     // inputs 
 
-    const [titulo , setTitulo] = useState("");
-    const [descricao , setDescricao] = useState("");
-    const [tipoEncanto , setTipoEncanto] = useState("");
-    const [dano , setDano] = useState("");
-    const [defesa , setDefesa] = useState("");
+    const [titulo, setTitulo] = useState("");
+    const [descricao, setDescricao] = useState("");
+    const [tipoEncanto, setTipoEncanto] = useState("");
+    const [dano, setDano] = useState("");
+    const [defesa, setDefesa] = useState("");
+    const [nivel, setNivel] = useState("");
 
-    let bookStyles = 0;
-    
-    console.log(bookStyles);
+    function sendErrorMsg(msg) {
+        setErrorMSG(msg);
+    }
 
+    function sendType(type) {
+        if (type === "error") {
+            setErrorType('error');
+        } else if (type === "success") {
+            setErrorType('success');
+        }
+    }
+
+    function validation() {
+
+        let errors = [];
+
+        if (titulo == "") {
+            errors.push("Titulo não pode ser vazio");
+        }
+
+        if (descricao == "") {
+            errors.push("Descricao não pode ser vazio");
+        }
+
+        if (tipoEncanto == "") {
+            errors.push("Tipo de encanto não pode ser vazio");
+        }
+
+        if (dano == "") {
+            errors.push("Dano não pode ser vazio");
+        }
+
+        if (defesa == "") {
+            errors.push("Defesa não pode ser vazio");
+        }
+
+        if (nivel == "") {
+            errors.push("Nivel não pode ser vazio");
+        }
+
+        if (errors.length > 0) {
+            sendErrorMsg(errors);
+            sendType("error");
+            return true;
+        } else {
+            sendType("success");
+            return false;
+        }
+    }
+
+
+
+
+    const handleSend = async (e, tipo) => {
+        e.preventDefault();
+        try {
+            // let errors = [];
+            // verificacoesEncantamento(titulo, descricao, tipoEncanto, dano, defesa, nivel, errors);
+
+            if (validation() == false) {
+                sendErrorMsg();
+            }
+            const response = await axios.post("/api/encantamentos", {
+                titulo: titulo,
+                descricao: descricao,
+                tipoEncanto: tipoEncanto,
+                dano: dano,
+                defesa: defesa,
+                nivel: nivel,
+            });
+            console.log(response.data);
+            router.push("/encantamentos");
+            setDados([...dados, { titulo: titulo, descricao: descricao, tipoEncanto: tipoEncanto, dano: dano, defesa: defesa, nivel: nivel }])
+
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+
+    const handleBookStyle = () => {
+        if (bookStyles == 0) {
+            setStyleBooks(styles.book);
+            bookStyles = 1;
+        } else if (bookStyles == 1) {
+            setStyleBooks(styles.book1);
+            bookStyles = 2;
+        } else if (bookStyles == 2) {
+            setStyleBooks(styles.book2);
+            bookStyles = 3;
+        } else if (bookStyles == 3) {
+            setStyleBooks(styles.book3);
+            bookStyles = 4;
+        } else if (bookStyles == 4) {
+            setStyleBooks(styles.book4);
+            bookStyles = 5;
+        } else if (bookStyles == 5) {
+            setStyleBooks(styles.book5);
+        }
+    }
 
     const handleBookPopUp = () => {
         setBookPopUp(!bookPopUp);
         console.log("clicou");
     }
+
+
+
 
     useEffect(() => {
         async function fetchEncantamentos() {
@@ -52,12 +156,16 @@ const Page_de_encantamentos = () => {
                 setEncantamentos(response.data);
                 setDados(response.data);
                 console.log(response.data);
+                handleBookStyle();
             } catch (error) {
                 console.log(error);
             }
         }
         fetchEncantamentos();
-    } , []);
+    }, []);
+
+
+    console.log(bookStyles);
 
 
     return (
@@ -69,6 +177,22 @@ const Page_de_encantamentos = () => {
             </div>
             <div className={styles.main_container}>
 
+                <div className={styles.encantamento_create}>
+                    <form onSubmit={(e) => handleSend(e, 'dano')}>
+                        <input value={titulo} onChange={(e) => setTitulo(e.target.value)} type="text" placeholder='Titulo' />
+                        <input value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição' />
+                        <input value={tipoEncanto} onChange={(e) => setTipoEncanto(e.target.value)} type="text" placeholder='Tipo de encantamento' />
+                        <input value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Dano' />
+                        <input value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
+                        <input value={nivel} onChange={(e) => setNivel(e.target.value)} type="number" placeholder='Nivel' />
+
+                        <button type="submit">Enviar</button>
+                    </form>
+                    <div className={styles.errors_container}>
+                        <p>{errorMSG}</p>
+                    </div>
+                </div>
+
                 {
                     bookPopUp == false ? (
                         <div className={styles.books_list}>
@@ -78,9 +202,10 @@ const Page_de_encantamentos = () => {
                                     {
                                         dados.length ? (
                                             encantamentos ? (
-                                                encantamentos.map((encantamento) => (
+                                                dados.map((encantamento) =>
+                                                (
                                                     <li onClick={() => handleBookPopUp()} className={styles.encantamento}>
-                                                        <span className={styles.book}>
+                                                        <span className={styleBooks}>
                                                             <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                                             <p className={styles.book_name}>{encantamento.titulo}</p>
                                                         </span>

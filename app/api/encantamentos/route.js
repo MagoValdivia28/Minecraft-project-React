@@ -12,14 +12,18 @@ export async function GET() {
     }
 }
 
-// export async function POST(request) {
-//     const params = await request.json();
+export async function POST(request) {
+    const params = await request.json();
 
-//     try {
-//         const response = await axios.post("http://10.88.200.205:4000/encantamentos", params);
-//         return NextResponse.json(response.data);
-//     } catch (error) {
-//         console.log("[ORDER_POST]", error);
-//         return new NextResponse("Erro interno do servidor! Teste", { status: 500 });
-//     }
-// }
+    try {
+        const response = await axios.post("http://10.88.200.205:4000/encantamentos", params);
+        return NextResponse.json(response.data);
+    } catch (error) {
+        console.log("[ORDER_POST]", error);
+        return new NextResponse("Erro interno do servidor! Teste", { status: 500 });
+    }
+}
+
+export async function DELETE(request) {
+    
+}
