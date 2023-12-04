@@ -12,14 +12,21 @@
     background-color: #c6c6c6;
     display: flex;
     align-items: center;
-    height: 95vh;       
+    height: 95vh;
 }
 
 .armadura {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin: 0 3%;
+    margin-right: 3%;
+    margin-left: 3%;
+    height: 305px;
+}
+
+.armadura .armaduraSlotInventario {
+    display: flex;
+    flex-direction: column;
 }
 
 .itemArmadura {
@@ -58,7 +65,6 @@
     display: flex;
     align-items: center;
     margin-right: auto;
-
 }
 
 .armadura .containerCreation p {
