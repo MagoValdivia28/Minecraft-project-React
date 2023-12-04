@@ -2,11 +2,14 @@
 import Styles from "./page.module.css";
 import { FaGithub } from "react-icons/fa";
 import { SiLinktree } from "react-icons/si"; 
+import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
+
 
 export default function NoticiaPage() {
     return (
         <>
-          
+          < Header />
             <div className={Styles.main}>
                 <img className={Styles.img} src="https://www.minecraft.net/content/dam/games/dungeons/key-art/md25-header.jpg.transform/minecraft-image-medium/image.jpg" alt="Imagem do Minecraft"/>
 
@@ -62,6 +65,7 @@ export default function NoticiaPage() {
 
                
             </div>
+            < Footer />
          
         </>
     );
