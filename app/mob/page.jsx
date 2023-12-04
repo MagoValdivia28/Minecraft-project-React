@@ -3,24 +3,25 @@ import styles from './page.module.css';
 
 const Mobs = () => {
     return (
-        <>
-
-            <Header />
-            <div className={styles.main}>
-                <div className={styles.divs} >
-                    <p className={styles.hometitle}>Cuidado Mobs Perigosos no local ⚠</p>
+        <main className={styles.main}>
+            <div className={styles.opacidade}>
+                <Header />
+                <div className={styles.titulo}>
+                    <h1>Mobs</h1>
                 </div>
 
-                <div className={styles.divs}>
-                    <ul className={styles.cardlist}>
-                        <li><a className={styles.cardbox} href='https://help.minecraft.net/hc/en-us/categories/12617297898381'>Mineee</a></li>
-                        <li><a className={styles.cardbox} href='https://help.minecraft.net/hc/en-us/categories/12617297898381'>Mineee</a></li>
-                        <li><a className={styles.cardbox} href='https://help.minecraft.net/hc/en-us/categories/12617297898381'>Mineee</a></li>
-                    </ul>
+                <div className={styles.containerMob}>
+                    <div className={styles.mob}><img src={"/mobs.webp"} /></div>
+                    <div className={styles.tituloText}>
+                        <p>
+                            Em Minecraft, "mobs" refere-se a criaturas móveis encontradas no jogo. Existem diferentes tipos de mobs,
+                            incluindo animais pacíficos como vacas e porcos, assim como criaturas hostis como zumbis e esqueletos.
+                             Mobs desempenham papéis diversos, alguns fornecem recursos, enquanto outros representam 
+                             desafios para os jogadores. O termo "mobs" é uma abreviação de "mobile entities" (entidades móveis).</p>
+                    </div>
                 </div>
             </div>
-
-        </>
+        </main>
     );
 };
 
