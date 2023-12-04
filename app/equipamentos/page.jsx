@@ -15,6 +15,8 @@ const equipamentoPage = () => {
 
     const [equipamento, setEquipamento] = useState(null);
 
+    const [moreInfo, setMoreInfo] = useState(null);
+
     // Cor dos equipamentos
 
     const [corCapacete, setCorCapacete] = useState(null);
@@ -27,8 +29,19 @@ const equipamentoPage = () => {
 
     const [corEspada, setCorEspada] = useState(null);
 
+    const handleDeletar = async (id) => {
+        const url = `/api/equipamentos/${id}`;
+        try {
+            await axios.delete(url);
+            setDados(dados.filter((student) => student.id !== id));
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
 
-
+    const handleUpdate = async (id) => {
+        router.push(`/students/${id}`);
+    };
 
     const handleCorEquipamentos = (e, equip) => {
         if (equip == 'Capacete') {
@@ -154,6 +167,41 @@ const equipamentoPage = () => {
             <div className={styles.bg}>
                 <div className={styles.boxInventory}>
                     <div className={styles.armadura}>
+                        {
+                            moreInfo ? (
+                                dados.map((equipamento) => (
+                                    equipamento.id == moreInfo ? (
+                                        <div className={styles.containerPopUp}>
+                                            <p onClick={() => setMoreInfo(null)} className={styles.teste}>X</p>
+                                            <div className={styles.imgEquipamento}>
+                                                {
+                                                    equipamento.tipo == 'capacete' ? (
+                                                        <img style={{ backgroundColor: equipamento.cor }} src={"inventory/capaceteFinal.png"} alt="capacete" />
+                                                    ) : equipamento.tipo == 'peitoral' ? (
+                                                        <img style={{ backgroundColor: equipamento.cor }} src={"inventory/peitoralFinal.png"} alt="peitoral" />
+                                                    ) : equipamento.tipo == 'calca' ? (
+                                                        <img style={{ backgroundColor: equipamento.cor }} src={"inventory/calcaFinal.png"} alt="calça" />
+                                                    ) : equipamento.tipo == 'bota' ? (
+                                                        <img style={{ backgroundColor: equipamento.cor }} src={"inventory/botaFinal.png"} alt="bota" />
+                                                    ) : equipamento.tipo == 'espada' ? (
+                                                        <img style={{ backgroundColor: equipamento.cor }} src={"inventory/espadaFinal.png"} alt="espada" />
+                                                    ) : null
+
+                                                }
+                                            </div>
+                                            <h1>{equipamento.nome}</h1>
+                                            <p>{equipamento.descricao}</p>
+                                            <p>{equipamento.material}</p>
+                                            <p>{equipamento.tipo}</p>
+                                            <p>{equipamento.dano}</p>
+                                            <p>{equipamento.defesa}</p>
+                                            <button onClick={() => handleDeletar(equipamento.id)}>Remover</button>
+                                            <button onClick={() => handleUpdate(equipamento.id)}>Editar</button>
+                                        </div>
+                                    ) : null
+                                ))
+                            ) : null
+                        }
                         <div className={styles.armaduraSlotInventario}>
                             <div onClick={() => { setEquipamento('capacete'); setCorCapacete('#000'); setCorPeitoral(null); setCorCalca(null); setCorBota(null); setCorEspada(null) }} className={styles.itemArmadura}>
                                 <img style={{ backgroundColor: corCapacete }} id='capaceteImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/capaceteFinal.png"} alt="capacete" />
@@ -181,7 +229,7 @@ const equipamentoPage = () => {
                                                     {dados.some(equipamento => equipamento.tipo == 'capacete') ? (
                                                         dados.map((equipamento) => (
                                                             equipamento.tipo == 'capacete' ? (
-                                                                <div className={`${styles.itemArmadura} ${styles[`item${equipamento.nome}`]}`} key={equipamento.id}>
+                                                                <div onClick={() => setMoreInfo(equipamento.id)} className={`${styles.itemArmadura} ${styles[`item${equipamento.nome}`]}`} key={equipamento.id}>
                                                                     <img style={{ backgroundColor: equipamento.cor }} id='capaceteImg' className={`${styles.itemDoItem}`} src={"inventory/capaceteFinal.png"} alt="capacete" />
                                                                 </div>
                                                             ) : null
@@ -211,7 +259,7 @@ const equipamentoPage = () => {
                                                     {dados.some(equipamento => equipamento.tipo == 'peitoral') ? (
                                                         dados.map((equipamento) => (
                                                             equipamento.tipo == 'peitoral' ? (
-                                                                <div className={`${styles.itemArmadura} ${styles.itempeitoral}`} key={equipamento.id}>
+                                                                <div onClick={() => setMoreInfo(equipamento.id)} className={`${styles.itemArmadura} ${styles.itempeitoral}`} key={equipamento.id}>
                                                                     <img style={{ backgroundColor: equipamento.cor }} id='peitoralImg' className={`${styles.itemDoItem}`} src={"inventory/peitoralFinal.png"} alt="peitoral" />
                                                                 </div>
                                                             ) : null
@@ -241,7 +289,7 @@ const equipamentoPage = () => {
                                                     {dados.some(equipamento => equipamento.tipo == 'calca') ? (
                                                         dados.map((equipamento) => (
                                                             equipamento.tipo == 'calca' ? (
-                                                                <div className={`${styles.itemArmadura} ${styles.itemcalca}`} key={equipamento.id}>
+                                                                <div onClick={() => setMoreInfo(equipamento.id)} className={`${styles.itemArmadura} ${styles.itemcalca}`} key={equipamento.id}>
                                                                     <img style={{ backgroundColor: equipamento.cor }} id='calcaImg' className={`${styles.itemDoItem}`} src={"inventory/calcaFinal.png"} alt="calça" />
                                                                 </div>
                                                             ) : null
@@ -271,7 +319,7 @@ const equipamentoPage = () => {
                                                     {dados.some(equipamento => equipamento.tipo == 'bota') ? (
                                                         dados.map((equipamento) => (
                                                             equipamento.tipo == 'bota' ? (
-                                                                <div className={`${styles.itemArmadura} ${styles.itemcalca}`} key={equipamento.id}>
+                                                                <div onClick={() => setMoreInfo(equipamento.id)} className={`${styles.itemArmadura} ${styles.itemcalca}`} key={equipamento.id}>
                                                                     <img style={{ backgroundColor: equipamento.cor }} id='botaImg' className={`${styles.itemDoItem}`} src={"inventory/botaFinal.png"} alt="bota" />
                                                                 </div>
                                                             ) : null
@@ -301,7 +349,7 @@ const equipamentoPage = () => {
                                                     {dados.some(equipamento => equipamento.tipo == 'espada') ? (
                                                         dados.map((equipamento) => (
                                                             equipamento.tipo == 'espada' ? (
-                                                                <div className={`${styles.itemArmadura} ${styles[`item${equipamento.nome}`]}`} key={equipamento.id}>
+                                                                <div onClick={() => setMoreInfo(equipamento.id)} className={`${styles.itemArmadura} ${styles[`item${equipamento.nome}`]}`} key={equipamento.id}>
                                                                     <img style={{ backgroundColor: equipamento.cor }} id='espadaImg' className={`${styles.itemDoItem}`} src={"inventory/espadaFinal.png"} alt="espada" />
                                                                 </div>
                                                             ) : null

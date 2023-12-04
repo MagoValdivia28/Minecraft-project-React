@@ -30,7 +30,8 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, value,
                 setDanoEquipamento('');
                 console.log(value);
                 router.push(`/equipamentos/`);
-                setDados([...dados, { nome: nameEquipamento, descricao: descriptionEquipamento, material: materialEquipamento, tipo, dano: danoEquipamento, defesa: defesaEquipamento, cor: value }]);
+                const response = await axios.get("/api/equipamentos");
+                setDados(response.data);
             }
         } catch (error) {
             console.error("Error submitting data:", error);
