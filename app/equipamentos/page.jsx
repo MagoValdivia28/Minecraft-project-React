@@ -4,6 +4,7 @@ import Header from '../components/header/header';
 import styles from './equipamentos.module.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import MoreInfoEquipamento from "../components/moreInfoEquipamento/MoreInfoEquipamento";
 
 // components
 
@@ -14,6 +15,8 @@ const equipamentoPage = () => {
     const [equipamentos, setEquipamentos] = useState([]);
 
     const [equipamento, setEquipamento] = useState(null);
+
+    const [editEquipamento, setEditEquipamento] = useState(null);
 
     const [moreInfo, setMoreInfo] = useState(null);
 
@@ -39,8 +42,19 @@ const equipamentoPage = () => {
         }
     };
 
-    const handleUpdate = async (id) => {
-        router.push(`/students/${id}`);
+    const handleEdit = (equipamento) => {
+        setEditEquipamento(equipamento);
+        equipamento.tipo == 'capacete' ? (
+            setCorCapacete(equipamento.cor)
+        ) : equipamento.tipo == 'peitoral' ? (
+            setCorPeitoral(equipamento.cor)
+        ) : equipamento.tipo == 'calca' ? (
+            setCorCalca(equipamento.cor)
+        ) : equipamento.tipo == 'bota' ? (
+            setCorBota(equipamento.cor)
+        ) : equipamento.tipo == 'espada' ? (
+            setCorEspada(equipamento.cor)
+        ) : null
     };
 
     const handleCorEquipamentos = (e, equip) => {
@@ -171,33 +185,7 @@ const equipamentoPage = () => {
                             moreInfo ? (
                                 dados.map((equipamento) => (
                                     equipamento.id == moreInfo ? (
-                                        <div className={styles.containerPopUp}>
-                                            <p onClick={() => setMoreInfo(null)} className={styles.teste}>X</p>
-                                            <div className={styles.imgEquipamento}>
-                                                {
-                                                    equipamento.tipo == 'capacete' ? (
-                                                        <img style={{ backgroundColor: equipamento.cor }} src={"inventory/capaceteFinal.png"} alt="capacete" />
-                                                    ) : equipamento.tipo == 'peitoral' ? (
-                                                        <img style={{ backgroundColor: equipamento.cor }} src={"inventory/peitoralFinal.png"} alt="peitoral" />
-                                                    ) : equipamento.tipo == 'calca' ? (
-                                                        <img style={{ backgroundColor: equipamento.cor }} src={"inventory/calcaFinal.png"} alt="calça" />
-                                                    ) : equipamento.tipo == 'bota' ? (
-                                                        <img style={{ backgroundColor: equipamento.cor }} src={"inventory/botaFinal.png"} alt="bota" />
-                                                    ) : equipamento.tipo == 'espada' ? (
-                                                        <img style={{ backgroundColor: equipamento.cor }} src={"inventory/espadaFinal.png"} alt="espada" />
-                                                    ) : null
-
-                                                }
-                                            </div>
-                                            <h1>{equipamento.nome}</h1>
-                                            <p>{equipamento.descricao}</p>
-                                            <p>{equipamento.material}</p>
-                                            <p>{equipamento.tipo}</p>
-                                            <p>{equipamento.dano}</p>
-                                            <p>{equipamento.defesa}</p>
-                                            <button onClick={() => handleDeletar(equipamento.id)}>Remover</button>
-                                            <button onClick={() => handleUpdate(equipamento.id)}>Editar</button>
-                                        </div>
+                                        <MoreInfoEquipamento idKey={equipamento.id} equipamentoArray={equipamento} funcEdit={() => handleEdit(equipamento)} funcDel={() => handleDeletar(equipamento.id)} popUP={setMoreInfo} />
                                     ) : null
                                 ))
                             ) : null
@@ -245,7 +233,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Capacete')} setDados={setDados} value={corCapacete} dados={dados} />
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Capacete')} setDados={setDados} corEquipamento={corCapacete} edited={editEquipamento} setarCor={setCorCapacete} fechar={() => setMoreInfo(null)}  />
                                 </>
                             ) : null
                         }
@@ -275,7 +263,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Peitoral')} setDados={setDados} value={corPeitoral} dados={dados} />
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Peitoral')} setDados={setDados} corEquipamento={corPeitoral} edited={editEquipamento} setarCor={setCorPeitoral} fechar={() => setMoreInfo(null)}  />
                                 </>
                             ) : null
                         }
@@ -305,7 +293,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Calca')} setDados={setDados} value={corCalca} dados={dados} />
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Calca')} setDados={setDados} corEquipamento={corCalca} edited={editEquipamento} setarCor={setCorCalca} fechar={() => setMoreInfo(null)}  />
                                 </>
                             ) : null
                         }
@@ -335,7 +323,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Bota')} setDados={setDados} value={corBota} dados={dados} />
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Bota')} setDados={setDados} corEquipamento={corBota} edited={editEquipamento} setarCor={setCorBota} fechar={() => setMoreInfo(null)}  />   
                                 </>
                             ) : null
                         }
@@ -365,7 +353,7 @@ const equipamentoPage = () => {
                                             <p>Não há equipamentos cadastrados</p>
                                         )}
                                     </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Espada')} setDados={setDados} value={corEspada} dados={dados} />
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Espada')} setDados={setDados} corEquipamento={corEspada} edited={editEquipamento} setarCor={setCorEspada} fechar={() => setMoreInfo(null)}  />   
                                 </>
                             ) : null
                         }

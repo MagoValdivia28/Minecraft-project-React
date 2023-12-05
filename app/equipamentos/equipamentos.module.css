@@ -113,25 +113,3 @@
     justify-content: flex-start;
 
 }
-
-.containerPopUp {
-    background: #171615;
-    padding: 10px;
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-}
-
-.containerPopUp .imgEquipamento {
-    padding: 1rem 3rem;
-    background-color: #8b8b8b;
-
-}
-
-.teste {
-    font-family: 'Minecraft';
-    cursor: pointer;
-}

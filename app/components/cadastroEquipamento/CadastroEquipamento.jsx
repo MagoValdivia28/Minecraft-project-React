@@ -4,7 +4,7 @@ import styles from './cadastroEquipamento.module.css';
 import { useRouter } from "next/navigation";
 import verificacoesEquipamentos from "../verifications/Verifications.js";
 
-const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, value, dados }) => {
+const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEquipamento, edited, setarCor, fechar }) => {
 
     const [nameEquipamento, setNameEquipamento] = useState('');
     const [descriptionEquipamento, setDescriptionEquipamento] = useState('');
@@ -14,21 +14,44 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, value,
     const [errors, setErrors] = useState([]);
     const router = useRouter();
 
-    const handleSend = async (e, tipo) => {
-        e.preventDefault();
+    const handleSendEdit = async (edited) => {
         try {
             let errorsArray = [];
-            verificacoesEquipamentos(nameEquipamento, descriptionEquipamento, materialEquipamento, tipo, danoEquipamento, defesaEquipamento, value, errorsArray);
+            verificacoesEquipamentos(nameEquipamento, descriptionEquipamento, materialEquipamento, edited.tipo, danoEquipamento, defesaEquipamento, corEquipamento, errorsArray);
             if (errorsArray.length > 0) {
                 setErrors(errorsArray);
             } else {
-                await axios.post("/api/equipamentos", { nome: nameEquipamento, descricao: descriptionEquipamento, material: materialEquipamento, tipo, dano: danoEquipamento, defesa: defesaEquipamento, cor: value });
+                await axios.put(`/api/equipamentos/${edited.id}`, { nome: nameEquipamento, descricao: descriptionEquipamento, material: materialEquipamento, tipo: edited.tipo, dano: danoEquipamento, defesa: defesaEquipamento, cor: corEquipamento });
                 setNameEquipamento('');
                 setDescriptionEquipamento('');
                 setMaterialEquipamento('');
                 setDefesaEquipamento('');
                 setDanoEquipamento('');
-                console.log(value);
+                setarCor('#000000');
+                router.push(`/equipamentos/`);
+                const response = await axios.get("/api/equipamentos");
+                setDados(response.data);
+            }
+        } catch (error) {
+            console.error("Error updating student:", error);
+        }
+    };
+
+    const handleSend = async (tipo) => {
+        try {
+            let errorsArray = [];
+            verificacoesEquipamentos(nameEquipamento, descriptionEquipamento, materialEquipamento, tipo, danoEquipamento, defesaEquipamento, corEquipamento, errorsArray);
+            if (errorsArray.length > 0) {
+                setErrors(errorsArray);
+            } else {
+                await axios.post("/api/equipamentos", { nome: nameEquipamento, descricao: descriptionEquipamento, material: materialEquipamento, tipo, dano: danoEquipamento, defesa: defesaEquipamento, cor: corEquipamento });
+                setNameEquipamento('');
+                setDescriptionEquipamento('');
+                setMaterialEquipamento('');
+                setDefesaEquipamento('');
+                setDanoEquipamento('');
+                setarCor('#000000');
+                console.log(corEquipamento);
                 router.push(`/equipamentos/`);
                 const response = await axios.get("/api/equipamentos");
                 setDados(response.data);
@@ -38,8 +61,18 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, value,
         }
     }
 
+    useEffect(() => {
+        if (edited) {
+            setNameEquipamento(edited.nome);
+            setDescriptionEquipamento(edited.descricao);
+            setMaterialEquipamento(edited.material);
+            setDefesaEquipamento(edited.defesa);
+            setDanoEquipamento(edited.dano);
+        }
+    }, [edited])
+
     return (
-        <form className={styles.formEquipamento} onSubmit={(e) => handleSend(e, equipamento)}>
+        <div onClick={fechar} className={styles.formEquipamento}>
             <input value={nameEquipamento} onChange={(e) => setNameEquipamento(e.target.value)} type="text" placeholder='Nome do equipamento' />
             {
                 errors.some(erro => erro === "Nome não informado") ? (
@@ -91,15 +124,24 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, value,
             }
             <div className={styles.containerInputColor}>
                 <label>Cor do equipamento: </label>
-                <input value={value} type="color" onChange={funcCorEquipamento} />
+                <input value={corEquipamento} type="color" onChange={funcCorEquipamento} />
             </div>
             {
                 errors.some(erro => erro === "Cor não informada") ? (
                     <span className={styles.errorMsg}>Cor não informada</span>
                 ) : null
             }
-            <button type="submit" className={styles.buttonSend}>Cadastrar {equipamento}</button>
-        </form>
+            {
+                edited ? (
+                    <button onClick={(e) => handleSendEdit(edited)} type="submit" className={styles.buttonSend}>Editar {equipamento}</button>
+
+                ) : (
+                    <button onClick={(e) => handleSend(equipamento)} type="submit" className={styles.buttonSend}>Cadastrar {equipamento}</button>
+
+                )
+            }
+        </div>
+
     )
 }
 
