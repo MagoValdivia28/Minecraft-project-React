@@ -59,23 +59,6 @@
     display: none;
 }
 
-
-.armadura .containerCreation {
-    height: 54px;
-    display: flex;
-    align-items: center;
-    margin-right: auto;
-}
-
-.armadura .containerCreation p {
-    color: #fff;
-    font-family: 'Minecraft', sans-serif;
-    text-shadow: 2px 2px #3F3F3F;
-    font-size: 20px;
-    margin-left: 1rem;
-
-}
-
 .armadura .peitoralCreation {
     margin-top: 54px;
 }
@@ -112,4 +95,19 @@
     flex-direction: row;
     justify-content: flex-start;
 
+}
+
+.containerCreation {
+    height: 54px;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.containerCreation p {
+    color: #fff;
+    font-family: 'Minecraft', sans-serif;
+    text-shadow: 2px 2px #3F3F3F;
+    font-size: 20px;
+    margin-left: 1rem;
 }

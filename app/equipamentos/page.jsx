@@ -22,18 +22,10 @@ const equipamentoPage = () => {
 
     // Cor dos equipamentos
 
-    const [corCapacete, setCorCapacete] = useState(null);
-
-    const [corPeitoral, setCorPeitoral] = useState(null);
-
-    const [corCalca, setCorCalca] = useState(null);
-
-    const [corBota, setCorBota] = useState(null);
-
-    const [corEspada, setCorEspada] = useState(null);
+    const [corEquipamento, setCorEquipamento] = useState(null);
 
     const handleDeletar = async (id) => {
-        const url = `/api/equipamentos/${id}`;
+        const url = `/api/equipamentos/id/${id}`;
         try {
             await axios.delete(url);
             setDados(dados.filter((student) => student.id !== id));
@@ -42,55 +34,25 @@ const equipamentoPage = () => {
         }
     };
 
+    const handleFilteredEquipamento = async (type) => {
+        const url = `/api/equipamentos/type/${type}`;
+        try {
+            const response = await axios.get(url);
+            setDados(response.data);
+            setEquipamentos(response.data);
+            console.log(response.data);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+
     const handleEdit = (equipamento) => {
         setEditEquipamento(equipamento);
-        equipamento.tipo == 'capacete' ? (
-            setCorCapacete(equipamento.cor)
-        ) : equipamento.tipo == 'peitoral' ? (
-            setCorPeitoral(equipamento.cor)
-        ) : equipamento.tipo == 'calca' ? (
-            setCorCalca(equipamento.cor)
-        ) : equipamento.tipo == 'bota' ? (
-            setCorBota(equipamento.cor)
-        ) : equipamento.tipo == 'espada' ? (
-            setCorEspada(equipamento.cor)
-        ) : null
+        setCorEquipamento(equipamento.cor);
     };
 
-    const handleCorEquipamentos = (e, equip) => {
-        if (equip == 'Capacete') {
-            setCorCapacete(e.target.value);
-            setCorPeitoral(null);
-            setCorCalca(null);
-            setCorBota(null);
-            setCorEspada(null);
-        } else if (equip == 'Peitoral') {
-            setCorCapacete(null);
-            setCorPeitoral(e.target.value);
-            setCorCalca(null);
-            setCorBota(null);
-            setCorEspada(null);
-        } else if (equip == 'Calca') {
-            setCorCapacete(null);
-            setCorPeitoral(null);
-            setCorCalca(e.target.value);
-            setCorBota(null);
-            setCorEspada(null);
-        } else if (equip == 'Bota') {
-            setCorCapacete(null);
-            setCorPeitoral(null);
-            setCorCalca(null);
-            setCorBota(e.target.value);
-            setCorEspada(null);
-        } else if (equip == 'Espada') {
-            setCorCapacete(null);
-            setCorPeitoral(null);
-            setCorCalca(null);
-            setCorBota(null);
-            setCorEspada(e.target.value);
-        } else {
-            console.log('Não foi possível alterar a cor do equipamento');
-        }
+    const handleCorEquipamentos = (e) => {
+        setCorEquipamento(e.target.value);
     }
 
     useEffect(() => {
@@ -158,13 +120,13 @@ const equipamentoPage = () => {
         } else {
             console.log('Não há equipamento selecionado');
         }
-    }, [corCapacete, corPeitoral, corCalca, corBota, corEspada])
+    }, [equipamento])
 
     useEffect(() => {
         async function fetchEquipamentos() {
             try {
                 const response = await axios.get("/api/equipamentos");
-                console.log(response);
+                // console.log(response);
                 setEquipamentos(response.data);
                 setDados(response.data);
             } catch (error) {
@@ -191,169 +153,41 @@ const equipamentoPage = () => {
                             ) : null
                         }
                         <div className={styles.armaduraSlotInventario}>
-                            <div onClick={() => { setEquipamento('capacete'); setCorCapacete('#000'); setCorPeitoral(null); setCorCalca(null); setCorBota(null); setCorEspada(null) }} className={styles.itemArmadura}>
-                                <img style={{ backgroundColor: corCapacete }} id='capaceteImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/capaceteFinal.png"} alt="capacete" />
+                            <div onClick={() => { handleFilteredEquipamento('capacete'); setEquipamento('capacete'); setCorEquipamento('#000'); }} className={styles.itemArmadura}>
+                                <img style={{ backgroundColor: corEquipamento }} id='capaceteImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/capaceteFinal.png"} alt="capacete" />
                             </div>
-                            <div onClick={() => { setEquipamento('peitoral'); setCorPeitoral('#000'); setCorCalca(null); setCorBota(null); setCorEspada(null); setCorCapacete(null) }} className={`${styles.itemArmadura} ${styles.itempeitoral}`}>
-                                <img style={{ backgroundColor: corPeitoral }} id='peitoralImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/peitoralFinal.png"} alt="peitoral" />
+                            <div onClick={() => { handleFilteredEquipamento('peitoral'); setEquipamento('peitoral'); setCorEquipamento('#000') }} className={`${styles.itemArmadura} ${styles.itempeitoral}`}>
+                                <img style={{ backgroundColor: corEquipamento }} id='peitoralImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/peitoralFinal.png"} alt="peitoral" />
                             </div>
-                            <div onClick={() => { setEquipamento('calca'); setCorCalca('#000'); setCorBota(null); setCorEspada(null); setCorCapacete(null); setCorPeitoral(null) }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
-                                <img style={{ backgroundColor: corCalca }} id="calcaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/calcaFinal.png"} alt="calça" />
+                            <div onClick={() => { handleFilteredEquipamento('calca'); setEquipamento('calca'); setCorEquipamento('#000') }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
+                                <img style={{ backgroundColor: corEquipamento }} id="calcaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/calcaFinal.png"} alt="calça" />
                             </div>
-                            <div onClick={() => { setEquipamento('bota'); setCorBota('#000'); setCorCapacete(null); setCorPeitoral(null); setCorCalca(null); setCorEspada(null) }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
-                                <img style={{ backgroundColor: corBota }} id="botaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/botaFinal.png"} alt="bota" />
+                            <div onClick={() => { handleFilteredEquipamento('bota'); setEquipamento('bota'); setCorEquipamento('#000') }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
+                                <img style={{ backgroundColor: corEquipamento }} id="botaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/botaFinal.png"} alt="bota" />
                             </div>
-                            <div onClick={() => { setEquipamento('espada'); setCorEspada('#000'); setCorCapacete(null); setCorPeitoral(null); setCorCalca(null); setCorBota(null) }} className={`${styles.itemArmadura}`}>
-                                <img style={{ backgroundColor: corEspada }} id="espadaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/espadaFinal.png"} alt="espada" />
+                            <div onClick={() => { handleFilteredEquipamento('espada'); setEquipamento('espada'); setCorEquipamento('#000') }} className={`${styles.itemArmadura}`}>
+                                <img style={{ backgroundColor: corEquipamento }} id="espadaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/espadaFinal.png"} alt="espada" />
                             </div>
                         </div>
                         {
-                            equipamento == 'capacete' ? (
+                            equipamento ? (
                                 <>
                                     <div className={styles.containerCreation}>
-                                        {dados.length ? (
-                                            equipamentos ? (
-                                                <div className={styles.equipamentosPredefinidos}>
-                                                    {dados.some(equipamento => equipamento.tipo == 'capacete') ? (
-                                                        dados.map((equipamento) => (
-                                                            equipamento.tipo == 'capacete' ? (
-                                                                <div onClick={() => setMoreInfo(equipamento.id)} className={`${styles.itemArmadura} ${styles[`item${equipamento.nome}`]}`} key={equipamento.id}>
-                                                                    <img style={{ backgroundColor: equipamento.cor }} id='capaceteImg' className={`${styles.itemDoItem}`} src={"inventory/capaceteFinal.png"} alt="capacete" />
-                                                                </div>
-                                                            ) : null
-                                                        ))
-                                                    ) : (
-                                                        <p>Não há capacetes cadastrados</p>
-                                                    )}
-                                                </div>
-                                            ) : (
-                                                <p>Carregando...</p>
-                                            )
+                                        {dados.length > 0 ? (
+                                            <div className={styles.equipamentosPredefinidos}>
+                                                {
+                                                    dados.map((equipamentoMap) => (
+                                                        <div onClick={() => setMoreInfo(equipamentoMap.id)} className={`${styles.itemArmadura} ${styles[`item${equipamentoMap.nome}`]}`} key={equipamentoMap.id}>
+                                                            <img style={{ backgroundColor: equipamentoMap.cor }} id={`${equipamento}Img`} className={`${styles.itemDoItem}`} src={`inventory/${equipamento}Final.png`} alt={equipamento} />
+                                                        </div>
+                                                    ))
+                                                }
+                                            </div>
                                         ) : (
-                                            <p>Não há equipamentos cadastrados</p>
+                                            <p>Não há {equipamento}s cadastrados</p>
                                         )}
                                     </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Capacete')} setDados={setDados} corEquipamento={corCapacete} edited={editEquipamento} setarCor={setCorCapacete} fechar={() => setMoreInfo(null)}  />
-                                </>
-                            ) : null
-                        }
-                        {
-                            equipamento == 'peitoral' ? (
-                                <>
-                                    <div className={`${styles.containerCreation} ${styles.peitoralCreation}`}>
-                                        {dados.length ? (
-                                            equipamentos ? (
-                                                <div className={styles.equipamentosPredefinidos}>
-                                                    {dados.some(equipamento => equipamento.tipo == 'peitoral') ? (
-                                                        dados.map((equipamento) => (
-                                                            equipamento.tipo == 'peitoral' ? (
-                                                                <div onClick={() => setMoreInfo(equipamento.id)} className={`${styles.itemArmadura} ${styles.itempeitoral}`} key={equipamento.id}>
-                                                                    <img style={{ backgroundColor: equipamento.cor }} id='peitoralImg' className={`${styles.itemDoItem}`} src={"inventory/peitoralFinal.png"} alt="peitoral" />
-                                                                </div>
-                                                            ) : null
-                                                        ))
-                                                    ) : (
-                                                        <p>Não há peitorais cadastrados</p>
-                                                    )}
-                                                </div>
-                                            ) : (
-                                                <p>Carregando...</p>
-                                            )
-                                        ) : (
-                                            <p>Não há equipamentos cadastrados</p>
-                                        )}
-                                    </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Peitoral')} setDados={setDados} corEquipamento={corPeitoral} edited={editEquipamento} setarCor={setCorPeitoral} fechar={() => setMoreInfo(null)}  />
-                                </>
-                            ) : null
-                        }
-                        {
-                            equipamento == 'calca' ? (
-                                <>
-                                    <div className={`${styles.containerCreation} ${styles.calcaCreation}`}>
-                                        {dados.length ? (
-                                            equipamentos ? (
-                                                <div className={styles.equipamentosPredefinidos}>
-                                                    {dados.some(equipamento => equipamento.tipo == 'calca') ? (
-                                                        dados.map((equipamento) => (
-                                                            equipamento.tipo == 'calca' ? (
-                                                                <div onClick={() => setMoreInfo(equipamento.id)} className={`${styles.itemArmadura} ${styles.itemcalca}`} key={equipamento.id}>
-                                                                    <img style={{ backgroundColor: equipamento.cor }} id='calcaImg' className={`${styles.itemDoItem}`} src={"inventory/calcaFinal.png"} alt="calça" />
-                                                                </div>
-                                                            ) : null
-                                                        ))
-                                                    ) : (
-                                                        <p>Não há calças cadastradas</p>
-                                                    )}
-                                                </div>
-                                            ) : (
-                                                <p>Carregando...</p>
-                                            )
-                                        ) : (
-                                            <p>Não há equipamentos cadastrados</p>
-                                        )}
-                                    </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Calca')} setDados={setDados} corEquipamento={corCalca} edited={editEquipamento} setarCor={setCorCalca} fechar={() => setMoreInfo(null)}  />
-                                </>
-                            ) : null
-                        }
-                        {
-                            equipamento == 'bota' ? (
-                                <>
-                                    <div className={`${styles.containerCreation} ${styles.botaCreation}`}>
-                                        {dados.length ? (
-                                            equipamentos ? (
-                                                <div className={styles.equipamentosPredefinidos}>
-                                                    {dados.some(equipamento => equipamento.tipo == 'bota') ? (
-                                                        dados.map((equipamento) => (
-                                                            equipamento.tipo == 'bota' ? (
-                                                                <div onClick={() => setMoreInfo(equipamento.id)} className={`${styles.itemArmadura} ${styles.itemcalca}`} key={equipamento.id}>
-                                                                    <img style={{ backgroundColor: equipamento.cor }} id='botaImg' className={`${styles.itemDoItem}`} src={"inventory/botaFinal.png"} alt="bota" />
-                                                                </div>
-                                                            ) : null
-                                                        ))
-                                                    ) : (
-                                                        <p>Não há botas cadastradas</p>
-                                                    )}
-                                                </div>
-                                            ) : (
-                                                <p>Carregando...</p>
-                                            )
-                                        ) : (
-                                            <p>Não há equipamentos cadastrados</p>
-                                        )}
-                                    </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Bota')} setDados={setDados} corEquipamento={corBota} edited={editEquipamento} setarCor={setCorBota} fechar={() => setMoreInfo(null)}  />   
-                                </>
-                            ) : null
-                        }
-                        {
-                            equipamento == 'espada' ? (
-                                <>
-                                    <div className={`${styles.containerCreation} ${styles.espadaCreation}`}>
-                                        {dados.length ? (
-                                            equipamentos ? (
-                                                <div className={styles.equipamentosPredefinidos}>
-                                                    {dados.some(equipamento => equipamento.tipo == 'espada') ? (
-                                                        dados.map((equipamento) => (
-                                                            equipamento.tipo == 'espada' ? (
-                                                                <div onClick={() => setMoreInfo(equipamento.id)} className={`${styles.itemArmadura} ${styles[`item${equipamento.nome}`]}`} key={equipamento.id}>
-                                                                    <img style={{ backgroundColor: equipamento.cor }} id='espadaImg' className={`${styles.itemDoItem}`} src={"inventory/espadaFinal.png"} alt="espada" />
-                                                                </div>
-                                                            ) : null
-                                                        ))
-                                                    ) : (
-                                                        <p>Não há espadas cadastradas</p>
-                                                    )}
-                                                </div>
-                                            ) : (
-                                                <p>Carregando...</p>
-                                            )
-                                        ) : (
-                                            <p>Não há equipamentos cadastrados</p>
-                                        )}
-                                    </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e, 'Espada')} setDados={setDados} corEquipamento={corEspada} edited={editEquipamento} setarCor={setCorEspada} fechar={() => setMoreInfo(null)}  />   
+                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e)} setDados={setDados} corEquipamento={corEquipamento} edited={editEquipamento} setarCor={setCorEquipamento} fechar={() => setMoreInfo(null)} />
                                 </>
                             ) : null
                         }

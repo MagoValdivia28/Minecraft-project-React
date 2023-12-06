@@ -21,7 +21,7 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEqu
             if (errorsArray.length > 0) {
                 setErrors(errorsArray);
             } else {
-                await axios.put(`/api/equipamentos/${edited.id}`, { nome: nameEquipamento, descricao: descriptionEquipamento, material: materialEquipamento, tipo: edited.tipo, dano: danoEquipamento, defesa: defesaEquipamento, cor: corEquipamento });
+                await axios.put(`/api/equipamentos/id/${edited.id}`, { nome: nameEquipamento, descricao: descriptionEquipamento, material: materialEquipamento, tipo: edited.tipo, dano: danoEquipamento, defesa: defesaEquipamento, cor: corEquipamento });
                 setNameEquipamento('');
                 setDescriptionEquipamento('');
                 setMaterialEquipamento('');
@@ -51,7 +51,6 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEqu
                 setDefesaEquipamento('');
                 setDanoEquipamento('');
                 setarCor('#000000');
-                console.log(corEquipamento);
                 router.push(`/equipamentos/`);
                 const response = await axios.get("/api/equipamentos");
                 setDados(response.data);
