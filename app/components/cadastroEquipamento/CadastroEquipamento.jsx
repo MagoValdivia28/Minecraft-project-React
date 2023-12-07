@@ -14,6 +14,7 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEqu
     const [errors, setErrors] = useState([]);
     const router = useRouter();
 
+
     const handleSendEdit = async (edited) => {
         try {
             let errorsArray = [];
@@ -29,8 +30,9 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEqu
                 setDanoEquipamento('');
                 setarCor('#000000');
                 router.push(`/equipamentos/`);
-                const response = await axios.get("/api/equipamentos");
-                setDados(response.data);
+                const url = `/api/equipamentos/type/${edited.tipo}`; // Use the same URL as in handleSend
+                const response = await axios.get(url);
+                setDados(response.data.equipamentosFiltrados); // Update dados with the filtered data
             }
         } catch (error) {
             console.error("Error updating student:", error);
@@ -41,6 +43,7 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEqu
         try {
             let errorsArray = [];
             verificacoesEquipamentos(nameEquipamento, descriptionEquipamento, materialEquipamento, tipo, danoEquipamento, defesaEquipamento, corEquipamento, errorsArray);
+            const url = `/api/equipamentos/type/${tipo}`;
             if (errorsArray.length > 0) {
                 setErrors(errorsArray);
             } else {
@@ -52,8 +55,8 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEqu
                 setDanoEquipamento('');
                 setarCor('#000000');
                 router.push(`/equipamentos/`);
-                const response = await axios.get("/api/equipamentos");
-                setDados(response.data);
+                const response = await axios.get(url);
+                setDados(response.data.equipamentosFiltrados);
             }
         } catch (error) {
             console.error("Error submitting data:", error);

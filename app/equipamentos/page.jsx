@@ -34,17 +34,7 @@ const equipamentoPage = () => {
         }
     };
 
-    const handleFilteredEquipamento = async (type) => {
-        const url = `/api/equipamentos/type/${type}`;
-        try {
-            const response = await axios.get(url);
-            setDados(response.data);
-            setEquipamentos(response.data);
-            console.log(response.data);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    }
+
 
     const handleEdit = (equipamento) => {
         setEditEquipamento(equipamento);
@@ -123,19 +113,19 @@ const equipamentoPage = () => {
     }, [equipamento])
 
     useEffect(() => {
-        async function fetchEquipamentos() {
+        async function handleFilteredEquipamento(equipamento) {
+            const url = `/api/equipamentos/type/${equipamento}`;
             try {
-                const response = await axios.get("/api/equipamentos");
-                // console.log(response);
-                setEquipamentos(response.data);
-                setDados(response.data);
+                const response = await axios.get(url);
+                setDados(response.data.equipamentosFiltrados);
+                setEquipamentos(response.data.equipamentosFiltrados);
+                console.log(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
-
-        fetchEquipamentos();
-    }, []);
+        handleFilteredEquipamento(equipamento);
+    }, [equipamento]); 
 
     return (
         <>
@@ -153,19 +143,19 @@ const equipamentoPage = () => {
                             ) : null
                         }
                         <div className={styles.armaduraSlotInventario}>
-                            <div onClick={() => { handleFilteredEquipamento('capacete'); setEquipamento('capacete'); setCorEquipamento('#000'); }} className={styles.itemArmadura}>
+                            <div onClick={() => { setEquipamento('capacete'); setCorEquipamento('#000'); }} className={styles.itemArmadura}>
                                 <img style={{ backgroundColor: corEquipamento }} id='capaceteImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/capaceteFinal.png"} alt="capacete" />
                             </div>
-                            <div onClick={() => { handleFilteredEquipamento('peitoral'); setEquipamento('peitoral'); setCorEquipamento('#000') }} className={`${styles.itemArmadura} ${styles.itempeitoral}`}>
+                            <div onClick={() => { setEquipamento('peitoral'); setCorEquipamento('#000') }} className={`${styles.itemArmadura} ${styles.itempeitoral}`}>
                                 <img style={{ backgroundColor: corEquipamento }} id='peitoralImg' className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/peitoralFinal.png"} alt="peitoral" />
                             </div>
-                            <div onClick={() => { handleFilteredEquipamento('calca'); setEquipamento('calca'); setCorEquipamento('#000') }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
+                            <div onClick={() => { setEquipamento('calca'); setCorEquipamento('#000') }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
                                 <img style={{ backgroundColor: corEquipamento }} id="calcaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/calcaFinal.png"} alt="calça" />
                             </div>
-                            <div onClick={() => { handleFilteredEquipamento('bota'); setEquipamento('bota'); setCorEquipamento('#000') }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
+                            <div onClick={() => { setEquipamento('bota'); setCorEquipamento('#000') }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
                                 <img style={{ backgroundColor: corEquipamento }} id="botaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/botaFinal.png"} alt="bota" />
                             </div>
-                            <div onClick={() => { handleFilteredEquipamento('espada'); setEquipamento('espada'); setCorEquipamento('#000') }} className={`${styles.itemArmadura}`}>
+                            <div onClick={() => {  setEquipamento('espada'); setCorEquipamento('#000') }} className={`${styles.itemArmadura}`}>
                                 <img style={{ backgroundColor: corEquipamento }} id="espadaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/espadaFinal.png"} alt="espada" />
                             </div>
                         </div>
