@@ -160,3 +160,13 @@
     width: 90%;
     margin-bottom: 10px;
 }
+
+.botoesER{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+.hidden{
+    display: none;
+}

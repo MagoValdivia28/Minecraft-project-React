@@ -5,6 +5,53 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 const membroPage = () => {
+    const router = useRouter();
+    const [dados, setDados] = useState([]);
+    const [membros, setMembros] = useState([]);
+
+    const [membro, setMembro] = useState(null);
+
+    //cor do card da pessoa
+
+    const [corCard, setCorCard] = useState('#000');
+
+    // inpts do card da pessoa
+
+    const [nome, setNome] = useState('');
+    const [idade, setIdade] = useState(0);
+    const [descricao, setDescricao] = useState('');
+    const [imagem, setUrlImagem] = useState('');
+
+    // postar
+    const handleSend = async (e, tipo) => {
+        e.preventDefault();
+        try {
+            await axios.post("/api/membros", { nome, idade, descricao, imagem, cor: corCard });
+            setNome('');
+            setIdade('');
+            setDescricao('');
+            setUrlImagem('');
+            router.push(`/membros/`);
+            setDados([...dados, { nome, idade, descricao, imagem, cor: corCard }]);
+        } catch (error) {
+            console.error("Error submitting data:", error);
+        }
+    }
+
+    useEffect(() => {
+        async function fetchMembros() {
+            try {
+                const response = await axios.get("/api/membros");
+                setMembros(response.data);
+                setDados(response.data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        fetchMembros();
+    }, []);
+
     return (
         <>
             <Header />
@@ -27,6 +74,10 @@ const membroPage = () => {
                             <img className={styles.imgPessoa} src="/imagemfacemine1.webp" />
                             <h2 className={styles.pessoa}>Felipe Pedro</h2>
                             <p>Tech Lead/Desenvolvedor</p>
+                            <div className={styles.botoesER}>
+                                <button className={styles.botaoEditar}>edita</button>
+                                <button className={styles.botaoRemover} >remove</button>
+                            </div>
                         </div>
                         <div className={styles.cardPessoa2}>
                             <img className={styles.imgPessoa} src="/imagemfacemine2.jpeg" />
@@ -58,7 +109,7 @@ const membroPage = () => {
 
                     </div>
                     <div className={styles.cardCriarMembro}>
-                        
+
                     </div>
                 </div>
                 <div>
