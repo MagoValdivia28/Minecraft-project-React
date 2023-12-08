@@ -92,25 +92,22 @@
 
 
 .inputs {
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
-    height: 3rem;
+    margin-top: 2rem;
+    height: 4rem;
     background-color: #8b8b8b;
     border-top: #404040 0.2rem solid;
     border-left: #404040 0.2rem solid;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
     font-family: 'Minecraft-Font';
-    color: white;
-    font-size: 2rem;
+    color: rgb(225, 225, 225);
+    font-size: 1.6rem;
+    padding: 0.6rem;
+    text-shadow: 2px 2px #3F3F3F;
 }
 
-.inputs::placeholder {
-    color: white;
-    font-size: 2rem;
-}
 
 
 
