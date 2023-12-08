@@ -28,14 +28,14 @@ const membroPage = () => {
     const handleSend = async (e, tipo) => {
         e.preventDefault();
         try {
-            await axios.post("/api/membros", { nome, idade, descricao, urlimagem, cargo, cor: corCard });
+            await axios.post("/api/membros", { nome, idade, descricao, imagem, cargo, cor: corCard });
             setNome('');
             setIdade('');
             setDescricao('');
             setUrlImagem('');
             setCargo('');
             router.push(`/membros/`);
-            setDados([...dados, { nome, idade, descricao, urlimagem, cargo, cor: corCard }]);
+            setDados([...dados, { nome, idade, descricao, imagem, cargo, cor: corCard }]);
         } catch (error) {
             console.error("Error submitting data:", error);
         }
@@ -133,7 +133,7 @@ const membroPage = () => {
                     </div>
 
                     <div className={styles.cardCriarMembro}>
-                        <button className={styles.botaoAdd}>+</button>
+                        <button className={styles.botaoAdd} onClick={() => { setMembro() }}>+</button>
                     </div>
                 </div>
             </div>
