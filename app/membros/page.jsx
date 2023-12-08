@@ -1,4 +1,5 @@
 "use client"
+import axios from 'axios';
 import Header from '../components/header/header';
 import styles from './membros.module.css';
 import { useState, useEffect } from 'react';
@@ -13,7 +14,7 @@ const membroPage = () => {
 
     //cor do card da pessoa
 
-    const [corCard, setCorCard] = useState('#000');
+    const [corCard, setCorCard] = useState(null);
 
     // inpts do card da pessoa
 
@@ -40,19 +41,30 @@ const membroPage = () => {
         }
     }
 
+    //Deletar
+    const handleDeletar = async (id) => {
+        const url = `/api/membros/id/${id}`;
+        try {
+            await axios.delete(url);
+            setDados(dados.filter((membro) => membro.id !== id));
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
+
     useEffect(() => {
-        async function fetchMembros() {
+        async function fetchMembro() {
             try {
-                const response = await axios.get("/api/membros");
-                setMembros(response.data);
+                const response = await axios.get("/api/membro");
                 setDados(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
 
-        fetchMembros();
+        fetchMembro();
     }, []);
+
 
     return (
         <>
@@ -123,9 +135,6 @@ const membroPage = () => {
                     <div className={styles.cardCriarMembro}>
                         <button className={styles.botaoAdd}>+</button>
                     </div>
-                </div>
-                <div>
-
                 </div>
             </div>
         </>
