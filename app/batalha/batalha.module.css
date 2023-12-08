@@ -1,14 +1,16 @@
-.titulo{
+.titulo {
     text-align: center;
     padding-top: 7%;
 }
-.titulo h1{
+
+.titulo h1 {
     font-family: 'Minecraft-Font';
     font-size: 8vh;
     color: #fff;
     text-shadow: 2px 2px 2px #000;
 }
-.main{
+
+.main {
     background-image: url("/backgroundBatalha.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -16,10 +18,12 @@
     height: 100vh;
     color: #fff;
 }
-.opacidadeImg{
+
+.opacidadeImg {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.45);
 }
+
 .espadaX {
     max-width: 39%;
     min-width: 38%;
@@ -28,14 +32,16 @@
     display: block;
     width: 70%;
     margin-top: 20%;
-     /* Ajuste este valor para alterar o tamanho da imagem */
+    /* Ajuste este valor para alterar o tamanho da imagem */
 }
-.batalhaConteiner{
+
+.batalhaConteiner {
     display: flex;
     justify-content: space-around;
 
 }
-.usuario{
+
+.usuario {
     max-width: 33%;
     min-width: 33%;
     align-items: center;
@@ -43,8 +49,8 @@
     display: flex;
     text-align: center;
 }
-    
-.mob{
+
+.mob {
 
     max-width: 33%;
     min-width: 33%;
@@ -58,4 +64,42 @@
     color: #fff;
     text-shadow: 2px 2px 2px #000;
     text-align: center;
+}
+
+.equipamentosFeitos {
+    background: #171615;
+}
+
+.equipamentosFeitos .buscar {
+    background: #171615;
+    box-shadow: inset -0.25rem 0.25rem 0 rgba(0, 0, 0, .901961), inset 0.25rem -0.25rem 0 #3d3938;
+    padding: 0.6875rem 0.6875rem 0.6875rem 0.875rem;
+    color: #fff;
+}
+
+.buscar input {
+    background: #171615;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Minecraft-Font';
+    width: 100%;
+}
+
+.buscar input:focus {
+    outline: none;
+}
+
+.itemArmadura {
+    display: flex;
+    background-image: url(../../public/inventory/slot.png);
+    padding: 8px;
+    width: 54px;
+    height: 54px;
+    cursor: pointer;
+}
+
+.containerEquipamentos {
+    display: flex;
+    flex-wrap: wrap;
 }
