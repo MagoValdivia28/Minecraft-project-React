@@ -20,6 +20,7 @@ const Page_de_encantamentos = () => {
 
     const [bookPopUp, setBookPopUp] = useState(false);
     const [styleBooks, setStyleBooks] = useState(styles.book);
+    const [bookInfo , setBookInfo] = useState({});
 
     // encantamentos em si
 
@@ -153,7 +154,9 @@ const Page_de_encantamentos = () => {
 
     const handleBookPopUp = () => {
         setBookPopUp(!bookPopUp);
+        setBookInfo(encantamento);
         console.log("clicou");
+        console.log(bookInfo);
     }
 
 
@@ -233,30 +236,43 @@ const Page_de_encantamentos = () => {
                                 <img className={styles.encantamentos_img} src="/Book_29.webp" alt="encantamento1" width={96} height={96} />
                                 <ul className={styles.encantamentos_list}>
                                     {
-                                        dados.length ? (
-                                            encantamentos ? (
-                                                dados.map((encantamento) =>
-                                                (
-                                                    <li className={styles.encantamento}>
-                                                        <span onClick={() => handleBookPopUp()} className={styleBooks}>
-                                                            <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                                            <p className={styles.book_name}>{encantamento.titulo}</p>
-                                                        </span>
+                                        // dados.length ? (
+                                        //     encantamentos ? (
+                                        //         dados.map((encantamento) =>
+                                        //         (
+                                        //             <li className={styles.encantamento}>
+                                        //                 <span onClick={() => handleBookPopUp()} className={styleBooks}>
+                                        //                     <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
+                                        //                     <p className={styles.book_name}>{encantamento.titulo}</p>
+                                        //                 </span>
 
-                                                        <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
-                                                            <p className={styles.delete_text}>Deletar</p>
-                                                        </button>
-                                                        <button onClick={() => editEncantamento(encantamento)} className={styles.update_button}>
-                                                            <p className={styles.update_text}>Atualizar</p>
-                                                        </button>
-                                                    </li>
-                                                ))
-                                            ) : (
-                                                <p>Carregando...</p>
-                                            )
-                                        ) : (
-                                            <p className={styles.secondText}>Nenhum encantamento econtrado</p>
-                                        )
+                                        //                 <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
+                                        //                     <p className={styles.delete_text}>Deletar</p>
+                                        //                 </button>
+                                        //                 <button onClick={() => editEncantamento(encantamento)} className={styles.update_button}>
+                                        //                     <p className={styles.update_text}>Atualizar</p>
+                                        //                 </button>
+                                        //             </li>
+                                        //         ))
+                                        //     ) : (
+                                        //         <p>Carregando...</p>
+                                        //     )
+                                        // ) : (
+                                        //     <p className={styles.secondText}>Nenhum encantamento econtrado</p>
+                                        // )
+                                        <li className={styles.encantamento}>
+                                        <span onClick={() => handleBookPopUp()} className={styleBooks}>
+                                            <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
+                                            <p className={styles.book_name}>{encantamento.titulo}</p>
+                                        </span>
+
+                                        <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
+                                            <p className={styles.delete_text}>Deletar</p>
+                                        </button>
+                                        <button onClick={() => editEncantamento(encantamento)} className={styles.update_button}>
+                                            <p className={styles.update_text}>Atualizar</p>
+                                        </button>
+                                    </li>
                                     }
 
                                 </ul>
@@ -275,7 +291,7 @@ const Page_de_encantamentos = () => {
                             </div>
                         </div>
                     ) : (
-                        <BookPopUp handleBookPopUp={handleBookPopUp} />
+                        <BookPopUp dados={bookInfo} handleBookPopUp={handleBookPopUp} />
                     )
                 }
 
