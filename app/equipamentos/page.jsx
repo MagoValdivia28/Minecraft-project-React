@@ -8,7 +8,7 @@ import MoreInfoEquipamento from "../components/moreInfoEquipamento/MoreInfoEquip
 
 // components
 
-import CadastroEquipamento from "../components/cadastroEquipamento/CadastroEquipamento";
+import ContainerEquipmento from "../components/containerEquipamento/ContainerEquipmento";
 
 const equipamentoPage = () => {
     const [dados, setDados] = useState([]);
@@ -161,24 +161,7 @@ const equipamentoPage = () => {
                         </div>
                         {
                             equipamento ? (
-                                <>
-                                    <div className={styles.containerCreation}>
-                                        {dados.length > 0 ? (
-                                            <div className={styles.equipamentosPredefinidos}>
-                                                {
-                                                    dados.map((equipamentoMap) => (
-                                                        <div onClick={() => setMoreInfo(equipamentoMap.id)} className={`${styles.itemArmadura} ${styles[`item${equipamentoMap.nome}`]}`} key={equipamentoMap.id}>
-                                                            <img style={{ backgroundColor: equipamentoMap.cor }} id={`${equipamento}Img`} className={`${styles.itemDoItem}`} src={`inventory/${equipamento}Final.png`} alt={equipamento} />
-                                                        </div>
-                                                    ))
-                                                }
-                                            </div>
-                                        ) : (
-                                            <p>Não há {equipamento}s cadastrados</p>
-                                        )}
-                                    </div>
-                                    <CadastroEquipamento equipamento={equipamento} funcCorEquipamento={(e) => handleCorEquipamentos(e)} setDados={setDados} corEquipamento={corEquipamento} edited={editEquipamento} setarCor={setCorEquipamento} fechar={() => setMoreInfo(null)} />
-                                </>
+                                <ContainerEquipmento dados={dados} setDados={setDados} equipamento={equipamento} handleCorEquipamentos={handleCorEquipamentos} corEquipamento={corEquipamento} editEquipamento={editEquipamento} setEditEquipamento={setEditEquipamento} setCorEquipamento={setCorEquipamento} setMoreInfo={setMoreInfo} />
                             ) : null
                         }
                     </div>

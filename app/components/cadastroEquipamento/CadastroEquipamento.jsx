@@ -4,7 +4,7 @@ import styles from './cadastroEquipamento.module.css';
 import { useRouter } from "next/navigation";
 import verificacoesEquipamentos from "../verifications/Verifications.js";
 
-const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEquipamento, edited, setarCor, fechar }) => {
+const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEquipamento, edited, setEdit, setarCor, fechar }) => {
 
     const [nameEquipamento, setNameEquipamento] = useState('');
     const [descriptionEquipamento, setDescriptionEquipamento] = useState('');
@@ -33,6 +33,7 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEqu
                 const url = `/api/equipamentos/type/${edited.tipo}`; // Use the same URL as in handleSend
                 const response = await axios.get(url);
                 setDados(response.data.equipamentosFiltrados); // Update dados with the filtered data
+                setEdit(null); // Clear the edited student
             }
         } catch (error) {
             console.error("Error updating student:", error);
