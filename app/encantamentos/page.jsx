@@ -18,11 +18,13 @@ const Page_de_encantamentos = () => {
 
     const router = useRouter();
 
-    const [bookPopUp, setBookPopUp] = useState(false);
+    const [bookPopUp, setBookPopUp] = useState(null);
     const [styleBooks, setStyleBooks] = useState(styles.book);
-    const [bookInfo , setBookInfo] = useState({});
+    const [bookInfo, setBookInfo] = useState({});
 
     // encantamentos em si
+
+    const [popUpOpenBook, setPopUpOpenBook] = useState(null);
 
     const [dados, setDados] = useState([]);
     const [encantamentos, setEncantamentos] = useState([]);
@@ -46,7 +48,7 @@ const Page_de_encantamentos = () => {
         setTimeout(function () {
             setErrorMSG('');
             setErrorType('');
-          }, 5000);
+        }, 5000);
     }
 
     function sendType(type) {
@@ -212,86 +214,80 @@ const Page_de_encantamentos = () => {
             </div>
             <div className={styles.main_container}>
 
-                <div className={styles.encantamento_create}>
-                    <form className={styles.form_inputs} onSubmit={(e) => handleSend(e, 'dano')}>
-                        <input className={styles.inputs} value={titulo} onChange={(e) => setTitulo(e.target.value)} type="text" placeholder='Titulo' />
-                        <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descricao' />
-                        <input className={styles.inputs} value={tipoEncanto} onChange={(e) => setTipoEncanto(e.target.value)} type="text" placeholder='Tipo de encantamento' />
-                        <input className={styles.inputs} value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Dano' />
-                        <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
-                        <input className={styles.inputs} value={nivel} onChange={(e) => setNivel(e.target.value)} type="number" placeholder='Nivel' />
 
-                        <button className={styles.createButton} type="submit">Enviar</button>
-                    </form>
-
-                </div>
-
-                <div className={styles.errors_container}>
-                        <p>{errorMSG}</p>
-                    </div>
                 {
-                    bookPopUp == false ? (
-                        <div className={styles.books_list}>
-                            <nav className={styles.encantamentos_container}>
-                                <img className={styles.encantamentos_img} src="/Book_29.webp" alt="encantamento1" width={96} height={96} />
-                                <ul className={styles.encantamentos_list}>
-                                    {
-                                        // dados.length ? (
-                                        //     encantamentos ? (
-                                        //         dados.map((encantamento) =>
-                                        //         (
-                                        //             <li className={styles.encantamento}>
-                                        //                 <span onClick={() => handleBookPopUp()} className={styleBooks}>
-                                        //                     <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                        //                     <p className={styles.book_name}>{encantamento.titulo}</p>
-                                        //                 </span>
-
-                                        //                 <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
-                                        //                     <p className={styles.delete_text}>Deletar</p>
-                                        //                 </button>
-                                        //                 <button onClick={() => editEncantamento(encantamento)} className={styles.update_button}>
-                                        //                     <p className={styles.update_text}>Atualizar</p>
-                                        //                 </button>
-                                        //             </li>
-                                        //         ))
-                                        //     ) : (
-                                        //         <p>Carregando...</p>
-                                        //     )
-                                        // ) : (
-                                        //     <p className={styles.secondText}>Nenhum encantamento econtrado</p>
-                                        // )
-                                        <li className={styles.encantamento}>
-                                        <span onClick={() => handleBookPopUp()} className={styleBooks}>
-                                            <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                            <p className={styles.book_name}>{encantamento.titulo}</p>
-                                        </span>
-
-                                        <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
-                                            <p className={styles.delete_text}>Deletar</p>
-                                        </button>
-                                        <button onClick={() => editEncantamento(encantamento)} className={styles.update_button}>
-                                            <p className={styles.update_text}>Atualizar</p>
-                                        </button>
-                                    </li>
-                                    }
-
-                                </ul>
-                            </nav>
-                            <div className={styles.arrows_container}>
-                                <button className={styles.arrows}>
-                                    <MdArrowBackIos />
-
-                                </button>
-                                <h2 className={styles.arrowsText}>
-                                    Pag 1 / 1
-                                </h2>
-                                <button className={styles.arrows}>
-                                    <MdArrowForwardIos />
-                                </button>
-                            </div>
-                        </div>
+                    popUpOpenBook ? (
+                        dados.map((encantamentoMap) => (
+                            encantamentoMap.id == popUpOpenBook ? (
+                                <BookPopUp handleBookPopUp={() => setPopUpOpenBook(null)} handleDelete={() => deleteEncantamento(encantamento.id)} encantamento={encantamento} />
+                            ) : null
+                        ))
                     ) : (
-                        <BookPopUp dados={bookInfo} handleBookPopUp={handleBookPopUp} />
+                        <>
+                            <div className={styles.encantamento_create}>
+                                <form className={styles.form_inputs} onSubmit={(e) => handleSend(e, 'dano')}>
+                                    <input className={styles.inputs} value={titulo} onChange={(e) => setTitulo(e.target.value)} type="text" placeholder='Titulo' />
+                                    <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descricao' />
+                                    <input className={styles.inputs} value={tipoEncanto} onChange={(e) => setTipoEncanto(e.target.value)} type="text" placeholder='Tipo de encantamento' />
+                                    <input className={styles.inputs} value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Dano' />
+                                    <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
+                                    <input className={styles.inputs} value={nivel} onChange={(e) => setNivel(e.target.value)} type="number" placeholder='Nivel' />
+
+                                    <button className={styles.createButton} type="submit">Enviar</button>
+                                </form>
+
+                            </div>
+
+                            <div className={styles.errors_container}>
+                                <p>{errorMSG}</p>
+                            </div>
+                            <div className={styles.books_list}>
+                                <nav className={styles.encantamentos_container}>
+                                    <img className={styles.encantamentos_img} src="/Book_29.webp" alt="encantamento1" width={96} height={96} />
+                                    <ul className={styles.encantamentos_list}>
+                                        {
+                                            dados.length ? (
+                                                encantamentos ? (
+                                                    dados.map((encantamento) =>
+                                                    (
+                                                        <li className={styles.encantamento}>
+                                                            <span onClick={() => setPopUpOpenBook(encantamento.id)} className={styleBooks}>
+                                                                <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
+                                                                <p className={styles.book_name}>{encantamento.titulo}</p>
+                                                            </span>
+
+                                                            <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
+                                                                <p className={styles.delete_text}>Deletar</p>
+                                                            </button>
+                                                            <button onClick={() => editEncantamento(encantamento)} className={styles.update_button}>
+                                                                <p className={styles.update_text}>Atualizar</p>
+                                                            </button>
+                                                        </li>
+                                                    ))
+                                                ) : (
+                                                    <p>Carregando...</p>
+                                                )
+                                            ) : (
+                                                <p className={styles.secondText}>Nenhum encantamento econtrado</p>
+                                            )
+                                        }
+
+                                    </ul>
+                                </nav>
+                                <div className={styles.arrows_container}>
+                                    <button className={styles.arrows}>
+                                        <MdArrowBackIos />
+
+                                    </button>
+                                    <h2 className={styles.arrowsText}>
+                                        Pag 1 / 1
+                                    </h2>
+                                    <button className={styles.arrows}>
+                                        <MdArrowForwardIos />
+                                    </button>
+                                </div>
+                            </div>
+                        </>
                     )
                 }
 
