@@ -23,6 +23,7 @@ const membroPage = () => {
     const [descricao, setDescricao] = useState('');
     const [imagem, setUrlImagem] = useState('');
     const [cargo, setCargo] = useState('');
+    const [popUp , setPopUp] = useState(false);
 
     // postar
     const handleSend = async (e, tipo) => {
@@ -65,10 +66,22 @@ const membroPage = () => {
         fetchMembro();
     }, []);
 
+    const handlePopUpDescricao = () => {
+        console.log("clicou");
+        setPopUp(!popUp);
+
+
+    }
 
     return (
         <>
             <Header />
+
+            {
+                popUp ? (
+                    <p>Teste</p>
+                ) : null
+            }
             <div className={styles.main}>
 
                 <h1 className={styles.textoHeader}>Membros</h1>
@@ -88,7 +101,7 @@ const membroPage = () => {
                         <h2 className={styles.pessoa}>Felipe Pedro</h2>
                         <p>Tech Lead/Desenvolvedor</p>
                         <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
+                            <button onClick={() => handlePopUpDescricao()} className={styles.botaoVermais}>Detalhes</button>
                         </div>
                     </div>
                     <div className={styles.cardPessoa}>
@@ -128,12 +141,12 @@ const membroPage = () => {
                         <h2 className={styles.pessoa}>Thayna Vazzoler</h2>
                         <p>Desenvolvedor</p>
                         <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
+                            <button onClick={() => teste()} className={styles.botaoVermais}>Detalhes</button>
                         </div>
                     </div>
 
                     <div className={styles.cardCriarMembro}>
-                        <button className={styles.botaoAdd} onClick={() => { setMembro() }}>+</button>
+                        <button className={styles.botaoAdd} >+</button>
                     </div>
                 </div>
             </div>
