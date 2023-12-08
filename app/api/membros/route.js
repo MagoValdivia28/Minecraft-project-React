@@ -23,7 +23,7 @@ export async function POST(request) {
         return new NextResponse("Erro interno do servidor! Teste", { status: 500 });
     }
 }
-/* 
+
 export async function PUT(request) {
     const params = await request.json();
 
@@ -52,5 +52,3 @@ export async function DELETE(request) {
         return new NextResponse("Erro interno do servidor!", { status: 500 });
     }
 }
-
- */
