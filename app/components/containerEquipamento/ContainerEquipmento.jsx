@@ -9,7 +9,7 @@ const ContainerEquipmento = ({dados, setDados, equipamento, handleCorEquipamento
                     <div className={styles.equipamentosPredefinidos}>
                         {
                             dados.map((equipamentoMap) => (
-                                <div onClick={() => setMoreInfo(equipamentoMap.id)} className={`${styles.itemArmadura} ${styles[`item${equipamentoMap.nome}`]}`} key={equipamentoMap.id}>
+                                <div onClick={() => setMoreInfo(equipamentoMap.id)} className={`${styles.itemArmadura} ${styles[`item${equipamento}`]}`} key={equipamentoMap.id}>
                                     <img style={{ backgroundColor: equipamentoMap.cor }} id={`${equipamento}Img`} className={`${styles.itemDoItem}`} src={`inventory/${equipamento}Final.png`} alt={equipamento} />
                                 </div>
                             ))

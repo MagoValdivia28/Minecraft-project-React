@@ -1,0 +1,139 @@
+.main {
+    padding-top: 10%;
+    background-color: #f8f5f4;
+    text-align: center;
+    align-items: center;
+}
+
+.textoHeader {
+    font-family: 'Title-Minecraft-Font';
+    color: #000000
+}
+
+.img1 {
+    width: 500px;
+    height: 350px;
+}
+
+.textoEquipe {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 2rem;
+    color: #000;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.sobreEquipe {
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #ccc;
+    display: flex;
+
+}
+
+.equipe {
+    display: grid;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #ccc;
+    flex-direction: row;
+
+}
+
+.umAoTres {
+    display: flex;
+    width: 100%;
+}
+
+.quatroAoSeis {
+    width: 100%;
+    display: flex;
+}
+
+.cardPessoa1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #ccc;
+    display: flex;
+    ;
+}
+
+.cardPessoa {
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #ccc;
+    display: flex;
+    flex-wrap: wrap;
+    width: 20rem;
+    height: 20rem;
+}
+
+.imgPessoa {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.botoesVM {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.botaoVermais {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.5s;
+    border: 1px solid black;
+    font-family: 'Title-Minecraft-Font';
+    width: 100%;
+}
+
+.botaoVermais:hover {
+    background-color: #fff;
+    color: #000;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.botaoAdd {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+    font-size: 100px;
+    font-family: 'Title-Minecraft-Font';
+    width: 10%;
+}
