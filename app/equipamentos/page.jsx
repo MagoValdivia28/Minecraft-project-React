@@ -133,6 +133,8 @@ const equipamentoPage = () => {
             <div className={styles.bg}>
                 <div className={styles.armamento}>
                     <h1>armamento</h1>
+                    <br />
+                    <p>Escolha seus Equipamentos</p>
                 </div>
 
                 <div className={styles.boxInventory}>

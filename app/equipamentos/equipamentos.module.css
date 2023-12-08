@@ -31,6 +31,13 @@
     text-shadow: 2px 2px 2px #000;
     text-align: center;
 }
+.armamento p{
+    font-size: 7vh;
+    font-family: 'Minecraft-Font';
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    text-align: center;
+}
 
 .boxInventory {
     background-color: #c6c6c6;
