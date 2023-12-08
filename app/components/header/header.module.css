@@ -49,3 +49,11 @@
     background-color: #2a641c;
     transition: background-color 0.2s;
 }
+
+.link:hover {
+    border-bottom: #8dcd7c 2px solid;
+    transition:  1s;
+
+    color: #8dcd7c;
+    transition: color 0.3s;
+}
