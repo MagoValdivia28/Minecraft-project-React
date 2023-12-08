@@ -21,18 +21,20 @@ const membroPage = () => {
     const [idade, setIdade] = useState(0);
     const [descricao, setDescricao] = useState('');
     const [imagem, setUrlImagem] = useState('');
+    const [cargo, setCargo] = useState('');
 
     // postar
     const handleSend = async (e, tipo) => {
         e.preventDefault();
         try {
-            await axios.post("/api/membros", { nome, idade, descricao, imagem, cor: corCard });
+            await axios.post("/api/membros", { nome, idade, descricao, urlimagem, cargo, cor: corCard });
             setNome('');
             setIdade('');
             setDescricao('');
             setUrlImagem('');
+            setCargo('');
             router.push(`/membros/`);
-            setDados([...dados, { nome, idade, descricao, imagem, cor: corCard }]);
+            setDados([...dados, { nome, idade, descricao, urlimagem, cargo, cor: corCard }]);
         } catch (error) {
             console.error("Error submitting data:", error);
         }
@@ -74,20 +76,25 @@ const membroPage = () => {
                             <img className={styles.imgPessoa} src="/imagemfacemine1.webp" />
                             <h2 className={styles.pessoa}>Felipe Pedro</h2>
                             <p>Tech Lead/Desenvolvedor</p>
-                            <div className={styles.botoesER}>
-                                <button className={styles.botaoEditar}>edita</button>
-                                <button className={styles.botaoRemover} >remove</button>
+                            <div className={styles.botaoVM}>
+                                <button className={styles.botaoVermais}>Detalhes</button>
                             </div>
                         </div>
                         <div className={styles.cardPessoa2}>
                             <img className={styles.imgPessoa} src="/imagemfacemine2.jpeg" />
                             <h2 className={styles.pessoa}>Guilherme Rocha</h2>
                             <p>Desenvolvedor</p>
+                            <div className={styles.botaoVM}>
+                                <button className={styles.botaoVermais}>Detalhes</button>
+                            </div>
                         </div>
                         <div className={styles.cardPessoa3}>
                             <img className={styles.imgPessoa} src="/imagemfacemine3.png" />
                             <h2 className={styles.pessoa}>Matheus Coco</h2>
                             <p>Desenvolvedor</p>
+                            <div className={styles.botaoVM}>
+                                <button className={styles.botaoVermais}>Detalhes</button>
+                            </div>
                         </div>
                     </div>
                     <div className={styles.quatroAoSeis}>
@@ -95,16 +102,25 @@ const membroPage = () => {
                             <img className={styles.imgPessoa} src="/imagemfacemine4.png" />
                             <h2 className={styles.pessoa}>Matheus Gomes</h2>
                             <p>Desenvolvedor</p>
+                            <div className={styles.botaoVM}>
+                                <button className={styles.botaoVermais}>Detalhes</button>
+                            </div>
                         </div>
                         <div className={styles.cardPessoa5}>
                             <img className={styles.imgPessoa} src="/imagemfacemine5.png" />
                             <h2 className={styles.pessoa}>Pedro Isac</h2>
                             <p>Desenvolvedor</p>
+                            <div className={styles.botaoVM}>
+                                <button className={styles.botaoVermais}>Detalhes</button>
+                            </div>
                         </div>
                         <div className={styles.cardPessoa6}>
                             <img className={styles.imgPessoa} src="/imagemfacemine6.png" />
                             <h2 className={styles.pessoa}>Thayna Vazzoler</h2>
                             <p>Desenvolvedor</p>
+                            <div className={styles.botaoVM}>
+                                <button className={styles.botaoVermais}>Detalhes</button>
+                            </div>
                         </div>
 
                     </div>

@@ -1,20 +1,21 @@
-.main{
+.main {
     padding-top: 10%;
     background-color: #f8f5f4;
     text-align: center;
     align-items: center;
 }
 
-.textoHeader{
+.textoHeader {
     font-family: 'Title-Minecraft-Font';
     color: #000000
 }
-.img1{
+
+.img1 {
     width: 500px;
     height: 350px;
 }
 
-.textoEquipe{
+.textoEquipe {
     font-size: 20px;
     font-weight: bold;
     line-height: 2rem;
@@ -23,7 +24,7 @@
     margin-top: 10px;
 }
 
-.sobreEquipe{
+.sobreEquipe {
     align-items: center;
     padding: 10px;
     margin: 10px;
@@ -32,10 +33,10 @@
     background-color: #fff;
     box-shadow: 0px 0px 5px #ccc;
     display: flex;
-    
+
 }
 
-.equipe{
+.equipe {
     display: grid;
     align-items: center;
     padding: 10px;
@@ -47,17 +48,17 @@
     flex-direction: row;
 }
 
-.umAoTres{
+.umAoTres {
     display: flex;
     width: 100%;
 }
 
-.quatroAoSeis{
+.quatroAoSeis {
     width: 100%;
     display: flex;
 }
 
-.cardPessoa1{
+.cardPessoa1 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,7 +72,8 @@
     display: flex;
     ;
 }
-.cardPessoa2{
+
+.cardPessoa2 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,7 +87,8 @@
     display: flex;
     ;
 }
-.cardPessoa3{
+
+.cardPessoa3 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -99,7 +102,8 @@
     display: flex;
     ;
 }
-.cardPessoa4{
+
+.cardPessoa4 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,7 +117,8 @@
     display: flex;
     ;
 }
-.cardPessoa5{
+
+.cardPessoa5 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -127,21 +132,8 @@
     display: flex;
     ;
 }
-.cardPessoa6{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    margin: 10px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0px 0px 5px #ccc;
-    display: flex;
-    ;
-}
-.cardPessoa{
+
+.cardPessoa6 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -156,17 +148,54 @@
     ;
 }
 
-.imgPessoa{
+.cardPessoa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #ccc;
+    display: flex;
+    ;
+}
+
+.imgPessoa {
     width: 90%;
     margin-bottom: 10px;
 }
 
-.botoesER{
+.botoesVM {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: center;
 }
-.hidden{
+
+.hidden {
     display: none;
+}
+
+.botaoVermais {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.5s;
+    border: 1px solid black;
+    font-family: 'Title-Minecraft-Font';
+    width: 100%;
+}
+
+.botaoVermais:hover {
+    background-color: #fff;
+    color: #000;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid black;
 }
