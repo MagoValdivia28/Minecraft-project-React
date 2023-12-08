@@ -4,15 +4,46 @@
 }
 
 .bg {
-    background-color: black;
-    padding: 30px;
+    padding-top: 1%;
+    background-image: url(../../public/bg-wool-dark.png);
+    margin-left: 6%;
+    margin-right: 6%;
+}
+.main{
+    background-image: url(../../public/bg-wool-dark.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.armamento {
+    background-image: url(../../public/bg-wool-dark.png);
+    height: 30vh;
+    background-color:#c6c6c6 ;
+    margin-top: 6rem;
+    margin-bottom: -6rem;
+    text-align: center;
+    
+}
+.armamento h1{
+    font-size: 14vh;
+    font-family: 'Minecraft-Font';
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    text-align: center;
+}
+.armamento p{
+    font-size: 7vh;
+    font-family: 'Minecraft-Font';
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    text-align: center;
 }
 
 .boxInventory {
     background-color: #c6c6c6;
     display: flex;
     align-items: center;
-    height: 95vh;
+    height: 83vh;    
 }
 
 .armadura {
@@ -21,7 +52,7 @@
     justify-content: space-between;
     margin-right: 3%;
     margin-left: 3%;
-    height: 305px;
+    margin-top: -6%;
 }
 
 .armadura .armaduraSlotInventario {

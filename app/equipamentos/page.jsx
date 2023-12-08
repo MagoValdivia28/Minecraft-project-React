@@ -128,10 +128,17 @@ const equipamentoPage = () => {
     }, [equipamento]); 
 
     return (
-        <>
+        <main className={styles.main}>
             <Header />
             <div className={styles.bg}>
+                <div className={styles.armamento}>
+                    <h1>armamento</h1>
+                    <br />
+                    <p>Escolha seus Equipamentos</p>
+                </div>
+
                 <div className={styles.boxInventory}>
+
                     <div className={styles.armadura}>
                         {
                             moreInfo ? (
@@ -167,7 +174,7 @@ const equipamentoPage = () => {
                     </div>
                 </div>
             </div >
-        </>
+        </main> 
     )
 }
 
