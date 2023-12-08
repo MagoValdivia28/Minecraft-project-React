@@ -23,7 +23,7 @@ const membroPage = () => {
     const [descricao, setDescricao] = useState('');
     const [imagem, setUrlImagem] = useState('');
     const [cargo, setCargo] = useState('');
-    const [popUp , setPopUp] = useState(false);
+    const [popUp, setPopUp] = useState(false);
 
     // postar
     const handleSend = async (e, tipo) => {
@@ -79,7 +79,29 @@ const membroPage = () => {
 
             {
                 popUp ? (
-                    <p>Teste</p>
+                    <div className={styles.containerPopUp}>
+                        <p onClick={() => handlePopUpDescricao()} className={styles.x}>X</p>
+                        <div className={styles.imgMembro}>
+                            <img src="/imagemfacemine6.png" alt="membro" />
+                        </div>
+                        <div className={styles.itens}>
+                            <div>
+                                <div className={styles.item}>
+                                    <label>Nome:</label>
+                                    <h1>Thayna Vazzoler</h1>
+                                </div>
+                                <div className={styles.item}>
+                                    <label>Idade:</label>
+                                    <h1>18</h1>
+                                </div>
+                            </div>
+                            <div>
+                                <div className={styles.item}>
+                                    <label>Descrição:</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 ) : null
             }
             <div className={styles.main}>
