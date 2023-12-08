@@ -1,13 +1,20 @@
 .main {
     color: #141414;
-    background-image: url('/bg-wool-dark.png');
+    background-image: url('/TestedeWallpapaer.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
 
 .main_container {
     width: 80%;
     margin: 0 auto;
-    background-color: white;
-    padding: 10rem 0;
+    background: transparent;
+
 
 }
 
@@ -59,9 +66,50 @@
     position: absolute;
 }
 
-.encantamento_create {
-    background-color: #361071;
+/* .encantamento_create {
+    width: 70%;
     margin-bottom: 15rem;
+    padding: 1rem 0;
+    margin: auto;
+    border: 2px solid rgba(255, 255, 255, .5);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+} */
+
+.encantamento_create {
+    width: 70%;
+    margin-bottom: 15rem;
+    padding: 1rem 0;
+    margin: auto;
+    background-color: #c6c6c6;
+    border-bottom: #555555 0.35rem solid;
+    border-right: #555555 0.35rem solid;
+    border-top: #ffffff 0.35rem solid;
+    border-left: #ffffff 0.35rem solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
+
+
+.inputs {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    height: 3rem;
+    background-color: #8b8b8b;
+    border-top: #404040 0.2rem solid;
+    border-left: #404040 0.2rem solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    font-family: 'Minecraft-Font';
+    color: white;
+    font-size: 2rem;
+}
+
+.inputs::placeholder {
+    color: white;
+    font-size: 2rem;
 }
 
 
@@ -116,15 +164,15 @@
 }
 
 
-    .encantamento:hover {
-        cursor: pointer;
-        transition: all 0.5s ease-in-out;
+.encantamento:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
 
-        .book_name {
-            display: block;
-        }
-
+    .book_name {
+        display: block;
     }
+
+}
 
 
 .book_name {
@@ -163,6 +211,12 @@
     border: none;
 }
 
+.arrowsText {
+    font-family: 'Minecraft-Font';
+    text-shadow: #000 1px 1px 1px;
+    color: white;
+}
+
 .arrows:active {
     background: #4a494b;
     color: #fff;
@@ -192,5 +246,55 @@
     align-items: center;
     font-size: 3rem;
     text-shadow: #000 1px 1px 1px;
+    color: white;
+}
+
+.form_inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 0;
+    align-items: center;
+    font-size: 3rem;
+    text-shadow: #000 1px 1px 1px;
+    color: white;
+}
+
+.secondText {
+    margin-top: 40%;
+    font-size: 2rem;
+    text-shadow: #000 1px 1px 1px;
+    color: white;
+}
+
+/* .inputs {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    height: 3rem;
+} */
+
+.createButton {
+    margin: 2rem 0;
+    width: 50%;
+    height: 3rem;
+    border: 2px solid rgba(255, 255, 255, .5);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    color: white;
+    background: transparent;
+}
+
+.createButton:hover {
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    background: rgba(255, 255, 255, .5);
+    color: black;
+}
+
+
+.errors_container {
     color: white;
 }

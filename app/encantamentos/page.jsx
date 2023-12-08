@@ -210,21 +210,22 @@ const Page_de_encantamentos = () => {
             <div className={styles.main_container}>
 
                 <div className={styles.encantamento_create}>
-                    <form onSubmit={(e) => handleSend(e, 'dano')}>
-                        <input value={titulo} onChange={(e) => setTitulo(e.target.value)} type="text" placeholder='Titulo' />
-                        <input value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição' />
-                        <input value={tipoEncanto} onChange={(e) => setTipoEncanto(e.target.value)} type="text" placeholder='Tipo de encantamento' />
-                        <input value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Dano' />
-                        <input value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
-                        <input value={nivel} onChange={(e) => setNivel(e.target.value)} type="number" placeholder='Nivel' />
+                    <form className={styles.form_inputs} onSubmit={(e) => handleSend(e, 'dano')}>
+                        <input className={styles.inputs} value={titulo} onChange={(e) => setTitulo(e.target.value)} type="text" placeholder='Titulo' />
+                        <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descricao' />
+                        <input className={styles.inputs} value={tipoEncanto} onChange={(e) => setTipoEncanto(e.target.value)} type="text" placeholder='Tipo de encantamento' />
+                        <input className={styles.inputs} value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Dano' />
+                        <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
+                        <input className={styles.inputs} value={nivel} onChange={(e) => setNivel(e.target.value)} type="number" placeholder='Nivel' />
 
-                        <button type="submit">Enviar</button>
+                        <button className={styles.createButton} type="submit">Enviar</button>
                     </form>
-                    <div className={styles.errors_container}>
-                        <p>{errorMSG}</p>
-                    </div>
+
                 </div>
 
+                <div className={styles.errors_container}>
+                        <p>{errorMSG}</p>
+                    </div>
                 {
                     bookPopUp == false ? (
                         <div className={styles.books_list}>
@@ -254,7 +255,7 @@ const Page_de_encantamentos = () => {
                                                 <p>Carregando...</p>
                                             )
                                         ) : (
-                                            <p>Nenhum encantamento econtrado</p>
+                                            <p className={styles.secondText}>Nenhum encantamento econtrado</p>
                                         )
                                     }
 
@@ -265,7 +266,7 @@ const Page_de_encantamentos = () => {
                                     <MdArrowBackIos />
 
                                 </button>
-                                <h2>
+                                <h2 className={styles.arrowsText}>
                                     Pag 1 / 1
                                 </h2>
                                 <button className={styles.arrows}>
