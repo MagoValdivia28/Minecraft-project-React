@@ -1,49 +1,6 @@
 @font-face {
     font-family: 'Minecraft';
-    src: url(../../fonts/Minecraft.ttf);
-}
-
-.bg {
-    background-color: black;
-    padding: 30px;
-}
-
-.boxInventory {
-    background-color: #c6c6c6;
-    display: flex;
-    align-items: center;
-    height: 95vh;
-}
-
-.armadura {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-right: 3%;
-    margin-left: 3%;
-    height: 305px;
-}
-
-.armadura .armaduraSlotInventario {
-    display: flex;
-    flex-direction: column;
-}
-
-.itemArmadura {
-    display: flex;
-    background-image: url(../../public/inventory/slot.png);
-    padding: 8px;
-    width: 54px;
-    height: 54px;
-    cursor: pointer;
-}
-
-.itemArmadura .itemDoItem {
-    position: relative;
-    /* deixar no centro */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    src: url(../../../fonts/Minecraft.ttf);
 }
 
 .itempeitoral {
@@ -54,24 +11,23 @@
     padding: 6px !important;
 }
 
-
 .hidden {
     display: none;
 }
 
-.armadura .peitoralCreation {
+.peitoralCreation {
     margin-top: 54px;
 }
 
-.armadura .calcaCreation {
+.calcaCreation {
     margin-top: 108px;
 }
 
-.armadura .botaCreation {
+.botaCreation {
     margin-top: 162px;
 }
 
-.armadura .espadaCreation {
+.espadaCreation {
     margin-top: 216px;
 }
 
@@ -110,4 +66,21 @@
     text-shadow: 2px 2px #3F3F3F;
     font-size: 20px;
     margin-left: 1rem;
+}
+
+.itemArmadura {
+    display: flex;
+    background-image: url(../../../public/inventory/slot.png);
+    padding: 8px;
+    width: 54px;
+    height: 54px;
+    cursor: pointer;
+}
+
+.itemArmadura .itemDoItem {
+    position: relative;
+    /* deixar no centro */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
