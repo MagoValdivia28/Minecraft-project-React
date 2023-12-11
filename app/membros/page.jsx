@@ -15,6 +15,8 @@ const membroPage = () => {
 
     const [membro, setMembro] = useState(null);
 
+    const [editMembro, setEditMembro] = useState(null);
+
     //cor do card da pessoa
     const [corCard, setCorCard] = useState(null);
 
@@ -27,15 +29,18 @@ const membroPage = () => {
     const [popUp, setPopUp] = useState(false);
 
     // Estado para armazenar o ID do membro selecionado
+
     const [selectedMembroId, setSelectedMembroId] = useState(null);
 
     // Função para abrir o pop-up e definir o ID do membro selecionado
+
     const handleOpenDescricaoPopup = (id) => {
         setSelectedMembroId(id);
         setPopUp(true);
     };
 
     // Função para abrir o pop-up
+
     const handleOpenPopup = () => {
         setShowPopup(true);
     };
@@ -67,6 +72,11 @@ const membroPage = () => {
             console.error("Error submitting data:", error);
         }
     }
+
+    // editar
+    const handleEdit = (membro) => {
+        setEditMembro(membro);
+    };
 
     //Deletar
     const handleDeletar = async (id) => {
@@ -110,6 +120,7 @@ const membroPage = () => {
                                         <p><strong>descrição:</strong>{membro.descricao}</p>
                                         <p><strong>cargo na equipe:</strong>{membro.cargo}</p>
                                     </div>
+
                                 </div>
                             ) : null
                         ))}
@@ -142,10 +153,12 @@ const membroPage = () => {
                             </div>
                         ))
                     }
-                    <h1>Criar novo membro ⬇</h1>
-                    <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
+                    <div className={styles.justifyCenter}>
+                        <h1>Criar novo membro ⬇</h1>
+                        <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
+                    </div>
                     {
-                        showPopup && <MembroPopUp handleClose={handleClose} />
+                        showPopup && <MembroPopUp handleClose={handleClose} handleSend={handleSend} />
                     }
                 </div>
             </div>
