@@ -204,6 +204,7 @@ const Page_de_encantamentos = () => {
             const response = await axios.delete(`/api/encantamentos/${id}`);
             router.push("/encantamentos");
             setDados(dados.filter((encantamento) => encantamento.id !== id));
+            sendErrorMsg("Encantamento deletado com sucesso");
         } catch (error) {
             console.log(error);
         }
