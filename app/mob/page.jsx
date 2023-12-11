@@ -20,6 +20,7 @@ const Mobs = () => {
     const [tipo, setTipo] = useState(null);
     const [dano, setDano] = useState(null);
     const [defesa, setDefesa] = useState(null);
+    const [img, setImg] = useState(null);
     const { id } = mob;
 
     useEffect(() => {
@@ -44,7 +45,8 @@ const Mobs = () => {
                     descricao: descricao,
                     tipo: tipo,
                     dano: dano,
-                    defesa: defesa
+                    defesa: defesa,
+                    img: img
                 }
             );
             router
@@ -88,10 +90,31 @@ const Mobs = () => {
                             <input className={styles.inputs} value={tipo} onChange={(e) => setTipo (e.target.value)} type="text" placeholder='Tipo'/>
                             <input className={styles.inputs} value={dano} onChange={(e) => setDano (e.target.value)} type="number" placeholder='Ataque'/>
                             <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa (e.target.value)} type="number" placeholder='Defesa'/>
+                            <input className={styles.inputs} value={img} onChange={(e) => setImg (e.target.value)} type="text" placeholder='Imagem'/>
 
                             <button className={styles.createMob} type="submit">Criar</button>
                         </form>
 
+                    </div>
+
+                    <div className={styles.mobsList}>
+                        {
+                            dados.length ? (
+                                dados.map((mob, index) => (
+                                    <div className={styles.mobCard} key={index}>
+                                        <h3 className={styles.mobName}>{mob.nome}</h3>
+                                        <p className={styles.mobDesc}>{mob.descricao}</p>
+                                        <p className={styles.mobType}>{mob.tipo}</p>
+                                        <p className={styles.mobDmg}>{mob.dano}</p>
+                                        <p className={styles.mobDef}>{mob.defesa}</p>
+                                        <img src={mob.img}/>
+
+                                    </div>
+                                )
+                            ) ) : (
+                                <p className={styles.noMobs}>Nenhum mob cadastrado</p>
+                            )
+                        }
                     </div>
                 </div>
 
