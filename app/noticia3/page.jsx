@@ -1,6 +1,5 @@
 import Styles from "./page.module.css";
 import Header from "../components/header/header";
-import Footer from "../components/footer/footer";
 
 
 
@@ -69,7 +68,6 @@ export default function NoticiaPage() {
                 <img src="https://www.minecraft.net/content/dam/games/dungeons/background-images/foreground.png" alt="" className={Styles.img2} />
                 
             </div>
-            < Footer />
         </>
     );
 }

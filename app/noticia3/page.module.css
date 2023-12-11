@@ -5,6 +5,7 @@
     color: #ffffff; /* Cor dos textos */
     text-align: center;
     background-color: #190d19;
+    padding-top:4rem;
   }
 
   .img{
@@ -15,7 +16,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: 15px;
   }
 
@@ -26,25 +26,6 @@
     padding: 20px;
     margin:  30px;
     color: white;
-    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-    background-color: #ebe4e2;
-}
-.img{
-    width: 95%;
-}
-.news{
-    font-weight: 700!important;
-    background-color: #252525!important;
-    padding: 6px 10px;
-    background-color: #000!important;
-    font-size: .875rem;
-    color: #fff!important;
-    text-transform: uppercase!important;
-    display: inline-block!important;
-    margin: -15px;
-}
-.text{
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,4 +143,3 @@
     max-width: 200px;
     }
   }
-
