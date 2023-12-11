@@ -26,7 +26,6 @@ const Batalha = () => {
         async function fetchEquipamento() {
             try {
                 const response = await axios.get("/api/equipamentos");
-                console.log(response.data);
                 setDados(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -72,12 +71,19 @@ const Batalha = () => {
     // filtro por query params
 
     const handleBusca = async () => {
-        const filtros = { filtragemNome, filtragemTipo};
         try {
-            const response = await axios.get(`/api/equipamentos`, {
-                params: {filtros}
-            });
-            console.log(response.data);
+            let queryParams = '';
+            if (filtragemNome) {
+                queryParams += `name=${filtragemNome}&`;
+            }
+            if (filtragemTipo) {
+                queryParams += `type=${filtragemTipo}&`;
+            }
+            if (queryParams.length > 0) {
+                queryParams = `?${queryParams}`;
+            }
+            filtragemTipo == 'all' ? queryParams = '' : queryParams;
+            const response = await axios.get(`/api/equipamentos${queryParams}`,);
             setDados(response.data);
         } catch (error) {
             console.error("Error fetching data:", error);

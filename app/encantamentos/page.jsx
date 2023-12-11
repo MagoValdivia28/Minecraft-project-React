@@ -23,7 +23,6 @@ const Page_de_encantamentos = () => {
 
     const handleBookPopUp = () => {
         setBookPopUp(!bookPopUp);
-        console.log("clicou");
     }
 
 
