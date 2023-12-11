@@ -1,10 +1,12 @@
 "use client"
 import axios from 'axios';
-import Header from '../components/header/header';
 import styles from './membros.module.css';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; // Corrigido aqui
+
+//componentes
 import MembroPopUp from '../components/membroPopUp/membropopup';
+import Header from '../components/header/header';
 
 const membroPage = () => {
     const router = useRouter();
@@ -143,7 +145,7 @@ const membroPage = () => {
                     <h1>Criar novo membro ⬇</h1>
                     <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
                     {
-                        showPopup && <MembroPopUp handleClose={handleClose}/>
+                        showPopup && <MembroPopUp handleClose={handleClose} />
                     }
                 </div>
             </div>
