@@ -1,46 +1,70 @@
-.main{
-    background-image: url("../../public/minecampo.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-    justify-content: center;
-    color: white;
-
-
+.container1 {
+    background: rgba(38, 36, 35, 255);
 }
 
-.titulo {
+.back {
+    background-color: #ebe4e2;
+}
+
+;
+
+.cardContainer {
+
+    justify-content: space-between;
+    /* Espaçamento entre os cards */
+    background-color: #ebe4e2;
+    display: flex;
+    padding-top: 6%;
+    margin-bottom: -3%;
+}
+
+
+.textitle {
+    color: rgb(121, 119, 119);
+    font-family: 'Title-Minecraft-Font';
+    font-size: 2.4rem;
+    align-items: center;
+}
+
+.divtext {
     text-align: center;
-    padding-top: 7%;
+    padding-top: 10%;
 }
 
-.titulo h1 {
-    font-family: "Minecraft-Font";
-    font-size: 9vh;
-    text-shadow: 2px 2px 2px black;
+
+.img12 {
+    margin-top: -4%;
+    width: 100%;
 }
 
-.containerMob {
-display: flex;
-}
-
-.opacidade {
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.mob {
-    margin-top: 17%;
-    width: 90%;
-    margin-right: -30%;
-}
-
-.mob img {
+.imgtrs{
+    background-color: #ebe4e2;
+    width: 100%;
+    height: 9rem;
     
-    width: 29%;    
 }
 
-.tituloText {
-    max-width: 30%;
+.divHeader{
+    background-color: #52a535;
+    padding-top: 6%;
+    padding-bottom: 4.7%;
+    text-align: center;
 }
+
+.Cardmobs {
+    background-color: rgba(178, 178, 201, 0.628);
+    padding-top: 7%;
+    display: flex;
+    width: 40%;
+    
+}
+
+.descmobs {
+    font-family: 'Minecraft-Font';
+}
+
+.containerMobspac {
+    margin-left: 30rem;
+    
+}
+
