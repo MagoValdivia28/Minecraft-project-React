@@ -93,80 +93,80 @@ const feedbackPage = () => {
 
     return (
         <>
-        <Header />
-        
-        <main className={styles.main}>
-            <div className={styles.titles_container}>
-                <h2 className={styles.titles}>BEM-VINDO AO SITE OFICIAL DE COMENTÁRIOS DO MINECRAFT!</h2>
-                <p className={styles.subTitles}>Adoramos ouvir seus comentários – veja o que foi sugerido ou poste suas ideias agora. Ajude suas grandes ideias a se tornarem parte do Minecraft! Analisamos suas ideias e comentários todos os dias.</p>
-            <div className={styles.imgDegrade}> <br /></div>
-            </div>
-            <div className={styles.form_container}>
-                <label htmlFor="nome">Nome:</label>
-                <input
-                    type="text"
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <label htmlFor="mensagem">Mensagem:</label>
-                <input
-                    id="message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                />
-                {
-                    edit ? (
-                        <button onClick={handleEditar}>Editar</button>
-                    ) : (
-                        <button onClick={handleEnviar} className={styles.enviar}>Enviar</button>
-                    )
-                }
-            </div>
-            <div className={styles.main_container}>
-                <nav className={styles.feedback_container}>
-                    <ul className={styles.feedback_list}>
-                        {dados.map((feedback) => (
-                            <li className={styles.feedback_item} key={feedback.id}>
-                                <p className={styles.feedback_text}>{feedback.mensagem}</p>
-                                <p className={styles.feedback_name}>{feedback.nome}</p>
-                                <p className={styles.feedback_email}>{feedback.email}</p>
-                                <button
-                                    className={styles.deleteButton}
-                                    onClick={() => handleDelete(feedback.id)}
-                                >
-                                    Apagar
-                                </button>
+            <Header />
 
-                                <button
-                                    className={styles.editButton}
-                                    onClick={() => handleEdit(feedback)}
-                                >
-                                    Editar
-                                </button>
+            <main className={styles.main}>
+                <div className={styles.titles_container}>
+                    <h2 className={styles.titles}>BEM-VINDO AO SITE OFICIAL DE COMENTÁRIOS DO MINECRAFT!</h2>
+                    <p className={styles.subTitles}>Adoramos ouvir seus comentários – veja o que foi sugerido ou poste suas ideias agora. Ajude suas grandes ideias a se tornarem parte do Minecraft! Analisamos suas ideias e comentários todos os dias.</p>
+                    <div className={styles.imgDegrade}> <br /></div>
+                </div>
+                <div className={styles.form_container}>
+                    <label htmlFor="nome">Nome:</label>
+                    <input
+                        type="text"
+                        id="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                    <label htmlFor="email">Email:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <label htmlFor="mensagem">Mensagem:</label>
+                    <input
+                        id="message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                    />
+                    {
+                        edit ? (
+                            <button onClick={handleEditar}>Editar</button>
+                        ) : (
+                            <button onClick={handleEnviar} className={styles.enviar}>Enviar</button>
+                        )
+                    }
+                </div>
+                <div className={styles.main_container}>
+                    <nav className={styles.feedback_container}>
+                        <ul className={styles.feedback_list}>
+                            {dados.map((feedback) => (
+                                <li className={styles.feedback_item} key={feedback.id}>
+                                    <p className={styles.feedback_text}>{feedback.mensagem}</p>
+                                    <p className={styles.feedback_name}>{feedback.nome}</p>
+                                    <p className={styles.feedback_email}>{feedback.email}</p>
+                                    <button
+                                        className={styles.deleteButton}
+                                        onClick={() => handleDelete(feedback.id)}
+                                    >
+                                        Apagar
+                                    </button>
 
-
+                                    <button
+                                        className={styles.editButton}
+                                        onClick={() => handleEdit(feedback)}
+                                    >
+                                        Editar
+                                    </button>
 
 
 
 
 
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-            </div>
+
+
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+                </div>
 
 
 
-        </main>
+            </main>
         </>
 
     );

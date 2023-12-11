@@ -1,8 +1,8 @@
 /* faça um css para o feedback*/
 
 .main{
-    padding-top: 6%;
-    background: #d8d8d8;
+    padding-top: 4%;
+    background-image: url("../../public/bg-wool-dark.png");
 
 }
 .imgDegrade {
@@ -15,6 +15,7 @@
     background-image: url(https://theme.zdassets.com/theme_assets/2155033/3075fa693c7a32466e05b6ddb6938392b1b0fffe.png);
     background-repeat: no-repeat;
     height: 100%;
+    
 }
 .titles{
     margin: 30px;
@@ -28,14 +29,6 @@
 
 }
 
-.form_container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 5%;
-
-}
 
 .enviar {
     background-color: green;
@@ -56,14 +49,16 @@
 
   .form_container{
     align-items: center;
-    background: #6b6562;
+    background: #85807e;
     border: 0.125rem solid #313233;
     box-shadow: 0 0.25rem 0 rgba(0,0,0,.251), inset -0.25rem -0.25rem 0 rgba(0,0,0,.302), inset 0.25rem 0.25rem 0 hsla(0,0%,100%,.2);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     justify-content: space-between;
-    margin: 30px 1rem 0;
-    padding: 1rem;
-    width: 80%;
+    
+    width: auto;
+    margin-top: 5rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
   }
