@@ -10,7 +10,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-let bookStyles = 0;
 
 
 
@@ -29,6 +28,8 @@ const Page_de_encantamentos = () => {
     const [dados, setDados] = useState([]);
     const [encantamentos, setEncantamentos] = useState([]);
     const [encantamento, setEncantamento] = useState({});
+
+    const [editEncantamento, setEditEncantamento] = useState(null);
 
     // erros
 
@@ -141,33 +142,6 @@ const Page_de_encantamentos = () => {
         }
     }
 
-    const handleBookStyle = () => {
-        if (bookStyles == 0) {
-            setStyleBooks(styles.book);
-            bookStyles = 1;
-        } else if (bookStyles == 1) {
-            setStyleBooks(styles.book1);
-            bookStyles = 2;
-        } else if (bookStyles == 2) {
-            setStyleBooks(styles.book2);
-            bookStyles = 3;
-        } else if (bookStyles == 3) {
-            setStyleBooks(styles.book3);
-            bookStyles = 4;
-        } else if (bookStyles == 4) {
-            setStyleBooks(styles.book4);
-            bookStyles = 5;
-        } else if (bookStyles == 5) {
-            setStyleBooks(styles.book5);
-        }
-    }
-
-    const handleBookPopUp = () => {
-        setBookPopUp(!bookPopUp);
-        setBookInfo(encantamento);
-        console.log("clicou");
-        console.log(bookInfo);
-    }
 
 
     useEffect(() => {
@@ -176,7 +150,6 @@ const Page_de_encantamentos = () => {
                 const response = await axios.get("/api/encantamentos");
                 setEncantamentos(response.data);
                 setDados(response.data);
-                handleBookStyle();
             } catch (error) {
                 console.log(error);
             }
@@ -210,8 +183,30 @@ const Page_de_encantamentos = () => {
         }
     }
 
-    console.log("esse é a array");
-    console.log(dados);
+    const handleEdit = (encantamento) => {
+        setEditEncantamento(encantamento);
+        setTitulo(encantamento.titulo);
+        setDescricao(encantamento.descricao);
+        setTipoEncanto(encantamento.tipoEncanto);
+        setDano(encantamento.dano);
+        setDefesa(encantamento.defesa);
+        setNivel(encantamento.nivel);
+    };
+
+    useEffect(() => {
+        if (editEncantamento) {
+            axios.put(`/api/encantamentos/${editEncantamento.id}`, {
+                titulo: titulo,
+                descricao: descricao,
+                tipoEncanto: tipoEncanto,
+                dano: dano,
+                defesa: defesa,
+                nivel: nivel,
+            });
+
+        }
+    }, [editEncantamento]);
+
 
 
     return (
@@ -268,7 +263,7 @@ const Page_de_encantamentos = () => {
                                                             <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
                                                                 <p className={styles.delete_text}>Deletar</p>
                                                             </button>
-                                                            <button onClick={() => editEncantamento(encantamento)} className={styles.update_button}>
+                                                            <button onClick={() => handleEdit(encantamento)} className={styles.update_button}>
                                                                 <p className={styles.update_text}>Atualizar</p>
                                                             </button>
                                                         </li>
