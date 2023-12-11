@@ -29,14 +29,14 @@ const membroPage = () => {
     const handleSend = async (e, tipo) => {
         e.preventDefault();
         try {
-            await axios.post("/api/membros", { nome, idade, descricao, imagem, cargo, cor: corCard });
+            await axios.post("/api/membros", { nome, idade, descricao, imagem, cargo, backgroundcor: corCard });
             setNome('');
             setIdade('');
             setDescricao('');
             setUrlImagem('');
             setCargo('');
             router.push(`/membros/`);
-            setDados([...dados, { nome, idade, descricao, imagem, cargo, cor: corCard }]);
+            setDados([...dados, { nome, idade, descricao, imagem, cargo, backgroundcor: corCard }]);
         } catch (error) {
             console.error("Error submitting data:", error);
         }
@@ -56,7 +56,7 @@ const membroPage = () => {
     useEffect(() => {
         async function fetchMembro() {
             try {
-                const response = await axios.get("/api/membro");
+                const response = await axios.get("/api/membros");
                 setDados(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -88,7 +88,7 @@ const membroPage = () => {
                             <div>
                                 <div className={styles.item}>
                                     <label>Nome:</label>
-                                    <h1>Thayna Vazzoler</h1>
+                                    <h1></h1>
                                 </div>
                                 <div className={styles.item}>
                                     <label>Idade:</label>
@@ -118,58 +118,41 @@ const membroPage = () => {
                     </div>
                 </div>
                 <div className={styles.equipe}>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine1.webp" />
-                        <h2 className={styles.pessoa}>Felipe Pedro</h2>
-                        <p>Tech Lead/Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button onClick={() => handlePopUpDescricao()} className={styles.botaoVermais}>Detalhes</button>
-                        </div>
-                    </div>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine2.jpeg" />
-                        <h2 className={styles.pessoa}>Guilherme Rocha</h2>
-                        <p>Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
-                        </div>
-                    </div>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine3.png" />
-                        <h2 className={styles.pessoa}>Matheus Coco</h2>
-                        <p>Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
-                        </div>
-                    </div>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine4.png" />
-                        <h2 className={styles.pessoa}>Matheus Gomes</h2>
-                        <p>Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
-                        </div>
-                    </div>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine5.png" />
-                        <h2 className={styles.pessoa}>Pedro Isac</h2>
-                        <p>Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
-                        </div>
-                    </div>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine6.png" />
-                        <h2 className={styles.pessoa}>Thayna Vazzoler</h2>
-                        <p>Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button onClick={() => teste()} className={styles.botaoVermais}>Detalhes</button>
-                        </div>
-                    </div>
-
-                    <div className={styles.cardCriarMembro}>
-                        <button className={styles.botaoAdd} >+</button>
-                    </div>
+                    {
+                        dados.map((membro) => (
+                            <div key={membro.id} className={styles.cardPessoa} style={{ backgroundColor: membro.backgroundcor }}>
+                                <div className={styles.imgMembro}>
+                                    <img src={membro.imagem} alt="membro" />
+                                </div>
+                                <div className={styles.itens}>
+                                    <div>
+                                        <div className={styles.item}>
+                                            <label>Nome:</label>
+                                            <h1>{membro.nome}</h1>
+                                        </div>
+                                        <div className={styles.item}>
+                                            <label>Idade:</label>
+                                            <h1>{membro.idade}</h1>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className={styles.item}>
+                                            <label>Descrição:</label>
+                                            <h1>{membro.descricao}</h1>
+                                        </div>
+                                        <div className={styles.item}>
+                                            <label>Cargo:</label>
+                                            <h1>{membro.cargo}</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={styles.buttons}>
+                                    <button className={styles.rmv} onClick={() => handleDeletar(membro.id)}>Remover</button>
+                                    <button className={styles.edit} onClick={() => router.push(`/membros/edit/${membro.id}`)}>Editar</button>
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </>
