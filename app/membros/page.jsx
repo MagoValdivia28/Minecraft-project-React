@@ -156,10 +156,10 @@ const membroPage = () => {
                     <div className={styles.justifyCenter}>
                         <h1>Criar novo membro ⬇</h1>
                         <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
+                        {
+                            showPopup && <MembroPopUp handleClose={handleClose} handleSend={handleSend} />
+                        }
                     </div>
-                    {
-                        showPopup && <MembroPopUp handleClose={handleClose} handleSend={handleSend} />
-                    }
                 </div>
             </div>
         </>
