@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './membropopup.module.css'; // Substitua pelo caminho correto para o seu arquivo CSS
 
 function MembroPopUp({ handleClose }) {
     return (
         <div className={styles.containerPopUp}>
-            <p onClick={handleClose} className={styles.x}>X</p>
+            <p onClick={handleClose} className={styles.botaoRemover}>X</p>
             <form>
                     <input placeholder="Nome:"type="text" name="nome" />
                     <input placeholder="Idade:"type="number" name="idade" />

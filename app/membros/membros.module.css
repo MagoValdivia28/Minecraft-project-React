@@ -4,6 +4,7 @@
     text-align: center;
     align-items: center;
 }
+
 .textoHeader {
     font-family: 'Title-Minecraft-Font';
     color: #000000
@@ -132,10 +133,20 @@
     margin: 5px;
     cursor: pointer;
     border: 1px solid black;
-    font-size: 100px;
+    font-size: 70px;
     font-family: 'Title-Minecraft-Font';
-    width: 10%;
+    width: auto;
 }
+.botaoAdd:hover {
+    background-color: black;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 70px;
+    font-family: 'Title-Minecraft-Font';
+    width: auto;
+}
+
 .overlay {
     position: fixed;
     top: 0;
@@ -145,17 +156,12 @@
     background: rgba(0, 0, 0, 0.5);
     filter: blur(2px);
     z-index: 999;
-  }
-  
-  .containerPopUp {
+}
+
+.containerPopUp {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-  }
-  
-  .x {
-    cursor: pointer;
-  }
-  
+}

@@ -140,7 +140,7 @@ const membroPage = () => {
                             </div>
                         ))
                     }
-                   
+                    <h1>Criar novo membro ⬇</h1>
                     <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
                     {
                         showPopup && <MembroPopUp handleClose={handleClose}/>
