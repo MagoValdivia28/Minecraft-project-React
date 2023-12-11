@@ -129,8 +129,8 @@ const membroPage = () => {
                             </div>
                         ))
                     }
-                    <button className={styles.botaoAdd} >+</button>
-                   
+                    <button className={styles.botaoAdd}>+</button>
+
                 </div>
             </div>
         </>
