@@ -1,31 +1,17 @@
 import React, { useState } from 'react';
 import styles from './membropopup.module.css'; // Substitua pelo caminho correto para o seu arquivo CSS
 
-function MembroPopUp({handleClose}) {
+function MembroPopUp({ handleClose }) {
     return (
         <div className={styles.containerPopUp}>
-             <p onClick={handleClose} className={styles.x}>X</p>
-            <div className={styles.imgMembro}>
-                <form>
-                    <label>
-                        Nome:
-                        <input type="text" name="nome" />
-                    </label>
-                    <label>
-                        Idade:
-                        <input type="number" name="idade" />
-                    </label>
-                    <label>
-                        Descrição:
-                        <input type="text" name="descricao" />
-                    </label>
-                    <label>
-                        Cargo na equipe:
-                        <input type="text" name="cargo" />
-                    </label>
-                    <input type="submit" value="Criar" />
-                </form>
-            </div>
+            <p onClick={handleClose} className={styles.x}>X</p>
+            <form>
+                    <input placeholder="Nome:"type="text" name="nome" />
+                    <input placeholder="Idade:"type="number" name="idade" />
+                    <input placeholder="Descrição sobre você:"type="text" name="descricao" />
+                    <input placeholder="Cargo:"type="text" name="cargo" />
+                <input type="submit" value="Criar" className={styles.enviar} /* onClick={} *//>
+            </form>
         </div>
     )
 };
