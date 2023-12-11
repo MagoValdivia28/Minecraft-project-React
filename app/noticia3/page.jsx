@@ -1,8 +1,5 @@
 import Styles from "./page.module.css";
 import Header from "../components/header/header";
-import { FaGithub } from "react-icons/fa";
-import { SiLinktree } from "react-icons/si"; 
-import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 
 
@@ -10,7 +7,6 @@ import Footer from "../components/footer/footer";
 export default function NoticiaPage() {
     return (
         <>
-            <Header />
             < Header />
 
             <div className={Styles.main}>
