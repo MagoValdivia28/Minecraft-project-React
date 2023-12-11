@@ -53,6 +53,13 @@ const Page_de_encantamentos = () => {
         }, 5000);
     }
 
+    function sendType(type) {
+        if (type === "error") {
+            setErrorType('error');
+        } else if (type === "success") {
+            setErrorType('success');
+        }
+    }
 
     function validation() {
 
