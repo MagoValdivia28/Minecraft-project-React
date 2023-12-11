@@ -130,19 +130,10 @@ const membroPage = () => {
                                             <label>Nome:</label>
                                             <h1>{membro.nome}</h1>
                                         </div>
-                                        <div className={styles.item}>
-                                            <label>Idade:</label>
-                                            <h1>{membro.idade}</h1>
-                                        </div>
                                     </div>
                                     <div>
                                         <div className={styles.item}>
-                                            <label>Descrição:</label>
-                                            <h1>{membro.descricao}</h1>
-                                        </div>
-                                        <div className={styles.item}>
-                                            <label>Cargo:</label>
-                                            <h1>{membro.cargo}</h1>
+                                            <p>Cargo: {membro.cargo}</p>
                                         </div>
                                     </div>
                                 </div>
