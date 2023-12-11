@@ -17,6 +17,10 @@ const Batalha = () => {
     const [selecionarBota, setSelecionarBota] = useState(null);
     const [selecionarEspada, setSelecionarEspada] = useState(null);
 
+    const [defesa, setDefesa] = useState(0);
+
+    const [setFiltragemNome, setSetFiltragemNome] = useState("all");
+
     useEffect(() => {
         async function fetchEquipamento() {
             try {
@@ -30,6 +34,25 @@ const Batalha = () => {
 
         fetchEquipamento();
     }, []);
+
+    useEffect(() => {
+        let totalDefesa = 0;
+
+        if (selecionarCapacete) {
+            totalDefesa += selecionarCapacete.defesa;
+        }
+        if (selecionarPeitoral) {
+            totalDefesa += selecionarPeitoral.defesa;
+        }
+        if (selecionarCalca) {
+            totalDefesa += selecionarCalca.defesa;
+        }
+        if (selecionarBota) {
+            totalDefesa += selecionarBota.defesa;
+        }
+
+        setDefesa(totalDefesa);
+    }, [selecionarCapacete, selecionarPeitoral, selecionarCalca, selecionarBota]);
 
     const handleEquipamentoSelecionado = (equipamento) => {
         if (equipamento.tipo === "capacete") {
@@ -60,6 +83,14 @@ const Batalha = () => {
                         <div className={Style.equipamentosFeitos}>
                             <div className={Style.buscar}>
                                 <input type="text" placeholder='Buscar Equipamento' />
+                                <select name="" id="">
+                                    <option value="all">Todos</option>
+                                    <option value="capacete">Capacetes</option>
+                                    <option value="peitoral">Peitorais</option>
+                                    <option value="calca">Calças</option>
+                                    <option value="bota">Botas</option>
+                                    <option value="espada">Espadas</option>
+                                </select>
                             </div>
                             <div className={Style.containerEquipamentos}>
                                 {
@@ -75,24 +106,35 @@ const Batalha = () => {
 
                                 }
                             </div>
-                         </div>
-                         <div className={Style.equipamentosSelecionados}>
-                            <div className={Style.itemArmadura}>
-                                <img style={{background: selecionarCapacete?.cor}} src={`inventory/${selecionarCapacete?.tipo}Final.png`} alt="" />
+                        </div>
+                        <div className={Style.attachmentEquipamento}>
+                            <p className={Style.textop}>EQUIPAMENTOS SELECIONADOS</p>
+                            <div className={Style.statusAndEquipamento}>
+                                <div className={Style.equipamentosSelecionados}>
+                                    <div className={Style.itemArmadura}>
+                                        <img style={{ background: selecionarCapacete?.cor }} src={`inventory/${selecionarCapacete?.tipo}Final.png`} alt="" />
+                                    </div>
+                                    <div className={Style.itemArmadura}>
+                                        <img style={{ background: selecionarPeitoral?.cor }} src={`inventory/${selecionarPeitoral?.tipo}Final.png`} alt="" />
+                                    </div>
+                                    <div className={Style.itemArmadura}>
+                                        <img style={{ background: selecionarCalca?.cor }} src={`inventory/${selecionarCalca?.tipo}Final.png`} alt="" />
+                                    </div>
+                                    <div className={Style.itemArmadura}>
+                                        <img style={{ background: selecionarBota?.cor }} src={`inventory/${selecionarBota?.tipo}Final.png`} alt="" />
+                                    </div>
+                                    <div className={Style.itemArmadura}>
+                                        <img style={{ background: selecionarEspada?.cor }} src={`inventory/${selecionarEspada?.tipo}Final.png`} alt="" />
+                                    </div>
+                                </div>
+                                <div className={Style.status}>
+                                    <span className={`${Style.textop} ${Style.dano}`}>ataque: {selecionarEspada ? selecionarEspada.dano : 0}</span>
+                                    <span className={`${Style.textop} ${Style.defesa}`}>defesa: {defesa}</span>
+                                </div>
                             </div>
-                            <div className={Style.itemArmadura}>
-                                <img style={{background: selecionarPeitoral?.cor}} src={`inventory/${selecionarPeitoral?.tipo}Final.png`} alt="" />
-                            </div>
-                            <div className={Style.itemArmadura}>
-                                <img style={{background: selecionarCalca?.cor}} src={`inventory/${selecionarCalca?.tipo}Final.png`} alt="" />
-                            </div>
-                            <div className={Style.itemArmadura}>
-                                <img style={{background: selecionarBota?.cor}} src={`inventory/${selecionarBota?.tipo}Final.png`} alt="" />
-                            </div>
-                            <div className={Style.itemArmadura}>
-                                <img style={{background: selecionarEspada?.cor}} src={`inventory/${selecionarEspada?.tipo}Final.png`} alt="" />
-                            </div>
-                         </div>
+
+                        </div>
+
                     </div>
 
 

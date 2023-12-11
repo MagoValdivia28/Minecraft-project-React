@@ -17,15 +17,15 @@ export async function DELETE(request, { params }) {
 }
 
 export async function PUT(request, { params }) {
-    const { id } = params;
-    const body = await request.json();
-  
-    try {
-      const response = await axios.put(`${url}/${id}`, body);
-  
-      return NextResponse.json(response.data);
-    } catch (error) {
-      console.log("[ORDER_PUT]", error);
-      return new NextResponse("Erro interno do servidor!", { status: 500 });
-    }
+  const { id } = params;
+  const body = await request.json();
+
+  try {
+    const response = await axios.put(`${url}/${id}`, body);
+
+    return NextResponse.json(response.data);
+  } catch (error) {
+    console.log("[ORDER_PUT]", error);
+    return new NextResponse("Erro interno do servidor!", { status: 500 });
   }
+}
