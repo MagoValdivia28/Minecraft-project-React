@@ -2,10 +2,12 @@ import axios from "axios";
 
 import { NextResponse } from "next/server";
 
+const url = process.env.BASE_URL + "equipamentos";
+
 export async function DELETE(request, { params }) {
   const { id } = params;
   try {
-    const response = await axios.delete(`http://192.168.68.176:4000/equipamentos/${id}`);
+    const response = await axios.delete(`${url}/${id}`);
 
     return NextResponse.json(response.data);
   } catch (error) {
@@ -19,7 +21,7 @@ export async function PUT(request, { params }) {
     const body = await request.json();
   
     try {
-      const response = await axios.put(`http://192.168.68.176:4000/equipamentos/${id}`, body);
+      const response = await axios.put(`${url}/${id}`, body);
   
       return NextResponse.json(response.data);
     } catch (error) {
