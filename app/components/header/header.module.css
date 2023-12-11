@@ -45,3 +45,15 @@
     border-right: #2a641c 5px solid;
     border-top: #a0e081 5px solid;
 }
+.battle_tittle:hover {
+    background-color: #1e4c13;
+    transition: background-color 0.2s;
+}
+
+.link:hover {
+    border-bottom: #8dcd7c 2px solid;
+    transition:  1s;
+
+    color: #8dcd7c;
+    transition: color 0.3s;
+}

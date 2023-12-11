@@ -1,68 +1,73 @@
-
 import Styles from "./page.module.css";
-import { FaGithub } from "react-icons/fa";
-import { SiLinktree } from "react-icons/si"; 
+import Header from "../components/header/header";
+
+
 
 export default function NoticiaPage() {
     return (
         <>
-          
+            < Header />
+
             <div className={Styles.main}>
-                <img className={Styles.img} src="https://www.minecraft.net/content/dam/games/dungeons/key-art/md25-header.jpg.transform/minecraft-image-medium/image.jpg" alt="Imagem do Minecraft"/>
+                <img className={Styles.img} src="https://img.olhardigital.com.br/uploads/acervo_imagens/2020/06/20200605062817.jpg" alt="Imagem do Minecraft" />
 
-                <div className={Styles.news}>
-                    <p>News</p>
-                </div>
-                <div className={Styles.text}>
-                    <h1>MASMORRAS DO MINECRAFT: 25</h1>
-                    <h1>MILHÕES DE JOGADORES</h1>
-                    <h1>CONTANDO A SUA HISTÓRIA</h1>
+                <div className={Styles.div2}>
+                    <img src="https://www.minecraft.net/content/dam/games/dungeons/background-images/foreground.png" alt="" className={Styles.img2} />
+                    <div className={Styles.h2}>
+                        <h2>Descobre o</h2>
+                        <h2>Minecraft Dungeons</h2>
+                    </div>
 
-                    <p className={Styles.description}>Um sincero Obrigado!!</p>
+                    <div className={Styles.p}>
+                        <p>Um jogo de ação e aventura inspirado nos clássicos jogos de exploração de </p>
+                        <p>masmorras e passado no universo Minecraft.</p>
+                    </div>
+
+                    <div>
+                        <a href="https://www.youtube.com/watch?v=BUv-V5ixPE8"><img src="https://www.minecraft.net/content/dam/games/dungeons/key-art/UltimateEdition.jpeg" alt="" className={Styles.img3} /></a>
+                    </div>
+
+                    <div className={Styles.descriptionimg}>
+                        <p>Combate criaturas icónicas, embarca em missões recheadas de </p>
+                        <p>tesouros e coleciona itens lendários, tudo isto no Ultimate Edition.</p>
+                    </div>
+
                 </div>
 
-                <div className={Styles.text2}>
-                    <p className={Styles.description2}>O tempo voa quando você está se divertindo. Antes que você perceba, seu jogo já está crescido e andando com suas próprias perninhas. Hoje, no dia do anúncio do Minecraft Dungeons há cinco anos, temos orgulho de compartilhar que nosso joguinho atingiu um marco e ultrapassou 25 milhões de jogadores únicos!</p>
-                    <p className={Styles.description2}>Não é apenas um número com o qual nem mesmo as pessoas mais brilhantes do Mojang Studios podem contar - também é muito humilhante ver que tantos heróis pegaram o manto para livrar o Mundo Superior da influência do Orbe da Dominância. Esta jornada tem sido incrível e convidamos você a relembrar conosco.</p>
+                <img src="https://www.minecraft.net/content/dam/games/dungeons/background-images/foreground.png" alt="" className={Styles.img2} />
+
+                <div className={Styles.divh1}>
+
+                    <div className={Styles.h1}>
+                        <h2>Como Funciona</h2>
+                    </div>
+
+                    <div className={Styles.divs}>
+
+                        <div>
+                            <img src="https://www.minecraft.net/content/dam/games/dungeons/key-art/MinecraftDungeon_Unite_600x800.png" alt="" />
+                            <h3>Alia-te</h3>
+                            <p>Enfrenta as masmorras sozinho ou junta-te aos teus amigos! Forma uma equipa de até quatro jogadores para combaterem online ou em ecrã dividido.</p>
+                        </div>
+
+                        <div>
+                            <img src="https://www.minecraft.net/content/dam/games/dungeons/key-art/MinecraftDungeon_Fight_600x800.png" alt="" />
+                            <h3>Luta</h3>
+                            <p>Utiliza ataques corpo a corpo, descansa na retaguarda com ataques à distância ou usa a tua energia imensa para atravessar os inimigos protegido por uma armadura poderosa! Personaliza o teu personagem e descobre itens e encantamentos de armas únicos que te darão o poder de ataques devastadores.</p>
+                        </div>
+
+                        <div>
+                            <img src="https://www.minecraft.net/content/dam/games/dungeons/key-art/MinecraftDungeon_Survive_600x800.png" alt="" />
+                            <h3>Luta</h3>
+                            <p>Explora níveis repletos de ação e tesouros. Tudo isto enquanto partes numa demanda épica para salvar os aldeões e derrotar o terrível Arch-Illager!</p>
+                        </div>
+
+                    </div>
                 </div>
 
-                <div>
-                    <a href="https://www.youtube.com/watch?v=M3V-NMwaPiM"><img src="https://i.ytimg.com/vi/M3V-NMwaPiM/maxresdefault.jpg" alt="Imagem do Minecraft" className={Styles.img2} /></a>
-                    
-                </div>
-                <div className={Styles.text2}>
-                    <p className={Styles.description2}>Minecraft Dungeons começou como um projeto apaixonante, inspirado em nosso amor pelos jogos clássicos de dungeon crawler e reimaginado como uma experiência Minecraft completamente nova. Mas foi o amor dos nossos jogadores que o fez crescer e prosperar, permitindo-nos continuar a aventura e aventurar-nos ainda mais no Nether, no Fim e, eventualmente, na misteriosa Torre. Superou nossos sonhos mais loucos e nos deixa orgulhosos e gratos por termos tido o prazer de construir um jogo junto com uma comunidade como esta.</p>
-                </div>
-
-                <div><img src="https://www.minecraft.net/content/dam/games/dungeons/key-art/md25-1.jpg" alt="Imagem do Minecraft" className={Styles.img2}/></div>
-
-                <div className={Styles.text2}>
-                    <p className={Styles.description2}>Porém, toda jornada tem um fim. Como a versão 1.17 foi a atualização final do Minecraft Dungeons, nossa equipe agora avançou para novos projetos que continuam a explorar experiências no universo Minecraft. Isso significa que não há novos recursos ou atualizações de conteúdo planejadas para o jogo. Pretendemos continuar trazendo novas experiências para o universo Minecraft e dar à nossa equipe a liberdade de continuar explorando os tipos de jogos pelos quais são apaixonados – assim como fizeram com Dungeons!</p>
-                    <p className={Styles.description2}>Não pense por um segundo que isso significa que suas aventuras terminaram! Ainda há muitas aventuras para viver junto com seus amigos; masmorras para explorar, caçadas antigas para conquistar e derrubar uma torre cujo layout continuará girando. E embora a história de Dungeons possa ter chegado ao fim, nossa comunidade continua a construir suas próprias histórias. Estamos felizes que tantos novos jogadores descubram e aproveitem o jogo em uma variedade crescente de plataformas e, por fim, se tornem parte da família de heróis de Dungeons.
-</p>
-                    <p className={Styles.description2}>Vocês são todos maravilhosos. Obrigado por todo o seu apoio e nos vemos nas masmorras! </p>
-                </div>
+                <img src="https://www.minecraft.net/content/dam/games/dungeons/background-images/foreground.png" alt="" className={Styles.img2} />
                 
-
-                <div className={Styles.text3}>
-                    <img src="https://s-trojmiasto.pl/zdj/c/n/9/2703/597x0/2703588-Oto-postac-z-gry-ktora-synowi-naszej-czytelniczki-kojarzy-sie-z-wieza.jpg" alt="Villager do minecraft" className={Styles.img3} />
-                <p className={Styles.description3}>Escrio por: Thayná</p>
-                <p className={Styles.description3}>Publicada 01/12/2023</p>
-                </div>
-
-                <div>
-                <h3>Nossas Redes Sociais</h3>
-                </div>
-
-
-                <div className={Styles.icons}>
-                <a href="https://github.com/MagoValdivia28/Minecraft-project-React" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-                <a href="https://linktr.ee/admin" target="_blank" rel="noopener noreferrer"><SiLinktree /></a>
-                </div>
-
-               
             </div>
-         
         </>
     );
 }

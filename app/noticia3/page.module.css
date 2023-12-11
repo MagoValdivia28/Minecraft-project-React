@@ -1,69 +1,145 @@
-.main{
+@import url('https://fonts.cdnfonts.com/css/minecraft-4');
+
+.main {
+    background-position: center;
+    color: #ffffff; /* Cor dos textos */
+    text-align: center;
+    background-color: #190d19;
+    padding-top:4rem;
+  }
+
+  .img{
+    width: 90%;
+}
+
+.divs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+  }
+
+.divs > div {
+    flex: 1;
+    text-align: center;
+    background-color: #4F1030; 
+    padding: 20px;
+    margin:  30px;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-}
-.img{
-    width: 95%;
-}
-.news{
-    font-weight: 700!important;
-    background-color: #252525!important;
-    padding: 6px 10px;
-    background-color: #000!important;
-    font-size: .875rem;
-    color: #fff!important;
-    text-transform: uppercase!important;
-    display: inline-block!important;
-    margin: -15px;
-}
-.text{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px;
-}
-.description{
+  }
 
-margin: 5px;
-}
-.text2{
-    padding: 0px 350px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.1em;  
-}
-.description2{
-    padding: 12px 0px 20px 0px;
-}
-.img2{
-    padding: 10px;
-    width: 800px;
-}
-.text3{
-    float: left;
-    width: 80%;
+.divs > div img {
+    width: 100%;
+    max-width: 230px;
+    display: block;
+    margin: 0 auto;
+  }
 
-    
-}
+.divs > div h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
 
-.description3{
-    padding: 2px 0px 5px 0px;
-}
-.img3{
-    width: 13%;
-}
+  .h1{
+    font-family: 'Minecraft', sans-serif;
+    font-size: 25px;
+    margin: 2%;
+  }
 
-.icons{
-    padding: 20px ;
+.h2 {
+    font-family: 'Minecraft', sans-serif;
     font-size: 30px;
-    display: flex;
-    justify-content: space-between;
-}
-.icon{
-    padding: 10px;
-    
-}
+    margin-top: 5%;
+  }
 
+.p{
+    font-size: 18px;
+    margin-top: 1%;
+    margin-bottom: 40px;
+  }
 
+.img2{
+    width: 100%;
+  }
 
+.img3{
+    width: 73%;
+  }
+
+.descriptionimg{
+    text-align: left;
+    font-size: 12px;
+    padding-left: 13%;
+    letter-spacing: 0.75px;
+    margin-bottom: 25px;
+  }
+
+@media screen and (max-width: 768px) {
+.divs {
+    flex-direction: column;
+    }
+  
+.divs > div {
+    margin: 20px 0;
+    }
+
+.img3{
+    width: 100%;
+    }
+
+.descriptionimg{
+    text-align: left;
+    font-size: 19px;
+    padding-left: 0%;
+    margin-top: 5px;
+    margin-left: 12px;
+    letter-spacing: 0.75px;
+    }
+
+.h1{
+    font-size: 18px;
+    }
+
+.h2 {
+    font-size: 20px;
+    margin-top: 7%;
+    }
+
+.h3 {
+    font-size: 20px;
+    margin-top: 7%;
+    }
+
+    .p{
+    font-size: 20px;
+    margin-top: 1%;
+    margin-bottom: 40px;
+    }
+
+.img2{
+    width: 100%;
+    }
+
+.img{
+    width: 100%;
+    }
+
+    .divs {
+    margin-top: 20px;
+    font-size: 20px;
+    }
+
+    .divs > div {
+    flex: 1;
+    padding: 20px;
+    margin: 0 30px;
+    }
+
+.divs > div img {
+    width: 100%;
+    max-width: 200px;
+    }
+  }

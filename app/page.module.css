@@ -1,11 +1,4 @@
-/* .teste {
-    font-family: 'Minecraft-Font';
-} /* isso é so pra caso alm queira usar a fonte do mine, ela ta com esse nome é so usar esse font family 
-
-.teste_com_titulo {
-    font-family: 'Title-Minecraft-Font';
-} */
-.container1 {
+ .container1 {
   background: rgba(38, 36, 35, 255);
 }
 
@@ -52,6 +45,8 @@
   display: flex;
   color: white;
   width: 100%;
+  margin: 0 auto;
+  margin-right: -2%;
 }
 
 .mainCard {
@@ -62,17 +57,20 @@
   background-position: center;
   position: relative;
 }
-
-.mainCard:nth-child(1) {
-  background-image: url("https://www.minecraft.net/content/dam/games/badger/key-art/highlight-legends.jpg");
+.mainCard:hover {
+  transform: scale(1.03); /* Aumenta o tamanho do cartão */
+  transition: transform .2s; /* Suaviza a transição */
 }
 
-.mainCard:nth-child(2) {
+.mainCard:nth-child(1) {
   background-image: url("https://www.minecraft.net/content/dam/games/minecraft/key-art/highlight-tails.jpg");
 }
 
+.mainCard:nth-child(2) {
+  background-image: url("https://www.minecraft.net/content/dam/games/badger/key-art/highlight-legends.jpg");
+}
 .textMainCard {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
   width: 100%;
   height: 30%;
   position: absolute;
@@ -82,9 +80,9 @@
   font-size: 1.1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+
   text-align: center;
-  flex-direction: column;
+
 }
 .cardContainer {
   display: flex;
@@ -103,7 +101,7 @@
 }
 
 .card:nth-child(1) {
-  background-image: url("https://www.minecraft.net/content/dam/games/minecraft/screenshots/1-17-caves-and-cliffs-update/1-17-caves-and-cliffs-update-1.jpg");
+  background-image: url("/backcard.png");
 }
 
 .card:nth-child(2) {
@@ -147,6 +145,7 @@
 .card:hover {
   .subTitle_card {
     display: block;
+    transition: transform .2s;;
   }
 }
 
