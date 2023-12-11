@@ -37,6 +37,9 @@ const membroPage = () => {
     const handleOpenPopup = () => {
         setShowPopup(true);
     };
+    const handleClose = () => {
+        setShowPopup(false);
+    }
     const [showPopup, setShowPopup] = useState(false);
 
     // Função para fechar o pop-up e limpar o ID do membro selecionado
@@ -137,9 +140,10 @@ const membroPage = () => {
                             </div>
                         ))
                     }
+                   
                     <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
                     {
-                        showPopup && MembroPopUp({ showPopup, setShowPopup }, handleClosePopup = handleOpenPopup)
+                        showPopup && <MembroPopUp handleClose={handleClose}/>
                     }
                 </div>
             </div>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styles from './membropopup.module.css'; // Substitua pelo caminho correto para o seu arquivo CSS
 
-function MembroPopUp(handleClosePopup) {
+function MembroPopUp({handleClose}) {
     return (
         <div className={styles.containerPopUp}>
-            <p onClick={handleClosePopup} className={styles.x}>X</p>
+             <p onClick={handleClose} className={styles.x}>X</p>
             <div className={styles.imgMembro}>
                 <form>
                     <label>
