@@ -32,8 +32,8 @@ export async function PUT(request, { params }) {
     const { id } = params;
     try {
       const response = await axios.delete(`http://10.88.200.145:4000/encantamentos/${id}`);
-  
       return NextResponse.json(response.data);
+      
     } catch (error) {
       console.log("[ORDER_DELETE]", error);
       return new NextResponse("Erro interno do servidor!", { status: 500 });

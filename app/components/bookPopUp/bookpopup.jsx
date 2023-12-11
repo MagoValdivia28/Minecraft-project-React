@@ -32,7 +32,7 @@ const BookPopUp = ({ handleBookPopUp, handleDelete, encantamento }) => {
                 <button onClick={() => handleBookPopUp()} className={stlyes.exitButton}>
                     <p className={stlyes.textButton}>Feito</p>
                 </button>
-                <button onClick={() => handleDelete()} className={stlyes.deleteButton}>
+                <button onClick={handleDelete} className={stlyes.deleteButton}>
                     <p className={stlyes.textButton}>Deletar</p>
                 </button>
                 <button onClick={() => handleDelete()} className={stlyes.editButton}>
