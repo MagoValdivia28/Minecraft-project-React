@@ -15,20 +15,46 @@
     background-image: url(https://theme.zdassets.com/theme_assets/2155033/3075fa693c7a32466e05b6ddb6938392b1b0fffe.png);
     background-repeat: no-repeat;
     height: 100%;
+    width: 100%;
+    margin-top: 3rem;
     
 }
 .titles{
     margin: 30px;
     text-align: center;
     margin-bottom: 30px;
+    font-size: 14vh;
+    font-family: 'Minecraft-Font';
+    color: #000000;
+    text-shadow: 2px 2px 2px #ffffff;
+    text-align: center;
 }
 
 .subTitles{
     text-align: center;
     margin-bottom: 30px;
+    font-size: 4vh;
+  
+    color: #000000;
+    text-shadow: 2px 2px 2px #ffffff;
+    text-align: center;
 
 }
+.label{
+  font-family: 'Minecraft-Font';
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+.label1{
+  font-family: 'Minecraft-Font';
+  font-size: 1.5rem;
 
+}
+.input{
+  margin-bottom: 2rem;
+  margin-top: -0.5rem;
+  width: 50%;
+}
 
 .enviar {
     background-color: green;

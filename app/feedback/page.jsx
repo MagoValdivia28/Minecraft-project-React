@@ -97,27 +97,30 @@ const feedbackPage = () => {
 
             <main className={styles.main}>
                 <div className={styles.titles_container}>
-                    <h2 className={styles.titles}>BEM-VINDO AO SITE OFICIAL DE COMENTÁRIOS DO MINECRAFT!</h2>
+                    <h2 className={styles.titles}>FEEDBACK!</h2>
                     <p className={styles.subTitles}>Adoramos ouvir seus comentários – veja o que foi sugerido ou poste suas ideias agora. Ajude suas grandes ideias a se tornarem parte do Minecraft! Analisamos suas ideias e comentários todos os dias.</p>
                     <div className={styles.imgDegrade}> <br /></div>
                 </div>
                 <div className={styles.form_container}>
-                    <label htmlFor="nome">Nome:</label>
+                    <label className={styles.label} htmlFor="nome">Nome:</label>
                     <input
+                        className={styles.input}
                         type="text"
                         id="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
-                    <label htmlFor="email">Email:</label>
+                    <label className={styles.label1} htmlFor="email">Email:</label>
                     <input
+                        className={styles.input}
                         type="email"
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <label htmlFor="mensagem">Mensagem:</label>
+                    <label className={styles.label1} htmlFor="mensagem">Mensagem:</label>
                     <input
+                        className={styles.input}
                         id="message"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
