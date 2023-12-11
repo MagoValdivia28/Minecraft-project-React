@@ -141,8 +141,8 @@
     border: 1px solid black;
     font-size: 70px;
     font-family: 'Title-Minecraft-Font';
-    transition: 0.3s;
-    width: auto;
+    transition: 0.4s;
+    width: 100%;
 }
 .botaoAdd:hover {
     background-color: black;
@@ -151,7 +151,6 @@
     cursor: pointer;
     font-size: 70px;
     font-family: 'Title-Minecraft-Font';
-    width: auto;
 }
 
 .overlay {
@@ -166,6 +165,7 @@
 }
 
 .containerPopUp {
+    background-color: green;
     position: fixed;
     top: 50%;
     left: 50%;
