@@ -125,7 +125,7 @@ const feedbackPage = () => {
                     edit ? (
                         <button onClick={handleEditar}>Editar</button>
                     ) : (
-                        <button onClick={handleEnviar}>Enviar</button>
+                        <button onClick={handleEnviar} className={styles.enviar}>Enviar</button>
                     )
                 }
             </div>
