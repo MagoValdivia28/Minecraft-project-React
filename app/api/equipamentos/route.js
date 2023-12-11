@@ -4,7 +4,9 @@ import { NextResponse } from "next/server";
 
 const url = process.env.BASE_URL + "equipamentos";
 
-export async function GET() {
+export async function GET(request) {
+  const filtragemNome = request.searchParams.get("filtros[filtragemNome]");
+  console.log(filtragemNome);
   try {
     const response = await axios.get(url);
     return NextResponse.json(response.data.equipamentos);

@@ -19,7 +19,8 @@ const Batalha = () => {
 
     const [defesa, setDefesa] = useState(0);
 
-    const [setFiltragemNome, setSetFiltragemNome] = useState("all");
+    const [filtragemNome, setFiltragemNome] = useState(null);
+    const [filtragemTipo, setFiltragemTipo] = useState(null);
 
     useEffect(() => {
         async function fetchEquipamento() {
@@ -68,6 +69,22 @@ const Batalha = () => {
         }
     }
 
+    // filtro por query params
+
+    const handleBusca = async () => {
+        const filtros = { filtragemNome, filtragemTipo};
+        try {
+            const response = await axios.get(`/api/equipamentos`, {
+                params: {filtros}
+            });
+            console.log(response.data);
+            setDados(response.data);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
+
+
     return (
         <main className={Style.main}>
             <div className={Style.opacidadeImg}>
@@ -82,8 +99,8 @@ const Batalha = () => {
                         <p className={Style.textop}>SELECIONE SEU EQUIPAMENTO !</p>
                         <div className={Style.equipamentosFeitos}>
                             <div className={Style.buscar}>
-                                <input type="text" placeholder='Buscar Equipamento' />
-                                <select name="" id="">
+                                <input onChange={(e) => setFiltragemNome(e.target.value)} type="text" placeholder='Buscar Equipamento' />
+                                <select onChange={(e) => setFiltragemTipo(e.target.value)} name="" id="">
                                     <option value="all">Todos</option>
                                     <option value="capacete">Capacetes</option>
                                     <option value="peitoral">Peitorais</option>
@@ -91,6 +108,7 @@ const Batalha = () => {
                                     <option value="bota">Botas</option>
                                     <option value="espada">Espadas</option>
                                 </select>
+                                <button onClick={handleBusca}>Buscar</button>
                             </div>
                             <div className={Style.containerEquipamentos}>
                                 {
