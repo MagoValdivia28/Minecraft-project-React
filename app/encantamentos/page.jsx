@@ -89,7 +89,7 @@ const Page_de_encantamentos = () => {
 
 
         if (errors.length > 0) {
-            sendErrorMsg(errors);
+            sendErrorMsg(errors.join(", "));
             sendType("error");
             return true;
         } else {
