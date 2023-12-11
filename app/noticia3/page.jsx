@@ -34,10 +34,10 @@ export default function NoticiaPage() {
 
                 </div>
 
-                <img src="https://www.minecraft.net/content/dam/games/dungeons/background-images/foreground.png" alt="" className={Styles.img2} />
 
                 <div className={Styles.divh1}>
 
+                <img src={"./fim.png"} alt="" className={Styles.img2} />
                     <div className={Styles.h1}>
                         <h2>Como Funciona</h2>
                     </div>
@@ -65,8 +65,7 @@ export default function NoticiaPage() {
                     </div>
                 </div>
 
-                <img src="https://www.minecraft.net/content/dam/games/dungeons/background-images/foreground.png" alt="" className={Styles.img2} />
-                
+                <img src="https://www.minecraft.net/content/dam/games/dungeons/background-images/foreground.png" alt="" className={Styles.imgfim} />                
             </div>
         </>
     );
