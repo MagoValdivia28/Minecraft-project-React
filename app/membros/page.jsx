@@ -57,17 +57,17 @@ const membroPage = () => {
 
 
     // postar
-    const handleSend = async (e, tipo) => {
-        e.preventDefault();
+    const handleSend = async () => {
         try {
-            await axios.post("/api/membros", { nome, idade, descricao, imagem, cargo, backgroundcor: corCard });
+            await axios.post("/api/membros", { nome, idade, descricao, cargo, urlimagem: imagem, backgroundcor: corCard });
             setNome('');
             setIdade('');
             setDescricao('');
             setUrlImagem('');
             setCargo('');
             router.push(`/membros/`);
-            setDados([...dados, { nome, idade, descricao, imagem, cargo, backgroundcor: corCard }]);
+            const response = await axios.get("/api/membros");
+            setDados(response.data);
         } catch (error) {
             console.error("Error submitting data:", error);
         }
@@ -84,6 +84,7 @@ const membroPage = () => {
         try {
             await axios.delete(url);
             setDados(dados.filter((membro) => membro.id !== id));
+            setPopUp(false);
         } catch (error) {
             console.error("Error fetching data:", error);
         }
@@ -123,7 +124,7 @@ const membroPage = () => {
 
                                     <div className={styles.botoesER}>
                                         <button onClick={() => handleEdit(membro)} className={styles.botaoEditar}>Editar</button>
-                                        <button onClick={() => handleDeletar(membro.id)} className={styles.botaoDeletar}>De/letar</button>
+                                        <button onClick={() => handleDeletar(membro.id)} className={styles.botaoDeletar}>Deletar</button>
                                     </div>
 
                                 </div>
@@ -162,10 +163,10 @@ const membroPage = () => {
                         <h1>Criar novo membro ⬇</h1>
                         <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
                         {
-                            showPopup && <MembroPopUp handleClose={handleClose} />
+                            showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} />
                         }
                     </div>
-                </div>
+                </div>  
             </div>
         </>
     )
