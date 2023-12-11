@@ -121,6 +121,11 @@ const membroPage = () => {
                                         <p><strong>cargo na equipe:</strong>{membro.cargo}</p>
                                     </div>
 
+                                    <div className={styles.botoesER}>
+                                        <button onClick={() => handleEdit(membro)} className={styles.botaoEditar}>Editar</button>
+                                        <button onClick={() => handleDeletar(membro.id)} className={styles.botaoDeletar}>De/letar</button>
+                                    </div>
+
                                 </div>
                             ) : null
                         ))}
@@ -157,7 +162,7 @@ const membroPage = () => {
                         <h1>Criar novo membro ⬇</h1>
                         <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
                         {
-                            showPopup && <MembroPopUp handleClose={handleClose} handleSend={handleSend} />
+                            showPopup && <MembroPopUp handleClose={handleClose} />
                         }
                     </div>
                 </div>
