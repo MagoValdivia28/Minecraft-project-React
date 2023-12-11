@@ -3,7 +3,7 @@ import axios from 'axios';
 import Header from '../components/header/header';
 import styles from './membros.module.css';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'; // Corrigido aqui
 
 const membroPage = () => {
     const router = useRouter();
@@ -13,17 +13,30 @@ const membroPage = () => {
     const [membro, setMembro] = useState(null);
 
     //cor do card da pessoa
-
     const [corCard, setCorCard] = useState(null);
 
     // inpts do card da pessoa
-
     const [nome, setNome] = useState('');
     const [idade, setIdade] = useState(0);
     const [descricao, setDescricao] = useState('');
     const [imagem, setUrlImagem] = useState('');
     const [cargo, setCargo] = useState('');
     const [popUp, setPopUp] = useState(false);
+
+    // Estado para armazenar o ID do membro selecionado
+    const [selectedMembroId, setSelectedMembroId] = useState(null);
+
+    // Função para abrir o pop-up e definir o ID do membro selecionado
+    const handleOpenDescricaoPopup = (id) => {
+        setSelectedMembroId(id);
+        setPopUp(true);
+    };
+
+    // Função para fechar o pop-up e limpar o ID do membro selecionado
+    const handleClosePopup = () => {
+        setSelectedMembroId(null);
+        setPopUp(false);
+    };
 
     // postar
     const handleSend = async (e, tipo) => {
@@ -66,42 +79,28 @@ const membroPage = () => {
         fetchMembro();
     }, []);
 
-    const handlePopUpDescricao = () => {
-        console.log("clicou");
-        setPopUp(!popUp);
-
-
-    }
-
     return (
         <>
             <Header />
-
             {
                 popUp ? (
-                    <div className={styles.containerPopUp}>
-                        <p onClick={() => handlePopUpDescricao()} className={styles.x}>X</p>
-                        <div className={styles.imgMembro}>
-                            <img src="/imagemfacemine6.png" alt="membro" />
-                        </div>
-                        <div className={styles.itens}>
-                            <div>
-                                <div className={styles.item}>
-                                    <label>Nome:</label>
-                                    <h1></h1>
+                    <>
+                        <div className={styles.overlay}></div>
+                        {dados.map((membro) => (
+                            membro.id === selectedMembroId ? (
+                                <div className={styles.containerPopUp}>
+                                    <p onClick={handleClosePopup} className={styles.x}>X</p>
+                                    <div className={styles.imgMembro} style={{ backgroundColor: membro.backgroundColor }}>
+                                        <img src={membro.imagem} alt="membro" />
+                                        <p><strong>nome:</strong>{membro.nome}</p>
+                                        <p><strong>idade:</strong>{membro.idade}</p>
+                                        <p><strong>descrição:</strong>{membro.descricao}</p>
+                                        <p><strong>cargo na equipe:</strong>{membro.cargo}</p>
+                                    </div>
                                 </div>
-                                <div className={styles.item}>
-                                    <label>Idade:</label>
-                                    <h1>18</h1>
-                                </div>
-                            </div>
-                            <div>
-                                <div className={styles.item}>
-                                    <label>Descrição:</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            ) : null
+                        ))}
+                    </>
                 ) : null
             }
             <div className={styles.main}>
@@ -121,29 +120,17 @@ const membroPage = () => {
                     {
                         dados.map((membro) => (
                             <div key={membro.id} className={styles.cardPessoa} style={{ backgroundColor: membro.backgroundcor }}>
-                                <div className={styles.imgMembro}>
-                                    <img src={membro.imagem} alt="membro" />
-                                </div>
-                                <div className={styles.itens}>
-                                    <div>
-                                        <div className={styles.item}>
-                                            <label>Nome:</label>
-                                            <h1>{membro.nome}</h1>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className={styles.item}>
-                                            <p>Cargo: {membro.cargo}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.buttons}>
-                                    <button className={styles.rmv} onClick={() => handleDeletar(membro.id)}>Remover</button>
-                                    <button className={styles.edit} onClick={() => router.push(`/membros/edit/${membro.id}`)}>Editar</button>
+                                <img src={membro.imagem} alt="membro" className={styles.imgPessoa} />
+                                <h2 className={styles.pessoa}>Nome: {membro.nome}</h2>
+                                <p>Cargo: {membro.cargo}</p>
+                                <div className={styles.botaoVM}>
+                                    <button onClick={() => handleOpenDescricaoPopup(membro.id)} className={styles.botaoVermais}>Detalhes</button>
                                 </div>
                             </div>
                         ))
                     }
+                    <button className={styles.botaoAdd} >+</button>
+                   
                 </div>
             </div>
         </>

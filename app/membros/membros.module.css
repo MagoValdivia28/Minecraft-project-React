@@ -4,7 +4,6 @@
     text-align: center;
     align-items: center;
 }
-
 .textoHeader {
     font-family: 'Title-Minecraft-Font';
     color: #000000
@@ -137,3 +136,26 @@
     font-family: 'Title-Minecraft-Font';
     width: 10%;
 }
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    filter: blur(2px);
+    z-index: 999;
+  }
+  
+  .containerPopUp {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+  
+  .x {
+    cursor: pointer;
+  }
+  
