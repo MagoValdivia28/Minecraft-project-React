@@ -135,6 +135,7 @@
     border: 1px solid black;
     font-size: 70px;
     font-family: 'Title-Minecraft-Font';
+    transition: 0.3s;
     width: auto;
 }
 .botaoAdd:hover {

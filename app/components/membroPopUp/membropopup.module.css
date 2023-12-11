@@ -8,7 +8,7 @@
     font-size: 50px;
     font-family: 'Title-Minecraft-Font';
     transition: 0.3s;
-    width: 10%;
+    justify-content: center;
 }
 
 .botaoRemover:hover{
@@ -18,9 +18,7 @@
     cursor: pointer;
     transition: 0.3s;
 }
-.containerPopUp{
 
-}
 
 .enviar{
     background-color: green;
