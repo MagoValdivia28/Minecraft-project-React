@@ -210,7 +210,7 @@ const Page_de_encantamentos = () => {
             <Header />
             <div className={styles.titles_container}>
                 <h1 className={styles.titles}>Encantamentos</h1>
-                <h2 className={styles.subTitles}>Encantamentos</h2>
+                {/* <h2 className={styles.subTitles}>Encantamentos</h2> */}
             </div>
             <div className={styles.main_container}>
 
@@ -219,7 +219,7 @@ const Page_de_encantamentos = () => {
                     popUpOpenBook ? (
                         dados.map((encantamentoMap) => (
                             encantamentoMap.id == popUpOpenBook ? (
-                                <BookPopUp handleBookPopUp={() => setPopUpOpenBook(null)} handleDelete={() => deleteEncantamento(encantamento.id)} encantamento={encantamento} />
+                                <BookPopUp handleBookPopUp={() => setPopUpOpenBook(null)} handleDelete={() => deleteEncantamento(encantamentoMap.id)} encantamento={encantamentoMap} />
                             ) : null
                         ))
                     ) : (

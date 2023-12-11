@@ -5,7 +5,7 @@ const url = process.env.NEXT_PUBLIC_API_URL;
 
 export async function GET() {
     try {
-        const response = await axios.get(`http://192.168.68.240:4000/encantamentos/${id}`);
+        const response = await axios.get(`http://10.88.200.145:4000/encantamentos/${id}`);
         return NextResponse.json(response.data.encantamentos);
     } catch (error) {
         console.log("[ORDER_GET]", error);
@@ -19,7 +19,7 @@ export async function PUT(request, { params }) {
     const body = await request.json();
   
     try {
-      const response = await axios.put(`http://192.168.68.240:4000/encantamentos/${id}`, body);
+      const response = await axios.put(`http://10.88.200.145:4000/encantamentos/${id}`, body);
   
       return NextResponse.json(response.data);
     } catch (error) {
@@ -31,7 +31,7 @@ export async function PUT(request, { params }) {
   export async function DELETE(request, { params }) {
     const { id } = params;
     try {
-      const response = await axios.delete(`http://192.168.68.240:4000/encantamentos/${id}`);
+      const response = await axios.delete(`http://10.88.200.145:4000/encantamentos/${id}`);
   
       return NextResponse.json(response.data);
     } catch (error) {
