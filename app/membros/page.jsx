@@ -4,6 +4,7 @@ import Header from '../components/header/header';
 import styles from './membros.module.css';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; // Corrigido aqui
+import MembroPopUp from '../components/membroPopUp/membropopup';
 
 const membroPage = () => {
     const router = useRouter();
@@ -32,11 +33,18 @@ const membroPage = () => {
         setPopUp(true);
     };
 
+    // Função para abrir o pop-up
+    const handleOpenPopup = () => {
+        setShowPopup(true);
+    };
+    const [showPopup, setShowPopup] = useState(false);
+
     // Função para fechar o pop-up e limpar o ID do membro selecionado
     const handleClosePopup = () => {
         setSelectedMembroId(null);
         setPopUp(false);
     };
+
 
     // postar
     const handleSend = async (e, tipo) => {
@@ -129,8 +137,10 @@ const membroPage = () => {
                             </div>
                         ))
                     }
-                    <button className={styles.botaoAdd}>+</button>
-
+                    <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
+                    {
+                        showPopup && MembroPopUp({ showPopup, setShowPopup }, handleClosePopup = handleOpenPopup)
+                    }
                 </div>
             </div>
         </>
