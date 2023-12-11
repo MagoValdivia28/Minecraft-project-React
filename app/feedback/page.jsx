@@ -99,6 +99,7 @@ const feedbackPage = () => {
             <div className={styles.titles_container}>
                 <h2 className={styles.titles}>BEM-VINDO AO SITE OFICIAL DE COMENTÁRIOS DO MINECRAFT!</h2>
                 <p className={styles.subTitles}>Adoramos ouvir seus comentários – veja o que foi sugerido ou poste suas ideias agora. Ajude suas grandes ideias a se tornarem parte do Minecraft! Analisamos suas ideias e comentários todos os dias.</p>
+            <div className={styles.imgDegrade}> <br /></div>
             </div>
             <div className={styles.form_container}>
                 <label htmlFor="nome">Nome:</label>

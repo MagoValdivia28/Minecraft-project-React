@@ -5,13 +5,16 @@
     background: #d8d8d8;
 
 }
+.imgDegrade {
+  background: url("../../public/preto-branco-degrade.png");
+  background-repeat: repeat-x;
+  height: 16vh
+}
 
 .titles_container{
     background-image: url(https://theme.zdassets.com/theme_assets/2155033/3075fa693c7a32466e05b6ddb6938392b1b0fffe.png);
     background-repeat: no-repeat;
     height: 100%;
-    border: 2px solid black;
-  padding: 20px;
 }
 .titles{
     margin: 30px;
