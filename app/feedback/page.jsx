@@ -4,10 +4,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "../components/header/header.jsx";
 import styles from "./feedback.module.css";
+import { useRouter } from "next/navigation";
 
 const feedbackPage = () => {
 
     const [dados, setDados] = useState([]);
+
+    const [edit, setEdit] = useState(null);
+
 
     useEffect(() => {
         async function fetchFeedback() {
@@ -44,51 +48,86 @@ const feedbackPage = () => {
     //apagar feedback
 
     const handleDelete = async (id) => {
+        console.log('clicou em apagar ' + id);
+        const url = `/api/feedback/${id}`;
         try {
-            await axios.delete(`/api/feedback/${id}`);
+            await axios.delete(url);
             const updatedFeedback = dados.filter((feedback) => feedback.id !== id);
             setDados(updatedFeedback);
         } catch (error) {
+            console.log("Entrou aqui no page")
             console.error('Error deleting data:', error);
         }
     };
 
-    // Editar feedback
+    const handleEdit = (element) => {
+        setEdit(element.id);
+        setName(element.nome);
+        setEmail(element.email);
+        setMessage(element.mensagem);
+    };
 
-    const handleEdit = async (id, updatedFeedback) => {
+    const handleEditar = async () => {
+        await axios.put(`/api/feedback/${edit}`, { nome: name, email, mensagem: message });
+        setEdit(null);
+        setName('');
+        setEmail('');
+        setMessage('');
+        const response = await axios.get('/api/feedback');
+        setDados(response.data);
+    };
+
+    const handleEnviar = async () => {
         try {
-            await axios.put(`/api/feedback/${id}`, updatedFeedback);
-            const updatedFeedbacks = dados.map((feedback) => {
-                if (feedback.id === id) {
-                    return updatedFeedback;
-                }
-                return feedback;
-            });
-            setDados(updatedFeedbacks);
+            await axios.post('/api/feedback', { nome: name, email, mensagem: message });
+            setName('');
+            setEmail('');
+            setMessage('');
+            const response = await axios.get('/api/feedback');
+            setDados(response.data);
         } catch (error) {
-            console.error('Error updating data:', error);
+            console.error('Error submitting data:', error);
         }
     };
 
-    // Atualizar feedback
-
-    const handleUpdate = async (id) => {
-        const updatedFeedback = {
-            name: name,
-            email: email,
-            message: message
-        };
-        await handleEdit(id, updatedFeedback);
-    };
-
-
 
     return (
+        <>
+        <Header />
+        
         <main className={styles.main}>
-            <Header />
             <div className={styles.titles_container}>
-                <h1 className={styles.titles}>Feedbacks</h1>
-                <h2 className={styles.subTitles}>Feedbacks</h2>
+                <h2 className={styles.titles}>BEM-VINDO AO SITE OFICIAL DE COMENTÁRIOS DO MINECRAFT!</h2>
+                <p className={styles.subTitles}>Adoramos ouvir seus comentários – veja o que foi sugerido ou poste suas ideias agora. Ajude suas grandes ideias a se tornarem parte do Minecraft! Analisamos suas ideias e comentários todos os dias.</p>
+            </div>
+            <div className={styles.form_container}>
+                <label htmlFor="nome">Nome:</label>
+                <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <label htmlFor="email">Email:</label>
+                <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <label htmlFor="mensagem">Mensagem:</label>
+                <input
+                    id="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                />
+                {
+                    edit ? (
+                        <button onClick={handleEditar}>Editar</button>
+                    ) : (
+                        <button onClick={handleEnviar}>Enviar</button>
+                    )
+                }
             </div>
             <div className={styles.main_container}>
                 <nav className={styles.feedback_container}>
@@ -96,7 +135,7 @@ const feedbackPage = () => {
                         {dados.map((feedback) => (
                             <li className={styles.feedback_item} key={feedback.id}>
                                 <p className={styles.feedback_text}>{feedback.mensagem}</p>
-                                <p className={styles.feedback_name}>{feedback.name}</p>
+                                <p className={styles.feedback_name}>{feedback.nome}</p>
                                 <p className={styles.feedback_email}>{feedback.email}</p>
                                 <button
                                     className={styles.deleteButton}
@@ -104,25 +143,20 @@ const feedbackPage = () => {
                                 >
                                     Apagar
                                 </button>
-                                <button
-                                    className={styles.updateButton}
-                                    onClick={() => handleUpdate(feedback.id)}
-                                >
-                                    Atualizar
-                                </button>
+
                                 <button
                                     className={styles.editButton}
-                                    onClick={() => handleEdit(feedback.id)}
+                                    onClick={() => handleEdit(feedback)}
                                 >
                                     Editar
                                 </button>
-                                
-                              
-                              
 
-                              
 
-                                
+
+
+
+
+
                             </li>
                         ))}
                     </ul>
@@ -132,6 +166,8 @@ const feedbackPage = () => {
 
 
         </main>
+        </>
+
     );
 };
 
