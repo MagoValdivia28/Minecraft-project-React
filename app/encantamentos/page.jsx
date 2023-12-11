@@ -10,7 +10,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-
+let flag = 0;
 
 
 const Page_de_encantamentos = () => {
@@ -18,7 +18,6 @@ const Page_de_encantamentos = () => {
     const router = useRouter();
 
     const [bookPopUp, setBookPopUp] = useState(null);
-    const [styleBooks, setStyleBooks] = useState(styles.book);
     const [bookInfo, setBookInfo] = useState({});
 
     // encantamentos em si
@@ -115,15 +114,32 @@ const Page_de_encantamentos = () => {
             if (validation() == false) {
                 sendErrorMsg();
             }
-            const responseLog = await axios.post("/api/encantamentos", {
-                titulo: titulo,
-                descricao: descricao,
-                tipoEncanto: tipoEncanto,
-                dano: dano,
-                defesa: defesa,
-                nivel: nivel,
+            if (flag == 0) {
+                const response = await axios.post("/api/encantamentos", {
+                    titulo,
+                    descricao,
+                    tipoEncanto,
+                    dano,
+                    defesa,
+                    nivel
+                });
+                sendErrorMsg("Encantamento criado com sucesso");
+                setDados([...dados, response.data]);
 
-            });
+            }
+            else if (flag == 1) {
+                const response = await axios.put(`/api/encantamentos/${editEncantamento.id}`, {
+                    titulo,
+                    descricao,
+                    tipoEncanto,
+                    dano,
+                    defesa,
+                    nivel
+                });
+                sendErrorMsg("Encantamento atualizado com sucesso");
+                setDados([...dados, response.data]);
+                flag = 0;
+            }
 
             router.push("/encantamentos");
             const response = await axios.get("/api/encantamentos");
@@ -183,7 +199,7 @@ const Page_de_encantamentos = () => {
         }
     }
 
-    const handleEdit = (encantamento) => {
+    const handleUpdate = (encantamento) => {
         setEditEncantamento(encantamento);
         setTitulo(encantamento.titulo);
         setDescricao(encantamento.descricao);
@@ -191,21 +207,10 @@ const Page_de_encantamentos = () => {
         setDano(encantamento.dano);
         setDefesa(encantamento.defesa);
         setNivel(encantamento.nivel);
-    };
+        flag = 1;
+    }
 
-    useEffect(() => {
-        if (editEncantamento) {
-            axios.put(`/api/encantamentos/${editEncantamento.id}`, {
-                titulo: titulo,
-                descricao: descricao,
-                tipoEncanto: tipoEncanto,
-                dano: dano,
-                defesa: defesa,
-                nivel: nivel,
-            });
 
-        }
-    }, [editEncantamento]);
 
 
 
@@ -255,7 +260,7 @@ const Page_de_encantamentos = () => {
                                                     dados.map((encantamento) =>
                                                     (
                                                         <li className={styles.encantamento}>
-                                                            <span onClick={() => setPopUpOpenBook(encantamento.id)} className={styleBooks}>
+                                                            <span onClick={() => setPopUpOpenBook(encantamento.id)} className={styles.book}>
                                                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                                                 <p className={styles.book_name}>{encantamento.titulo}</p>
                                                             </span>
@@ -263,7 +268,7 @@ const Page_de_encantamentos = () => {
                                                             <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
                                                                 <p className={styles.delete_text}>Deletar</p>
                                                             </button>
-                                                            <button onClick={() => handleEdit(encantamento)} className={styles.update_button}>
+                                                            <button onClick={() => handleUpdate(encantamento)} className={styles.update_button}>
                                                                 <p className={styles.update_text}>Atualizar</p>
                                                             </button>
                                                         </li>
