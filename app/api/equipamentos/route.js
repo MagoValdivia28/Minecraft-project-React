@@ -13,10 +13,8 @@ export async function GET() {
     return new NextResponse("Erro interno do servidor!", { status: 500 });
   }
 }
-
 export async function POST(request) {
-  const params = await request.json();
-
+   const params = await request.json();
   try {
     const response = await axios.post(url, params);
     return NextResponse.json(response.data);
