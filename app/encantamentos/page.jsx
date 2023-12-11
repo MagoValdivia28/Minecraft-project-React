@@ -30,6 +30,8 @@ const Page_de_encantamentos = () => {
     const [encantamentos, setEncantamentos] = useState([]);
     const [encantamento, setEncantamento] = useState({});
 
+    // erros
+
     const [errorMSG, setErrorMSG] = useState("");
     const [errorType, setErrorType] = useState("");
 
@@ -51,41 +53,40 @@ const Page_de_encantamentos = () => {
         }, 5000);
     }
 
-    function sendType(type) {
-        if (type === "error") {
-            setErrorType('error');
-        } else if (type === "success") {
-            setErrorType('success');
-        }
-    }
 
     function validation() {
 
         let errors = [];
 
-        if (titulo == "") {
-            errors.push("Titulo não pode ser vazio");
+        if (!titulo) {
+            errors.push("Título não informado");
+        }
+        if (!descricao) {
+            errors.push("Descrição não informada");
+        }
+        if (!tipoEncanto) {
+            errors.push("Tipo de encanto não informado");
+        }
+        if (tipoEncanto !== "espada" && tipoEncanto !== "capacete" && tipoEncanto !== "peitoral" && tipoEncanto !== "calca" && tipoEncanto !== "bota") {
+            errors.push("Tipo deve ser espada, capacete, peitoral, calça ou bota");
+        }
+        if (!dano && !defesa) {
+            errors.push("O valor do dano ou da defesa tem que ser informado");
+        }
+        if (!nivel) {
+            errors.push("Nível não informado");
+        }
+        if (isNaN(dano) || isNaN(defesa) || isNaN(nivel)) {
+            errors.push("Dano, defesa e nivel devem ser um número");
+        }
+        if (dano > 20 || dano < 0) {
+            errors.push("Dano deve ser entre 0 e 20");
+        }
+        if (defesa > 20 || defesa < 0) {
+            errors.push("Defesa deve ser entre 0 e 20");
         }
 
-        if (descricao == "") {
-            errors.push("Descricao não pode ser vazio");
-        }
 
-        if (tipoEncanto == "") {
-            errors.push("Tipo de encanto não pode ser vazio");
-        }
-
-        if (dano == "") {
-            errors.push("Dano não pode ser vazio");
-        }
-
-        if (defesa == "") {
-            errors.push("Defesa não pode ser vazio");
-        }
-
-        if (nivel == "") {
-            errors.push("Nivel não pode ser vazio");
-        }
 
         if (errors.length > 0) {
             sendErrorMsg(errors);
@@ -201,8 +202,8 @@ const Page_de_encantamentos = () => {
         }
     }
 
-
-    console.log(bookStyles);
+    console.log("esse é a array");
+    console.log(dados);
 
 
     return (
