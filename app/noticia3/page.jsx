@@ -1,10 +1,17 @@
 import Styles from "./page.module.css";
 import Header from "../components/header/header";
+import { FaGithub } from "react-icons/fa";
+import { SiLinktree } from "react-icons/si"; 
+import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
+
+
 
 export default function NoticiaPage() {
     return (
         <>
             <Header />
+            < Header />
 
             <div className={Styles.main}>
                 <img className={Styles.img} src="https://img.olhardigital.com.br/uploads/acervo_imagens/2020/06/20200605062817.jpg" alt="Imagem do Minecraft" />
@@ -66,9 +73,7 @@ export default function NoticiaPage() {
                 <img src="https://www.minecraft.net/content/dam/games/dungeons/background-images/foreground.png" alt="" className={Styles.img2} />
                 
             </div>
-
-
-
+            < Footer />
         </>
     );
 }

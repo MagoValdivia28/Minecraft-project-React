@@ -32,9 +32,9 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link className={styles.mainCard} href={"noticia2"}>
+            <Link className={styles.mainCard} href={"Noticia2"}>
               <div className={styles.textMainCard}>
-                <h1>Minecraft Legends lançou!</h1>
+                <h1>Novidade! Minecraft Legends lançou!</h1>
               </div>
             </Link>
 
@@ -60,19 +60,20 @@ export default function Home() {
 
           <Link className={styles.card} href={"equipamentos"}>
 
+            <div className={styles.backcard}>
 
-
-            <div className={styles.textCard}>
-              <div className={styles.newsTitle}>
-                <p>NEWS</p>
-              </div>
-              <h2>VEJA TODOS OS ARMAMENTOS DO MINECRAFT AGORA MESMO!!</h2>
-              <div className={styles.subTitle_card}>
-                <p>Segunda desc</p>
+              <div className={styles.textCard}>
+                <div className={styles.newsTitle}>
+                  <p>NEWS</p>
+                </div>
+                <h2>VEJA TODOS OS ARMAMENTOS DO MINECRAFT AGORA MESMO!!</h2>
+                <div className={styles.subTitle_card}>
+                  <p>Segunda desc</p>
+                </div>
               </div>
             </div>
-
           </Link>
+          
           <Link className={styles.card} href={"encantamentos"}>
 
             <div className={styles.textCard}>

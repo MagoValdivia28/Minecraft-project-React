@@ -1,5 +1,6 @@
-import styles from "../Noticias2/page.module.css";
+import styles from "../Noticia2/page.module.css";
 import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
 const Noticia2 = () => {
     return (
         <>
@@ -59,10 +60,10 @@ const Noticia2 = () => {
                         <div className={styles.textos}>
                             <p className={styles.texto}>Agora, se você me dá licença, divaguei por tanto tempo que os porquinhos fizeram algum progresso significativo em meu mundo superior. É hora de chutar alguns porquinhos e fazê-los se arrepender do dia em que pisaram no meu mundo superior. Venha, cavalo-esfregão! O mundo superior precisa de nós!</p>
                         </div>
-                        <img className={styles.img} src="https://www.minecraft.net/content/dam/games/badger/key-art/hero_end.jpg" />
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

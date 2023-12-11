@@ -1,17 +1,64 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url(../../fonts/Minecraft.ttf);
+}
+
 .bg {
-    background-color: black;
-    padding: 10px;
+    padding-top: 1%;
+    background-image: url(../../public/bg-wool-dark.png);
+    margin-left: 6%;
+    margin-right: 6%;
+}
+.main{
+    background-image: url(../../public/bg-wool-dark.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.armamento {
+    background-image: url(../../public/bg-wool-dark.png);
+    height: 30vh;
+    background-color:#c6c6c6 ;
+    margin-top: 6rem;
+    margin-bottom: -6rem;
+    text-align: center;
     
+}
+.armamento h1{
+    font-size: 14vh;
+    font-family: 'Minecraft-Font';
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    text-align: center;
+}
+.armamento p{
+    font-size: 7vh;
+    font-family: 'Minecraft-Font';
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    text-align: center;
 }
 
 .boxInventory {
-    margin-top: 70px;
     background-color: #c6c6c6;
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    height: 83vh;    
 }
 
-.sword {
+.armadura {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-top: -6%;
+    height: 18rem;
+}
+
+.armadura .armaduraSlotInventario {
+    display: flex;
+    flex-direction: column;
 }
 
 .itemArmadura {
@@ -20,7 +67,7 @@
     padding: 8px;
     width: 54px;
     height: 54px;
-    margin: 2px;
+    cursor: pointer;
 }
 
 .itemArmadura .itemDoItem {
@@ -31,12 +78,12 @@
     transform: translate(-50%, -50%);
 }
 
-.itemPeitoral {
-    padding: 4px     !important;
+.itempeitoral {
+    padding: 4px !important;
 }
 
-.itemCalca {
-    padding: 6px     !important;
+.itemcalca {
+    padding: 6px !important;
 }
 
 
@@ -44,8 +91,20 @@
     display: none;
 }
 
-.espadaSlot {
-    margin-top: 10px;
+.armadura .peitoralCreation {
+    margin-top: 54px;
+}
+
+.armadura .calcaCreation {
+    margin-top: 108px;
+}
+
+.armadura .botaCreation {
+    margin-top: 162px;
+}
+
+.armadura .espadaCreation {
+    margin-top: 216px;
 }
 
 .buttonSend {
@@ -59,4 +118,28 @@
     border-bottom: #2a641c 5px solid;
     border-right: #2a641c 5px solid;
     border-top: #a0e081 5px solid;
+    cursor: pointer;
+    width: 100%;
+}
+
+.equipamentosPredefinidos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+.containerCreation {
+    height: 54px;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.containerCreation p {
+    color: #fff;
+    font-family: 'Minecraft', sans-serif;
+    text-shadow: 2px 2px #3F3F3F;
+    font-size: 20px;
+    margin-left: 1rem;
 }

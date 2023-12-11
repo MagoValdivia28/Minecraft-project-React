@@ -2,9 +2,11 @@ import axios from "axios";
 
 import { NextResponse } from "next/server";
 
+const url = process.env.BASE_URL + "equipamentos";
+
 export async function GET() {
   try {
-    const response = await axios.get("http://10.88.200.205:4000/equipamentos");
+    const response = await axios.get(url);
     return NextResponse.json(response.data.equipamentos);
   } catch (error) {
     console.log("[ORDER_GET]", error);
@@ -16,7 +18,7 @@ export async function POST(request) {
   const params = await request.json();
 
   try {
-    const response = await axios.post("http://10.88.200.205:4000/equipamentos", params);
+    const response = await axios.post(url, params);
     return NextResponse.json(response.data);
   } catch (error) {
     console.log("[ORDER_POST]", error);
