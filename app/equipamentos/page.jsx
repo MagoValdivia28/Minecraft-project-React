@@ -114,12 +114,11 @@ const equipamentoPage = () => {
 
     useEffect(() => {
         async function handleFilteredEquipamento(equipamento) {
-            const url = `/api/equipamentos/type/${equipamento}`;
+            const url = `/api/equipamentos?type=${equipamento}`;
             try {
                 const response = await axios.get(url);
-                setDados(response.data.equipamentosFiltrados);
-                setEquipamentos(response.data.equipamentosFiltrados);
-                console.log(response.data);
+                setDados(response.data);
+                setEquipamentos(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
