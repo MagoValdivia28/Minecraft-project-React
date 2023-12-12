@@ -82,7 +82,6 @@ const Batalha = () => {
             if (queryParams.length > 0) {
                 queryParams = `?${queryParams}`;
             }
-            filtragemTipo == 'all' ? queryParams = '' : queryParams;
             const response = await axios.get(`/api/equipamentos${queryParams}`,);
             setDados(response.data);
         } catch (error) {
@@ -107,7 +106,7 @@ const Batalha = () => {
                             <div className={Style.buscar}>
                                 <input onChange={(e) => setFiltragemNome(e.target.value)} type="text" placeholder='Buscar Equipamento' />
                                 <select onChange={(e) => setFiltragemTipo(e.target.value)} name="" id="">
-                                    <option value="all">Todos</option>
+                                    <option value="">Todos</option>
                                     <option value="capacete">Capacetes</option>
                                     <option value="peitoral">Peitorais</option>
                                     <option value="calca">Calças</option>
