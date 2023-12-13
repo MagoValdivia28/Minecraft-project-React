@@ -148,23 +148,26 @@ const membroPage = () => {
                     </div>
                 </div>
                 <div className={styles.equipe}>
-                    {
-                        dados.map((membro) => (
-                            <div key={membro.id} className={styles.cardPessoa} style={{ backgroundColor: membro.backgroundcor }}>
-                                <img src={membro.imagem} alt="membro" className={styles.imgPessoa} />
-                                <h2 className={styles.pessoa}>Nome: {membro.nome}</h2>
-                                <p>Cargo: {membro.cargo}</p>
-                                <div className={styles.botaoVM}>
-                                    <button onClick={() => handleOpenDescricaoPopup(membro.id)} className={styles.botaoVermais}>Detalhes</button>
-                                </div>
-                            </div>
-                        ))
-                    }
-                    <div className={styles.justifyCenter}>
+                    <div className={styles.porDentroEquipe}>
                         <h1>Criar novo membro ⬇</h1>
                         <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
+                        <div className={styles.cadastro}>
+                            {
+                                showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} setNome={setNome} setIdade={setIdade} setDescricao={setDescricao} setCargo={setCargo} setUrlImagem={setUrlImagem} setCorCard={setCorCard} />
+                            }
+                        </div>
+
                         {
-                            showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} setNome={setNome} setIdade={setIdade} setDescricao={setDescricao} setCargo={setCargo} setUrlImagem={setUrlImagem} setCorCard={setCorCard} />
+                            dados.map((membro) => (
+                                <div key={membro.id} className={styles.cardPessoa} style={{ backgroundColor: membro.backgroundcor }}>
+                                    <img src={membro.imagem} alt="membro" className={styles.imgPessoa} />
+                                    <h2 className={styles.pessoa}>Nome: {membro.nome}</h2>
+                                    <p>Cargo: {membro.cargo}</p>
+                                    <div className={styles.botaoVM}>
+                                        <button onClick={() => handleOpenDescricaoPopup(membro.id)} className={styles.botaoVermais}>Detalhes</button>
+                                    </div>
+                                </div>
+                            ))
                         }
                     </div>
                 </div>
