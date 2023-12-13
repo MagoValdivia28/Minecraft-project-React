@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url(../../../fonts/Minecraft.ttf);
+}
+
+.itempeitoral {
+    padding: 4px !important;
+}
+
+.itemcalca {
+    padding: 6px !important;
+}
+
+.itembota {
+    padding: 6px !important;
+}
+
+.hidden {
+    display: none;
+}
+
+.peitoralCreation {
+    margin-top: 54px;
+}
+
+.calcaCreation {
+    margin-top: 108px;
+}
+
+.botaCreation {
+    margin-top: 162px;
+}
+
+.espadaCreation {
+    margin-top: 216px;
+}
+
+.buttonSend {
+    background-color: green;
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.0rem;
+    text-shadow: #000 2px 2px 2px;
+    font-family: 'Title-Minecraft-Font';
+    border-left: #2a641c 5px solid;
+    border-bottom: #2a641c 5px solid;
+    border-right: #2a641c 5px solid;
+    border-top: #a0e081 5px solid;
+    cursor: pointer;
+    width: 100%;
+}
+
+.equipamentosPredefinidos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+.containerCreation {
+    height: 54px;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.containerCreation p {
+    color: #fff;
+    font-family: 'Minecraft', sans-serif;
+    text-shadow: 2px 2px #3F3F3F;
+    font-size: 20px;
+    margin-left: 1rem;
+}
+
+.itemArmadura {
+    display: flex;
+    background-image: url(../../../public/inventory/slot.png);
+    padding: 8px;
+    width: 54px;
+    height: 54px;
+    cursor: pointer;
+}
+
+.itemArmadura .itemDoItem {
+    position: relative;
+    /* deixar no centro */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,89 @@
+
+.containerModal {
+    position: fixed;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 95%;
+    z-index: 30;
+    box-shadow: 0 0 150px #0000001a;
+    transition: transform .25s cubic-bezier(.165, .84, .44, 1);
+    color: #fff;
+    padding: 15px;
+    background-image: url(https://www.minecraft.net/content/dam/minecraft/backgrounds/bg-wool-dark.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+
+}
+
+.x {
+    font-size: 1.6125em;
+    font-family: 'Minecraft-Font';
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    font-weight: normal;
+    float: left;
+    cursor: pointer;
+}
+
+.containerEquipamentos {
+    background: #6b6562;
+    border: 0.125rem solid #313233;
+    box-shadow: 0 0.25rem 0 rgba(0, 0, 0, .251), inset -0.25rem -0.25rem 0 rgba(0, 0, 0, .302), inset 0.25rem 0.25rem 0 hsla(0, 0%, 100%, .2);
+    display: flex;
+    gap: 0.5rem;
+    margin: 10rem 1rem 0;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+.filtragem {
+    display: flex;
+    width: 100%;
+}
+
+.filtragem input {
+    background: #171615;
+    box-shadow: inset -0.25rem 0.25rem 0 rgba(0, 0, 0, .901961), inset 0.25rem -0.25rem 0 #3d3938;
+    padding: 0.6875rem 0.6875rem 0.6875rem 0.875rem;
+    background: #171615;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Minecraft-Font';
+    width: 75%;
+}
+
+.filtragem select {
+    background: #171615;
+    box-shadow: inset -0.25rem 0.25rem 0 rgba(0, 0, 0, .901961), inset 0.25rem -0.25rem 0 #3d3938;
+    padding: 0.6875rem 0.6875rem 0.6875rem 0.875rem;
+    background: #171615;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Minecraft-Font';
+    appearance: none;
+    width: 25%;
+    cursor: pointer;
+}
+
+.filtragem select:focus {
+    outline: none;
+}
+
+.filtragem input:focus {
+    outline: none;
+}
+
+.itemArmadura {
+    display: flex;
+    background-image: url(../../../public/inventory/slot.png);
+    padding: 8px;
+    width: 54px;
+    height: 54px;
+    cursor: pointer;
+}
