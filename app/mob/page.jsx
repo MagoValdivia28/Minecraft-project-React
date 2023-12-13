@@ -182,6 +182,7 @@ const Mobs = () => {
                     </div>
 
                     <div className={styles.createCont}>
+
                         <form className={styles.form_ip} onSubmit={(e) => handleMob(e, 'dano')}>
                             <input className={styles.inputs} value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome' />
                             <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição' />
@@ -191,21 +192,26 @@ const Mobs = () => {
                             <input className={styles.inputs} value={img} onChange={(e) => setImg(e.target.value)} type="text" placeholder='Imagem' />
 
                             <button className={styles.createMob} type="submit">Criar</button>
-                        </form>
+                            <div className={styles.errorCont}><p>{errorMSG}</p></div>
+                        </form> 
+                       
 
                     </div>
+                   
 
                     <div className={styles.mobsList}>
+                        <div className={styles.teste}>
                         {
                             dados.length ? (
                                 dados.map((mob, index) => (
                                     <div className={styles.mobCard} key={index}>
                                         <h3 className={styles.mobName}>{mob.nome}</h3>
+                                        <img src={mob.img} className={styles.mobImg} />
                                         <p className={styles.mobDesc}>{mob.descricao}</p>
                                         <p className={styles.mobType}>{mob.tipo}</p>
                                         <p className={styles.mobDmg}>{mob.dano}</p>
                                         <p className={styles.mobDef}>{mob.defesa}</p>
-                                        <img src={mob.img} />
+                                       
                                         <button className={styles.deleteMob} onClick={() => deleteMob(mob.id)}>Deletar</button>
 
                                     </div>
@@ -213,11 +219,11 @@ const Mobs = () => {
                                 )) : (
                                 <p className={styles.noMobs}>Nenhum mob cadastrado</p>
                             )
-                        }
+                        } 
+                        </div>
+ 
                     </div>
-                    <div className={styles.errorCont}>
-                        <p>{errorMSG}</p>
-                    </div>
+                   
                 </div>
 
             </div>
