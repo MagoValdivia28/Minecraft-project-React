@@ -50,7 +50,7 @@
     align-items: center;
 }
 
-.pordentroEquipe{
+.pordentroEquipe {
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -65,10 +65,12 @@
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0px 0px 5px #ccc;
-    display: flex;
+    flex-direction: column;    
     flex-wrap: wrap;
     width: 20rem;
     height: 20rem;
+    text-align: center;
+    justify-content: center;
 }
 
 .imgPessoa {
@@ -118,6 +120,7 @@
     transition: 0.4s;
     width: 50%;
 }
+
 .botaoAdd:hover {
     background-color: black;
     cursor: pointer;
@@ -137,7 +140,7 @@
 }
 
 .containerPopUp {
-    background-color: green;
+    background-color: rgb(7, 191, 7);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -145,9 +148,34 @@
     z-index: 1000;
 }
 
-.botoesER{
+.botoesER {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: center;
+}
+
+.boraBill {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.x {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #f44336;
+    /* Vermelho */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.x:hover {
+    background-color: #d32f2f;
+    /* Vermelho escuro */
 }

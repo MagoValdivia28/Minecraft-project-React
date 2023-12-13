@@ -15,12 +15,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100vh;
+    height: 110vh;
     color: #fff;
 }
 
 .opacidadeImg {
-    height: 100vh;
+    height: 110vh;
     background-color: rgba(0, 0, 0, 0.45);
 }
 
@@ -168,5 +168,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.containerEquipamentos .itemArmadura {
+    cursor:auto;
 }
 
