@@ -172,3 +172,19 @@
   margin-top: 3rem;
   background-color: #ebe4e2;;
 }
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+  .form_container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .titles {
+    font-size: 8vh;
+  }
+}
+
