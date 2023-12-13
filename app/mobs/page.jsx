@@ -215,6 +215,7 @@ const Mobs = () => {
                                     <p className={styles.mobDef}>{mob.defesa}</p>
 
                                     <button className={styles.deleteMob} onClick={() => deleteMob(mob.id)}>Deletar</button>
+                                    <button className={styles.editMob} onClick={() => (mob)}>Editar</button>
 
                                 </div>
                             )
