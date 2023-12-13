@@ -1,6 +1,6 @@
 "use client"
 import Header from '../components/header/header';
-import styles from '../mob/page.module.css';
+import styles from '../mobs/page.module.css';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
