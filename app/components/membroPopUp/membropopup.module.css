@@ -1,39 +1,61 @@
-.botaoRemover{
-    background-color: green;
+.botaoRemover {
+    background-color: rgb(4, 170, 4);
     color: white;
     margin-top: 2%;
-    width: 50%;
+    width: 20%;
+    margin-bottom: 5%;
     cursor: pointer;
     border: 1px solid black;
-    font-size: 60px;
+    font-size: 30px;
     font-family: 'Title-Minecraft-Font';
     justify-content: center;
+    transition: 0.3s;
 }
 
-.botaoRemover:hover{
+.botaoRemover:hover {
     background-color: black;
     cursor: pointer;
     font-family: 'Title-Minecraft-Font';
+    transition: 0.3s;
 }
 
 
-.enviar{
-    background-color: green;
+.enviar {
+    background-color: rgb(4, 170, 4);
     color: white;
     padding: 5px;
     margin: 5px;
     cursor: pointer;
     border: 1px solid black;
-    font-size: 20px;
+    font-size: 30px;
+    margin-top: 5%;
     font-family: 'Title-Minecraft-Font';
     transition: 0.3s;
 }
-.enviar:hover{
+
+.enviar:hover {
     background-color: black;
     padding: 5px;
     margin: 5px;
     cursor: pointer;
-    font-size: 20px;
+    margin-top: 5%;
     font-family: 'Title-Minecraft-Font';
     transition: 0.3s;
+}
+
+.containerPopUp {
+    background-color: green;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    z-index: 1000;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
