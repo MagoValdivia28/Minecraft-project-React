@@ -94,7 +94,7 @@ const feedbackPage = () => {
 
     return (
         <>
-            <Header />
+        <Header />
             <body className={styles.body}>
 
                 <main className={styles.main}>
