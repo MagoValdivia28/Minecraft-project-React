@@ -86,7 +86,7 @@ const Mobs = () => {
         if (errors.length > 0) {
             setErrorType("error");
             sendError(errors.join(", "));
-            return false;
+            return errors;
         } else {
             sendType("success");
             return true;
@@ -109,8 +109,8 @@ const Mobs = () => {
     const handleMob = async (e, tipoE) => {
         e.preventDefault();
         try {
-            if (!validation() === true) {
-                sendError();
+            if (validation() == false) {
+                sendError(validation);
             }
             const responseLog = await axios.post(`/api/mobs`,
                 {
