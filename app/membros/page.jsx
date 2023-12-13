@@ -1,8 +1,12 @@
 "use client"
-import Header from '../components/header/header';
+import axios from 'axios';
 import styles from './membros.module.css';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'; // Corrigido aqui
+
+//componentes
+import MembroPopUp from '../components/membroPopUp/membropopup';
+import Header from '../components/header/header';
 
 const membroPage = () => {
     const router = useRouter();
@@ -11,52 +15,124 @@ const membroPage = () => {
 
     const [membro, setMembro] = useState(null);
 
-    //cor do card da pessoa
+    const [editMembro, setEditMembro] = useState(null);
 
-    const [corCard, setCorCard] = useState('#000');
+    //cor do card da pessoa
+    const [corCard, setCorCard] = useState(null);
 
     // inpts do card da pessoa
-
     const [nome, setNome] = useState('');
     const [idade, setIdade] = useState(0);
     const [descricao, setDescricao] = useState('');
     const [imagem, setUrlImagem] = useState('');
     const [cargo, setCargo] = useState('');
+    const [popUp, setPopUp] = useState(false);
+
+    // Estado para armazenar o ID do membro selecionado
+
+    const [selectedMembroId, setSelectedMembroId] = useState(null);
+
+    // Função para abrir o pop-up e definir o ID do membro selecionado
+
+    const handleOpenDescricaoPopup = (id) => {
+        setSelectedMembroId(id);
+        setPopUp(true);
+    };
+
+    // Função para abrir o pop-up
+
+    const handleOpenPopup = () => {
+        setShowPopup(true);
+    };
+    const handleClose = () => {
+        setShowPopup(false);
+    }
+    const [showPopup, setShowPopup] = useState(false);
+
+    // Função para fechar o pop-up e limpar o ID do membro selecionado
+    const handleClosePopup = () => {
+        setSelectedMembroId(null);
+        setPopUp(false);
+    };
+
 
     // postar
-    const handleSend = async (e, tipo) => {
-        e.preventDefault();
+    const handleSend = async () => {
         try {
-            await axios.post("/api/membros", { nome, idade, descricao, urlimagem, cargo, cor: corCard });
+            await axios.post("/api/membros", { nome, idade, descricao, cargo, urlimagem: imagem, backgroundcor: corCard });
             setNome('');
             setIdade('');
             setDescricao('');
             setUrlImagem('');
             setCargo('');
             router.push(`/membros/`);
-            setDados([...dados, { nome, idade, descricao, urlimagem, cargo, cor: corCard }]);
+            const response = await axios.get("/api/membros");
+            setDados(response.data);
         } catch (error) {
             console.error("Error submitting data:", error);
         }
     }
 
+    // editar
+    const handleEdit = (membro) => {
+        setEditMembro(membro);
+    };
+
+    //Deletar
+    const handleDeletar = async (id) => {
+        const url = `/api/membros/id/${id}`;
+        try {
+            await axios.delete(url);
+            setDados(dados.filter((membro) => membro.id !== id));
+            setPopUp(false);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
+
     useEffect(() => {
-        async function fetchMembros() {
+        async function fetchMembro() {
             try {
                 const response = await axios.get("/api/membros");
-                setMembros(response.data);
                 setDados(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
 
-        fetchMembros();
+        fetchMembro();
     }, []);
 
     return (
         <>
             <Header />
+            {
+                popUp ? (
+                    <>
+                        <div className={styles.overlay}></div>
+                        {dados.map((membro) => (
+                            membro.id === selectedMembroId ? (
+                                <div className={styles.containerPopUp}>
+                                    <p onClick={handleClosePopup} className={styles.x}>X</p>
+                                    <div className={styles.imgMembro} style={{ backgroundColor: membro.backgroundColor }}>
+                                        <img src={membro.imagem} alt="membro" />
+                                        <p><strong>nome:</strong>{membro.nome}</p>
+                                        <p><strong>idade:</strong>{membro.idade}</p>
+                                        <p><strong>descrição:</strong>{membro.descricao}</p>
+                                        <p><strong>cargo na equipe:</strong>{membro.cargo}</p>
+                                    </div>
+
+                                    <div className={styles.botoesER}>
+                                        <button onClick={() => handleEdit(membro)} className={styles.botaoEditar}>Editar</button>
+                                        <button onClick={() => handleDeletar(membro.id)} className={styles.botaoDeletar}>Deletar</button>
+                                    </div>
+
+                                </div>
+                            ) : null
+                        ))}
+                    </>
+                ) : null
+            }
             <div className={styles.main}>
 
                 <h1 className={styles.textoHeader}>Membros</h1>
@@ -71,62 +147,26 @@ const membroPage = () => {
                     </div>
                 </div>
                 <div className={styles.equipe}>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine1.webp" />
-                        <h2 className={styles.pessoa}>Felipe Pedro</h2>
-                        <p>Tech Lead/Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
-                        </div>
+                    {
+                        dados.map((membro) => (
+                            <div key={membro.id} className={styles.cardPessoa} style={{ backgroundColor: membro.backgroundcor }}>
+                                <img src={membro.imagem} alt="membro" className={styles.imgPessoa} />
+                                <h2 className={styles.pessoa}>Nome: {membro.nome}</h2>
+                                <p>Cargo: {membro.cargo}</p>
+                                <div className={styles.botaoVM}>
+                                    <button onClick={() => handleOpenDescricaoPopup(membro.id)} className={styles.botaoVermais}>Detalhes</button>
+                                </div>
+                            </div>
+                        ))
+                    }
+                    <div className={styles.justifyCenter}>
+                        <h1>Criar novo membro ⬇</h1>
+                        <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
+                        {
+                            showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} />
+                        }
                     </div>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine2.jpeg" />
-                        <h2 className={styles.pessoa}>Guilherme Rocha</h2>
-                        <p>Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
-                        </div>
-                    </div>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine3.png" />
-                        <h2 className={styles.pessoa}>Matheus Coco</h2>
-                        <p>Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
-                        </div>
-                    </div>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine4.png" />
-                        <h2 className={styles.pessoa}>Matheus Gomes</h2>
-                        <p>Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
-                        </div>
-                    </div>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine5.png" />
-                        <h2 className={styles.pessoa}>Pedro Isac</h2>
-                        <p>Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
-                        </div>
-                    </div>
-                    <div className={styles.cardPessoa}>
-                        <img className={styles.imgPessoa} src="/imagemfacemine6.png" />
-                        <h2 className={styles.pessoa}>Thayna Vazzoler</h2>
-                        <p>Desenvolvedor</p>
-                        <div className={styles.botaoVM}>
-                            <button className={styles.botaoVermais}>Detalhes</button>
-                        </div>
-                    </div>
-
-                    <div className={styles.cardCriarMembro}>
-                        <button className={styles.botaoAdd}>+</button>
-                    </div>
-                </div>
-                <div>
-
-                </div>
+                </div>  
             </div>
         </>
     )
