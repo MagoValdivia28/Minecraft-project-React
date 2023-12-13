@@ -144,7 +144,7 @@
     flex-direction: column; 
 }
 
-.containerAll img {
+.containerAll .imgFundo {
     height: 90px;
     object-fit: cover;
 }
@@ -161,11 +161,12 @@
 .status {
     display: flex;
     flex-direction: column;
+    margin-top: auto;
 }
 
 .containerEspada {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+

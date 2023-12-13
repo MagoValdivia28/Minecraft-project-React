@@ -63,7 +63,7 @@ const Batalha = () => {
                             <button className={Style.createButton} onClick={() => setButtonEscolha(true)}>ESCOLHA SEU EQUIPAMENTO</button>
                         </div>
                         <div className={Style.containerAll}>
-                            <img src="https://www.minecraft.net/content/dam/games/minecraft/key-art/Play_With_Friends_Online_672x360.png" alt="" />
+                            <img className={Style.imgFundo} src="https://www.minecraft.net/content/dam/games/minecraft/key-art/Play_With_Friends_Online_672x360.png" alt="" />
                             <div className={Style.containerAttachmentEquipamentos}>
                                 <div className={Style.containerEquipamentos}>
                                     <div className={Style.itemArmadura}>

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BiSolidChevronLeft } from "react-icons/bi";
 
-const EscolhaEquipamento = ({ fecharPopUp, setSelecionarCapacete, setSelecionarPeitoral, setSelecionarCalca, setSelecionarBota, setSelecionarEspada}) => {
+const EscolhaEquipamento = ({ fecharPopUp, setSelecionarCapacete, setSelecionarPeitoral, setSelecionarCalca, setSelecionarBota, setSelecionarEspada }) => {
 
     const [dados, setDados] = useState([]);
 
@@ -72,14 +72,19 @@ const EscolhaEquipamento = ({ fecharPopUp, setSelecionarCapacete, setSelecionarP
             <p onClick={fecharPopUp} className={styles.x}> x </p>
             <div className={styles.containerEquipamentos}>
                 <div className={styles.filtragem}>
-                    <input onChange={(e) => setFiltragemNome(e.target.value)} type="text" placeholder='Buscar Equipamento' />
+                    <div className={styles.divInput}>
+                        <input onChange={(e) => setFiltragemNome(e.target.value)} type="text" placeholder='Buscar Equipamento' />
+                        <div className={styles.icon}>
+                            <img src="https://help.minecraft.net/hc/static/media/icon_search.62a7b5b663530e254bc6.svg" alt="imagemSearch" />
+                        </div>
+                    </div>
                     <select onChange={(e) => setFiltragemTipo(e.target.value)}  >
-                        <option value="">Todos</option>
-                        <option value="capacete">Capacetes</option>
-                        <option value="peitoral">Peitorais</option>
-                        <option value="calca">Calças</option>
-                        <option value="bota">Botas</option>
-                        <option value="espada">Espadas</option>
+                        <option className={styles.inp} value="">Todos</option>
+                        <option className={styles.inp} value="capacete">Capacetes</option>
+                        <option className={styles.inp} value="peitoral">Peitorais</option>
+                        <option className={styles.inp} value="calca">Calças</option>
+                        <option className={styles.inp} value="bota">Botas</option>
+                        <option className={styles.inp} value="espada">Espadas</option>
                     </select>
                 </div>
                 <div className={styles.equipamentosCriados}>
@@ -91,7 +96,7 @@ const EscolhaEquipamento = ({ fecharPopUp, setSelecionarCapacete, setSelecionarP
                                 </div>
                             ))
                         ) : (
-                            <p>Nenhum equipamento adicionado :( <Link className={styles.linkEquipamento} href={'../equipamentos'}>Adicione!</Link></p>
+                            <p className={styles.nenhumEquip}>Nenhum equipamento adicionado :( <Link className={styles.linkEquipamento} href={'../equipamentos'}>Adicione!</Link></p>
                         )
                     }
                 </div>
