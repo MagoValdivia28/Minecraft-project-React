@@ -18,6 +18,10 @@
 
 }
 
+.encantamentos_img {
+    margin: auto;
+}
+
  .books_list {
     width: 100%;
 }
@@ -39,16 +43,41 @@
 
 .encantamentos_list {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem;
+}
 
+@media screen  and (max-width: 768px){
+    .encantamentos_list {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .encantamento {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 33%;
+    height: 36%;
+    background-color: #a09071;
+    border-top: #e2cfab 0.35rem solid;
+    border-left: #e2cfab 0.35rem solid;
+    border-bottom: #4d4d4d 0.35rem solid;
+    border-right: #4d4d4d 0.35rem solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    backdrop-filter: blur(20px);
+    margin: 0 1rem;
 } 
+.bookInfos {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+
+}
+.book {
+    width: 100%;
+    height: 100%;
+}
 
  .encantamento_create {
     width: 70%;
@@ -94,57 +123,6 @@
 
 
 
-
-/* .book {
-    rotate: 360deg;
-}
-
-.book1 {
-    rotate: 300deg;
-}
-
-.book2 {
-    rotate: 240deg;
-}
-
-.book3 {
-    rotate: 180deg;
-}
-
-.book4 {
-    rotate: 120deg;
-}
-
-.book5 {
-    rotate: 60deg;
-}
-
-
-.encantamento:nth-child(1) {
-    transform: rotate(0deg) translateX(10rem);
-}
-
-.encantamento:nth-child(2) {
-    transform: rotate(60deg) translateX(10rem);
-}
-
-.encantamento:nth-child(3) {
-    transform: rotate(120deg) translateX(10rem);
-}
-
-.encantamento:nth-child(4) {
-    transform: rotate(180deg) translateX(10rem);
-}
-
-.encantamento:nth-child(5) {
-    transform: rotate(240deg) translateX(10rem);
-}
-
-.encantamento:nth-child(6) {
-    transform: rotate(300deg) translateX(10rem);
-} */
-
-
 .encantamento:hover {
     cursor: pointer;
     transition: all 0.5s ease-in-out;
@@ -175,7 +153,7 @@
     content: '';
     position: absolute;
     bottom: 100%;
-    left: 85%;
+    right: 75%;
     margin-left: -10px;
     border-width: 10px;
     border-style: solid;

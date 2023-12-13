@@ -214,7 +214,7 @@ const Page_de_encantamentos = () => {
     }
 
 
-    const pages = Math.ceil(dados.length / 6);
+    const pages = Math.ceil(dados.length / 3);
 
 
 
@@ -263,13 +263,16 @@ const Page_de_encantamentos = () => {
                                             <div key={pageIndex}>
                                                 <ul className={styles.encantamentos_list}>
 
-                                                    {dados.slice(pageIndex * 6, (pageIndex + 1) * 6).map((encantamento) => (
+                                                    {dados.slice(pageIndex * 3, (pageIndex + 1) * 3).map((encantamento) => (
 
                                                         <li onClick={() => setPopUpOpenBook(encantamento.id)} key={encantamento.id} className={styles.encantamento}>
-                                                            <span className={styles.book}>
-                                                                <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
+                                                            <div className={styles.book}>
+                                                                <div className={styles.page}>
+                                                                    <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
+                                                                    <p>{encantamento.titulo}</p>
+                                                                </div>
                                                                 <p className={styles.book_name}>{encantamento.titulo}</p>
-                                                            </span>
+                                                            </div>
                                                             {/* 
                                                             <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
                                                                 <p className={styles.delete_text}>Deletar</p>
