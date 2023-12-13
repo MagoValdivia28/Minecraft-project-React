@@ -146,3 +146,23 @@
 .defesa {
     color: blue !important;
 }
+
+.createButton {
+    background-color: green;
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.5rem;
+    text-shadow: #000 2px 2px 2px;
+    font-family: 'Title-Minecraft-Font';
+    border-left: #2a641c 5px solid;
+    border-bottom: #2a641c 5px solid;
+    border-right: #2a641c 5px solid;
+    border-top: #a0e081 5px solid;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.gerenciamentoEquipamento {
+    display: flex;
+    flex-direction: column;
+}

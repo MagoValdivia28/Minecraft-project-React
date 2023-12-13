@@ -4,13 +4,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BiSolidChevronLeft } from "react-icons/bi";
 
-const EscolhaEquipamento = ({ dados, fecharPopUp }) => {
-    // variaveis de selecao
-    const [selecionarCapacete, setSelecionarCapacete] = useState(null);
-    const [selecionarPeitoral, setSelecionarPeitoral] = useState(null);
-    const [selecionarCalca, setSelecionarCalca] = useState(null);
-    const [selecionarBota, setSelecionarBota] = useState(null);
-    const [selecionarEspada, setSelecionarEspada] = useState(null);
+const EscolhaEquipamento = ({ fecharPopUp, setSelecionarCapacete, setSelecionarPeitoral, setSelecionarCalca, setSelecionarBota, setSelecionarEspada}) => {
+
+    const [dados, setDados] = useState([]);
+
 
 
     // filtragem
@@ -55,6 +52,19 @@ const EscolhaEquipamento = ({ dados, fecharPopUp }) => {
             setSelecionarEspada(equipamento);
         }
     }
+
+    useEffect(() => {
+        async function fetchEquipamento() {
+            try {
+                const response = await axios.get("/api/equipamentos");
+                setDados(response.data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        fetchEquipamento();
+    }, []);
 
 
     return (

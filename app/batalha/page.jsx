@@ -22,21 +22,8 @@ const Batalha = () => {
 
     const [defesa, setDefesa] = useState(0);
 
-    const [filtragemNome, setFiltragemNome] = useState(null);
-    const [filtragemTipo, setFiltragemTipo] = useState(null);
 
-    useEffect(() => {
-        async function fetchEquipamento() {
-            try {
-                const response = await axios.get("/api/equipamentos");
-                setDados(response.data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        }
 
-        fetchEquipamento();
-    }, []);
 
     useEffect(() => {
         let totalDefesa = 0;
@@ -63,7 +50,7 @@ const Batalha = () => {
             <div className={Style.opacidadeImg}>
                 {
                     buttonEscolha &&
-                    <EscolhaEquipamento dados={dados} fecharPopUp={() => setButtonEscolha(false)} />
+                    <EscolhaEquipamento fecharPopUp={() => setButtonEscolha(false)} setSelecionarCapacete={setSelecionarCapacete} setSelecionarPeitoral={setSelecionarPeitoral} setSelecionarCalca={setSelecionarCalca} setSelecionarBota={setSelecionarBota} setSelecionarEspada={setSelecionarEspada} />
                 }
                 <Header />
                 <div className={Style.titulo}>
@@ -71,8 +58,33 @@ const Batalha = () => {
                 </div>
 
                 <div className={Style.batalhaConteiner}>
+                    <div className={StyleSheet.gerenciamentoEquipamento}>
 
-                    <button onClick={() => setButtonEscolha(true)}>ESCOLHA SEU EQUIPAMENTO</button>
+                        <div>
+                            <button className={Style.createButton} onClick={() => setButtonEscolha(true)}>ESCOLHA SEU EQUIPAMENTO</button>
+                        </div>
+                        <div className={Style.equipamentosSelecionados}>
+                            <div className={Style.itemArmadura}>
+                                <img style={{ background: selecionarCapacete?.cor }} src={`inventory/${selecionarCapacete?.tipo}Final.png`} alt="" />
+                            </div>
+                            <div className={Style.itemArmadura}>
+                                <img style={{ background: selecionarPeitoral?.cor }} src={`inventory/${selecionarPeitoral?.tipo}Final.png`} alt="" />
+                            </div>
+                            <div className={Style.itemArmadura}>
+                                <img style={{ background: selecionarCalca?.cor }} src={`inventory/${selecionarCalca?.tipo}Final.png`} alt="" />
+                            </div>
+                            <div className={Style.itemArmadura}>
+                                <img style={{ background: selecionarBota?.cor }} src={`inventory/${selecionarBota?.tipo}Final.png`} alt="" />
+                            </div>
+                            <div className={Style.itemArmadura}>
+                                <img style={{ background: selecionarEspada?.cor }} src={`inventory/${selecionarEspada?.tipo}Final.png`} alt="" />
+                            </div>
+                        </div>
+                        <div className={Style.status}>
+                            <span className={`${Style.textop} ${Style.dano}`}>ataque: {selecionarEspada ? selecionarEspada.dano : 0}</span>
+                            <span className={`${Style.textop} ${Style.defesa}`}>defesa: {defesa}</span>
+                        </div>
+                    </div>
 
 
                     <div>
