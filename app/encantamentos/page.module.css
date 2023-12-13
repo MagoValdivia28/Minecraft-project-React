@@ -18,22 +18,16 @@
 
 }
 
-.books_list {
+ .books_list {
     width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-items: center;
 }
 
 .encantamentos_container {
     position: relative;
     display: flex;
-    flex-direction: row-reverse;
-    align-content: stretch;
-    justify-content: space-around;
+    flex-direction: column;
     width: 100%;
-}
+} 
 
 .arrows_container {
     display: flex;
@@ -47,26 +41,16 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
 }
 
 .encantamento {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-}
+} 
 
-/* .encantamento_create {
+ .encantamento_create {
     width: 70%;
     margin-bottom: 15rem;
     padding: 1rem 0;
@@ -74,7 +58,7 @@
     border: 2px solid rgba(255, 255, 255, .5);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-} */
+}
 
 .encantamento_create {
     width: 70%;
@@ -111,7 +95,7 @@
 
 
 
-.book {
+/* .book {
     rotate: 360deg;
 }
 
@@ -158,7 +142,7 @@
 
 .encantamento:nth-child(6) {
     transform: rotate(300deg) translateX(10rem);
-}
+} */
 
 
 .encantamento:hover {
@@ -181,9 +165,10 @@
     color: white;
     text-shadow: #2c262c 2px 2px 2px;
     right: 0;
-    position: absolute;
+    position: relative;
     font-size: 1.5rem;
     border: 5px solid #361071;
+    width: 10rem;
 }
 
 .book_name::after {

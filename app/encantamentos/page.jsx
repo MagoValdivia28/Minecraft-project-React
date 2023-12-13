@@ -9,6 +9,8 @@ import BookPopUp from '../components/bookPopUp/bookpopup';
 import axios from "axios";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 let flag = 0;
 
@@ -160,6 +162,7 @@ const Page_de_encantamentos = () => {
 
 
 
+
     useEffect(() => {
         async function fetchEncantamentos() {
             try {
@@ -211,6 +214,8 @@ const Page_de_encantamentos = () => {
     }
 
 
+    const pages = Math.ceil(dados.length / 6);
+
 
 
 
@@ -253,48 +258,34 @@ const Page_de_encantamentos = () => {
                             <div className={styles.books_list}>
                                 <nav className={styles.encantamentos_container}>
                                     <img className={styles.encantamentos_img} src="/Book_29.webp" alt="encantamento1" width={96} height={96} />
-                                    <ul className={styles.encantamentos_list}>
-                                        {
-                                            dados.length ? (
-                                                encantamentos ? (
-                                                    dados.map((encantamento) =>
-                                                    (
-                                                        <li className={styles.encantamento}>
-                                                            <span onClick={() => setPopUpOpenBook(encantamento.id)} className={styles.book}>
+                                    <Carousel>
+                                        {[...Array(pages)].map((_, pageIndex) => (
+                                            <div key={pageIndex}>
+                                                <ul className={styles.encantamentos_list}>
+
+                                                    {dados.slice(pageIndex * 6, (pageIndex + 1) * 6).map((encantamento) => (
+
+                                                        <li onClick={() => setPopUpOpenBook(encantamento.id)} key={encantamento.id} className={styles.encantamento}>
+                                                            <span className={styles.book}>
                                                                 <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
                                                                 <p className={styles.book_name}>{encantamento.titulo}</p>
                                                             </span>
-
+                                                            {/* 
                                                             <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
                                                                 <p className={styles.delete_text}>Deletar</p>
                                                             </button>
                                                             <button onClick={() => handleUpdate(encantamento)} className={styles.update_button}>
                                                                 <p className={styles.update_text}>Atualizar</p>
-                                                            </button>
+                                                            </button> */}
                                                         </li>
-                                                    ))
-                                                ) : (
-                                                    <p>Carregando...</p>
-                                                )
-                                            ) : (
-                                                <p className={styles.secondText}>Nenhum encantamento econtrado</p>
-                                            )
-                                        }
 
-                                    </ul>
+                                                    ))}
+
+                                                </ul>
+                                            </div>
+                                        ))}
+                                    </Carousel>
                                 </nav>
-                                <div className={styles.arrows_container}>
-                                    <button className={styles.arrows}>
-                                        <MdArrowBackIos />
-
-                                    </button>
-                                    <h2 className={styles.arrowsText}>
-                                        Pag 1 / 1
-                                    </h2>
-                                    <button className={styles.arrows}>
-                                        <MdArrowForwardIos />
-                                    </button>
-                                </div>
                             </div>
                         </>
                     )
