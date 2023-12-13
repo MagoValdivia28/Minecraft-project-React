@@ -12,9 +12,7 @@ const Header = () => (
         </div>
         <Link href={'/'}><img className={styles.logo} src="/logo-minecraft.svg" alt="logo" width={175} height={40} /></Link>
         <div className={styles.teste}>
-            <Link className={styles.battle} href={'/batalha'}><span className={styles.battle_tittle}>
-                Batalhe agora
-                </span></Link>
+            <Link className={styles.battle} href={'/batalha'}><span className={styles.battle_tittle}>Batalhe agora</span></Link>
         </div>
 
     </header>
