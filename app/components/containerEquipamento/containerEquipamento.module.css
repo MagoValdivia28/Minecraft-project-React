@@ -88,3 +88,22 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+@media screen and (max-width: 768px) {
+    .peitoralCreation {
+        margin-top: 0px;
+    }
+    
+    .calcaCreation {
+        margin-top: 0px;
+    }
+    
+    .botaCreation {
+        margin-top: 0px;
+    }
+    
+    .espadaCreation {
+        margin-top: 0px;
+    }
+    
+}
