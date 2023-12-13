@@ -114,12 +114,11 @@ const equipamentoPage = () => {
 
     useEffect(() => {
         async function handleFilteredEquipamento(equipamento) {
-            const url = `/api/equipamentos/type/${equipamento}`;
+            const url = `/api/equipamentos?type=${equipamento}`;
             try {
                 const response = await axios.get(url);
-                setDados(response.data.equipamentosFiltrados);
-                setEquipamentos(response.data.equipamentosFiltrados);
-                console.log(response.data);
+                setDados(response.data);
+                setEquipamentos(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
@@ -128,10 +127,17 @@ const equipamentoPage = () => {
     }, [equipamento]); 
 
     return (
-        <>
+        <main className={styles.main}>
             <Header />
             <div className={styles.bg}>
+                <div className={styles.armamento}>
+                    <h1>armamento</h1>
+                    <br />
+                    <p>Escolha seus Equipamentos</p>
+                </div>
+
                 <div className={styles.boxInventory}>
+
                     <div className={styles.armadura}>
                         {
                             moreInfo ? (
@@ -167,7 +173,7 @@ const equipamentoPage = () => {
                     </div>
                 </div>
             </div >
-        </>
+        </main> 
     )
 }
 

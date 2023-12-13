@@ -30,9 +30,9 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEqu
                 setDanoEquipamento('');
                 setarCor('#000000');
                 router.push(`/equipamentos/`);
-                const url = `/api/equipamentos/type/${edited.tipo}`; // Use the same URL as in handleSend
+                const url = `/api/equipamentos?type=${edited.tipo}`;
                 const response = await axios.get(url);
-                setDados(response.data.equipamentosFiltrados); // Update dados with the filtered data
+                setDados(response.data); // Update dados with the filtered data
                 setEdit(null); // Clear the edited student
             }
         } catch (error) {
@@ -44,7 +44,7 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEqu
         try {
             let errorsArray = [];
             verificacoesEquipamentos(nameEquipamento, descriptionEquipamento, materialEquipamento, tipo, danoEquipamento, defesaEquipamento, corEquipamento, errorsArray);
-            const url = `/api/equipamentos/type/${tipo}`;
+            const url = `/api/equipamentos?type=${equipamento}`;
             if (errorsArray.length > 0) {
                 setErrors(errorsArray);
             } else {
@@ -57,7 +57,7 @@ const CadastroEquipamento = ({ equipamento, funcCorEquipamento, setDados, corEqu
                 setarCor('#000000');
                 router.push(`/equipamentos/`);
                 const response = await axios.get(url);
-                setDados(response.data.equipamentosFiltrados);
+                setDados(response.data);
             }
         } catch (error) {
             console.error("Error submitting data:", error);
