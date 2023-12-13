@@ -138,7 +138,7 @@ const membroPage = () => {
                         {dados.map((membro) => (
                             membro.id === selectedMembroId ? (
                                 <div className={styles.containerPopUp}>
-                                    <p onClick={handleClosePopup} className={styles.x}>X</p>
+                                    <button onClick={handleClosePopup} className={styles.x}>X</button>
                                     <div className={styles.imgMembro} style={{ backgroundColor: membro.backgroundColor }}>
                                         <img src={membro.imagem} alt="membro" />
                                         <p><strong>nome:</strong>{membro.nome}</p>
