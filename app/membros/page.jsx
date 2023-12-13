@@ -21,11 +21,11 @@ const membroPage = () => {
     const [corCard, setCorCard] = useState(null);
 
     // inpts do card da pessoa
-    const [nome, setNome] = useState('');
+    const [nome, setNome] = useState(null);
     const [idade, setIdade] = useState(0);
-    const [descricao, setDescricao] = useState('');
-    const [imagem, setUrlImagem] = useState('');
-    const [cargo, setCargo] = useState('');
+    const [descricao, setDescricao] = useState(null);
+    const [cargo, setCargo] = useState(null);
+    const [imagem, setUrlImagem] = useState(null);
     const [popUp, setPopUp] = useState(false);
 
     // Estado para armazenar o ID do membro selecionado
@@ -63,10 +63,11 @@ const membroPage = () => {
             setNome('');
             setIdade('');
             setDescricao('');
-            setUrlImagem('');
             setCargo('');
-            router.push(`/membros/`);
-            const response = await axios.get("/api/membros");
+            setUrlImagem('');
+            setCorCard('');
+            // router.push(`/membros/`);
+            const response = await axios.post("/api/membros");
             setDados(response.data);
         } catch (error) {
             console.error("Error submitting data:", error);
@@ -163,10 +164,10 @@ const membroPage = () => {
                         <h1>Criar novo membro ⬇</h1>
                         <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
                         {
-                            showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} />
+                            showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} setNome={setNome} setIdade={setIdade} setDescricao={setDescricao} setCargo={setCargo} setUrlImagem={setUrlImagem} setCorCard={setCorCard} />
                         }
                     </div>
-                </div>  
+                </div>
             </div>
         </>
     )

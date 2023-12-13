@@ -16,8 +16,8 @@ export async function GET() {
 
 export async function POST(request) {
     const params = await request.json();
-
     try {
+        console.log("POSTTTTTTTTTTT");
         const response = await axios.post(url, params);
         return NextResponse.json(response.data);
     } catch (error) {
