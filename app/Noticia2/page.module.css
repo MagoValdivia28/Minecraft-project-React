@@ -152,3 +152,25 @@
     padding-left: 100px;
     padding-right: 100px;
 }
+
+@media screen and (max-width: 768px){
+  
+    .textos {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    .img {
+        width: 100%;
+    }
+
+    .img1 {
+        height: 100%;
+        width: 96%;
+        padding-left: 4%;
+    }
+ 
+    .video {
+        width: 100%;
+    }
+}
