@@ -1,7 +1,7 @@
 /* faça um css para o feedback*/
 
 .main {
-  padding-top: 4%;
+  padding-top: 3%;
   background-image: url("../../public/bg-wool-dark.png");
 
 }
@@ -84,6 +84,13 @@
   background-color: #3d8a1d;
 }
 
+.deleteButton:hover {
+  background-color: #3d8a1d;
+}
+
+.editButton{
+  background-color: #3d8a1d;
+}
 .form_container {
   align-items: center;
   background: #85807e;
@@ -117,6 +124,7 @@
   background: #85807e;
   border: 0.125rem solid #313233;
   margin: 1.5%;
+  padding-top: 4%;
   width: 30%;
   height: 12rem;
   box-shadow: 0 0.25rem 0 rgba(0, 0, 0, .251), inset -0.25rem -0.25rem 0 rgba(0, 0, 0, .302), inset 0.25rem 0.25rem 0 hsla(0, 0%, 100%, .2);
@@ -154,6 +162,7 @@
 .container_button{
   display: flex;
   margin-top: 1rem;
+
 }
 
 .imgDegrade2{
