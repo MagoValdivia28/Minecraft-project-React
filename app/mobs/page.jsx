@@ -129,7 +129,7 @@ const Mobs = () => {
         } catch (error) {
             console.log(error);
         }
-        
+
 
     }
 
@@ -150,7 +150,7 @@ const Mobs = () => {
     const deleteMob = async (id) => {
         try {
             await axios.delete(`/api/mobs/${id}`);
-            setDados(dados.filter((mob) => mob.id !== id)); 
+            setDados(dados.filter((mob) => mob.id !== id));
         } catch (error) {
             console.log(error);
         }
@@ -164,69 +164,69 @@ const Mobs = () => {
         <>
             <Header />
             <div className={styles.back}>
-
-
-
-                <div className={styles.divtext}>
-                    <h2 className={styles.textitle}>MOBS</h2>
-                </div>
-
                 <div className={styles.container1}>
+                    <div className={styles.divHeader}>
+                        <h1 className={styles.tituloHeader}>MOB PAGE</h1>
+                    </div>
+                    <div>
 
+                        <img className={styles.imagemHeader} src="" />
+                        <img className={styles.img12} src="traçadoQuadriculado.png" alt="" />
+                    </div>
+                    <div className={styles.divHeader2}>
+                        <h1 className={styles.tituloCards}>o que e mob</h1>
+                    </div>
                 </div>
+            </div>
 
-                <div className={styles.containerMobspac}>
-                    <h3 className={styles.titlemob}>O que são os Mobs</h3>
-                    <div className={styles.Cardmobs}>
-                        <p className={styles.descmob}>Os mobs são cruciais para o aspecto de sobrevivência do jogo, pois adicionam desafios aos jogadores. Eles incentivam a exploração do mundo, a busca por recursos e a criação de estratégias de defesa para enfrentar as ameaças noturnas. Além disso, alguns mobs têm características únicas, como o Wither e o Ender Dragon, que representam desafios mais avançados no jogo. A interação com mobs é parte integrante da experiência diversificada oferecida por Minecraft.</p>
-                    </div>
+            <div className={styles.Cardmobs}>
+                <p className={styles.descmob}>Os mobs sao cruciais para o aspecto de sobrevivencia do jogo, pois adicionam desafios aos jogadores. Eles incentivam a exploracao do mundo, a busca por recursos e a criacao de estrategias de defesa para enfrentar as ameacas noturnas. Alem disso, alguns mobs tem caracteristicas unicas, como o Wither e o Ender Dragon, que representam desafios mais avançados no jogo. A interacao com mobs e parte integrante da experiencia diversificada oferecida por Minecraft.</p>
+            </div>
 
-                    <div className={styles.createCont}>
+            <div className={styles.createCont}>
 
-                        <form className={styles.form_ip} onSubmit={(e) => handleMob(e, 'dano')}>
-                            <input className={styles.inputs} value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome' />
-                            <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição' />
-                            <input className={styles.inputs} value={tipo} onChange={(e) => setTipo(e.target.value)} type="text" placeholder='Tipo' />
-                            <input className={styles.inputs} value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Ataque' />
-                            <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
-                            <input className={styles.inputs} value={img} onChange={(e) => setImg(e.target.value)} type="text" placeholder='Imagem' />
+                <form className={styles.form_ip} onSubmit={(e) => handleMob(e, 'dano')}>
+                    <input className={styles.inputs} value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome' />
+                    <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição' />
+                    <input className={styles.inputs} value={tipo} onChange={(e) => setTipo(e.target.value)} type="text" placeholder='Tipo' />
+                    <input className={styles.inputs} value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Ataque' />
+                    <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
+                    <input className={styles.inputs} value={img} onChange={(e) => setImg(e.target.value)} type="text" placeholder='Imagem' />
 
-                            <button className={styles.createMob} type="submit">Criar</button>
-                            <div className={styles.errorCont}><p>{errorMSG}</p></div>
-                        </form> 
-                       
+                    <button className={styles.createMob} type="submit">Criar</button>
+                    <div className={styles.errorCont}><p>{errorMSG}</p></div>
+                </form>
 
-                    </div>
-                   
 
-                    <div className={styles.mobsList}>
-                        <div className={styles.teste}>
-                        {
-                            dados.length ? (
-                                dados.map((mob, index) => (
-                                    <div className={styles.mobCard} key={index}>
-                                        <h3 className={styles.mobName}>{mob.nome}</h3>
-                                        <img src={mob.img} className={styles.mobImg} />
-                                        <p className={styles.mobDesc}>{mob.descricao}</p>
-                                        <p className={styles.mobType}>{mob.tipo}</p>
-                                        <p className={styles.mobDmg}>{mob.dano}</p>
-                                        <p className={styles.mobDef}>{mob.defesa}</p>
-                                       
-                                        <button className={styles.deleteMob} onClick={() => deleteMob(mob.id)}>Deletar</button>
+            </div>
 
-                                    </div>
-                                )
-                                )) : (
-                                <p className={styles.noMobs}>Nenhum mob cadastrado</p>
+
+            <div className={styles.mobsList}>
+                <div className={styles.teste}>
+                    {
+                        dados.length ? (
+                            dados.map((mob, index) => (
+                                <div className={styles.mobCard} key={index}>
+                                    <h3 className={styles.mobName}>{mob.nome}</h3>
+                                    <img src={mob.img} className={styles.mobImg} />
+                                    <p className={styles.mobDesc}>{mob.descricao}</p>
+                                    <p className={styles.mobType}>{mob.tipo}</p>
+                                    <p className={styles.mobDmg}>{mob.dano}</p>
+                                    <p className={styles.mobDef}>{mob.defesa}</p>
+
+                                    <button className={styles.deleteMob} onClick={() => deleteMob(mob.id)}>Deletar</button>
+
+                                </div>
                             )
-                        } 
-                        </div>
- 
-                    </div>
-                   
+                            )) : (
+                            <p className={styles.noMobs}>Nenhum mob cadastrado</p>
+                        )
+                    }
                 </div>
 
             </div>
+
+
         </>
 
     );
