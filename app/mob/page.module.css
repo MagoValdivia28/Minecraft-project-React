@@ -1,0 +1,132 @@
+.container1 {
+    background: rgba(38, 36, 35, 255);
+}
+
+.back {
+    background-color: #ebe4e2;
+}
+
+;
+
+.cardContainer {
+
+    justify-content: space-between;
+    /* Espaçamento entre os cards */
+    background-color: #ebe4e2;
+    display: flex;
+    padding-top: 6%;
+    margin-bottom: -3%;
+}
+
+
+.textitle {
+    color: rgb(121, 119, 119);
+    font-family: 'Title-Minecraft-Font';
+    font-size: 2.4rem;
+    align-items: center;
+}
+
+.divtext {
+    text-align: center;
+    padding-top: 10%;
+}
+
+
+.img12 {
+    margin-top: -4%;
+    width: 100%;
+}
+
+.imgtrs{
+    background-color: #ebe4e2;
+    width: 100%;
+    height: 9rem;
+    
+}
+
+.teste {
+    width: 100%;
+}
+
+.divHeader{
+    background-color: #52a535;
+    padding-top: 6%;
+    padding-bottom: 4.7%;
+    text-align: center;
+}
+
+.Cardmobs {
+    background-color: rgba(178, 178, 201, 0.628);
+    padding-top: 7%;
+    display: flex;
+    width: 40%;
+    
+}
+
+.descmobs {
+    font-family: 'Minecraft-Font';
+}
+
+
+.mobList {
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-bottom: -3%;
+}
+
+
+.mobImg {
+    width: 10rem;
+    height: 10rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.noMobs {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-bottom: -3%;
+    font-family: 'Title-Minecraft-Font';
+}
+
+.createCont {
+    background-color: #ebe4e2;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-bottom: -3%;
+    
+}
+
+.createCont input{
+    border: 1px solid #ccc;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    height: 2.5rem;
+    margin: 0.3rem;
+    
+    flex-direction: column;
+}
+
+.deleteMob {
+    width: 10%;
+    height: 3%;
+    background-color: #a09071;
+    border-top: #e2cfab 0.35rem solid;
+    border-left: #e2cfab 0.35rem solid;
+    border-right: #4d4d4d 0.35rem solid;
+    border-bottom: #4d4d4d 0.35rem solid;
+}
+
+.form_ip {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modCard {
+    display: flex;
+}
