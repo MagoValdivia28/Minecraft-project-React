@@ -59,24 +59,47 @@ const membroPage = () => {
     // postar
     const handleSend = async () => {
         try {
-            await axios.post("/api/membros", { nome, idade, descricao, cargo, urlimagem: imagem, backgroundcor: corCard });
+            await axios.post("/api/membros", { nome, idade, descricao, cargo, urlimagem: imagem });
             setNome('');
             setIdade('');
             setDescricao('');
             setCargo('');
             setUrlImagem('');
             setCorCard('');
+            setShowPopup(false);
             // router.push(`/membros/`);
-            const response = await axios.post("/api/membros");
+            const response = await axios.get("/api/membros");
             setDados(response.data);
         } catch (error) {
             console.error("Error submitting data:", error);
         }
     }
 
+    const handleEditar = async () => {
+        console.log('teste');
+        await axios.put(`/api/membros/id/${editMembro.id}`, { nome, idade, descricao, cargo, urlimagem: imagem });
+        setEditMembro(null);
+        setNome('');
+        setIdade('');
+        setDescricao('');
+        setCargo('');
+        setUrlImagem('');
+        setPopUp(false);
+        setShowPopup(false);
+        // router.push(`/membros/`);
+        const response = await axios.get("/api/membros");
+        setDados(response.data);
+    }
+
     // editar
     const handleEdit = (membro) => {
+        setNome(membro.nome);
+        setIdade(membro.idade);
+        setDescricao(membro.descricao);
+        setCargo(membro.cargo);
+        setUrlImagem(membro.urlimagem);
         setEditMembro(membro);
+        setShowPopup(true);
     };
 
     //Deletar
@@ -107,6 +130,7 @@ const membroPage = () => {
     return (
         <>
             <Header />
+
             {
                 popUp ? (
                     <>
@@ -127,7 +151,6 @@ const membroPage = () => {
                                         <button onClick={() => handleEdit(membro)} className={styles.botaoEditar}>Editar</button>
                                         <button onClick={() => handleDeletar(membro.id)} className={styles.botaoDeletar}>Deletar</button>
                                     </div>
-
                                 </div>
                             ) : null
                         ))}
@@ -153,22 +176,24 @@ const membroPage = () => {
                         <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
                         <div className={styles.cadastro}>
                             {
-                                showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} setNome={setNome} setIdade={setIdade} setDescricao={setDescricao} setCargo={setCargo} setUrlImagem={setUrlImagem} setCorCard={setCorCard} />
+                                showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} setNome={setNome} setIdade={setIdade} setDescricao={setDescricao} setCargo={setCargo} setUrlImagem={setUrlImagem} nome={nome} idade={idade} descricao={descricao} cargo={cargo} urlimagem={imagem} edited={editMembro} handleEditar={() => handleEditar()} />
                             }
                         </div>
+                        <div className={styles.boraBill}>
 
-                        {
-                            dados.map((membro) => (
-                                <div key={membro.id} className={styles.cardPessoa} style={{ backgroundColor: membro.backgroundcor }}>
-                                    <img src={membro.imagem} alt="membro" className={styles.imgPessoa} />
-                                    <h2 className={styles.pessoa}>Nome: {membro.nome}</h2>
-                                    <p>Cargo: {membro.cargo}</p>
-                                    <div className={styles.botaoVM}>
-                                        <button onClick={() => handleOpenDescricaoPopup(membro.id)} className={styles.botaoVermais}>Detalhes</button>
+                            {
+                                dados.map((membro) => (
+                                    <div key={membro.id} className={styles.cardPessoa} style={{ backgroundColor: membro.backgroundcor }}>
+                                        <img src={membro.imagem} alt="membro" className={styles.imgPessoa} />
+                                        <h2 className={styles.pessoa}>Nome: {membro.nome}</h2>
+                                        <p>Cargo: {membro.cargo}</p>
+                                        <div className={styles.botaoVM}>
+                                            <button onClick={() => handleOpenDescricaoPopup(membro.id)} className={styles.botaoVermais}>Detalhes</button>
+                                        </div>
                                     </div>
-                                </div>
-                            ))
-                        }
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
