@@ -137,7 +137,7 @@
 }
 
 .containerPopUp {
-    background-color: green;
+    background-color: rgb(7, 191, 7);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -150,4 +150,9 @@
     flex-direction: row;
     width: 100%;
     justify-content: center;
+}
+
+.boraBill {
+    display: flex;
+    flex-wrap: wrap;
 }
