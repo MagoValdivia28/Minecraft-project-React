@@ -1,22 +1,19 @@
 .botaoRemover{
     background-color: green;
     color: white;
-    padding: 5px;
-    margin: 5px;
+    margin-top: 2%;
+    width: 50%;
     cursor: pointer;
     border: 1px solid black;
-    font-size: 50px;
+    font-size: 60px;
     font-family: 'Title-Minecraft-Font';
-    transition: 0.3s;
     justify-content: center;
 }
 
 .botaoRemover:hover{
     background-color: black;
-    padding: 5px;
-    margin: 5px;
     cursor: pointer;
-    transition: 0.3s;
+    font-family: 'Title-Minecraft-Font';
 }
 
 
