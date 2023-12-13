@@ -262,27 +262,25 @@ const Page_de_encantamentos = () => {
                                         {[...Array(pages)].map((_, pageIndex) => (
                                             <div key={pageIndex}>
                                                 <ul className={styles.encantamentos_list}>
-
                                                     {dados.slice(pageIndex * 3, (pageIndex + 1) * 3).map((encantamento) => (
 
                                                         <li onClick={() => setPopUpOpenBook(encantamento.id)} key={encantamento.id} className={styles.encantamento}>
                                                             <div className={styles.book}>
-                                                                <div className={styles.page}>
-                                                                    <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                                                    <p>{encantamento.titulo}</p>
-                                                                </div>
-                                                                <p className={styles.book_name}>{encantamento.titulo}</p>
-                                                            </div>
-                                                            {/* 
-                                                            <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
-                                                                <p className={styles.delete_text}>Deletar</p>
-                                                            </button>
-                                                            <button onClick={() => handleUpdate(encantamento)} className={styles.update_button}>
-                                                                <p className={styles.update_text}>Atualizar</p>
-                                                            </button> */}
-                                                        </li>
+                                                                <div className={styles.pageInfo}>
+                                                                    <img className={styles.bookImg} src="/Enchanted_Book.webp" alt="encantamento1" width={
+                                                                        64
+                                                                    } height={
+                                                                        64
+                                                                    } />
 
-                                                    ))}
+                                                                </div>
+                                                                <p>{encantamento.titulo}</p>
+                                                            </div>
+                                                            {/* <p className={styles.book_name}>{encantamento.titulo}</p> */}
+                                                        </li>
+                                                    ))
+
+                                                    }
 
                                                 </ul>
                                             </div>
