@@ -124,7 +124,7 @@ const equipamentoPage = () => {
             }
         }
         handleFilteredEquipamento(equipamento);
-    }, [equipamento]); 
+    }, [equipamento]);
 
     return (
         <main className={styles.main}>
@@ -161,7 +161,7 @@ const equipamentoPage = () => {
                             <div onClick={() => { setEquipamento('bota'); setCorEquipamento('#000') }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
                                 <img style={{ backgroundColor: corEquipamento }} id="botaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/botaFinal.png"} alt="bota" />
                             </div>
-                            <div onClick={() => {  setEquipamento('espada'); setCorEquipamento('#000') }} className={`${styles.itemArmadura}`}>
+                            <div onClick={() => { setEquipamento('espada'); setCorEquipamento('#000') }} className={`${styles.itemArmadura}`}>
                                 <img style={{ backgroundColor: corEquipamento }} id="espadaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/espadaFinal.png"} alt="espada" />
                             </div>
                         </div>
@@ -173,7 +173,7 @@ const equipamentoPage = () => {
                     </div>
                 </div>
             </div >
-        </main> 
+        </main>
     )
 }
 
