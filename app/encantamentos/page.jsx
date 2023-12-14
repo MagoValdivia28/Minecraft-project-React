@@ -47,6 +47,8 @@ const Page_de_encantamentos = () => {
     const [nivel, setNivel] = useState("");
     const { id } = encantamento;
 
+    const [editing, setEditing] = useState(null);
+
     function sendErrorMsg(msg) {
         setErrorMSG(msg);
         setTimeout(function () {
@@ -110,8 +112,7 @@ const Page_de_encantamentos = () => {
 
 
 
-    const handleSend = async (e, tipo) => {
-        e.preventDefault();
+    const handleSend = async () => {
         try {
             if (validation() == false) {
                 sendErrorMsg();
@@ -160,8 +161,37 @@ const Page_de_encantamentos = () => {
         }
     }
 
+    const editarEncantamento = (encantamento) => {
+        setTitulo(encantamento.titulo);
+        setDescricao(encantamento.descricao);
+        setTipoEncanto(encantamento.tipoEncanto);
+        setDano(encantamento.dano);
+        setDefesa(encantamento.defesa);
+        setNivel(encantamento.nivel);
+        setEditing(encantamento);
+        setPopUpOpenBook(null);
+    }
 
+    const handleEdit = async () => {
+        await axios.put(`/api/encantamentos/${editing.id}`, {
+            titulo,
+            descricao,
+            tipoEncanto,
+            dano,
+            defesa,
+            nivel
+        });
+        setEditing(null);
+        setTitulo("");
+        setDescricao("");
+        setTipoEncanto("");
+        setDano("");
+        setDefesa("");
+        setNivel("");
+        const response = await axios.get('/api/encantamentos');
+        setDados(response.data);
 
+    }
 
     useEffect(() => {
         async function fetchEncantamentos() {
@@ -189,8 +219,6 @@ const Page_de_encantamentos = () => {
         }
     }, [id]);
 
-
-
     const deleteEncantamento = async (id) => {
         try {
             const response = await axios.delete(`/api/encantamentos/${id}`);
@@ -203,18 +231,6 @@ const Page_de_encantamentos = () => {
         }
     }
 
-    const handleUpdate = (encantamento) => {
-        setEditEncantamento(encantamento);
-        setTitulo(encantamento.titulo);
-        setDescricao(encantamento.descricao);
-        setTipoEncanto(encantamento.tipoEncanto);
-        setDano(encantamento.dano);
-        setDefesa(encantamento.defesa);
-        setNivel(encantamento.nivel);
-        flag = 1;
-    }
-
-
     const pages = Math.ceil(dados.length / 3);
 
 
@@ -225,39 +241,37 @@ const Page_de_encantamentos = () => {
             <Header />
             <div className={styles.titles_container}>
                 <h1 className={styles.titles}>Encantamentos</h1>
-                {/* <h2 className={styles.subTitles}>Encantamentos</h2> */}
             </div>
             <div className={styles.main_container}>
-
-
                 {
                     popUpOpenBook ? (
                         dados.map((encantamentoMap) => (
                             encantamentoMap.id == popUpOpenBook ? (
-                                <BookPopUp handleBookPopUp={() => setPopUpOpenBook(null)} handleDelete={() => deleteEncantamento(encantamentoMap.id)} encantamento={encantamentoMap} />
+                                <BookPopUp handleBookPopUp={() => setPopUpOpenBook(null)} handleDelete={() => deleteEncantamento(encantamentoMap.id)} encantamento={encantamentoMap} handleEditar={() => editarEncantamento(encantamentoMap)} />
                             ) : null
                         ))
                     ) : (
                         <>
-                            <div className={styles.encantamento_create}>
-                                <form className={styles.form_inputs} onSubmit={(e) => handleSend(e, 'dano')}>
-                                    <input className={styles.inputs} value={titulo} onChange={(e) => setTitulo(e.target.value)} type="text" placeholder='Titulo' />
-                                    <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descricao' />
-                                    {/* <input className={styles.inputs} value={tipoEncanto} onChange={(e) => setTipoEncanto(e.target.value)} type="text" placeholder='Tipo de encantamento' /> */}
-                                    <select className={styles.select} value={tipoEncanto} onChange={(e) => setTipoEncanto(e.target.value)} type="text" placeholder='Tipo de encantamento' >
-                                        <option className={styles.options} value="espada">Espada</option>
-                                        <option className={styles.options} value="capacete">Capacete</option>
-                                        <option className={styles.options} value="peitoral">Peitoral</option>
-                                        <option className={styles.options} value="calca">Calça</option>
-                                        <option className={styles.options} value="bota">Bota</option>
-                                    </select>
-                                    <input className={styles.inputs} value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Dano' />
-                                    <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
-                                    <input className={styles.inputs} value={nivel} onChange={(e) => setNivel(e.target.value)} type="number" placeholder='Nivel' />
-
-                                    <button className={styles.createButton} type="submit">Enviar</button>
-                                </form>
-
+                            <div className={styles.encantamentoCreate}>
+                                <input className={styles.inputs} value={titulo} onChange={(e) => setTitulo(e.target.value)} type="text" placeholder='Titulo' />
+                                <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descricao' />
+                                <select className={styles.select} value={tipoEncanto} onChange={(e) => setTipoEncanto(e.target.value)} type="text" placeholder='Tipo de encantamento' >
+                                    <option className={styles.options} value="espada">Espada</option>
+                                    <option className={styles.options} value="capacete">Capacete</option>
+                                    <option className={styles.options} value="peitoral">Peitoral</option>
+                                    <option className={styles.options} value="calca">Calça</option>
+                                    <option className={styles.options} value="bota">Bota</option>
+                                </select>
+                                <input className={styles.inputs} value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Dano' />
+                                <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
+                                <input className={styles.inputs} value={nivel} onChange={(e) => setNivel(e.target.value)} type="number" placeholder='Nivel' />
+                                {
+                                    editing ? (
+                                        <button onClick={() => handleEdit()} className={styles.createButton}>Atualizar</button>
+                                    ) : (
+                                        <button onClick={() => handleSend()} className={styles.createButton}>Criar</button>
+                                    )
+                                }
                             </div>
 
                             <div className={styles.errors_container}>
@@ -283,7 +297,6 @@ const Page_de_encantamentos = () => {
                                                                 </div>
                                                                 <p>{encantamento.titulo}</p>
                                                             </div>
-                                                            {/* <p className={styles.book_name}>{encantamento.titulo}</p> */}
                                                         </li>
                                                     ))
 
