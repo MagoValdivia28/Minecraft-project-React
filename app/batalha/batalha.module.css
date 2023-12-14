@@ -230,6 +230,8 @@
     display: flex;
     gap: 0.5rem;
     justify-content: space-between;
+    height: 296px;
+
 }
 
 .status {

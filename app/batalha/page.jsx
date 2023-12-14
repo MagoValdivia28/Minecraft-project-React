@@ -115,15 +115,19 @@ const Batalha = () => {
                         <div className={Style.containerAllMob}>
                             <img className={Style.imgFundoMob} src="https://www.minecraft.net/content/dam/games/minecraft/key-art/Play_With_Friends_Realms_672x360.png" alt="" />
 
-                        <div className={Style.containerAttachmentMob}>
-                            <div className={Style.containerMob}>
-
+                            <div className={Style.containerAttachmentMob}>
                                 <div className={Style.containerMob}>
-                                    <img className={Style.mobChoice} src={`${selecionarMob?.img}`} alt="Mob escolhido" />
-                                </div>
 
+                                    <div className={Style.containerMob}>
+                                        {
+                                            selecionarMob ? (
+                                                <img className={Style.mobChoice} src={selecionarMob?.img} alt="Mob escolhido" />
+                                            ) : null
+                                        }
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
