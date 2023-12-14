@@ -15,9 +15,8 @@ const Noticia1 = () => {
                 </div>
                 <div className={styles.section}>
                     <div className={styles.quemFez}>
-                        <img src="https://s-trojmiasto.pl/zdj/c/n/9/2703/597x0/2703588-Oto-postac-z-gry-ktora-synowi-naszej-czytelniczki-kojarzy-sie-z-wieza.jpg" alt="Villager do minecraft" className={styles.img2} />
-                        <p className={styles.texto}>Escrio por: Pedro Isac</p>
-                        <p className={styles.texto}>Publicada 01/12/2023</p>
+                        <p className={styles.texto}>Escrito por: Pedro Isac</p>
+                        <p className={styles.texto}>Publicada em: 01/12/2023</p>
                     </div>
                     <div className={styles.paddingDiv}>
                         <div className={styles.article3}>
