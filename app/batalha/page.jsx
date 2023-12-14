@@ -107,10 +107,23 @@ const Batalha = () => {
                         <img className={Style.espadaX} src={"espadasX.png"} alt="" />
                     </div>
                     {/* mobs */}
-                    <div className={Style.mob}>
-                        <div>
+                    <div className={Style.mobContainer}>
+                        <div className={Style.mob}>
                             <button className={`${Style.createButton} ${Style.red}`} onClick={() => setButtonEscolhaMob(true)}>ESCOLHA SEU ADVERSARIO</button>
+                        </div>
 
+                        <div className={Style.containerAllMob}>
+                            <img className={Style.imgFundoMob} src="https://www.minecraft.net/content/dam/games/minecraft/key-art/Play_With_Friends_Realms_672x360.png" alt="" />
+
+                        <div className={Style.containerAttachmentMob}>
+                            <div className={Style.containerMob}>
+
+                                <div className={Style.containerMob}>
+                                    <img className={Style.mobChoice} src={`${selecionarMob?.img}`} alt="Mob escolhido" />
+                                </div>
+
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

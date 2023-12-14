@@ -134,8 +134,6 @@ const Mobs = () => {
         } catch (error) {
             console.log(error);
         }
-
-
     }
 
     useEffect(() => {

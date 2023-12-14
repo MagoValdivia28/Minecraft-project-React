@@ -3,11 +3,12 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    width: 100%;
-    height: 100vh;
     display: flex;
     align-items: center;
+    width: 757px;
+    height: 897px;
 }
+
 .main_container {
     width: 100%;
     margin: 0 auto;
@@ -19,7 +20,7 @@
 }
 
 .book {
-    width: 50%;
+    width: 100%;
     height: 100%;
     padding: 5rem;
     margin: 0 auto;
@@ -27,7 +28,6 @@
     flex-wrap: nowrap;
     flex-direction: column;
     background-color: transparent;
-    border: 0.3rem solid #141414;
 }
 
 .buttonContainer {
@@ -36,8 +36,10 @@
     justify-content: space-around;
     align-items: center;
     padding-bottom: 2rem;
+    gap: 0.6rem;
 
 }
+
 .exitButton {
     cursor: pointer;
     width: 60%;
@@ -49,7 +51,7 @@
     margin-top: 3rem;
 }
 
-.exitButton:hover{
+.exitButton:hover {
     background-color: #3b3b3b;
     -webkit-box-shadow: inset 0 4px #cacaca, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
     box-shadow: inset 0 4px #cacaca, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
@@ -59,16 +61,18 @@
 }
 
 .editButton {
+    width: 60%;
     cursor: pointer;
-    width: 15%;
     height: 5rem;
     background-color: #6f6f6f;
     border: 0.3rem solid #141414;
     -webkit-box-shadow: inset 0 4px #cacaca, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
     box-shadow: inset 0 4px #cacaca, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
     margin-top: 3rem;
+    padding: 1rem;
 }
-.editButton:hover{
+
+.editButton:hover {
     background-color: #3b3b3b;
     -webkit-box-shadow: inset 0 4px #cacaca, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
     box-shadow: inset 0 4px #cacaca, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
@@ -77,9 +81,10 @@
     box-shadow: inset 0 4px #3b3b3b, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
 
 }
+
 .deleteButton {
+    width: 60%;
     cursor: pointer;
-    width: 15%;
     height: 5rem;
     background-color: #6f6f6f;
     border: 0.3rem solid #141414;
@@ -88,6 +93,7 @@
     margin-top: 3rem;
 
 }
+
 .deleteButton:hover {
     background-color: #3b3b3b;
     -webkit-box-shadow: inset 0 4px #cacaca, inset 0 -4px #3b3b3b, 0 4px rgba(0, 0, 0, .25);
@@ -99,11 +105,53 @@
 
 }
 
-.textButton{
+.textButton {
     color: white;
     font-family: 'Minecraft-Font';
     font-size: 2rem;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0 , 1); /* Sombra do texto */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    /* Sombra do texto */
+}
+
+@media screen and (max-width: 768px) {
+    .buttonContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .book_container {
+        margin: 0 2rem;
+        width: auto;
+        height: auto;
+    }
+
+    .book {
+        margin: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width: 445px) {
+    .book_container {
+        background-image: none;
+        width: none;
+        height: 100%;
+        padding: 0;
+    }
+
+    .book {
+        padding: 10px;
+        width: none;
+        background-color: #FDF6E5;   
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center ;
+    }
+
 }
 
 .titleBookContainer {
@@ -114,6 +162,7 @@
     padding-bottom: 2rem;
     flex-direction: column;
 }
+
 .titleBook {
     font-size: 3rem;
     color: #141414;
@@ -121,12 +170,12 @@
 }
 
 .subTitleBook {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #141414;
     font-family: 'Minecraft-Enchantment-Font';
-} 
+}
 
-.descriptionBookContainer{
+.descriptionBookContainer {
     width: 100%;
     height: 100%;
     display: flex;
@@ -137,7 +186,7 @@
 }
 
 .descriptionBook {
-    font-size: 3rem;
+    font-size: 1.6rem;
     color: #141414;
     font-family: 'Minecraft-Font';
     width: 80%;
@@ -145,5 +194,16 @@
 }
 
 .informationContainer {
-    font-size: 2rem;
+    font-size: 1.6rem;
+}
+
+.informationContainer h3 {
+    font-size: 2.1rem;
+    font-family: 'Minecraft-Font';
+    font-weight: bold;
+}
+
+.info {
+    font-size: 1.6rem;
+    font-family: 'Minecraft-Font';
 }

@@ -1,9 +1,6 @@
 import stlyes from './bookpopup.module.css';
 
-const BookPopUp = ({ handleBookPopUp, handleDelete, encantamento }) => {
-
-    console.log('esse é o encantamento');
-    console.log(encantamento);
+const BookPopUp = ({ handleBookPopUp, handleDelete, encantamento, handleEditar }) => {
     return (
         <div className={stlyes.main_container}>
             <div className={stlyes.book_container}>
@@ -35,7 +32,7 @@ const BookPopUp = ({ handleBookPopUp, handleDelete, encantamento }) => {
                 <button onClick={handleDelete} className={stlyes.deleteButton}>
                     <p className={stlyes.textButton}>Deletar</p>
                 </button>
-                <button onClick={() => handleDelete()} className={stlyes.editButton}>
+                <button onClick={handleEditar} className={stlyes.editButton}>
                     <p className={stlyes.textButton}>Editar</p>
                 </button>
             </div>
