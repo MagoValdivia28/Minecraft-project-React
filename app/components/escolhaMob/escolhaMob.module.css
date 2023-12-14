@@ -150,6 +150,10 @@
     justify-content: space-around;
 }
 
+.mobsCriados::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
 .containerMobs .itemArmadura:hover {
     margin: 5px auto;
 }
@@ -157,9 +161,13 @@
     margin: 1rem;
     width: 160px;
     height: 160px;
-    
+    border: rgba(0, 0, 0, 0.5) 4px solid;
 }
 
 .mobImg {
-
+    /* border: #313233 4px solid; */
+    border-top: #898481 4px solid;
+    border-left: #898481 4px solid;
+    border-right: #313233 4px solid;
+    border-bottom: #313233 4px solid;
 }

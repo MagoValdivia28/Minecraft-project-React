@@ -68,7 +68,7 @@ const EscolhaMob = ({ fecharPopUp, setSelecionarMob }) => {
             dados.length ? (
               dados.map((mob) => (
                 <div onClick={() => setSelecionarMob(mob)} className={styles.mob}>
-                  <img src={mob.img} alt={mob.nome} width={160} height={160} />
+                  <img className={styles.mobImg} src={mob.img} alt={mob.nome} width={160} height={160} />
                 </div>
               ))
             ) : (
