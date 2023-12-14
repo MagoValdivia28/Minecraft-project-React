@@ -8,8 +8,6 @@ const EscolhaEquipamento = ({ fecharPopUp, setSelecionarCapacete, setSelecionarP
 
     const [dados, setDados] = useState([]);
 
-
-
     // filtragem
     const [filtragemNome, setFiltragemNome] = useState(null);
     const [filtragemTipo, setFiltragemTipo] = useState(null);
@@ -91,7 +89,7 @@ const EscolhaEquipamento = ({ fecharPopUp, setSelecionarCapacete, setSelecionarP
                     {
                         dados.length ? (
                             dados.map((equipamento) => (
-                                <div onClick={() => handleEquipamentoSelecionado(equipamento)} className={styles.itemArmadura}>
+                                <div key={equipamento.id} onClick={() => handleEquipamentoSelecionado(equipamento)}  className={`${styles.itemArmadura}`}>
                                     <img style={{ backgroundColor: equipamento.cor }} src={`inventory/${equipamento.tipo}Final.png`} alt="" />
                                 </div>
                             ))
