@@ -15,7 +15,9 @@
 .imgDegrade {
   background: url("../../public/preto-branco-degrade.png");
   background-repeat: repeat-x;
-  height: 16vh
+  height: 10vh;
+
+
 }
 
 .titles_container {
@@ -24,6 +26,8 @@
   height: 100%;
   width: 100%;
   margin-top: 3rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
 
 }
 
