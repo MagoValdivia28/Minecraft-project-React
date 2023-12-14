@@ -4,6 +4,7 @@ import Header from '../components/header/header';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import EscolhaEquipamento from '../components/escolhaEquipamento/EscolhaEquipamento';
+import EscolhaMob from '../components/escolhaMob/EscolhaMob';
 
 
 const Batalha = () => {
@@ -11,6 +12,7 @@ const Batalha = () => {
     const [dados, setDados] = useState([]);
 
     const [buttonEscolha, setButtonEscolha] = useState(false);
+    const [buttonEscolhaMob, setButtonEscolhaMob] = useState(false);
 
     // Variaveis selecionaveis
 
@@ -52,12 +54,17 @@ const Batalha = () => {
                     buttonEscolha &&
                     <EscolhaEquipamento fecharPopUp={() => setButtonEscolha(false)} setSelecionarCapacete={setSelecionarCapacete} setSelecionarPeitoral={setSelecionarPeitoral} setSelecionarCalca={setSelecionarCalca} setSelecionarBota={setSelecionarBota} setSelecionarEspada={setSelecionarEspada} />
                 }
+                {
+                    buttonEscolhaMob &&
+                    <EscolhaMob />
+                }
                 <Header />
                 <div className={Style.titulo}>
                     <h1>BATALHE AGORA!!</h1>
                 </div>
 
                 <div className={Style.batalhaConteiner}>
+                    {/* equipamento */}
                     <div className={Style.gerenciamentoEquipamento}>
                         <div>
                             <button className={Style.createButton} onClick={() => setButtonEscolha(true)}>ESCOLHA SEU EQUIPAMENTO</button>
@@ -96,8 +103,12 @@ const Batalha = () => {
                     <div>
                         <img className={Style.espadaX} src={"espadasX.png"} alt="" />
                     </div>
+                    {/* mobs */}
                     <div className={Style.mob}>
-                        <p className={Style.textop}>SELECIONE O MOB PARA ENFRENTA-LO!</p>
+                        <div>
+                            <button className={`${Style.createButton} ${Style.red}`} onClick={() => setButtonEscolhaMob(true)}>ESCOLHA SEU ADVERSARIO</button>
+
+                        </div>
                     </div>
                 </div>
             </div>

@@ -130,6 +130,15 @@
     margin: 0 10px;
 }
 
+.red {
+    background-color: rgb(184, 1, 1);
+    border-left: #641c1c 5px solid;
+    border-bottom: #641c1c 5px solid;
+    border-right: #641c1c 5px solid;
+    border-top: #e08181 5px solid;
+
+}
+
 .gerenciamentoEquipamento {
     display: flex;
     flex-direction: column;
@@ -141,7 +150,7 @@
     margin-top: 1rem;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .containerAll .imgFundo {
@@ -171,6 +180,5 @@
 }
 
 .containerEquipamentos .itemArmadura {
-    cursor:auto;
+    cursor: auto;
 }
-
