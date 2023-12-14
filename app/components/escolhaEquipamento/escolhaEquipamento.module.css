@@ -18,6 +18,14 @@
     height: 100%;
 }
 
+@media screen and (max-width: 768px) {
+    .containerModal {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+}
+
 .x {
     font-size: 1.6125em;
     font-family: 'Minecraft-Font';

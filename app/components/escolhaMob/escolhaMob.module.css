@@ -17,6 +17,13 @@
     background-repeat: no-repeat;
     height: 100%;
 }
+@media screen and (max-width: 768px) {
+    .containerModal {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+}
 
 .x {
     font-size: 1.6125em;
@@ -138,8 +145,29 @@
 .mobsCriados {
     display: flex;
     flex-wrap: wrap;
+    overflow-y: auto; /* Adiciona a barra de rolagem vertical */
+    max-height: 500px; /* Define uma altura máxima para a div */
+    justify-content: space-around;
+}
+
+.mobsCriados::-webkit-scrollbar {
+    width: 0.5rem;
 }
 
 .containerMobs .itemArmadura:hover {
     margin: 5px auto;
+}
+.mob {
+    margin: 1rem;
+    width: 160px;
+    height: 160px;
+    border: rgba(0, 0, 0, 0.5) 4px solid;
+}
+
+.mobImg {
+    /* border: #313233 4px solid; */
+    border-top: #898481 4px solid;
+    border-left: #898481 4px solid;
+    border-right: #313233 4px solid;
+    border-bottom: #313233 4px solid;
 }
