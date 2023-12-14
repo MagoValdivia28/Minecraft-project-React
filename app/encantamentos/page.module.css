@@ -18,20 +18,18 @@
 
 }
 
+.encantamentos_img {
+    margin: auto;
+}
+
 .books_list {
     width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-items: center;
 }
 
 .encantamentos_container {
     position: relative;
     display: flex;
-    flex-direction: row-reverse;
-    align-content: stretch;
-    justify-content: space-around;
+    flex-direction: column;
     width: 100%;
 }
 
@@ -43,30 +41,56 @@
     margin-top: 15rem;
 }
 
+
+@media screen and (max-width: 768px) {
+    .encantamentos_list {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
 .encantamentos_list {
     list-style: none;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 4rem;
+    width: 100%;
+    align-items: stretch;
+    background-color: NONE;
 }
+
 
 .encantamento {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    background-color: NONE;
+    width: 100%;
+    height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
+
 }
 
-/* .encantamento_create {
+.pageImg {
+display: flex;
+align-items: center;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #a09172;
+    border-left: #cab791 0.35rem solid;
+    border-top: #cab791 0.35rem solid;
+    border-right: #544c3b 0.35rem solid;
+    border-bottom: #544c3b 0.35rem solid;
+    margin: 1rem;
+
+    
+}
+
+
+.encantamento_create {
     width: 70%;
     margin-bottom: 15rem;
     padding: 1rem 0;
@@ -74,7 +98,7 @@
     border: 2px solid rgba(255, 255, 255, .5);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-} */
+}
 
 .encantamento_create {
     width: 70%;
@@ -108,60 +132,25 @@
     text-shadow: 2px 2px #3F3F3F;
 }
 
+.select {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    height: 4rem;
+    background-color: #8b8b8b;
+    border-top: #404040 0.2rem solid;
+    border-left: #404040 0.2rem solid;
+    font-family: 'Minecraft-Font';
+    color: rgb(225, 225, 225);
+    font-size: 1.6rem;
+    padding: 0.6rem;
+    text-shadow: 2px 2px #3F3F3F;
 
-
-
-.book {
-    rotate: 360deg;
 }
 
-.book1 {
-    rotate: 300deg;
-}
-
-.book2 {
-    rotate: 240deg;
-}
-
-.book3 {
-    rotate: 180deg;
-}
-
-.book4 {
-    rotate: 120deg;
-}
-
-.book5 {
-    rotate: 60deg;
-}
-
-
-.encantamento:nth-child(1) {
-    transform: rotate(0deg) translateX(10rem);
-}
-
-.encantamento:nth-child(2) {
-    transform: rotate(60deg) translateX(10rem);
-}
-
-.encantamento:nth-child(3) {
-    transform: rotate(120deg) translateX(10rem);
-}
-
-.encantamento:nth-child(4) {
-    transform: rotate(180deg) translateX(10rem);
-}
-
-.encantamento:nth-child(5) {
-    transform: rotate(240deg) translateX(10rem);
-}
-
-.encantamento:nth-child(6) {
-    transform: rotate(300deg) translateX(10rem);
-}
-
-
-.encantamento:hover {
+.book:hover {
     cursor: pointer;
     transition: all 0.5s ease-in-out;
 
@@ -172,7 +161,7 @@
 }
 
 
-.book_name {
+/* .book_name {
     display: none;
     margin-top: 0.6rem;
     font-family: 'Minecraft-Font';
@@ -180,51 +169,23 @@
     background-color: rgba(0, 0, 0, 0.85);
     color: white;
     text-shadow: #2c262c 2px 2px 2px;
-    right: 0;
-    position: absolute;
+    right: 4.5rem;
+    position: relative;
     font-size: 1.5rem;
     border: 5px solid #361071;
+    width: 10rem;
 }
 
 .book_name::after {
     content: '';
     position: absolute;
     bottom: 100%;
-    left: 85%;
+    right: 75%;
     margin-left: -10px;
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent #361071 transparent;
-}
-
-
-.arrows {
-    padding: 1.8rem 1.3rem;
-    background-color: #3b8526;
-    -webkit-box-shadow: inset 0 4px #6bc349, inset 0 -4px #2a631c, 0 4px rgba(0, 0, 0, .25);
-    box-shadow: inset 0 4px #6bc349, inset 0 -4px #2a631c, 0 4px rgba(0, 0, 0, .25);
-    color: #fff;
-    text-shadow: 0 1px 0 #2a631c;
-    border: none;
-}
-
-.arrowsText {
-    font-family: 'Minecraft-Font';
-    text-shadow: #000 1px 1px 1px;
-    color: white;
-}
-
-.arrows:active {
-    background: #4a494b;
-    color: #fff;
-    text-shadow: 0 -1px 0 #000;
-    -webkit-box-shadow: inset 0 -2px #8d8e92, inset 0 2px #000;
-    box-shadow: inset 0 -2px #8d8e92, inset 0 2px #000;
-    -webkit-transition: all .25s, opacity .75s .5s;
-    transition: all .25s, opacity .75s .5s;
-}
-
-
+} */
 
 .titles {
     font-family: 'Title-Minecraft-Font';
@@ -264,15 +225,6 @@
     color: white;
 }
 
-/* .inputs {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3rem;
-    height: 3rem;
-} */
-
 .createButton {
     margin: 2rem 0;
     width: 50%;
@@ -294,4 +246,13 @@
 
 .errors_container {
     color: white;
+}
+
+@media screen and (max-width: 768px) {
+
+    .book {
+        width: 100%;
+        flex-direction: column;
+    }
+    
 }

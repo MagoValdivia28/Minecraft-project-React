@@ -9,9 +9,10 @@ import BookPopUp from '../components/bookPopUp/bookpopup';
 import axios from "axios";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-let bookStyles = 0;
-
+let flag = 0;
 
 
 const Page_de_encantamentos = () => {
@@ -19,7 +20,6 @@ const Page_de_encantamentos = () => {
     const router = useRouter();
 
     const [bookPopUp, setBookPopUp] = useState(null);
-    const [styleBooks, setStyleBooks] = useState(styles.book);
     const [bookInfo, setBookInfo] = useState({});
 
     // encantamentos em si
@@ -29,6 +29,8 @@ const Page_de_encantamentos = () => {
     const [dados, setDados] = useState([]);
     const [encantamentos, setEncantamentos] = useState([]);
     const [encantamento, setEncantamento] = useState({});
+
+    const [editEncantamento, setEditEncantamento] = useState(null);
 
     // erros
 
@@ -114,15 +116,32 @@ const Page_de_encantamentos = () => {
             if (validation() == false) {
                 sendErrorMsg();
             }
-            const responseLog = await axios.post("/api/encantamentos", {
-                titulo: titulo,
-                descricao: descricao,
-                tipoEncanto: tipoEncanto,
-                dano: dano,
-                defesa: defesa,
-                nivel: nivel,
+            if (flag == 0) {
+                const response = await axios.post("/api/encantamentos", {
+                    titulo,
+                    descricao,
+                    tipoEncanto,
+                    dano,
+                    defesa,
+                    nivel
+                });
+                sendErrorMsg("Encantamento criado com sucesso");
+                setDados([...dados, response.data]);
 
-            });
+            }
+            else if (flag == 1) {
+                const response = await axios.put(`/api/encantamentos/${editEncantamento.id}`, {
+                    titulo,
+                    descricao,
+                    tipoEncanto,
+                    dano,
+                    defesa,
+                    nivel
+                });
+                sendErrorMsg("Encantamento atualizado com sucesso");
+                setDados([...dados, response.data]);
+                flag = 0;
+            }
 
             router.push("/encantamentos");
             const response = await axios.get("/api/encantamentos");
@@ -141,35 +160,7 @@ const Page_de_encantamentos = () => {
         }
     }
 
-    const handleBookStyle = () => {
-        if (bookStyles == 0) {
-            setStyleBooks(styles.book);
-            bookStyles = 1;
-        } else if (bookStyles == 1) {
-            setStyleBooks(styles.book1);
-            bookStyles = 2;
-        } else if (bookStyles == 2) {
-            setStyleBooks(styles.book2);
-            bookStyles = 3;
-        } else if (bookStyles == 3) {
-            setStyleBooks(styles.book3);
-            bookStyles = 4;
-        } else if (bookStyles == 4) {
-            setStyleBooks(styles.book4);
-            bookStyles = 5;
-        } else if (bookStyles == 5) {
-            setStyleBooks(styles.book5);
-        }
-    }
 
-    const handleBookPopUp = () => {
-        setBookPopUp(!bookPopUp);
-
-        setBookInfo(encantamento);
-        console.log("clicou");
-        console.log(bookInfo);
-
-    }
 
 
     useEffect(() => {
@@ -178,7 +169,6 @@ const Page_de_encantamentos = () => {
                 const response = await axios.get("/api/encantamentos");
                 setEncantamentos(response.data);
                 setDados(response.data);
-                handleBookStyle();
             } catch (error) {
                 console.log(error);
             }
@@ -207,13 +197,27 @@ const Page_de_encantamentos = () => {
             router.push("/encantamentos");
             setDados(dados.filter((encantamento) => encantamento.id !== id));
             sendErrorMsg("Encantamento deletado com sucesso");
+            setPopUpOpenBook(null)
         } catch (error) {
             console.log(error);
         }
     }
 
-    console.log("esse é a array");
-    console.log(dados);
+    const handleUpdate = (encantamento) => {
+        setEditEncantamento(encantamento);
+        setTitulo(encantamento.titulo);
+        setDescricao(encantamento.descricao);
+        setTipoEncanto(encantamento.tipoEncanto);
+        setDano(encantamento.dano);
+        setDefesa(encantamento.defesa);
+        setNivel(encantamento.nivel);
+        flag = 1;
+    }
+
+
+    const pages = Math.ceil(dados.length / 3);
+
+
 
 
     return (
@@ -239,7 +243,14 @@ const Page_de_encantamentos = () => {
                                 <form className={styles.form_inputs} onSubmit={(e) => handleSend(e, 'dano')}>
                                     <input className={styles.inputs} value={titulo} onChange={(e) => setTitulo(e.target.value)} type="text" placeholder='Titulo' />
                                     <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descricao' />
-                                    <input className={styles.inputs} value={tipoEncanto} onChange={(e) => setTipoEncanto(e.target.value)} type="text" placeholder='Tipo de encantamento' />
+                                    {/* <input className={styles.inputs} value={tipoEncanto} onChange={(e) => setTipoEncanto(e.target.value)} type="text" placeholder='Tipo de encantamento' /> */}
+                                    <select className={styles.select} value={tipoEncanto} onChange={(e) => setTipoEncanto(e.target.value)} type="text" placeholder='Tipo de encantamento' >
+                                        <option className={styles.options} value="espada">Espada</option>
+                                        <option className={styles.options} value="capacete">Capacete</option>
+                                        <option className={styles.options} value="peitoral">Peitoral</option>
+                                        <option className={styles.options} value="calca">Calça</option>
+                                        <option className={styles.options} value="bota">Bota</option>
+                                    </select>
                                     <input className={styles.inputs} value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Dano' />
                                     <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
                                     <input className={styles.inputs} value={nivel} onChange={(e) => setNivel(e.target.value)} type="number" placeholder='Nivel' />
@@ -255,48 +266,34 @@ const Page_de_encantamentos = () => {
                             <div className={styles.books_list}>
                                 <nav className={styles.encantamentos_container}>
                                     <img className={styles.encantamentos_img} src="/Book_29.webp" alt="encantamento1" width={96} height={96} />
-                                    <ul className={styles.encantamentos_list}>
-                                        {
-                                            dados.length ? (
-                                                encantamentos ? (
-                                                    dados.map((encantamento) =>
-                                                    (
-                                                        <li className={styles.encantamento}>
-                                                            <span onClick={() => setPopUpOpenBook(encantamento.id)} className={styleBooks}>
-                                                                <img src="/Enchanted_Book.webp" alt="encantamento1" width={64} height={64} />
-                                                                <p className={styles.book_name}>{encantamento.titulo}</p>
-                                                            </span>
+                                    <Carousel>
+                                        {[...Array(pages)].map((_, pageIndex) => (
+                                            <div key={pageIndex}>
+                                                <ul className={styles.encantamentos_list}>
+                                                    {dados.slice(pageIndex * 3, (pageIndex + 1) * 3).map((encantamento) => (
 
-                                                            <button onClick={() => deleteEncantamento(encantamento.id)} className={styles.delete_button}>
-                                                                <p className={styles.delete_text}>Deletar</p>
-                                                            </button>
-                                                            <button onClick={() => editEncantamento(encantamento)} className={styles.update_button}>
-                                                                <p className={styles.update_text}>Atualizar</p>
-                                                            </button>
+                                                        <li key={encantamento.id} className={styles.encantamento}>
+                                                            <div onClick={() => setPopUpOpenBook(encantamento.id)} className={styles.book}>
+                                                                <div className={styles.pageImg}>
+                                                                    <img className={styles.bookImg} src="/Enchanted_Book.webp" alt="encantamento1" width={
+                                                                        64
+                                                                    } height={
+                                                                        64
+                                                                    } />
+                                                                </div>
+                                                                <p>{encantamento.titulo}</p>
+                                                            </div>
+                                                            {/* <p className={styles.book_name}>{encantamento.titulo}</p> */}
                                                         </li>
                                                     ))
-                                                ) : (
-                                                    <p>Carregando...</p>
-                                                )
-                                            ) : (
-                                                <p className={styles.secondText}>Nenhum encantamento econtrado</p>
-                                            )
-                                        }
 
-                                    </ul>
+                                                    }
+
+                                                </ul>
+                                            </div>
+                                        ))}
+                                    </Carousel>
                                 </nav>
-                                <div className={styles.arrows_container}>
-                                    <button className={styles.arrows}>
-                                        <MdArrowBackIos />
-
-                                    </button>
-                                    <h2 className={styles.arrowsText}>
-                                        Pag 1 / 1
-                                    </h2>
-                                    <button className={styles.arrows}>
-                                        <MdArrowForwardIos />
-                                    </button>
-                                </div>
                             </div>
                         </>
                     )
