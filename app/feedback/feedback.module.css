@@ -1,7 +1,7 @@
 /* faça um css para o feedback*/
 
 .main {
-  padding-top: 3%;
+  padding-top: 4%;
   background-image: url("../../public/bg-wool-dark.png");
 
 }
@@ -35,7 +35,7 @@
   margin: 30px;
   text-align: center;
   margin-bottom: 30px;
-  font-size: 14vh;
+  font-size: 15vh;
   font-family: 'Minecraft-Font';
   color: #000000;
   text-shadow: 2px 2px 2px #ffffff;
@@ -128,7 +128,7 @@
   background: #85807e;
   border: 0.125rem solid #313233;
   margin: 1.5%;
-  padding-top: 4%;
+  padding-top: .3%;
   width: 30%;
   height: 16rem;
   box-shadow: 0 0.25rem 0 rgba(0, 0, 0, .251), inset -0.25rem -0.25rem 0 rgba(0, 0, 0, .302), inset 0.25rem 0.25rem 0 hsla(0, 0%, 100%, .2);
@@ -136,6 +136,10 @@
 
 .feedback_item {
   margin-left: 15%;
+}
+
+.feedback_item p{
+  font-size: 3vh;
 }
 
 .deleteButton {
@@ -165,7 +169,8 @@
 }
 .container_button{
   display: flex;
-  margin-top: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
 
 }
 
@@ -179,16 +184,21 @@
 
 @media (max-width: 768px) {
   .card {
-    width: 100%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .form_container {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .titles {
-    font-size: 8vh;
+    font-size: 6vh;
+  }
+  .main{
+    padding-top: 15%;
   }
 }
 
