@@ -13,6 +13,7 @@ const Mobs = () => {
     const [dados, setDados] = useState([]);
     const [mobs, setMobs] = useState([]);
     const [mob, setMob] = useState([]);
+    const [editing, setEditing] = useState(null);
 
 
     const [nome, setNome] = useState(null);
@@ -106,8 +107,7 @@ const Mobs = () => {
         fetchMobs();
     }, []);
 
-    const handleMob = async (e, tipoE) => {
-        e.preventDefault();
+    const handleMob = async () => {
         try {
             if (validation() == false) {
                 sendError(validation);
@@ -122,10 +122,15 @@ const Mobs = () => {
                     img: img
                 }
             );
-            router
             const response = await axios.get(`/api/mobs`);
             setMob(response.data);
-            setDados(response.data)
+            setDados(response.data);
+            setNome("");
+            setDescricao("");
+            setTipo("");
+            setDano("");
+            setDefesa("");
+            setImg("");
         } catch (error) {
             console.log(error);
         }
@@ -156,9 +161,42 @@ const Mobs = () => {
         }
     }
 
+    const editMob = async (mob) => {
+        setNome(mob.nome);
+        setDescricao(mob.descricao);
+        setTipo(mob.tipo);
+        setDano(mob.dano);
+        setDefesa(mob.defesa);
+        setImg(mob.img);
+        setMob(mob);
+        setEditing(mob);
+    }
 
-
-    console.log(dados);
+    const handleEditar = async () => {
+        try {
+            await axios.put(`/api/mobs/${id}`,
+                {
+                    nome: nome,
+                    descricao: descricao,
+                    tipo: tipo,
+                    dano: dano,
+                    defesa: defesa,
+                    img: img
+                }
+            );
+            const response = await axios.get(`/api/mobs`);
+            setDados(response.data);
+            setNome("");
+            setDescricao("");
+            setTipo("");
+            setDano("");
+            setDefesa("");
+            setImg("");
+            setEditing(null);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <>
@@ -185,7 +223,7 @@ const Mobs = () => {
 
             <div className={styles.createCont}>
 
-                <form className={styles.form_ip} onSubmit={(e) => handleMob(e, 'dano')}>
+                <div className={styles.form_ip}>
                     <input className={styles.inputs} value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome' />
                     <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição' />
                     <input className={styles.inputs} value={tipo} onChange={(e) => setTipo(e.target.value)} type="text" placeholder='Tipo' />
@@ -193,9 +231,18 @@ const Mobs = () => {
                     <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
                     <input className={styles.inputs} value={img} onChange={(e) => setImg(e.target.value)} type="text" placeholder='Imagem' />
 
-                    <button className={styles.createMob} type="submit">Criar</button>
+
+                    {
+                        editing ? (
+                            <button className={styles.editMob} onClick={() => handleEditar()}>Editar</button>
+                        ) : (
+                            <button className={styles.createMob} onClick={() => handleMob()}>Criar</button>
+
+                        )
+                    }
+
                     <div className={styles.errorCont}><p>{errorMSG}</p></div>
-                </form>
+                </div>
 
 
             </div>
@@ -213,10 +260,8 @@ const Mobs = () => {
                                     <p className={styles.mobType}>{mob.tipo}</p>
                                     <p className={styles.mobDmg}>{mob.dano}</p>
                                     <p className={styles.mobDef}>{mob.defesa}</p>
-
                                     <button className={styles.deleteMob} onClick={() => deleteMob(mob.id)}>Deletar</button>
-                                    <button className={styles.editMob} onClick={() => (mob)}>Editar</button>
-
+                                    <button className={styles.editMob} onClick={() => editMob(mob)}>Editar</button>
                                 </div>
                             )
                             )) : (
