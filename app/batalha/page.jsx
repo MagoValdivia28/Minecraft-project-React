@@ -14,13 +14,16 @@ const Batalha = () => {
     const [buttonEscolha, setButtonEscolha] = useState(false);
     const [buttonEscolhaMob, setButtonEscolhaMob] = useState(false);
 
-    // Variaveis selecionaveis
+    // Variaveis selecionaveis equipamento
 
     const [selecionarCapacete, setSelecionarCapacete] = useState(null);
     const [selecionarPeitoral, setSelecionarPeitoral] = useState(null);
     const [selecionarCalca, setSelecionarCalca] = useState(null);
     const [selecionarBota, setSelecionarBota] = useState(null);
     const [selecionarEspada, setSelecionarEspada] = useState(null);
+
+    // Variaveis selecionaveis mob
+    const [selecionarMob, setSelecionarMob] = useState(null);
 
     const [defesa, setDefesa] = useState(0);
 
@@ -56,7 +59,7 @@ const Batalha = () => {
                 }
                 {
                     buttonEscolhaMob &&
-                    <EscolhaMob />
+                    <EscolhaMob fecharPopUp={() => setButtonEscolhaMob(false)} setSelecionarMob={setSelecionarMob} />
                 }
                 <Header />
                 <div className={Style.titulo}>

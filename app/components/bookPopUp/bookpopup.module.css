@@ -6,10 +6,10 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    align-items: center;;
+    align-items: center;
 }
 .main_container {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     background-color: transparent;
     display: flex;
@@ -19,6 +19,9 @@
 }
 
 .book {
+    width: 50%;
+    height: 100%;
+    padding: 5rem;
     margin: 0 auto;
     display: flex;
     flex-wrap: nowrap;
@@ -129,13 +132,12 @@
     display: flex;
     padding-bottom: 2rem;
     flex-direction: column;
-    background-color: aqua;
     justify-content: space-around;
     justify-content: space-around;
 }
 
 .descriptionBook {
-    font-size: 2rem;
+    font-size: 3rem;
     color: #141414;
     font-family: 'Minecraft-Font';
     width: 80%;
@@ -143,5 +145,5 @@
 }
 
 .informationContainer {
-    
+    font-size: 2rem;
 }
