@@ -49,6 +49,8 @@
 @media (max-width: 768px) {
   .container_mainNews {
     flex-direction: column;
+    margin-bottom: 6%;
+    align-items: center;
   }
 }
 
@@ -68,7 +70,8 @@
 
 @media (max-width: 768px) {
   .mainCard {
-    width: 100%;
+    width: 80%;
+  
   }
 }
 
@@ -118,7 +121,8 @@
 
 @media (max-width: 768px) {
   .card {
-    width: 100%;
+    margin: 3%;
+    width: auto;
   }
 }
 
