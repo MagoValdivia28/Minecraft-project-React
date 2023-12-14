@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
     try {
-        const response = await axios.get("http://localhost:4000/encantamentos");
+        const response = await axios.get("http://10.88.200.145:4000/encantamentos");
         return NextResponse.json(response.data.encantamentos);
     } catch (error) {
         console.log("[ORDER_GET]", error);
@@ -16,7 +16,7 @@ export async function POST(request) {
     const params = await request.json();
 
     try {
-        const response = await axios.post("http://localhost:4000/encantamentos", params);
+        const response = await axios.post("http://10.88.200.145:4000/encantamentos", params);
         return NextResponse.json(response.data);
     } catch (error) {
         console.log("[ORDER_POST]", error);
