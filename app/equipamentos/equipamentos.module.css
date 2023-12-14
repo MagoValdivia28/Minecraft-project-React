@@ -56,10 +56,10 @@
     height: 18rem;
 }
 
-.armadura .armaduraSlotInventario {
-    display: flex;
-    flex-direction: column;
-}
+    .armadura .armaduraSlotInventario {
+        display: flex;
+        flex-direction: column;
+    }
 
 .itemArmadura {
     display: flex;
@@ -142,4 +142,22 @@
     text-shadow: 2px 2px #3F3F3F;
     font-size: 20px;
     margin-left: 1rem;
+}
+
+@media (max-width: 768px) {
+  .armamento h1{
+    font-size: 3rem;
+    
+  }
+  .armamento p{
+    font-size: 2rem;
+    
+  }
+  .armadura {
+    flex-direction: column;
+    height: auto;
+  }
+  .itemArmadura {
+    
+  }
 }

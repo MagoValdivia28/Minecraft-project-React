@@ -114,18 +114,17 @@ const equipamentoPage = () => {
 
     useEffect(() => {
         async function handleFilteredEquipamento(equipamento) {
-            const url = `/api/equipamentos/type/${equipamento}`;
+            const url = `/api/equipamentos?type=${equipamento}`;
             try {
                 const response = await axios.get(url);
-                setDados(response.data.equipamentosFiltrados);
-                setEquipamentos(response.data.equipamentosFiltrados);
-                console.log(response.data);
+                setDados(response.data);
+                setEquipamentos(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
         handleFilteredEquipamento(equipamento);
-    }, [equipamento]); 
+    }, [equipamento]);
 
     return (
         <main className={styles.main}>
@@ -162,7 +161,7 @@ const equipamentoPage = () => {
                             <div onClick={() => { setEquipamento('bota'); setCorEquipamento('#000') }} className={`${styles.itemArmadura} ${styles.itemcalca}`}>
                                 <img style={{ backgroundColor: corEquipamento }} id="botaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/botaFinal.png"} alt="bota" />
                             </div>
-                            <div onClick={() => {  setEquipamento('espada'); setCorEquipamento('#000') }} className={`${styles.itemArmadura}`}>
+                            <div onClick={() => { setEquipamento('espada'); setCorEquipamento('#000') }} className={`${styles.itemArmadura}`}>
                                 <img style={{ backgroundColor: corEquipamento }} id="espadaImg" className={`${styles.itemDoItem} ${styles.hidden}`} src={"inventory/espadaFinal.png"} alt="espada" />
                             </div>
                         </div>
@@ -174,7 +173,7 @@ const equipamentoPage = () => {
                     </div>
                 </div>
             </div >
-        </main> 
+        </main>
     )
 }
 

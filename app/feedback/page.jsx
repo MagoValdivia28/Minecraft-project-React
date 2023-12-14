@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/header/header.jsx";
 import styles from "./feedback.module.css";
 import { useRouter } from "next/navigation";
+import Footer from "../components/footer/footer.jsx";
 
 const feedbackPage = () => {
 
@@ -93,79 +94,93 @@ const feedbackPage = () => {
 
     return (
         <>
-        <Header />
-        
-        <main className={styles.main}>
-            <div className={styles.titles_container}>
-                <h2 className={styles.titles}>BEM-VINDO AO SITE OFICIAL DE COMENTÁRIOS DO MINECRAFT!</h2>
-                <p className={styles.subTitles}>Adoramos ouvir seus comentários – veja o que foi sugerido ou poste suas ideias agora. Ajude suas grandes ideias a se tornarem parte do Minecraft! Analisamos suas ideias e comentários todos os dias.</p>
-            </div>
-            <div className={styles.form_container}>
-                <label htmlFor="nome">Nome:</label>
-                <input
-                    type="text"
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <label htmlFor="mensagem">Mensagem:</label>
-                <input
-                    id="message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                />
-                {
-                    edit ? (
-                        <button onClick={handleEditar}>Editar</button>
-                    ) : (
-                        <button onClick={handleEnviar} className={styles.enviar}>Enviar</button>
-                    )
-                }
-            </div>
-            <div className={styles.main_container}>
-                <nav className={styles.feedback_container}>
-                    <ul className={styles.feedback_list}>
-                        {dados.map((feedback) => (
-                            <li className={styles.feedback_item} key={feedback.id}>
-                                <p className={styles.feedback_text}>{feedback.mensagem}</p>
-                                <p className={styles.feedback_name}>{feedback.nome}</p>
-                                <p className={styles.feedback_email}>{feedback.email}</p>
-                                <button
-                                    className={styles.deleteButton}
-                                    onClick={() => handleDelete(feedback.id)}
-                                >
-                                    Apagar
-                                </button>
+            <body className={styles.body}>
+                <Header />
 
-                                <button
-                                    className={styles.editButton}
-                                    onClick={() => handleEdit(feedback)}
-                                >
-                                    Editar
-                                </button>
+                <main className={styles.main}>
+                    <div className={styles.titles_container}>
+                        <h2 className={styles.titles}>FEEDBACK!</h2>
+                        <p className={styles.subTitles}>Adoramos ouvir seus comentários – veja o que foi sugerido ou poste suas ideias agora. Ajude suas grandes ideias a se tornarem parte do Minecraft! Analisamos suas ideias e comentários todos os dias.</p>
+                        <div className={styles.imgDegrade}> <br /></div>
+                    </div>
+                    <div className={styles.form_container}>
+                        <label className={styles.label} htmlFor="nome">Nome:</label>
+                        <input
+                            className={styles.input}
+                            type="text"
+                            id="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <label className={styles.label1} htmlFor="email">Email:</label>
+                        <input
+                            className={styles.input}
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <label className={styles.label1} htmlFor="mensagem">Mensagem:</label>
+                        <input
+                            className={styles.input}
+                            id="message"
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                        />
+                        {
+                            edit ? (
+                                <button onClick={handleEditar} className={styles.enviar}>Editar</button>
+                            ) : (
+                                <button onClick={handleEnviar} className={styles.enviar}>Enviar</button>
+                            )
+                        }
+                    </div>
+
+                    <div className={styles.main_container}>
+                        <nav className={styles.feedback_container}>
+                            <ul className={styles.feedback_list}>
+                                <div className={styles.container}>
+                                    <div className={styles.imgDegrade2}> <br /></div>
+                                    <div className={styles.cntn}>
+                                        {dados.map((feedback) => (
+                                            <div className={styles.card}>
+                                                <li className={styles.feedback_item} key={feedback.id}>
+                                                    <p className={styles.feedback_name}><strong>Nome:</strong> {feedback.nome}</p>
+                                                    <p className={styles.feedback_email}><strong>Email:</strong> {feedback.email}</p>
+                                                    <br />
+                                                    <p className={styles.feedback_text}><strong>Mensagem:</strong> {feedback.mensagem}</p>
+
+                                                    <div className={styles.container_button}>
+                                                        <button
+                                                            className={styles.deleteButton}
+                                                            onClick={() => handleDelete(feedback.id)}
+                                                        >
+                                                            Apagar
+                                                        </button>
+
+                                                        <button
+                                                            className={styles.editButton}
+                                                            onClick={() => handleEdit(feedback)}
+                                                        >
+                                                            Editar
+                                                        </button>
+
+                                                    </div>
+                                                </li>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </ul>
+
+                        </nav>
+                    </div>
+                </main>
 
 
+                <Footer />
 
-
-
-
-
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-            </div>
-
-
-
-        </main>
+            </body>
         </>
 
     );

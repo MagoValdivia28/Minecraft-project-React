@@ -4,10 +4,20 @@ import { NextResponse } from "next/server";
 
 const url = process.env.BASE_URL + "equipamentos";
 
-export async function GET() {
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const filtragemNome = searchParams.get("name");
+  const filtragemTipo = searchParams.get("type");
   try {
-    const response = await axios.get(url);
-    return NextResponse.json(response.data.equipamentos);
+    if (filtragemNome || filtragemTipo) {
+      const nameCondition = filtragemNome ? `name=${filtragemNome}` : "";
+      const typeCondition = filtragemTipo ? `type=${filtragemTipo}` : "";
+      const response = await axios.get(`${url}?${nameCondition}&${typeCondition}`);
+      return NextResponse.json(response.data.equipamentos);
+    } else {
+      const response = await axios.get(url);
+      return NextResponse.json(response.data.equipamentos);
+    }
   } catch (error) {
     console.log("[ORDER_GET]", error);
     return new NextResponse("Erro interno do servidor!", { status: 500 });

@@ -3,13 +3,18 @@ import Style from './batalha.module.css';
 import Header from '../components/header/header';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import EscolhaEquipamento from '../components/escolhaEquipamento/EscolhaEquipamento';
+import EscolhaMob from '../components/escolhaMob/EscolhaMob';
 
 
 const Batalha = () => {
 
     const [dados, setDados] = useState([]);
 
-    // Variaveis selecionaveis
+    const [buttonEscolha, setButtonEscolha] = useState(false);
+    const [buttonEscolhaMob, setButtonEscolhaMob] = useState(false);
+
+    // Variaveis selecionaveis equipamento
 
     const [selecionarCapacete, setSelecionarCapacete] = useState(null);
     const [selecionarPeitoral, setSelecionarPeitoral] = useState(null);
@@ -17,23 +22,13 @@ const Batalha = () => {
     const [selecionarBota, setSelecionarBota] = useState(null);
     const [selecionarEspada, setSelecionarEspada] = useState(null);
 
+    // Variaveis selecionaveis mob
+    const [selecionarMob, setSelecionarMob] = useState(null);
+
     const [defesa, setDefesa] = useState(0);
 
-    const [setFiltragemNome, setSetFiltragemNome] = useState("all");
 
-    useEffect(() => {
-        async function fetchEquipamento() {
-            try {
-                const response = await axios.get("/api/equipamentos");
-                console.log(response.data);
-                setDados(response.data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        }
 
-        fetchEquipamento();
-    }, []);
 
     useEffect(() => {
         let totalDefesa = 0;
@@ -54,63 +49,33 @@ const Batalha = () => {
         setDefesa(totalDefesa);
     }, [selecionarCapacete, selecionarPeitoral, selecionarCalca, selecionarBota]);
 
-    const handleEquipamentoSelecionado = (equipamento) => {
-        if (equipamento.tipo === "capacete") {
-            setSelecionarCapacete(equipamento);
-        } else if (equipamento.tipo === "peitoral") {
-            setSelecionarPeitoral(equipamento);
-        } else if (equipamento.tipo === "calca") {
-            setSelecionarCalca(equipamento);
-        } else if (equipamento.tipo === "bota") {
-            setSelecionarBota(equipamento);
-        } else if (equipamento.tipo === "espada") {
-            setSelecionarEspada(equipamento);
-        }
-    }
 
     return (
         <main className={Style.main}>
             <div className={Style.opacidadeImg}>
+                {
+                    buttonEscolha &&
+                    <EscolhaEquipamento fecharPopUp={() => setButtonEscolha(false)} setSelecionarCapacete={setSelecionarCapacete} setSelecionarPeitoral={setSelecionarPeitoral} setSelecionarCalca={setSelecionarCalca} setSelecionarBota={setSelecionarBota} setSelecionarEspada={setSelecionarEspada} />
+                }
+                {
+                    buttonEscolhaMob &&
+                    <EscolhaMob fecharPopUp={() => setButtonEscolhaMob(false)} setSelecionarMob={setSelecionarMob} />
+                }
                 <Header />
                 <div className={Style.titulo}>
                     <h1>BATALHE AGORA!!</h1>
                 </div>
 
                 <div className={Style.batalhaConteiner}>
-
-                    <div className={Style.usuário}>
-                        <p className={Style.textop}>SELECIONE SEU EQUIPAMENTO !</p>
-                        <div className={Style.equipamentosFeitos}>
-                            <div className={Style.buscar}>
-                                <input type="text" placeholder='Buscar Equipamento' />
-                                <select name="" id="">
-                                    <option value="all">Todos</option>
-                                    <option value="capacete">Capacetes</option>
-                                    <option value="peitoral">Peitorais</option>
-                                    <option value="calca">Calças</option>
-                                    <option value="bota">Botas</option>
-                                    <option value="espada">Espadas</option>
-                                </select>
-                            </div>
-                            <div className={Style.containerEquipamentos}>
-                                {
-                                    dados.length ? (
-                                        dados.map((equipamento) => (
-                                            <div onClick={() => handleEquipamentoSelecionado(equipamento)} className={Style.itemArmadura}>
-                                                <img style={{ backgroundColor: equipamento.cor }} src={`inventory/${equipamento.tipo}Final.png`} alt="" />
-                                            </div>
-                                        ))
-                                    ) : (
-                                        <p>Nenhum equipamento adicionado</p>
-                                    )
-
-                                }
-                            </div>
+                    {/* equipamento */}
+                    <div className={Style.gerenciamentoEquipamento}>
+                        <div>
+                            <button className={Style.createButton} onClick={() => setButtonEscolha(true)}>ESCOLHA SEU EQUIPAMENTO</button>
                         </div>
-                        <div className={Style.attachmentEquipamento}>
-                            <p className={Style.textop}>EQUIPAMENTOS SELECIONADOS</p>
-                            <div className={Style.statusAndEquipamento}>
-                                <div className={Style.equipamentosSelecionados}>
+                        <div className={Style.containerAll}>
+                            <img className={Style.imgFundo} src="https://www.minecraft.net/content/dam/games/minecraft/key-art/Play_With_Friends_Online_672x360.png" alt="" />
+                            <div className={Style.containerAttachmentEquipamentos}>
+                                <div className={Style.containerEquipamentos}>
                                     <div className={Style.itemArmadura}>
                                         <img style={{ background: selecionarCapacete?.cor }} src={`inventory/${selecionarCapacete?.tipo}Final.png`} alt="" />
                                     </div>
@@ -123,28 +88,30 @@ const Batalha = () => {
                                     <div className={Style.itemArmadura}>
                                         <img style={{ background: selecionarBota?.cor }} src={`inventory/${selecionarBota?.tipo}Final.png`} alt="" />
                                     </div>
+                                </div>
+                                <div className={Style.containerEspada}>
                                     <div className={Style.itemArmadura}>
                                         <img style={{ background: selecionarEspada?.cor }} src={`inventory/${selecionarEspada?.tipo}Final.png`} alt="" />
                                     </div>
-                                </div>
-                                <div className={Style.status}>
-                                    <span className={`${Style.textop} ${Style.dano}`}>ataque: {selecionarEspada ? selecionarEspada.dano : 0}</span>
-                                    <span className={`${Style.textop} ${Style.defesa}`}>defesa: {defesa}</span>
+                                    <div className={Style.status}>
+                                        <span className={`${Style.textop} ${Style.dano}`}>ataque: {selecionarEspada ? selecionarEspada.dano : 0}</span>
+                                        <span className={`${Style.textop} ${Style.defesa}`}>defesa: {defesa}</span>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>
 
-
                     <div>
                         <img className={Style.espadaX} src={"espadasX.png"} alt="" />
                     </div>
-
-
+                    {/* mobs */}
                     <div className={Style.mob}>
-                        <p className={Style.textop}>SELECIONE O MOB PARA ENFRENTA-LO!</p>
+                        <div>
+                            <button className={`${Style.createButton} ${Style.red}`} onClick={() => setButtonEscolhaMob(true)}>ESCOLHA SEU ADVERSARIO</button>
+
+                        </div>
                     </div>
                 </div>
             </div>

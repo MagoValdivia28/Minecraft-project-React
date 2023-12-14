@@ -7,7 +7,7 @@
     background-color: #171615;
     position: fixed;
     width: 100%;
-    z-index: 999;
+    z-index: 20;
 }
 
 .links_container {
@@ -23,6 +23,7 @@
     text-decoration: none;
     transition: color 0.3s;
     color: white;
+    font-size: 0.9rem;
 }
 
 .teste {
