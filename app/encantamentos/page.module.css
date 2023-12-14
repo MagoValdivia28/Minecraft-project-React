@@ -14,8 +14,6 @@
     width: 80%;
     margin: 0 auto;
     background: transparent;
-
-
 }
 
 .encantamentos_img {
@@ -89,29 +87,16 @@ align-items: center;
     
 }
 
-
-.encantamento_create {
-    width: 70%;
-    margin-bottom: 15rem;
-    padding: 1rem 0;
-    margin: auto;
-    border: 2px solid rgba(255, 255, 255, .5);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+.encantamentoCreate {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+    background-color: #262423;
+    -webkit-box-shadow: inset 0 -0.25rem 0 #000, inset -0.25rem 0 0 #3d3938, inset 0.25rem 0 0 #000, inset 0 0.25rem 0 #3d3938;
+    box-shadow: inset 0 -0.25rem 0 #000, inset -0.25rem 0 0 #3d3938, inset 0.25rem 0 0 #000, inset 0 0.25rem 0 #3d3938;
 }
 
-.encantamento_create {
-    width: 70%;
-    margin-bottom: 15rem;
-    padding: 1rem 0;
-    margin: auto;
-    background-color: #c6c6c6;
-    border-bottom: #555555 0.35rem solid;
-    border-right: #555555 0.35rem solid;
-    border-top: #ffffff 0.35rem solid;
-    border-left: #ffffff 0.35rem solid;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-}
 
 
 
@@ -122,14 +107,23 @@ align-items: center;
     align-items: center;
     margin-top: 2rem;
     height: 4rem;
-    background-color: #8b8b8b;
-    border-top: #404040 0.2rem solid;
-    border-left: #404040 0.2rem solid;
+    background-color: #171615;
+    padding: 1.5rem;
     font-family: 'Minecraft-Font';
-    color: rgb(225, 225, 225);
+    color: #FFF;
     font-size: 1.6rem;
     padding: 0.6rem;
-    text-shadow: 2px 2px #3F3F3F;
+    border: 0.0625rem solid #262423;
+    box-shadow: inset 0.25rem 0 0 rgba(0,0,0,.901961), inset 0 -0.25rem 0 rgba(0,0,0,.901961), inset -0.25rem 0 0 #3d3938, inset 0 0.25rem 0 #3d3938;
+}
+
+.inputs:focus {
+    outline: none;
+
+}
+
+.inputs::placeholder {
+    color: #d0c5c0;
 }
 
 .select {
@@ -139,14 +133,19 @@ align-items: center;
     align-items: center;
     margin-top: 2rem;
     height: 4rem;
-    background-color: #8b8b8b;
-    border-top: #404040 0.2rem solid;
-    border-left: #404040 0.2rem solid;
+    background-color: #171615;
+    padding: 1.5rem;
     font-family: 'Minecraft-Font';
-    color: rgb(225, 225, 225);
+    color: #d0c5c0;
     font-size: 1.6rem;
     padding: 0.6rem;
-    text-shadow: 2px 2px #3F3F3F;
+    border: 0.0625rem solid #262423;
+    box-shadow: inset 0.25rem 0 0 rgba(0,0,0,.901961), inset 0 -0.25rem 0 rgba(0,0,0,.901961), inset -0.25rem 0 0 #3d3938, inset 0 0.25rem 0 #3d3938;
+
+}
+
+.select:focus {
+    outline: none;
 
 }
 
@@ -160,41 +159,27 @@ align-items: center;
 
 }
 
-
-/* .book_name {
-    display: none;
-    margin-top: 0.6rem;
-    font-family: 'Minecraft-Font';
-    padding: 0.5rem 1rem;
-    background-color: rgba(0, 0, 0, 0.85);
-    color: white;
-    text-shadow: #2c262c 2px 2px 2px;
-    right: 4.5rem;
-    position: relative;
-    font-size: 1.5rem;
-    border: 5px solid #361071;
-    width: 10rem;
-}
-
-.book_name::after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    right: 75%;
-    margin-left: -10px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent #361071 transparent;
-} */
-
 .titles {
     font-family: 'Title-Minecraft-Font';
     margin-top: 7rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .titles {
         font-size: 2rem;
+    }
+    
+}
+
+@media screen and (max-width: 296px) {
+    .titles {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 179PX) {
+    .titles {
+        display: none;
     }
     
 }
@@ -234,13 +219,14 @@ align-items: center;
 
 .createButton {
     margin: 2rem 0;
-    width: 50%;
+    width: 80%;
     height: 3rem;
-    border: 2px solid rgba(255, 255, 255, .5);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-    color: white;
-    background: transparent;
+    border: 0.125rem solid #262423;
+    box-shadow: inset 0 -0.375rem 0 #2a641c, inset 0 0.375rem 0 #52a535;
+    background: #3c8527;
+    color: #fff;
+    font-size: 1.125rem;
+    font-family: 'Minecraft-Font';
 }
 
 .createButton:hover {
