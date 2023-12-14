@@ -178,11 +178,88 @@
     padding-left: 10%;
 }
 
-.img2{
+.img2 {
     width: 100%;
+    height: auto; /* Adiciona altura automática para manter a proporção da imagem */
 }
 
-.section{
+.section {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
+    flex-wrap: wrap; /* Adiciona flex-wrap para permitir que os itens da seção se ajustem automaticamente em várias linhas se necessário */
 }
+
+@media (max-width: 768px) {
+    .main {
+      padding-top: 4%;
+    }
+  
+    .img1 {
+      height: 50vh;
+      width: 100%;
+      padding-left: 0;
+      margin-top: 6%;
+      object-fit: cover; /* Adiciona object-fit para garantir que a imagem cubra a área disponível sem distorção */
+    }
+
+  
+    .article1 {
+      margin-top: 0;
+    }
+  
+    .section {
+      max-width: 100%;
+      padding: 0 8px;
+    }
+  
+    .tituloHeader {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  
+    .fraseHeader {
+      font-size: 1rem;
+      margin: 10px;
+    }
+  
+    .autorHeader {
+      font-size: 0.875em;
+      margin: 0.5em 0 0.625em;
+    }
+  
+    .texto, .textoUltimo {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  
+    .video {
+      height: 300px;
+    }
+  
+    .tituloNoticia {
+      font-size: 1.5em;
+    }
+  
+    .li {
+      font-size: 1em;
+      line-height: 2;
+    }
+  
+    .quemFez {
+      float: none;
+      padding-top: 8%;
+      margin-left: 0;
+      width: 100%;
+    }
+  
+    .paddingDiv{
+      padding-left: 0%;
+    }
+  
+    .section{
+      flex-direction: column;
+    }
+    .img2{
+        display: none;
+    }
+  }
