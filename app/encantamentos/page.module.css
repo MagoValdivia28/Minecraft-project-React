@@ -192,6 +192,13 @@ align-items: center;
     margin-top: 7rem;
 }
 
+@media screen and (max-width: 768px) {
+    .titles {
+        font-size: 2rem;
+    }
+    
+}
+
 .subTitles {
     font-family: 'Minecraft-Enchantment-Font';
 }
