@@ -99,3 +99,12 @@
     font-family: 'Minecraft';
     text-shadow: 1px 1px #3F3F3F;
 }
+
+@media screen and (max-width: 768px) {
+    
+    .formEquipamento {
+        width: auto;
+        align-items: normal;
+    }
+    
+}
