@@ -163,7 +163,6 @@ align-items: center;
     font-family: 'Title-Minecraft-Font';
     margin-top: 7rem;
 }
-
 @media screen and (max-width: 900px) {
     .titles {
         font-size: 2rem;
