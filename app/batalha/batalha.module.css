@@ -37,6 +37,42 @@
 
 .batalhaConteiner {
     display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) and (min-width: 320px) {
+
+
+    .batalhaConteiner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .main {
+        height: 100%;
+    }
+    .opacidadeImg {
+        height: 100%;
+    
+    }
+    .espadaX {
+        margin-top: 0;
+    }
+
+    .textop {
+        font-size: 2.5vh;
+    }
+    .titulo {
+        padding-top: 30%;
+    }
+    .mob {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    
 }
 
 .usuario {
@@ -50,10 +86,9 @@
 
 .mob {
 
-    max-width: 33%;
-    min-width: 33%;
-    align-items: center;
-    justify-content: center;
+    /* max-width: 33%;
+    min-width: 33%; */
+
 }
 
 .textop {
