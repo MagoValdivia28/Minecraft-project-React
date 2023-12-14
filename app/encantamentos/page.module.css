@@ -41,12 +41,6 @@
     margin-top: 15rem;
 }
 
-.encantamentos_list {
-    list-style: none;
-    display: flex;
-    padding: 4rem;
-    width: 100%;
-}
 
 @media screen and (max-width: 768px) {
     .encantamentos_list {
@@ -55,23 +49,46 @@
     }
 }
 
+
+.encantamentos_list {
+    list-style: none;
+    display: flex;
+    padding: 4rem;
+    width: 100%;
+    align-items: stretch;
+    background-color: NONE;
+}
+
+
 .encantamento {
+    background-color: NONE;
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+}
+
+.pageImg {
+display: flex;
+align-items: center;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #a09172;
+    border-left: #cab791 0.35rem solid;
+    border-top: #cab791 0.35rem solid;
+    border-right: #544c3b 0.35rem solid;
+    border-bottom: #544c3b 0.35rem solid;
+    margin: 1rem;
+
     
 }
 
-.pageInfo {
-    width: 30%;
-    height: 30%;
-}
-.book {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.bookImg {
-
-}
 
 .encantamento_create {
     width: 70%;
@@ -115,9 +132,25 @@
     text-shadow: 2px 2px #3F3F3F;
 }
 
+.select {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    height: 4rem;
+    background-color: #8b8b8b;
+    border-top: #404040 0.2rem solid;
+    border-left: #404040 0.2rem solid;
+    font-family: 'Minecraft-Font';
+    color: rgb(225, 225, 225);
+    font-size: 1.6rem;
+    padding: 0.6rem;
+    text-shadow: 2px 2px #3F3F3F;
 
+}
 
-.encantamento:hover {
+.book:hover {
     cursor: pointer;
     transition: all 0.5s ease-in-out;
 
@@ -192,15 +225,6 @@
     color: white;
 }
 
-/* .inputs {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3rem;
-    height: 3rem;
-} */
-
 .createButton {
     margin: 2rem 0;
     width: 50%;
@@ -222,4 +246,13 @@
 
 .errors_container {
     color: white;
+}
+
+@media screen and (max-width: 768px) {
+
+    .book {
+        width: 100%;
+        flex-direction: column;
+    }
+    
 }
