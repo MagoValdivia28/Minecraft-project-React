@@ -145,8 +145,21 @@
 .mobsCriados {
     display: flex;
     flex-wrap: wrap;
+    overflow-y: auto; /* Adiciona a barra de rolagem vertical */
+    max-height: 500px; /* Define uma altura máxima para a div */
+    justify-content: space-around;
 }
 
 .containerMobs .itemArmadura:hover {
     margin: 5px auto;
+}
+.mob {
+    margin: 1rem;
+    width: 160px;
+    height: 160px;
+    
+}
+
+.mobImg {
+
 }
