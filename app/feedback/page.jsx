@@ -94,8 +94,8 @@ const feedbackPage = () => {
 
     return (
         <>
-        <Header />
             <body className={styles.body}>
+                <Header />
 
                 <main className={styles.main}>
                     <div className={styles.titles_container}>
