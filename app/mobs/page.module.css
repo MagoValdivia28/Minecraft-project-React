@@ -153,6 +153,15 @@
     color: #ffffff;
     font-size: 20px;
     margin: 0.3rem;
+    color: white;
+    font-family: 'Minecraft-Font';
+    text-shadow: black 1px 1px 1px;
+}
+
+.select option {
+    color: white;
+    font-family: 'Minecraft-Font';
+    text-shadow: black 1px 1px 1px;
 }
 
 .inputs::placeholder {
