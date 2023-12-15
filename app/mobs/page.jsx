@@ -227,7 +227,12 @@ const Mobs = () => {
                 <div className={styles.form_ip}>
                     <input className={styles.inputs} value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome' />
                     <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descricao' />
-                    <input className={styles.inputs} value={tipo} onChange={(e) => setTipo(e.target.value)} type="text" placeholder='Tipo' />
+                    <select className={styles.inputs} value={tipo} onChange={(e) => setTipo(e.target.value)} type="text" placeholder='Tipo' >
+                        <option value="passivo">Passivo</option>
+                        <option value="hostil">Hostil</option>
+                        <option value="neutro">Neutro</option>
+                    </select>
+
                     <input className={styles.inputs} value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Ataque' />
                     <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
                     <input className={styles.inputs} value={img} onChange={(e) => setImg(e.target.value)} type="text" placeholder='Imagem' />
