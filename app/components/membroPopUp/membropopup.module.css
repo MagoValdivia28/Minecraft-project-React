@@ -113,6 +113,11 @@
     }
     .imp {
         font-size: 20px;
+    
+    }
+
+    .imp::placeholder {
+        color: #000;
     }
     .enviar {
         font-size: 20px;
