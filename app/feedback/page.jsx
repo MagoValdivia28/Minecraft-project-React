@@ -95,19 +95,21 @@ const feedbackPage = () => {
 
     /* Função para lidar com o envio ou edição de um feedback */
     const handleEnviar = async () => {
-        if (!name || !email || !message) {
-                setErrorShow('Preencha todos os campos');
-        } else {
-            try {
-                /* Verifica se está em modo de edição e chama a função correspondente */
-                if (edit) {
-                    await handleEditar();
+        try {
+            /* Verifica se está em modo de edição e chama a função correspondente */
+            if (edit) {
+                await handleEditar();
+            } else {
+                if (name == '' || email == '' || message == '') {
+                    setErrorShow('Preencha todos os campos');
                 } else {
+
                     await handleEnviar();
                 }
-            } catch (error) {
-                console.error('Error submitting data:', error);
+
             }
+        } catch (error) {
+            console.error('Error submitting data:', error);
         }
     };
 
@@ -157,7 +159,7 @@ const feedbackPage = () => {
                             edit ? (
                                 <button onClick={() => handleEditar()} className={styles.enviar}>Editar</button>
                             ) : (
-                                <button onClick={() => handleEnviar()} className={styles.enviar}>Adicionar</button>
+                                <button onClick={() => handleEnviar()} className={styles.enviar}>Enviar</button>
                             )
                         }
                         <p className={styles.errorkk}>{errorShow}</p>
