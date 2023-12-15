@@ -226,7 +226,7 @@ const Mobs = () => {
             <div className={styles.createCont}>
                 <div className={styles.form_ip}>
                     <input className={styles.inputs} value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome' />
-                    <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descrição' />
+                    <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descricao' />
                     <input className={styles.inputs} value={tipo} onChange={(e) => setTipo(e.target.value)} type="text" placeholder='Tipo' />
                     <input className={styles.inputs} value={dano} onChange={(e) => setDano(e.target.value)} type="number" placeholder='Ataque' />
                     <input className={styles.inputs} value={defesa} onChange={(e) => setDefesa(e.target.value)} type="number" placeholder='Defesa' />
@@ -234,9 +234,9 @@ const Mobs = () => {
 
                     {
                         editing ? (
-                            <button className={styles.editMob} onClick={() => handleEditar()}>Editar</button>
+                            <button className={style.create} onClick={() => handleEditar()}>Editar</button>
                         ) : (
-                            <button className={styles.createMob} onClick={() => handleMob()}>Criar</button>
+                            <button className={styles.create} onClick={() => handleMob()}>Criar</button>
 
                         )
                     }
@@ -246,19 +246,28 @@ const Mobs = () => {
 
 
             <div className={styles.mobsList}>
-                <div className={styles.teste}>
+                <div className={styles.mobsList}>
                     {
                         dados.length ? (
                             dados.map((mob, index) => (
                                 <div className={styles.mobCard} key={index}>
-                                    <h3 className={styles.mobName}>{mob.nome}</h3>
-                                    <img src={mob.img} className={styles.mobImg} />
+
+                                    <div className={styles.cardTitle}>
+                                        <img src={mob.img} className={styles.mobImg} width={160} height={160} />
+                                        <h3 className={styles.mobName}>{mob.nome}</h3>
+                                        <div className={styles.titleEffect}></div>
+                                    </div>
+                                    <h4>Descrição :</h4>
                                     <p className={styles.mobDesc}>{mob.descricao}</p>
-                                    <p className={styles.mobType}>{mob.tipo}</p>
-                                    <p className={styles.mobDmg}>{mob.dano}</p>
-                                    <p className={styles.mobDef}>{mob.defesa}</p>
-                                    <button className={styles.deleteMob} onClick={() => deleteMob(mob.id)}>Deletar</button>
-                                    <button className={styles.editMob} onClick={() => editMob(mob)}>Editar</button>
+                                    <p className={styles.mobType}>Tipo : {mob.tipo}</p>
+                                    <p className={styles.mobDmg}>Dano : {mob.dano}</p>
+                                    <p className={styles.mobDef}>Defesa : {mob.defesa}</p>
+
+                                    <div className={styles.cardButtonContainer}>
+                                        <button className={styles.deleteMob} onClick={() => deleteMob(mob.id)}>Deletar</button>
+                                        <button className={styles.editMob} onClick={() => editMob(mob)}>Editar</button>
+                                    </div>
+
                                 </div>
                             )
                             )) : (

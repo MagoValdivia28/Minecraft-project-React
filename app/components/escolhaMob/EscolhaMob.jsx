@@ -74,7 +74,7 @@ const EscolhaMob = ({ fecharPopUp, setSelecionarMob }) => {
             ) : (
               <p className={styles.nenhumMob}>Nenhum mob adicionado :( <Link className={styles.linkMob} href={'../mobs'}>Adicione!</Link></p>
             )
- 
+            
           }
         </div>
       </div>
