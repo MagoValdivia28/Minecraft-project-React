@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 import Footer from "../components/footer/footer.jsx";
 
 const feedbackPage = () => {
+
+    const [errorShow, setErrorShow] = useState(null);
     /* Estado para armazenar os dados dos feedbacks */
     const [dados, setDados] = useState([]);
 
@@ -93,15 +95,19 @@ const feedbackPage = () => {
 
     /* Função para lidar com o envio ou edição de um feedback */
     const handleEnviar = async () => {
-        try {
-            /* Verifica se está em modo de edição e chama a função correspondente */
-            if (edit) {
-                await handleEditar();
-            } else {
-                await handleEnviar();
+        if (!name || !email || !message) {
+                setErrorShow('Preencha todos os campos');
+        } else {
+            try {
+                /* Verifica se está em modo de edição e chama a função correspondente */
+                if (edit) {
+                    await handleEditar();
+                } else {
+                    await handleEnviar();
+                }
+            } catch (error) {
+                console.error('Error submitting data:', error);
             }
-        } catch (error) {
-            console.error('Error submitting data:', error);
         }
     };
 
@@ -154,6 +160,8 @@ const feedbackPage = () => {
                                 <button onClick={handleEnviar} className={styles.enviar}>Enviar</button>
                             )
                         }
+                        <p className={styles.errorkk}>{errorShow}</p>
+
                     </div>
 
                     <div className={styles.main_container}>
@@ -172,7 +180,6 @@ const feedbackPage = () => {
                                                     <p className={styles.feedback_email}><strong>Email:</strong> {feedback.email}</p>
                                                     <br />
                                                     <p className={styles.feedback_text}><strong>Mensagem:</strong> {feedback.mensagem}</p>
-
                                                     {/* Botões de exclusão e edição */}
                                                     <div className={styles.container_button}>
                                                         <button

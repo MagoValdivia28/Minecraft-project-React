@@ -6,6 +6,10 @@
   background-image: url("../../public/bg-wool-dark.png");
 }
 
+.errorkk {
+  color: red;
+}
+
 /* Estilo do corpo da página */
 .body {
   background-color: #ebe4e2;
