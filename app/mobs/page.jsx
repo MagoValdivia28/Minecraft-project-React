@@ -202,6 +202,7 @@ const Mobs = () => {
             <div className={styles.back}>
                 <div className={styles.container1}>
                     <div className={styles.divHeader}>
+                        <h1 className={styles.tituloHeader}>MOB PAGE</h1>
                     </div>
                     <div>
 
