@@ -40,20 +40,6 @@ const feedbackPage = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
-    /* Função para lidar com o envio do feedback */
-    const handleFeedback = async () => {
-        try {
-            /* Faz uma requisição POST para a API de feedbacks */
-            await axios.post('/api/feedback', { name, email, message });
-            /* Limpa os valores dos inputs após o envio */
-            setName('');
-            setEmail('');
-            setMessage('');
-        } catch (error) {
-            console.error('Error submitting data:', error);
-        }
-    };
-
     // Apagar feedback
 
     /* Função para lidar com a exclusão de um feedback */
@@ -99,14 +85,13 @@ const feedbackPage = () => {
         if (name === '' || email === '' || message === '') {
             setErrorShow('Preencha todos os campos');
         } else {
-
             try {
-                /* Verifica se está em modo de edição e chama a função correspondente */
-                if (edit) {
-                    await handleEditar();
-                } else {
-                    await handleFeedback();
-                }
+                /* Faz uma requisição POST para a API de feedbacks */
+                await axios.post('/api/feedback', { name, email, message });
+                /* Limpa os valores dos inputs após o envio */
+                setName('');
+                setEmail('');
+                setMessage('');
             } catch (error) {
                 console.error('Error submitting data:', error);
             }
@@ -159,7 +144,7 @@ const feedbackPage = () => {
                             edit ? (
                                 <button onClick={() => handleEditar()} className={styles.enviar}>Editar</button>
                             ) : (
-                                <button onClick={() => handleEnviar()} className={styles.enviar}>Enviar</button>
+                                <button onClick={() => handleEnviar()} className={styles.enviar}>Adicionar</button>
                             )
                         }
                         <p className={styles.errorkk}>{errorShow}</p>
