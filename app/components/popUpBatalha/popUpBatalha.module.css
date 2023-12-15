@@ -44,6 +44,31 @@
 
 }
 
+/* responsive */
+
+@media (max-width: 768px) {
+    .containerMsg {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        top: 0;
+        left: 0;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .containerMsg img {
+        width: 100%;
+        padding-right: 0;
+        border-right: none;
+    }
+
+    .containerDiv {
+        flex-direction: column;
+            
+    }
+}
+
 .boxClose span {
     font-family: 'Minecraft-Font';
     font-size: 1.875em;
