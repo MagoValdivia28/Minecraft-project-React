@@ -226,6 +226,8 @@
     color: black;
     text-align: center;
     margin-bottom: 3rem;
+    width: auto;
+    min-width: 500px;
 }
 .titleEffect{
     background-color: #52a535;
