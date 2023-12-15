@@ -1,0 +1,55 @@
+.containerMsg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, .16);
+    background-color: #fff;
+}
+
+.containerMsg p {
+    font-family: 'Minecraft-Font';
+    font-size: 1.875em;
+    color: #000;
+    font-weight: normal;
+    text-shadow: rgb(93 100 122) 0 4px;
+    line-height: 1.9rem;
+    letter-spacing: 0.015em;
+}
+
+.containerMsg img {
+    width: 300px;
+    padding-right: 1rem;
+    border-right: 2px solid rgba(0, 0, 0, .1);
+}
+
+.boxClose {
+    background: #3b8526;
+    box-shadow: inset 0 4px #6bc349, inset 0 -4px #2a631c, 0 4px rgba(0,0,0,.25);
+    padding: 1rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.containerDiv {
+    display: flex;
+    gap: 1rem;
+
+}
+
+.boxClose span {
+    font-family: 'Minecraft-Font';
+    font-size: 1.875em;
+    color: #fff;
+    font-weight: normal;
+    text-shadow: rgb(93 100 122) 0 4px;
+    line-height: 1.9rem;
+    letter-spacing: 0.015em;
+}

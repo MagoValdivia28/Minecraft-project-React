@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import EscolhaEquipamento from '../components/escolhaEquipamento/EscolhaEquipamento';
 import EscolhaMob from '../components/escolhaMob/EscolhaMob';
+import PopUpBatalha from '../components/popUpBatalha/PopUpBatalha';
 
 
 const Batalha = () => {
@@ -13,6 +14,7 @@ const Batalha = () => {
 
     const [buttonEscolha, setButtonEscolha] = useState(false);
     const [buttonEscolhaMob, setButtonEscolhaMob] = useState(false);
+    const [msgBatalha, setMsgBatalha] = useState(null);
 
     // Variaveis selecionaveis equipamento
 
@@ -49,6 +51,32 @@ const Batalha = () => {
         setDefesa(totalDefesa);
     }, [selecionarCapacete, selecionarPeitoral, selecionarCalca, selecionarBota]);
 
+    const handleStartBatalha = () => {
+        if (selecionarEspada && selecionarCapacete && selecionarPeitoral && selecionarCalca && selecionarBota && selecionarMob) {
+            const seuDano = Number(selecionarEspada.dano);
+            const suaVida = Number(defesa);
+
+            const vidaMob = Number(selecionarMob.defesa);
+            const danoMob = Number(selecionarMob.dano);
+            const nomeMob = selecionarMob.nome;
+
+
+            const totalUsuario = seuDano + suaVida;
+            const totalMob = danoMob + vidaMob;
+
+            if (totalUsuario > totalMob) {
+                setMsgBatalha(`Voce ganhou a batalha contra ${nomeMob}!`);
+            } else if (totalUsuario === totalMob) {
+                setMsgBatalha(`Voce empatou a batalha contra ${nomeMob}!`);
+            } else {
+                setMsgBatalha(`Voce perdeu a batalha contra ${nomeMob}!`);
+            }
+
+        } else {
+            setMsgBatalha('Voce precisa escolher todos os equipamento e um mob para batalhar!');
+        }
+    }
+
 
     return (
         <main className={Style.main}>
@@ -60,6 +88,10 @@ const Batalha = () => {
                 {
                     buttonEscolhaMob &&
                     <EscolhaMob fecharPopUp={() => setButtonEscolhaMob(false)} setSelecionarMob={setSelecionarMob} />
+                }
+                {
+                    msgBatalha &&
+                    <PopUpBatalha msg={msgBatalha} fecharPopUp={() => setMsgBatalha(null)} />
                 }
                 <Header />
                 <div className={Style.titulo}>
@@ -103,8 +135,9 @@ const Batalha = () => {
 
                     </div>
 
-                    <div>
+                    <div className={Style.meioBatalha}>
                         <img className={Style.espadaX} src={"espadasX.png"} alt="" />
+                        <button className={Style.batalheButton} onClick={() => handleStartBatalha()}>BATALHE</button>
                     </div>
                     {/* mobs */}
                     <div className={Style.mobContainer}>
@@ -118,13 +151,11 @@ const Batalha = () => {
                             <div className={Style.containerAttachmentMob}>
                                 <div className={Style.containerMob}>
 
-                                    <div className={Style.containerMob}>
-                                        {
-                                            selecionarMob ? (
-                                                <img className={Style.mobChoice} src={selecionarMob?.img} alt="Mob escolhido" />
-                                            ) : null
-                                        }
-                                    </div>
+                                    {
+                                        selecionarMob ? (
+                                            <img width={150} height={150} className={Style.mobChoice} src={selecionarMob?.img} alt="Mob escolhido" />
+                                        ) : null
+                                    }
 
                                 </div>
                             </div>

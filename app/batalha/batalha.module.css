@@ -15,24 +15,19 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 110vh;
+    height: 105vh;
     color: #fff;
 }
 
 .opacidadeImg {
-    height: 110vh;
+    height: 105vh;
     background-color: rgba(0, 0, 0, 0.45);
 }
 
 .espadaX {
     max-width: 39%;
     min-width: 38%;
-    margin-left: auto;
-    margin-right: 25.7%;
-    display: block;
     width: 70%;
-    margin-top: 20%;
-    /* Ajuste este valor para alterar o tamanho da imagem */
 }
 
 .batalhaConteiner {
@@ -78,6 +73,8 @@
 
     .mobChoice {
         max-width: 100%;
+        padding: 10px;
+        
     }
     .textop {
         font-size: 1.3rem; 
@@ -170,6 +167,11 @@
     margin: 0 10px;
 }
 
+.createButton:hover {
+    background-color: #1e4c13;
+    transition: background-color 0.2s;
+}
+
 .red {
     background-color: rgb(184, 1, 1);
     border-left: #641c1c 5px solid;
@@ -177,6 +179,11 @@
     border-right: #641c1c 5px solid;
     border-top: #e08181 5px solid;
 
+}
+
+.red:hover {
+    background-color: #4c1313;
+    transition: background-color 0.2s;
 }
 
 .gerenciamentoEquipamento {
@@ -229,9 +236,8 @@
     padding: 24px 17px;
     display: flex;
     gap: 0.5rem;
-    justify-content: space-between;
+    justify-content:  center;
     height: 296px;
-
 }
 
 .status {
@@ -253,15 +259,35 @@
 
 
 .containerMob {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .mobChoice {
-    width: 100%;
     height: auto;
     max-width: 400px; 
 }
 
+.batalheButton {
+    background: #1e6eea;
+    color: white;
+    border: 0.125rem solid #3a87f4;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    text-shadow: #000 2px 2px 2px;
+    font-family: 'Title-Minecraft-Font';
+    cursor: pointer;
+}
+
+.batalheButton:hover {
+    background: #1a4586;
+    transition: background-color 0.2s;
+}
+
+.meioBatalha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
