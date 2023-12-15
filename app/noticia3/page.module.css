@@ -1,18 +1,21 @@
+/* Importa a fonte 'Minecraft' do Google Fonts */
 @import url('https://fonts.cdnfonts.com/css/minecraft-4');
 
+/* Estilos gerais para a classe .main */
 .main {
   background-position: center;
-  color: #ffffff;
-  /* Cor dos textos */
+  color: #ffffff; /* Cor dos textos */
   text-align: center;
   background-color: #180d18;
   padding-top: 4rem;
 }
 
+/* Estilos para a classe .img */
 .img {
   width: 90%;
 }
 
+/* Estilos para a classe .divs */
 .divs {
   display: flex;
   justify-content: center;
@@ -21,6 +24,7 @@
   background-color: #402641;
 }
 
+/* Estilos para a classe .divs>div */
 .divs>div {
   flex: 1;
   text-align: center;
@@ -33,6 +37,7 @@
   align-items: center;
 }
 
+/* Estilos para a imagem dentro de .divs>div */
 .divs>div img {
   width: 100%;
   max-width: 230px;
@@ -40,44 +45,53 @@
   margin: 0 auto;
 }
 
+/* Estilos para o título (h1) dentro de .divs>div */
 .divs>div h1 {
   font-size: 20px;
   margin-bottom: 20px;
   background-color: #402641;
 }
 
+/* Estilos para a classe .h1 */
 .h1 {
   font-family: 'Minecraft', sans-serif;
   font-size: 25px;
   background-color: #402641;
 }
 
+/* Estilos para a classe .h2 */
 .h2 {
   font-family: 'Minecraft', sans-serif;
   font-size: 30px;
   margin-top: 5%;
 }
 
+/* Estilos para a classe .p */
 .p {
   font-size: 18px;
   margin-top: 1%;
   margin-bottom: 40px;
 }
 
+/* Estilos para a classe .img2 */
 .img2 {
   width: 100%;
   margin-bottom: -0.5rem;
 }
 
+/* Estilos para a classe .img3 */
 .img3 {
   width: 73%;
 }
-.imgfim{
+
+/* Estilos para a classe .imgfim */
+.imgfim {
   width: 100%;
   margin-bottom: -0.5rem;
   background-color: #402641;
 }
 
+/* Estilos para a classe .descriptionimg */
 .descriptionimg {
   text-align: left;
   font-size: 12px;
@@ -86,6 +100,7 @@
   margin-bottom: 25px;
 }
 
+/* Estilos para telas com largura máxima de 768px */
 @media screen and (max-width: 768px) {
   .divs {
     flex-direction: column;
