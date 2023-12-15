@@ -4,6 +4,7 @@
 }
 
 .containerPopUp {
+    z-index: 99999;
     background: #171615;
     padding: 20px 64px 14px 20px;
     color: white;
