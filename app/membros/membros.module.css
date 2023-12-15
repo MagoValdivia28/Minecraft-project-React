@@ -1,3 +1,82 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.containerPopUp {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    z-index: 1000;
+}
+
+.x {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.imgMembro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgMembro img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.botoesER {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.botaoEditar,
+.botaoDeletar {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoEditar {
+    background-color: #007BFF;
+    color: white;
+}
+
+.botaoEditar:hover {
+    background-color: #0056b3;
+}
+
+.botaoDeletar {
+    background-color: #f44336;
+    color: white;
+}
+
+.botaoDeletar:hover {
+    background-color: #d32f2f;
+}
+
 .main {
     background: white;
     /* background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(30,30,30,1) 50%, rgba(35,35,35,1) 100%); */
@@ -7,7 +86,7 @@
 
 .sobreNosContainer {
     width: 100%;
-    background-color: #0b0b0b;
+    background-color: white;
     padding-top: 10%;
     height: 110vh;
 }
@@ -18,6 +97,29 @@
     font-size: 50px;
     text-align: center;
     margin-top: 10px;
+}
+
+.img2 {
+    width: 30rem;
+    margin: 0 auto;
+}
+
+.txt {
+    font-family: 'Minecraft-Font';
+    color: #000;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+
+}
+
+.containerTxt {
+    margin-top: 2rem;
+}
+
+.center {
+    text-align: center;
 }
 
 .mainContainer {
@@ -67,9 +169,6 @@
     justify-content: center;
 }
 
-.sla {
-    margin-left: 25%;
-}
 
 @media screen and (max-width: 600px) {
     .main {
@@ -179,25 +278,47 @@
 }
 
 .cardPessoa {
-    align-items: center;
-    padding: 10px;
-    margin: 10px;
-    width: 100%;
-    border: 1px solid #ccc;
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.cardPessoa:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pessoa {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.botaoVM {
+    margin-top: 20px;
+}
+
+.botaoVermais {
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0px 0px 5px #ccc;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 20rem;
-    height: 20rem;
-    text-align: center;
-    justify-content: center;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoVermais:hover {
+    background-color: #0056b3;
 }
 
 .imgPessoa {
-    width: 90%;
-    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .botoesVM {
@@ -241,6 +362,7 @@
     font-family: 'Title-Minecraft-Font';
     transition: 0.4s;
     width: 65%;
+    box-shadow: inset 0 4px #6bc349, inset 0 -4px #2a631c, 0 4px rgba(0,0,0,.25);
 }
 
 .botaoAdd:hover {
@@ -262,7 +384,6 @@
 }
 
 .containerPopUp {
-    background-color: rgb(7, 191, 7);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -280,6 +401,8 @@
 .boraBill {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .x {

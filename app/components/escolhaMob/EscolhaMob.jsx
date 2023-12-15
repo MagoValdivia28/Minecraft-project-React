@@ -68,13 +68,13 @@ const EscolhaMob = ({ fecharPopUp, setSelecionarMob }) => {
             dados.length ? (
               dados.map((mob) => (
                 <div onClick={() => setSelecionarMob(mob)} className={styles.mob}>
-                  <img className={styles.mobImg} src={mob.img} alt={mob.nome} width={140} height={140} />
+                  <img className={styles.mobImg} src={mob.img} alt={mob.nome} width={160} height={160} />
                 </div>
               ))
             ) : (
               <p className={styles.nenhumMob}>Nenhum mob adicionado :( <Link className={styles.linkMob} href={'../mobs'}>Adicione!</Link></p>
             )
-            
+ 
           }
         </div>
       </div>

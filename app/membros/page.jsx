@@ -129,7 +129,7 @@ const membroPage = () => {
 
     return (
         <>
-            <Header /> 
+            <Header />
 
             {
                 popUp ? (
@@ -159,47 +159,42 @@ const membroPage = () => {
             }
             <div className={styles.main}>
                 <div className={styles.sobreNosContainer}>
-                    <div className={styles.mainContainer}>
-                        <div className={styles.imgContainer}>
-                            <img className={styles.img2} src="/enigma.jpg" alt="enigma" />
-                        </div>
-                        <div className={styles.equipeContainer}>
-                            <div className={styles.textoEquipe}>
-                                <h1 className={styles.titlePag}>Sobre Nos</h1>
-                                <p>É com grande satisfação que apresentamos a equipe de desenvolvimento de sistemas ENIGMA, dedicada e altamente desenvolvida na concepção e implementação de soluções tecnológicas inovadoras. Nossa equipe é composta por profissionais especializados, cujo comprometimento e expertise são fundamentais para o sucesso de nossos projetos.
-                                    A ENIGMA se destaca pela abordagem colaborativa e multidisciplinar de seus membros, reunindo talentos em áreas como análise de sistemas, programação, design de interfaces e gerenciamento de projetos. Cada membro possui vasta experiência no desenvolvimento de soluções personalizadas, adaptadas às necessidades específicas de nossos clientes.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.equipe}>
-                    <div className={styles.porDentroEquipe}>
-                        <div className={styles.sla}>
-                        <h1>Criar novo membro ⬇</h1>
-                        <button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button>
-                        </div>
- 
-                        <div className={styles.cadastro}>
-                            {
-                                showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} setNome={setNome} setIdade={setIdade} setDescricao={setDescricao} setCargo={setCargo} setUrlImagem={setUrlImagem} nome={nome} idade={idade} descricao={descricao} cargo={cargo} urlimagem={imagem} edited={editMembro} handleEditar={() => handleEditar()} />
-                            }
-                        </div>
-                        <div className={styles.boraBill}>
+                    <p className={styles.center}><img className={styles.img2} src="/enigma.jpg" alt="enigma" /></p>
+                    <div className={styles.containerTxt}>
 
-                            {
-                                dados.map((membro) => (
-                                    <div key={membro.id} className={styles.cardPessoa} style={{ backgroundColor: membro.backgroundcor }}>
-                                        <img src={membro.imagem} alt="membro" className={styles.imgPessoa} />
-                                        <h2 className={styles.pessoa}>Nome: {membro.nome}</h2>
-                                        <p>Cargo: {membro.cargo}</p>
-                                        <div className={styles.botaoVM}>
-                                            <button onClick={() => handleOpenDescricaoPopup(membro.id)} className={styles.botaoVermais}>Detalhes</button>
-                                        </div>
+                        <h1 className={`${styles.center} ${styles.txt}`}>SOBRE NOS</h1>
+                        <p className={styles.center}>É com grande satisfação que apresentamos a equipe de desenvolvimento de sistemas ENIGMA, dedicada e altamente desenvolvida na concepção e implementação de soluções tecnológicas inovadoras. Nossa equipe é composta por profissionais especializados, cujo comprometimento e expertise são fundamentais para o sucesso de nossos projetos.
+                            A ENIGMA se destaca pela abordagem colaborativa e multidisciplinar de seus membros, reunindo talentos em áreas como análise de sistemas, programação, design de interfaces e gerenciamento de projetos. Cada membro possui vasta experiência no desenvolvimento de soluções personalizadas, adaptadas às necessidades específicas de nossos clientes.
+                        </p>
+                    </div>
+
+                </div>
+                <div className={styles.containerCreationMembro}>
+                    <div className={styles.sla}>
+                        <h1 className={`${styles.center} ${styles.txt}`}>Criar novo membro</h1>
+                        <p className={styles.center}><button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button></p>
+                        
+                    </div>
+
+                    <div className={styles.cadastro}>
+                        {
+                            showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} setNome={setNome} setIdade={setIdade} setDescricao={setDescricao} setCargo={setCargo} setUrlImagem={setUrlImagem} nome={nome} idade={idade} descricao={descricao} cargo={cargo} urlimagem={imagem} edited={editMembro} handleEditar={() => handleEditar()} />
+                        }
+                    </div>
+                    <div className={styles.boraBill}>
+
+                        {
+                            dados.map((membro) => (
+                                <div key={membro.id} className={styles.cardPessoa} style={{ backgroundColor: membro.backgroundcor }}>
+                                    <img src={membro.imagem} alt="membro" className={styles.imgPessoa} />
+                                    <h2 className={styles.pessoa}>Nome: {membro.nome}</h2>
+                                    <p>Cargo: {membro.cargo}</p>
+                                    <div className={styles.botaoVM}>
+                                        <button onClick={() => handleOpenDescricaoPopup(membro.id)} className={styles.botaoVermais}>Detalhes</button>
                                     </div>
-                                ))
-                            }
-                        </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
 
