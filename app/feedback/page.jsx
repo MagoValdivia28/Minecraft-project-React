@@ -100,13 +100,7 @@ const feedbackPage = () => {
             if (edit) {
                 await handleEditar();
             } else {
-                if (name == '' || email == '' || message == '') {
-                    setErrorShow('Preencha todos os campos');
-                } else {
-
-                    await handleEnviar();
-                }
-
+                await handleEnviar();
             }
         } catch (error) {
             console.error('Error submitting data:', error);
@@ -159,7 +153,7 @@ const feedbackPage = () => {
                             edit ? (
                                 <button onClick={() => handleEditar()} className={styles.enviar}>Editar</button>
                             ) : (
-                                <button onClick={() => handleEnviar()} className={styles.enviar}>Enviar</button>
+                                <button onClick={() => handleEnviar()} className={styles.enviar}>Adicionar</button>
                             )
                         }
                         <p className={styles.errorkk}>{errorShow}</p>
