@@ -227,7 +227,7 @@ const Mobs = () => {
                 <div className={styles.form_ip}>
                     <input className={styles.inputs} value={nome} onChange={(e) => setNome(e.target.value)} type="text" placeholder='Nome' />
                     <input className={styles.inputs} value={descricao} onChange={(e) => setDescricao(e.target.value)} type="text" placeholder='Descricao' />
-                    <select className={styles.inputs} value={tipo} onChange={(e) => setTipo(e.target.value)} type="text" placeholder='Tipo' >
+                    <select className={styles.select} value={tipo} onChange={(e) => setTipo(e.target.value)} type="text" placeholder='Tipo' >
                         <option value="passivo">Passivo</option>
                         <option value="hostil">Hostil</option>
                         <option value="neutro">Neutro</option>
@@ -239,7 +239,7 @@ const Mobs = () => {
 
                     {
                         editing ? (
-                            <button className={style.create} onClick={() => handleEditar()}>Editar</button>
+                            <button className={styles.create} onClick={() => handleEditar()}>Editar</button>
                         ) : (
                             <button className={styles.create} onClick={() => handleMob()}>Criar</button>
 
