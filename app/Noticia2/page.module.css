@@ -1,7 +1,9 @@
+/* Define uma cor de fundo para a seção principal */
 .main {
     background-color: #ebe4e2;
 }
 
+/* Estilo para a imagem principal da notícia */
 .img1 {
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,32 +14,35 @@
     padding-left: 4%;
 }
 
+/* Estilo para a seção do artigo com a categoria da notícia */
 .article1 {
     position: absolute;
-    text-align: center w-100 translate-up-50;
-    align-items: center;
     text-align: center;
+    align-items: center;
     width: 100%;
     height: auto;
     margin-top: -1.5%;
 }
 
-.article2{
+/* Estilo para o bloco inline do artigo */
+.article2 {
     display: inline-block;
 }
 
+/* Estilo para a categoria de notícias */
 .news {
     background-color: #252525;
     color: white;
-    font-weight: bold text-small text-uppercase bg-black d-inline-block;
+    font-weight: bold;
     text-transform: uppercase;
     padding: 6px 10px;
     font-weight: 700;
 }
 
+/* Estilo para imagens na notícia */
 .img {
     width: 100%;
-    padding-top: 1em;   
+    padding-top: 1em;
 }
 
 .imgUltima {
@@ -46,6 +51,7 @@
     padding-bottom: 3em;
 }
 
+/* Estilo para a seção principal da notícia */
 .section {
     margin-left: auto;
     margin-right: auto;
@@ -53,8 +59,7 @@
     padding: 0 16px;
 }
 
-
-
+/* Estilo para o título da notícia */
 .tituloHeader {
     text-align: center;
     padding-top: 1em;
@@ -66,6 +71,7 @@
     letter-spacing: 1px;
 }
 
+/* Estilo para a frase de cabeçalho */
 .fraseHeader {
     font-family: OpenSans, sans-serif;
     font-size: 1.13rem;
@@ -74,12 +80,14 @@
     margin: 20px;
 }
 
+/* Estilo para o autor da notícia */
 .autorHeader {
     font-family: OpenSans, sans-serif;
     font-size: 1em;
     margin: 1em 0 1.25em;
 }
 
+/* Estilo para o corpo do texto */
 .texto {
     font-family: OpenSans, sans-serif;
     font-size: 16px;
@@ -87,6 +95,7 @@
     margin: 1em 0;
 }
 
+/* Estilo para o último parágrafo de texto */
 .textoUltimo {
     padding-top: 3em;
     font-family: OpenSans, sans-serif;
@@ -94,11 +103,13 @@
     margin: 1em 0;
 }
 
+/* Estilo para vídeos incorporados */
 .video {
     width: 100%;
     height: 456px;
 }
 
+/* Estilo para o título da notícia */
 .tituloNoticia {
     padding-top: 1em;
     font-size: 1.875em;
@@ -108,15 +119,18 @@
     text-transform: uppercase;
 }
 
+/* Estilo para texto itálico */
 .emm {
     font: italic;
     font-family: OpenSans, sans-serif;
 }
 
+/* Estilo para o texto centralizado */
 .center {
     text-align: center;
 }
 
+/* Estilo para listas */
 .li {
     font-size: 1.1em;
     line-height: 3;
@@ -124,6 +138,7 @@
     font-family: OpenSans, sans-serif;
 }
 
+/* Estilo para itens de lista com ponto antes */
 .li::before {
     content: "•";
     color: black;
@@ -132,21 +147,25 @@
     margin-left: -0.9em;
 }
 
+/* Estilo para listas com marcadores circulares */
 .liCircle {
     list-style-type: circle;
     font-family: OpenSans, sans-serif;
     margin-left: 2.5em;
 }
 
+/* Estilo para links com cor específica */
 .colorLink {
     font-family: OpenSans, sans-serif;
     color: #1db8f3;
 }
 
+/* Estilo para a linha horizontal */
 .hr {
     border-top: 1px solid #b3b3b3;
 }
 
+/* Estilo para parágrafos de texto */
 .textos {
     padding: 5px;
     padding-left: 100px;
