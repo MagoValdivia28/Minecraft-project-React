@@ -41,8 +41,7 @@ const feedbackPage = () => {
     const [message, setMessage] = useState('');
 
     /* Função para lidar com o envio do feedback */
-    const handleFeedback = async (e) => {
-        e.preventDefault();
+    const handleFeedback = async () => {
         try {
             /* Faz uma requisição POST para a API de feedbacks */
             await axios.post('/api/feedback', { name, email, message });
@@ -93,17 +92,24 @@ const feedbackPage = () => {
         setDados(response.data);
     };
 
+
+
     /* Função para lidar com o envio ou edição de um feedback */
     const handleEnviar = async () => {
-        try {
-            /* Verifica se está em modo de edição e chama a função correspondente */
-            if (edit) {
-                await handleEditar();
-            } else {
-                await handleEnviar();
+        if (name === '' || email === '' || message === '') {
+            setErrorShow('Preencha todos os campos');
+        } else {
+
+            try {
+                /* Verifica se está em modo de edição e chama a função correspondente */
+                if (edit) {
+                    await handleEditar();
+                } else {
+                    await handleFeedback();
+                }
+            } catch (error) {
+                console.error('Error submitting data:', error);
             }
-        } catch (error) {
-            console.error('Error submitting data:', error);
         }
     };
 
@@ -153,7 +159,7 @@ const feedbackPage = () => {
                             edit ? (
                                 <button onClick={() => handleEditar()} className={styles.enviar}>Editar</button>
                             ) : (
-                                <button onClick={() => handleEnviar()} className={styles.enviar}>Adicionar</button>
+                                <button onClick={() => handleEnviar()} className={styles.enviar}>Enviar</button>
                             )
                         }
                         <p className={styles.errorkk}>{errorShow}</p>
