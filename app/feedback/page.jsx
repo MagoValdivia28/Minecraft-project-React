@@ -155,9 +155,9 @@ const feedbackPage = () => {
                         {/* Botão de enviar ou editar, dependendo do modo */}
                         {
                             edit ? (
-                                <button onClick={handleEditar} className={styles.enviar}>Editar</button>
+                                <button onClick={() => handleEditar()} className={styles.enviar}>Editar</button>
                             ) : (
-                                <button onClick={handleEnviar} className={styles.enviar}>Enviar</button>
+                                <button onClick={() => handleEnviar()} className={styles.enviar}>Adicionar</button>
                             )
                         }
                         <p className={styles.errorkk}>{errorShow}</p>
