@@ -258,7 +258,7 @@ const Mobs = () => {
                                 <div className={styles.mobCard} key={index}>
 
                                     <div className={styles.cardTitle}>
-                                        <img src={mob.img} className={styles.mobImg} width={160} height={160} />
+                                        <img src={mob.img} className={styles.mobImg} width={128} height={228} />
                                         <h3 className={styles.mobName}>{mob.nome}</h3>
                                         <div className={styles.titleEffect}></div>
                                     </div>
