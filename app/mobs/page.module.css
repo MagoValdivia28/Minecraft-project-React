@@ -211,8 +211,10 @@
     cursor: pointer;
     transition: all 0.5s;
     font-family: 'Title-Minecraft-Font';
-    width: auto;
+    width: 30rem;
+    margin: 1rem;
 }
+
 
 .cardTitle {
     font-family: 'Title-Minecraft-Font';
@@ -220,14 +222,129 @@
     color: black;
     text-align: center;
     margin-bottom: 3rem;
-    width: auto;
-    min-width: 500px;
+
 }
-.titleEffect{
+.create:hover.titleEffect{
     background-color: #52a535;
     padding: 1px;
 }
 
+@media screen and (max-width: 768px) {
+    .mobsList {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 1%;
+    }
+
+    .mobCard {
+        width: 100%;
+    }
+
+    .cardButtonContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 1%;
+    }
+
+    .cardTitle {
+        font-family: 'Title-Minecraft-Font';
+        font-size: 1.5rem;
+        color: black;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .create:hover.titleEffect {
+        background-color: #52a535;
+        padding: 1px;
+    }
+
+    .createCont {
+        background-color: rgba(38, 36, 35, 255);
+        color: white;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 1%;
+    }
+
+
+    .Cardmobs {
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        background: rgba(38, 36, 35, 255);
+        color: white;
+        padding: 2%;
+    }
+
+/* faça todos os font-size ficarem responsivos */
+    .Cardmobs p {
+        font-family: 'Minecraft-Font';
+        font-size: 1.2rem;
+    }
+
+    .form_ip {
+
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: space-between;
+        width: auto;
+
+    }
+
+    .inputs {
+        background: #85807e;
+        border: 0.125rem solid #313233;
+        box-shadow: 0 0.25rem 0 rgba(0, 0, 0, .251), inset -0.25rem -0.25rem 0 rgba(0, 0, 0, .302), inset 0.25rem 0.25rem 0 hsla(0, 0%, 100%, .2);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: space-between;
+        width: auto;
+        padding: 1rem;
+        color: #ffffff;
+        font-size: 20px;
+        margin: 0.3rem;
+    }
+
+    .select {
+        background: #85807e;
+        border: 0.125rem solid #313233;
+        box-shadow: 0 0.25rem 0 rgba(0, 0, 0, .251), inset -0.25rem -0.25rem 0 rgba(0, 0, 0, .302), inset 0.25rem 0.25rem 0 hsla(0, 0%, 100%, .2);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: space-between;
+        width: auto;
+        padding: 1rem;
+        color: #ffffff;
+        font-size: 20px;
+        margin: 0.3rem;
+        color: white;
+        font-family: 'Minecraft-Font';
+        text-shadow: black 1px 1px 1px;
+    }
+
+    .select option {
+        color: white;
+        font-family: 'Minecraft-Font';
+        text-shadow: black 1px 1px 1px;
+    }
+
+    .inputs::placeholder {
+        color: white;
+        font-family: 'Minecraft-Font';
+        text-shadow: black 1px 1px 1px;
+    }
+}
 .deleteMob {
     background-color: #52a535;
     color: white;
