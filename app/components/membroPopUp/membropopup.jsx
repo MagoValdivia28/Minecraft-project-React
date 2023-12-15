@@ -6,13 +6,13 @@ function MembroPopUp({ handleClose, handleSend, setNome, setIdade, setDescricao,
         <div className={styles.containerPopUp}>
             <div className={styles.opacidadeImg}>
 
-                <form className={styles.formInputs}>
+                <div className={styles.formInputs}>
                     <input className={styles.imp} value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome:" type="text" name="nome" />
                     <input className={styles.imp} value={idade} onChange={(e) => setIdade(e.target.value)} placeholder="Idade:" type="number" name="idade" />
                     <input className={styles.imp} value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder="Descricao sobre voce:" type="text" name="descricao" />
                     <input className={styles.imp} value={cargo} onChange={(e) => setCargo(e.target.value)} placeholder="Cargo:" type="text" name="cargo" />
                     <input className={styles.imp} value={urlimagem} onChange={(e) => setUrlImagem(e.target.value)} placeholder="Insira o URL da imagem:" type="text" name="urlImagem" />
-                </form>
+                </div>
 
                 <div className={styles.buttonsContainer}>
                     {
