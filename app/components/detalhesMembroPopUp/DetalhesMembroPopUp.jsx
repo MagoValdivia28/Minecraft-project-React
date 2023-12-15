@@ -1,5 +1,6 @@
 import styles from './detalhesMembroPopUp.module.css'
 
+
 const DetalhesMembroPopUp = ({ idKey, membroArray, funcEdit, funcDel, popUP }) => {
     return (
         <div>
@@ -8,6 +9,8 @@ const DetalhesMembroPopUp = ({ idKey, membroArray, funcEdit, funcDel, popUP }) =
                 <div className={styles.imgMembro}>
                     <img src={membroArray.imagem} alt="membro" />
                 </div>
+
+                
                 <div className={styles.itens}>
                     <div>
                         <div className={styles.item}>
@@ -29,6 +32,7 @@ const DetalhesMembroPopUp = ({ idKey, membroArray, funcEdit, funcDel, popUP }) =
                             <h1>{membroArray.cargo}</h1>
                         </div>
                     </div>
+                    
                 </div>
                 <div className={styles.buttons}>
                     <button className={styles.rmv} onClick={funcDel}>Remover</button>

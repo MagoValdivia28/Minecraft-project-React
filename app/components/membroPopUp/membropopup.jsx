@@ -5,21 +5,26 @@ function MembroPopUp({ handleClose, handleSend, setNome, setIdade, setDescricao,
     return (
         <div className={styles.containerPopUp}>
             <div className={styles.opacidadeImg}>
-                <p onClick={handleClose} className={styles.botaoRemover}>X</p>
+
                 <form className={styles.formInputs}>
-                    <input value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome:" type="text" name="nome" />
-                    <input value={idade} onChange={(e) => setIdade(e.target.value)} placeholder="Idade:" type="number" name="idade" />
-                    <input value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder="Descrição sobre você:" type="text" name="descricao" />
-                    <input value={cargo} onChange={(e) => setCargo(e.target.value)} placeholder="Cargo:" type="text" name="cargo" />
-                    <input value={urlimagem} onChange={(e) => setUrlImagem(e.target.value)} placeholder="Insira o URL da imagem:" type="text" name="urlImagem" />
+                    <input className={styles.inpName} value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome:" type="text" name="nome" />
+                    <input className={styles.imp} value={idade} onChange={(e) => setIdade(e.target.value)} placeholder="Idade:" type="number" name="idade" />
+                    <input className={styles.imp} value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder="Descricao sobre voce:" type="text" name="descricao" />
+                    <input className={styles.imp} value={cargo} onChange={(e) => setCargo(e.target.value)} placeholder="Cargo:" type="text" name="cargo" />
+                    <input className={styles.imp} value={urlimagem} onChange={(e) => setUrlImagem(e.target.value)} placeholder="Insira o URL da imagem:" type="text" name="urlImagem" />
                 </form>
-                {
-                    edited ? (
-                        <input type="submit" value="Editar" className={styles.enviar} onClick={handleEditar} />
-                    ) : (
-                        <input type="submit" value="Criar" className={styles.enviar} onClick={handleSend} />
-                    )
-                }
+
+                <div className={styles.buttonsContainer}>
+                    {
+                        edited ? (
+                            <input type="submit" value="Editar membro" className={styles.enviar} onClick={handleEditar} />
+                        ) : (
+                            <input type="submit" value="Criar novo membro" className={styles.enviar} onClick={handleSend} />
+                        )
+                    }
+                    <p onClick={handleClose} className={styles.botaoRemover}>Cancelar</p>
+                </div>
+
             </div>
         </div>
     )
