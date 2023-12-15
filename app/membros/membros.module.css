@@ -1,28 +1,149 @@
 .main {
+    background: white;
+    /* background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(30,30,30,1) 50%, rgba(35,35,35,1) 100%); */
+    height: 110vh;
+    /* position: fixed; */
+}
+
+.sobreNosContainer {
+    width: 100%;
+    background-color: #0b0b0b;
     padding-top: 10%;
-    background-color: #f8f5f4;
-    text-align: center;
-    align-items: center;
+    height: 110vh;
 }
 
-.textoHeader {
+.titlePag {
     font-family: 'Title-Minecraft-Font';
-    color: #000000
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 10px;
 }
 
-.img1 {
-    width: 500px;
-    height: 350px;
+.mainContainer {
+    display: flex;
+    /* Organiza os contêineres de imagem e texto lado a lado */
+}
+
+.imgContainer {
+    position: relative;
+    /* Define a posição do contêiner como relativa */
+    width: 100%;
+    /* Define a largura do contêiner de imagem como 50% do contêiner principal */
+}
+
+.imgContainer img {
+    top: 0;
+    /* Alinha as imagens ao topo do contêiner */
+    left: 0;
+    /* Alinha as imagens à esquerda do contêiner */
+    width: 100%;
+    /* Faz as imagens ocuparem toda a largura do contêiner */
+    height: auto;
+    /* Mantém a proporção das imagens */
+}
+
+
+.equipeContainer {
+    width: 50%;
+    /* Define a largura do contêiner de texto como 50% do contêiner principal */
+}
+
+.equipeContainer {
+    width: 100%;
+    display: flex;
 }
 
 .textoEquipe {
     font-size: 20px;
     font-weight: bold;
     line-height: 2rem;
-    color: #000;
+    color: #fff;
     text-align: center;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.sla {
+    margin-left: 25%;
+}
+
+@media screen and (max-width: 600px) {
+    .main {
+        position: relative;
+    }
+
+    .mainContainer {
+        flex-direction: column;
+        /* Organiza os contêineres de imagem e texto um abaixo do outro */
+    }
+
+    .imgContainer {
+        width: 100%;
+        /* Define a largura do contêiner de imagem como 100% do contêiner principal */
+    }
+
+
+    .equipeContainer {
+        width: 100%;
+        /* Define a largura do contêiner de texto como 100% do contêiner principal */
+    }
+
+    .sobreNosContainer {
+
+        height: auto;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.textoHeader {
+    font-family: 'Title-Minecraft-Font';
+    color: #fff
+}
+
+.imgEquipe {
+    width: 100%;
+}
+
+.img1 {
+    width: 100%;
+    height: 50rem;
+}
+
+
 
 .sobreEquipe {
     align-items: center;
@@ -33,6 +154,7 @@
     background-color: #fff;
     box-shadow: 0px 0px 5px #ccc;
     display: flex;
+    flex-direction: column;
 
 }
 
@@ -65,7 +187,7 @@
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0px 0px 5px #ccc;
-    flex-direction: column;    
+    flex-direction: column;
     flex-wrap: wrap;
     width: 20rem;
     height: 20rem;
@@ -118,7 +240,7 @@
     font-size: 70px;
     font-family: 'Title-Minecraft-Font';
     transition: 0.4s;
-    width: 50%;
+    width: 65%;
 }
 
 .botaoAdd:hover {
