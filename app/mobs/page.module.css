@@ -1,11 +1,14 @@
+/* Estilo para a classe .container1 */
 .container1 {
     background: rgba(38, 36, 35, 255);
 }
 
+/* Estilo para a classe .back */
 .back {
     background-color: #ebe4e2;
 }
 
+/* Estilo para a classe .divHeader */
 .divHeader {
     background-color: #52a535;
     padding-top: 6%;
@@ -13,6 +16,7 @@
     text-align: center;
 }
 
+/* Estilo para a classe .tituloHeader */
 .tituloHeader {
     font-family: 'Minecraft-Font';
     color: white;
@@ -22,17 +26,20 @@
     padding-bottom: 8px;
 }
 
+/* Estilo para a classe .img12 */
 .img12 {
     margin-top: -4%;
     width: 100%;
 }
 
+/* Estilo para a classe .divHeader2 */
 .divHeader2 {
     margin-top: -5%;
     text-align: center;
     padding-bottom: 1%;
 }
 
+/* Estilo para a classe .tituloCards */
 .tituloCards {
     font-family: 'Title-Minecraft-Font';
     color: white;
@@ -44,6 +51,7 @@
     align-items: center;
 }
 
+/* Estilo para a classe .tituloCards1 */
 .tituloCards1 {
     font-family: 'Title-Minecraft-Font';
     background-color: rgba(38, 36, 35, 255);
@@ -56,16 +64,16 @@
     color: white;
 }
 
+/* Estilo para a classe .cardContainer */
 .cardContainer {
     justify-content: space-between;
-    /* Espaçamento entre os cards */
     background-color: #ebe4e2;
     display: flex;
     padding-top: 6%;
     margin-bottom: -3%;
 }
 
-
+/* Estilo para a classe .textitle */
 .textitle {
     color: rgb(121, 119, 119);
     font-family: 'Title-Minecraft-Font';
@@ -73,7 +81,7 @@
     align-items: center;
 }
 
-
+/* Estilo para a classe .noMobs */
 .noMobs {
     padding-top: 3%;
     padding-bottom: 3%;
@@ -81,18 +89,16 @@
     font-family: 'Title-Minecraft-Font';
 }
 
+/* Estilo para a classe .createCont */
 .createCont {
     background-color: rgba(38, 36, 35, 255);
     color: white;
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 1%;
-
 }
 
-
-
-
+/* Estilo para a classe .Cardmobs */
 .Cardmobs {
     background-size: cover;
     background-position: center;
@@ -100,25 +106,25 @@
     background: rgba(38, 36, 35, 255);
     color: white;
     padding: 2%;
-
 }
 
+/* Estilo para a classe .Cardmobs p */
 .Cardmobs p {
     font-family: 'Minecraft-Font';
     font-size: 1.2rem;
 }
 
+/* Estilo para a classe .form_ip */
 .form_ip {
-
     background: transparent;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     justify-content: space-between;
     width: auto;
-
 }
 
+/* Estilo para a classe .inputs */
 .inputs {
     background: #85807e;
     border: 0.125rem solid #313233;
@@ -134,6 +140,7 @@
     margin: 0.3rem;
 }
 
+/* Estilo para a classe .select */
 .select {
     background: #85807e;
     border: 0.125rem solid #313233;
@@ -152,18 +159,21 @@
     text-shadow: black 1px 1px 1px;
 }
 
+/* Estilo para a classe .select option */
 .select option {
     color: white;
     font-family: 'Minecraft-Font';
     text-shadow: black 1px 1px 1px;
 }
 
+/* Estilo para a pseudo-classe .inputs::placeholder */
 .inputs::placeholder {
     color: white;
     font-family: 'Minecraft-Font';
     text-shadow: black 1px 1px 1px;
 }
 
+/* Estilo para a classe .create */
 .create {
     background-color: #52a535;
     color: white;
@@ -176,6 +186,7 @@
     margin: 0.3rem;
 }
 
+/* Estilo para a pseudo-classe :hover da classe .create */
 .create:hover {
     background-color: #fff;
     color: #000;
@@ -186,48 +197,177 @@
     cursor: pointer;
 }
 
+/* Estilo para a classe .mobsList */
 .mobsList {
     background-color: #313131;
     padding-top: 3%;
     padding-bottom: 3%;
     margin-bottom: -3%;
     font-family: 'Title-Minecraft-Font';
-    display: flex ;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     align-content: center;
     gap: 1%;
-
-    
 }
 
+/* Estilo para a classe .mobCard */
 .mobCard {
     background-color: white;
     padding: 1%;
     margin: 1%;
     border: 1px solid black;
-    cursor: pointer;
     transition: all 0.5s;
     font-family: 'Title-Minecraft-Font';
-    width: auto;
+    width: 30rem;
+    margin: 1rem;
 }
 
+/* Estilo para a classe .cardTitle */
 .cardTitle {
     font-family: 'Title-Minecraft-Font';
     font-size: 1.5rem;
     color: black;
     text-align: center;
     margin-bottom: 3rem;
-    width: auto;
-    min-width: 500px;
 }
-.titleEffect{
+
+/* Estilo para a pseudo-classe :hover da classe .create.titleEffect */
+.create:hover.titleEffect {
     background-color: #52a535;
     padding: 1px;
 }
 
+/* Estilos responsivos para telas menores que 768px */
+@media screen and (max-width: 768px) {
+    /* Estilos para .mobsList */
+    .mobsList {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 1%;
+    }
+
+    /* Estilos para .mobCard */
+    .mobCard {
+        width: 100%;
+    }
+
+    /* Estilos para .cardButtonContainer */
+    .cardButtonContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 1%;
+    }
+
+    /* Estilos para .cardTitle */
+    .cardTitle {
+        font-family: 'Title-Minecraft-Font';
+        font-size: 1.5rem;
+        color: black;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    /* Estilos para .create:hover.titleEffect */
+    .create:hover.titleEffect {
+        background-color: #52a535;
+        padding: 1px;
+    }
+
+    /* Estilos para .createCont */
+    .createCont {
+        background-color: rgba(38, 36, 35, 255);
+        color: white;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 1%;
+    }
+
+    /* Estilos para .Cardmobs */
+    .Cardmobs {
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        background: rgba(38, 36, 35, 255);
+        color: white;
+        padding: 2%;
+    }
+
+    /* Estilos responsivos para o tamanho da fonte */
+    .Cardmobs p {
+        font-family: 'Minecraft-Font';
+        font-size: 1.2rem;
+    }
+
+    /* Estilos para .form_ip */
+    .form_ip {
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: space-between;
+        width: auto;
+    }
+
+    /* Estilos para .inputs */
+    .inputs {
+        background: #85807e;
+        border: 0.125rem solid #313233;
+        box-shadow: 0 0.25rem 0 rgba(0, 0, 0, .251), inset -0.25rem -0.25rem 0 rgba(0, 0, 0, .302), inset 0.25rem 0.25rem 0 hsla(0, 0%, 100%, .2);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: space-between;
+        width: auto;
+        padding: 1rem;
+        color: #ffffff;
+        font-size: 20px;
+        margin: 0.3rem;
+    }
+
+    /* Estilos para .select */
+    .select {
+        background: #85807e;
+        border: 0.125rem solid #313233;
+        box-shadow: 0 0.25rem 0 rgba(0, 0, 0, .251), inset -0.25rem -0.25rem 0 rgba(0, 0, 0, .302), inset 0.25rem 0.25rem 0 hsla(0, 0%, 100%, .2);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: space-between;
+        width: auto;
+        padding: 1rem;
+        color: #ffffff;
+        font-size: 20px;
+        margin: 0.3rem;
+        color: white;
+        font-family: 'Minecraft-Font';
+        text-shadow: black 1px 1px 1px;
+    }
+
+    /* Estilos para .select option */
+    .select option {
+        color: white;
+        font-family: 'Minecraft-Font';
+        text-shadow: black 1px 1px 1px;
+    }
+
+    /* Estilos para .inputs::placeholder */
+    .inputs::placeholder {
+        color: white;
+        font-family: 'Minecraft-Font';
+        text-shadow: black 1px 1px 1px;
+    }
+}
+
+/* Estilos para a classe .deleteMob */
 .deleteMob {
     background-color: #52a535;
     color: white;
@@ -240,6 +380,7 @@
     margin: 0.3rem;
 }
 
+/* Estilos para a classe .editMob */
 .editMob {
     background-color: #52a535;
     color: white;
@@ -252,6 +393,7 @@
     margin: 0.3rem;
 }
 
+/* Estilos para a pseudo-classe :hover da classe .editMob */
 .editMob:hover {
     background-color: #fff;
     color: #000;
@@ -262,6 +404,7 @@
     cursor: pointer;
 }
 
+/* Estilos para a pseudo-classe :hover da classe .deleteMob */
 .deleteMob:hover {
     background-color: #fff;
     color: #000;
@@ -272,6 +415,7 @@
     cursor: pointer;
 }
 
+/* Estilos para a classe .cardButtonContainer */
 .cardButtonContainer {
     display: flex;
     flex-direction: row;
@@ -280,4 +424,3 @@
     align-content: center;
     gap: 1%;
 }
-

@@ -1,11 +1,14 @@
+/* Estilo para a classe .container1 */
 .container1 {
   background: rgba(38, 36, 35, 255);
 }
 
+/* Estilo para a classe .back */
 .back {
   background-color: #ebe4e2;
 }
 
+/* Estilo para a classe .divHeader */
 .divHeader {
   background-color: #52a535;
   padding-top: 6%;
@@ -13,12 +16,14 @@
   text-align: center;
 }
 
+/* Estilo para a classe .divHeader2 */
 .divHeader2 {
   margin-top: -5%;
   margin-bottom: 2%;
   text-align: center;
 }
 
+/* Estilo para a classe .tituloHeader */
 .tituloHeader {
   font-family: 'Title-Minecraft-Font';
   color: white;
@@ -28,6 +33,7 @@
   padding-bottom: 8px;
 }
 
+/* Estilo para a classe .tituloCards */
 .tituloCards {
   font-family: 'Title-Minecraft-Font';
   color: white;
@@ -39,6 +45,7 @@
   align-items: center;
 }
 
+/* Estilo para a classe .container_mainNews */
 .container_mainNews {
   display: flex;
   color: white;
@@ -46,6 +53,7 @@
   margin: 0 auto;
 }
 
+/* Estilo para a classe .container_mainNews em dispositivos com largura máxima de 768px */
 @media (max-width: 768px) {
   .container_mainNews {
     flex-direction: column;
@@ -54,6 +62,7 @@
   }
 }
 
+/* Estilo para a classe .mainCard */
 .mainCard {
   width: 50%;
   height: 25rem;
@@ -63,18 +72,20 @@
   position: relative;
 }
 
+/* Efeito de hover para a classe .mainCard */
 .mainCard:hover {
   transform: scale(1.03); /* Aumenta o tamanho do cartão */
   transition: transform .2s; /* Suaviza a transição */
 }
 
+/* Estilo para a classe .mainCard em dispositivos com largura máxima de 768px */
 @media (max-width: 768px) {
   .mainCard {
     width: 80%;
-  
   }
 }
 
+/* Estilo para as imagens das .mainCard usando :nth-child */
 .mainCard:nth-child(1) {
   background-image: url("https://www.minecraft.net/content/dam/games/minecraft/key-art/highlight-tails.jpg");
 }
@@ -83,6 +94,7 @@
   background-image: url("https://www.minecraft.net/content/dam/games/badger/key-art/highlight-legends.jpg");
 }
 
+/* Estilo para a classe .textMainCard */
 .textMainCard {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
   width: 100%;
@@ -97,17 +109,20 @@
   text-align: center;
 }
 
+/* Estilo para a classe .cardContainer */
 .cardContainer {
   display: flex;
   width: 100%;
 }
 
+/* Estilo para a classe .cardContainer em dispositivos com largura máxima de 768px */
 @media (max-width: 768px) {
   .cardContainer {
     flex-direction: column;
   }
 }
 
+/* Estilo para a classe .card */
 .card {
   background-color: #52a535;
   width: 30%;
@@ -119,6 +134,7 @@
   position: relative;
 }
 
+/* Estilo para a classe .card em dispositivos com largura máxima de 768px */
 @media (max-width: 768px) {
   .card {
     margin: 3%;
@@ -126,6 +142,7 @@
   }
 }
 
+/* Estilo para as imagens das .card usando :nth-child */
 .card:nth-child(1) {
   background-image: url("/backcard.png");
 }
@@ -138,12 +155,14 @@
   background-image: url("/encantamentoMine.png");
 }
 
+/* Estilo para a classe .newsTitle */
 .newsTitle {
   background-color: white;
   color: black;
   padding: 2% 3%;
 }
 
+/* Estilo para a classe .textCard */
 .textCard {
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
@@ -160,16 +179,19 @@
   flex-direction: column;
 }
 
+/* Estilo para a classe .subTitle_card */
 .subTitle_card {
   margin-top: 2%;
   display: none;
 }
 
+/* Efeito de exibição ao passar o mouse sobre a .card */
 .card:hover .subTitle_card {
   display: block;
-  transition: transform .2s;;
+  transition: transform .2s;
 }
 
+/* Estilo para a classe .footerimg */
 .footerimg {
   width: 100%;
   height: 100%;
@@ -177,11 +199,13 @@
   margin-top: 10%;
 }
 
+/* Estilo para a classe .img12 */
 .img12 {
   margin-top: -4%;
   width: 100%;
 }
 
+/* Estilo para a classe .img12 em dispositivos com largura máxima de 768px */
 @media (max-width: 768px) {
   .img12 {
     width: 100%;

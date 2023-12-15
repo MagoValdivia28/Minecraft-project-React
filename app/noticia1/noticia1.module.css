@@ -3,6 +3,7 @@
     background-color: #ede5e2;
 }
 
+/* Estilo para a imagem principal da notícia */
 .img1 {
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,9 +14,10 @@
     padding-left: 4%;
 }
 
+/* Estilo para a seção de categoria da notícia */
 .article1 {
     position: absolute;
-    text-align: center w-100 translate-up-50;
+    text-align: center;
     align-items: center;
     text-align: center;
     width: 100%;
@@ -23,24 +25,22 @@
     margin-top: -1.5%;
 }
 
+/* Estilo para o bloco inline do artigo */
 .article2 {
     display: inline-block;
 }
-/* .article4 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
 
+/* Estilo para a categoria de notícias */
 .news {
     background-color: #252525;
     color: white;
-    font-weight: bold text-small text-uppercase bg-black d-inline-block;
+    font-weight: bold;
     text-transform: uppercase;
     padding: 6px 10px;
     font-weight: 700;
 }
 
+/* Estilo para imagens na notícia */
 .img {
     width: 100%;
     padding-top: 1em;
@@ -52,6 +52,7 @@
     padding-bottom: 3em;
 }
 
+/* Estilo para a seção principal da notícia */
 .section {
     margin-left: auto;
     margin-right: auto;
@@ -59,8 +60,7 @@
     padding: 0 16px;
 }
 
-
-
+/* Estilo para o título da notícia */
 .tituloHeader {
     text-align: center;
     padding-top: 1em;
@@ -72,6 +72,7 @@
     letter-spacing: 1px;
 }
 
+/* Estilo para a frase de cabeçalho */
 .fraseHeader {
     font-family: OpenSans, sans-serif;
     font-size: 1.13rem;
@@ -80,12 +81,14 @@
     margin: 20px;
 }
 
+/* Estilo para o autor da notícia */
 .autorHeader {
     font-family: OpenSans, sans-serif;
     font-size: 1em;
     margin: 1em 0 1.25em;
 }
 
+/* Estilo para o corpo do texto */
 .texto {
     font-family: OpenSans, sans-serif;
     font-size: 16px;
@@ -93,6 +96,7 @@
     margin: 1em 0;
 }
 
+/* Estilo para o último parágrafo de texto */
 .textoUltimo {
     padding-top: 3em;
     font-family: OpenSans, sans-serif;
@@ -100,11 +104,13 @@
     margin: 1em 0;
 }
 
+/* Estilo para vídeos incorporados */
 .video {
     width: 100%;
     height: 456px;
 }
 
+/* Estilo para o título da notícia */
 .tituloNoticia {
     padding-top: 1em;
     font-size: 1.875em;
@@ -114,15 +120,18 @@
     text-transform: uppercase;
 }
 
+/* Estilo para texto itálico */
 .emm {
     font: italic;
     font-family: OpenSans, sans-serif;
 }
 
+/* Estilo para o texto centralizado */
 .center {
     text-align: center;
 }
 
+/* Estilo para listas */
 .li {
     font-size: 1.1em;
     line-height: 3;
@@ -130,6 +139,7 @@
     font-family: OpenSans, sans-serif;
 }
 
+/* Estilo para itens de lista com ponto antes */
 .li::before {
     content: "•";
     color: black;
@@ -138,128 +148,139 @@
     margin-left: -0.9em;
 }
 
+/* Estilo para listas com marcadores circulares */
 .liCircle {
     list-style-type: circle;
     font-family: OpenSans, sans-serif;
     margin-left: 2.5em;
 }
 
+/* Estilo para links com cor específica */
 .colorLink {
     font-family: OpenSans, sans-serif;
     color: #1db8f3;
 }
 
+/* Estilo para a linha horizontal */
 .hr {
     border-top: 1px solid #b3b3b3;
 }
 
+/* Estilo para links */
 .links {
     color: #288123;
 }
 
+/* Estilo para links ao passar o mouse */
 .links:hover {
     background-color: black;
     color: #196d17;
 }
 
+/* Estilo para parágrafos de texto */
 .textos {
-        padding: 2px 0px 5px 0px;
+    padding: 2px 0px 5px 0px;
 }
 
+/* Estilo para a seção "Quem Fez" */
 .quemFez {
     float: left;
     padding-top: 16%;
     margin-left: -20%;
-    
     width: 50%;
 }
 
-.paddingDiv{
+/* Estilo para adicionar espaço à esquerda */
+.paddingDiv {
     padding-left: 10%;
 }
 
+/* Estilo para a segunda imagem */
 .img2 {
     width: 100%;
     height: auto; /* Adiciona altura automática para manter a proporção da imagem */
 }
 
+/* Estilo para a seção principal usando Flexbox */
 .section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; /* Adiciona flex-wrap para permitir que os itens da seção se ajustem automaticamente em várias linhas se necessário */
 }
 
+/* Estilo responsivo para telas menores */
 @media (max-width: 768px) {
     .main {
-      padding-top: 4%;
-    }
-  
-    .img1 {
-      height: 50vh;
-      width: 100%;
-      padding-left: 0;
-      margin-top: 6%;
-      object-fit: cover; /* Adiciona object-fit para garantir que a imagem cubra a área disponível sem distorção */
+        padding-top: 4%;
     }
 
-  
+    .img1 {
+        height: 50vh;
+        width: 100%;
+        padding-left: 0;
+        margin-top: 6%;
+        object-fit: cover; /* Adiciona object-fit para garantir que a imagem cubra a área disponível sem distorção */
+    }
+
     .article1 {
-      margin-top: 0;
+        margin-top: 0;
     }
-  
+
     .section {
-      max-width: 100%;
-      padding: 0 8px;
+        max-width: 100%;
+        padding: 0 8px;
     }
-  
+
     .tituloHeader {
-      font-size: 24px;
-      line-height: 28px;
+        font-size: 24px;
+        line-height: 28px;
     }
-  
+
     .fraseHeader {
-      font-size: 1rem;
-      margin: 10px;
+        font-size: 1rem;
+        margin: 10px;
     }
-  
+
     .autorHeader {
-      font-size: 0.875em;
-      margin: 0.5em 0 0.625em;
+        font-size: 0.875em;
+        margin: 0.5em 0 0.625em;
     }
-  
-    .texto, .textoUltimo {
-      font-size: 14px;
-      line-height: 1.5;
+
+    .texto,
+    .textoUltimo {
+        font-size: 14px;
+        line-height: 1.5;
     }
-  
+
     .video {
-      height: 300px;
+        height: 300px;
     }
-  
+
     .tituloNoticia {
-      font-size: 1.5em;
+        font-size: 1.5em;
     }
-  
+
     .li {
-      font-size: 1em;
-      line-height: 2;
+        font-size: 1em;
+        line-height: 2;
     }
-  
+
     .quemFez {
-      float: none;
-      padding-top: 8%;
-      margin-left: 0;
-      width: 100%;
+        float: none;
+        padding-top: 8%;
+        margin-left: 0;
+        width: 100%;
     }
-  
-    .paddingDiv{
-      padding-left: 0%;
+
+    .paddingDiv {
+        padding-left: 0%;
     }
-  
-    .section{
-      flex-direction: column;
+
+    .section {
+        flex-direction: column;
     }
-    .img2{
+
+    .img2 {
         display: none;
     }
-  }
+}

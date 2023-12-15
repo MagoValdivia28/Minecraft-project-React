@@ -1,3 +1,4 @@
+/* Define estilos globais para todos os elementos */
 * {
   padding: 0;
   margin: 0;
@@ -5,21 +6,27 @@
   font-family: Noto-Sans;
   list-style: none;
   text-decoration: none;
-  
 }
 
+/* Declaração @font-face para a fonte 'Minecraft-Font' */
 @font-face {
   font-family: 'Minecraft-Font';
   src: local('Minecraft-Font'), url(../fonts/Minecraft.ttf) format('truetype');
 }
+
+/* Declaração @font-face para a fonte 'Title-Minecraft-Font' */
 @font-face {
   font-family: 'Title-Minecraft-Font';
   src: local('Title-Minecraft-Font'), url(../fonts/Minecrafter.Reg.ttf) format('opentype');
 }
+
+/* Declaração @font-face para a fonte 'Minecraft-Enchantment-Font' */
 @font-face {
   font-family: 'Minecraft-Enchantment-Font';
   src: local('Minecraft-Enchantment-Font'), url(../fonts/minecraft-enchantment.ttf) format('truetype');
 }
+
+/* Declaração @font-face para a fonte 'Noto-Sans' */
 @font-face {
   font-family: 'Noto-Sans';
   src: local('Noto-Sans'), url(../fonts/NotoSans-Medium.ttf) format('truetype');
