@@ -6,7 +6,7 @@ const url = process.env.BASE_URL + "membros";
 
 export async function GET() {
     try {
-        const response = await axios.get("http://localhost:4000/membros");
+        const response = await axios.get(url);
         return NextResponse.json(response.data.membros);
     } catch (error) {
         console.log("[ORDER_GET]", error);
@@ -31,7 +31,7 @@ export async function PUT(request) {
 
     try {
         const response = await axios.put(
-            `http://localhost:4000/membros/${params.id}`,
+            `${url}/${params.id}`,
             params
         );
         return NextResponse.json(response.data);
@@ -46,7 +46,7 @@ export async function DELETE(request) {
 
     try {
         const response = await axios.delete(
-            `http://localhost:4000/membros/${params.id}`
+            `${url}/${params.id}`
         );
         return NextResponse.json(response.data);
     } catch (error) {
