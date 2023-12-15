@@ -1,25 +1,29 @@
-/* faça um css para o feedback*/
+/* Faça um CSS para o feedback */
 
+/* Estilo geral da página principal */
 .main {
   padding-top: 4%;
   background-image: url("../../public/bg-wool-dark.png");
+}
 
-}
-.body{
-  background-color: #ebe4e2;
-}
-.feedback_list{
+/* Estilo do corpo da página */
+.body {
   background-color: #ebe4e2;
 }
 
+/* Estilo da lista de feedbacks */
+.feedback_list {
+  background-color: #ebe4e2;
+}
+
+/* Estilo do degradê na imagem */
 .imgDegrade {
   background: url("../../public/preto-branco-degrade.png");
   background-repeat: repeat-x;
   height: 10vh;
-
-
 }
 
+/* Estilo do container de títulos */
 .titles_container {
   background-image: url(https://theme.zdassets.com/theme_assets/2155033/3075fa693c7a32466e05b6ddb6938392b1b0fffe.png);
   background-repeat: no-repeat;
@@ -28,9 +32,9 @@
   margin-top: 3rem;
   margin-bottom: 0;
   padding-bottom: 0;
-
 }
 
+/* Estilo dos títulos */
 .titles {
   margin: 30px;
   text-align: center;
@@ -42,35 +46,37 @@
   text-align: center;
 }
 
+/* Estilo dos subtítulos */
 .subTitles {
   text-align: center;
   margin-bottom: 30px;
   font-size: 4vh;
-
   color: #000000;
   text-shadow: 2px 2px 2px #ffffff;
   text-align: center;
-
 }
 
+/* Estilo das etiquetas */
 .label {
   font-family: 'Minecraft-Font';
   font-size: 1.5rem;
   margin-top: 2rem;
 }
 
+/* Outro estilo de etiqueta */
 .label1 {
   font-family: 'Minecraft-Font';
   font-size: 1.5rem;
-
 }
 
+/* Estilo do campo de entrada */
 .input {
   margin-bottom: 2rem;
   margin-top: -0.5rem;
   width: 50%;
 }
 
+/* Estilo do botão de envio */
 .enviar {
   background-color: green;
   color: white;
@@ -84,17 +90,22 @@
   border-top: #a0e081 5px solid;
 }
 
+/* Estilo do botão de envio ao passar o mouse */
 .enviar:hover {
   background-color: #3d8a1d;
 }
 
+/* Estilo do botão de exclusão ao passar o mouse */
 .deleteButton:hover {
   background-color: #3d8a1d;
 }
 
-.editButton{
+/* Estilo do botão de edição */
+.editButton {
   background-color: #3d8a1d;
 }
+
+/* Estilo do container do formulário */
 .form_container {
   align-items: center;
   background: #85807e;
@@ -111,19 +122,21 @@
   padding-bottom: 2rem;
 }
 
+/* Estilo do container geral */
 .container {
   margin-top: 3%;
   justify-content: space-between;
   background-color: #ebe4e2;
   padding-bottom: 3%;
 }
-.cntn{
-  
+
+/* Container flexível */
+.cntn {
   display: flex;
   flex-wrap: wrap;
 }
 
-
+/* Estilo do cartão de feedback */
 .card {
   background: #85807e;
   border: 0.125rem solid #313233;
@@ -134,14 +147,17 @@
   box-shadow: 0 0.25rem 0 rgba(0, 0, 0, .251), inset -0.25rem -0.25rem 0 rgba(0, 0, 0, .302), inset 0.25rem 0.25rem 0 hsla(0, 0%, 100%, .2);
 }
 
+/* Estilo do item de feedback */
 .feedback_item {
   margin-left: 15%;
 }
 
-.feedback_item p{
+/* Estilo do parágrafo dentro do item de feedback */
+.feedback_item p {
   font-size: 3vh;
 }
 
+/* Estilo do botão de exclusão */
 .deleteButton {
   background-color: green;
   color: white;
@@ -154,7 +170,9 @@
   border-right: #2a641c 5px solid;
   border-top: #a0e081 5px solid;
 }
-.editButton{
+
+/* Estilo do botão de edição */
+.editButton {
   background-color: green;
   color: white;
   padding: 0.3rem 0.5rem;
@@ -167,38 +185,46 @@
   border-top: #a0e081 5px solid;
   margin-left: 1rem;
 }
-.container_button{
+
+/* Container flexível para botões */
+.container_button {
   display: flex;
   flex-wrap: wrap;
   padding-top: 1rem;
-
 }
 
-.imgDegrade2{
+/* Estilo do degradê na imagem 2 */
+.imgDegrade2 {
   background: url("../../public/preto-cima-baixo.png");
   background-repeat: repeat-x;
   height: 16vh;
   margin-top: 3rem;
-  background-color: #ebe4e2;;
+  background-color: #ebe4e2;
 }
 
+/* Estilo responsivo para telas menores que 768px */
 @media (max-width: 768px) {
+  /* Ajuste de largura para o cartão */
   .card {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
   }
+
+  /* Ajuste de largura para o container do formulário */
   .form_container {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
   }
 
+  /* Ajuste de tamanho de fonte para os títulos */
   .titles {
     font-size: 6vh;
   }
-  .main{
+
+  /* Ajuste de padding superior para a página principal */
+  .main {
     padding-top: 15%;
   }
 }
-
