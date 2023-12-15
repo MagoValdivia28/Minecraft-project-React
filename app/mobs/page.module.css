@@ -211,6 +211,7 @@
     cursor: pointer;
     transition: all 0.5s;
     font-family: 'Title-Minecraft-Font';
+    width: auto;
 }
 
 .cardTitle {
