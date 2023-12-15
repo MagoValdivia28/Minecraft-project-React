@@ -133,6 +133,7 @@ const equipamentoPage = () => {
                 <div className={styles.armamento}>
                     <h1>armamento</h1>
                     <br />
+                    <br />
                     <p>Escolha seus Equipamentos</p>
                 </div>
 
