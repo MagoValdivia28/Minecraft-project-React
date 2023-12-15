@@ -100,7 +100,7 @@
 }
 
 .img2 {
-    width: 100%;
+    width: 30rem;
     margin: 0 auto;
 }
 
@@ -194,6 +194,10 @@
     .sobreNosContainer {
 
         height: auto;
+    }
+    .img2{
+        width: 100%;
+    
     }
 
 }
