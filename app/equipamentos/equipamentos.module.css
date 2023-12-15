@@ -1,37 +1,44 @@
+/* Define a fonte personalizada 'Minecraft' para uso no CSS */
 @font-face {
     font-family: 'Minecraft';
     src: url(../../fonts/Minecraft.ttf);
 }
 
+/* Estilização da classe 'bg' para elementos com fundo escuro */
 .bg {
     padding-top: 1%;
     background-image: url(../../public/bg-wool-dark.png);
     margin-left: 6%;
     margin-right: 6%;
 }
-.main{
+
+/* Estilização da classe 'main' para elementos com fundo escuro, cobrindo a tela */
+.main {
     background-image: url(../../public/bg-wool-dark.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
+/* Estilização da classe 'armamento' para a seção de armamento */
 .armamento {
     background-image: url(../../public/bg-wool-dark.png);
     height: 30vh;
-    background-color:#c6c6c6 ;
+    background-color: #c6c6c6;
     margin-top: 6rem;
     margin-bottom: -6rem;
     text-align: center;
-    
 }
-.armamento h1{
+
+/* Estilização do título h1 e do parágrafo p dentro da classe 'armamento' */
+.armamento h1 {
     font-size: 14vh;
     font-family: 'Minecraft-Font';
     color: #fff;
     text-shadow: 2px 2px 2px #000;
     text-align: center;
 }
-.armamento p{
+
+.armamento p {
     font-size: 7vh;
     font-family: 'Minecraft-Font';
     color: #fff;
@@ -39,13 +46,15 @@
     text-align: center;
 }
 
+/* Estilização da caixa de inventário com fundo cinza claro */
 .boxInventory {
     background-color: #c6c6c6;
     display: flex;
     align-items: center;
-    height: 83vh;    
+    height: 83vh;
 }
 
+/* Estilização da seção de armadura */
 .armadura {
     display: flex;
     width: 100%;
@@ -56,11 +65,13 @@
     height: 18rem;
 }
 
-    .armadura .armaduraSlotInventario {
-        display: flex;
-        flex-direction: column;
-    }
+/* Estilização específica para a classe 'armaduraSlotInventario' dentro da classe 'armadura' */
+.armadura .armaduraSlotInventario {
+    display: flex;
+    flex-direction: column;
+}
 
+/* Estilização dos itens de armadura com imagem de fundo e dimensões específicas */
 .itemArmadura {
     display: flex;
     background-image: url(../../public/inventory/slot.png);
@@ -70,27 +81,30 @@
     cursor: pointer;
 }
 
+/* Estilização específica para o item dentro de 'itemArmadura' para centralizá-lo */
 .itemArmadura .itemDoItem {
     position: relative;
-    /* deixar no centro */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+/* Estilização específica para o item 'itempeitoral' com padding reduzido */
 .itempeitoral {
     padding: 4px !important;
 }
 
+/* Estilização específica para o item 'itemcalca' com padding reduzido */
 .itemcalca {
     padding: 6px !important;
 }
 
-
+/* Classe 'hidden' para elementos que devem ficar ocultos */
 .hidden {
     display: none;
 }
 
+/* Estilização das classes 'peitoralCreation', 'calcaCreation', 'botaCreation', 'espadaCreation' dentro da classe 'armadura' */
 .armadura .peitoralCreation {
     margin-top: 54px;
 }
@@ -107,6 +121,7 @@
     margin-top: 216px;
 }
 
+/* Estilização do botão de envio com fundo verde, bordas e sombra */
 .buttonSend {
     background-color: green;
     color: white;
@@ -122,13 +137,14 @@
     width: 100%;
 }
 
+/* Estilização da classe 'equipamentosPredefinidos' para a lista de equipamentos predefinidos */
 .equipamentosPredefinidos {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-
 }
 
+/* Estilização do container com altura e alinhamento de itens */
 .containerCreation {
     height: 54px;
     display: flex;
@@ -136,6 +152,7 @@
     margin-right: auto;
 }
 
+/* Estilização do parágrafo dentro de 'containerCreation' com cor branca, sombra e tamanho de fonte */
 .containerCreation p {
     color: #fff;
     font-family: 'Minecraft', sans-serif;
@@ -144,20 +161,26 @@
     margin-left: 1rem;
 }
 
+/* Estilização específica para larguras de tela até 768px */
 @media (max-width: 768px) {
-  .armamento h1{
-    font-size: 3rem;
+    /* Ajuste de fonte para 'armamento' */
+    .armamento h1 {
+        font-size: 3rem;
+    }
     
-  }
-  .armamento p{
-    font-size: 2rem;
+    /* Ajuste de fonte para 'armamento' */
+    .armamento p {
+        font-size: 2rem;
+    }
     
-  }
-  .armadura {
-    flex-direction: column;
-    height: auto;
-  }
-  .itemArmadura {
+    /* Modificações na estrutura de 'armadura' para empilhamento em telas menores */
+    .armadura {
+        flex-direction: column;
+        height: auto;
+    }
     
-  }
+    /* Ajuste de estilo para 'itemArmadura' em telas menores */
+    .itemArmadura {
+        /* Defina os estilos apropriados para telas menores, se necessário */
+    }
 }
