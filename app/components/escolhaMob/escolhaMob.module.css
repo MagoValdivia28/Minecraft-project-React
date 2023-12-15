@@ -41,7 +41,7 @@
     box-shadow: 0 0.25rem 0 rgba(0, 0, 0, .251), inset -0.25rem -0.25rem 0 rgba(0, 0, 0, .302), inset 0.25rem 0.25rem 0 hsla(0, 0%, 100%, .2);
     display: flex;
     gap: 0.5rem;
-    margin: 10rem 1rem 0;
+    margin: 5rem 1rem 0;
     padding: 1rem;
     flex-wrap: wrap;
 }
@@ -153,6 +153,7 @@
     flex-wrap: wrap;
     overflow-y: auto; /* Adiciona a barra de rolagem vertical */
     justify-content: center;
+    gap: 3rem;
 }
 
 .mobsCriados::-webkit-scrollbar {
@@ -165,7 +166,6 @@
 .mob {
     width: 140px;
     height: 140px;
-    border: rgba(0, 0, 0, 0.5) 4px solid;
 }
 
 .mobImg {
