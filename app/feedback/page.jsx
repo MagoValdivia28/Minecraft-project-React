@@ -92,6 +92,8 @@ const feedbackPage = () => {
                 setName('');
                 setEmail('');
                 setMessage('');
+                const response = await axios.get('/api/feedback');
+                setDados(response.data);
             } catch (error) {
                 console.error('Error submitting data:', error);
             }
