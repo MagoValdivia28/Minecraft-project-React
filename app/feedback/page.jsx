@@ -87,7 +87,7 @@ const feedbackPage = () => {
         } else {
             try {
                 /* Faz uma requisição POST para a API de feedbacks */
-                await axios.post('/api/feedback', { name, email, message });
+                await axios.post('/api/feedback', { nome: name, email, message: message });
                 /* Limpa os valores dos inputs após o envio */
                 setName('');
                 setEmail('');
