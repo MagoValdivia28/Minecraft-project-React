@@ -15,6 +15,8 @@ const membroPage = () => {
 
     const [membro, setMembro] = useState(null);
 
+    const [msgError, setMsgError] = useState(null);
+
     const [editMembro, setEditMembro] = useState(null);
 
     //cor do card da pessoa
@@ -58,20 +60,24 @@ const membroPage = () => {
 
     // postar
     const handleSend = async () => {
-        try {
-            await axios.post("/api/membros", { nome, idade, descricao, cargo, urlimagem: imagem });
-            setNome('');
-            setIdade('');
-            setDescricao('');
-            setCargo('');
-            setUrlImagem('');
-            setCorCard('');
-            setShowPopup(false);
-            // router.push(`/membros/`);
-            const response = await axios.get("/api/membros");
-            setDados(response.data);
-        } catch (error) {
-            console.error("Error submitting data:", error);
+        if (!nome || !idade || !descricao || !cargo || !imagem) {
+            setMsgError('Preencha todos os campos');
+        } else {
+            try {
+                await axios.post("/api/membros", { nome, idade, descricao, cargo, urlimagem: imagem });
+                setNome('');
+                setIdade('');
+                setDescricao('');
+                setCargo('');
+                setUrlImagem('');
+                setCorCard('');
+                setShowPopup(false);
+                // router.push(`/membros/`);
+                const response = await axios.get("/api/membros");
+                setDados(response.data);
+            } catch (error) {
+                console.error("Error submitting data:", error);
+            }
         }
     }
 
@@ -173,12 +179,11 @@ const membroPage = () => {
                     <div className={styles.sla}>
                         <h1 className={`${styles.center} ${styles.txt}`}>Criar novo membro</h1>
                         <p className={styles.center}><button className={styles.botaoAdd} onClick={handleOpenPopup}>+</button></p>
-                        
                     </div>
 
                     <div className={styles.cadastro}>
                         {
-                            showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} setNome={setNome} setIdade={setIdade} setDescricao={setDescricao} setCargo={setCargo} setUrlImagem={setUrlImagem} nome={nome} idade={idade} descricao={descricao} cargo={cargo} urlimagem={imagem} edited={editMembro} handleEditar={() => handleEditar()} />
+                            showPopup && <MembroPopUp handleClose={handleClose} handleSend={() => handleSend()} setNome={setNome} setIdade={setIdade} setDescricao={setDescricao} setCargo={setCargo} setUrlImagem={setUrlImagem} nome={nome} idade={idade} descricao={descricao} cargo={cargo} urlimagem={imagem} edited={editMembro} handleEditar={() => handleEditar()} errorInp={msgError} />
                         }
                     </div>
                     <div className={styles.boraBill}>
@@ -192,6 +197,7 @@ const membroPage = () => {
                                     <div className={styles.botaoVM}>
                                         <button onClick={() => handleOpenDescricaoPopup(membro.id)} className={styles.botaoVermais}>Detalhes</button>
                                     </div>
+
                                 </div>
                             ))
                         }

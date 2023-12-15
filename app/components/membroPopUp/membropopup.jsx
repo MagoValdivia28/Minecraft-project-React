@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './membropopup.module.css'; // Substitua pelo caminho correto para o seu arquivo CSS
 
-function MembroPopUp({ handleClose, handleSend, setNome, setIdade, setDescricao, setCargo, setUrlImagem, nome, idade, descricao, cargo, urlimagem, edited, handleEditar }) {
+function MembroPopUp({ handleClose, handleSend, setNome, setIdade, setDescricao, setCargo, setUrlImagem, nome, idade, descricao, cargo, urlimagem, edited, handleEditar, errorInp }) {
     return (
         <div className={styles.containerPopUp}>
             <div className={styles.opacidadeImg}>
@@ -13,6 +13,7 @@ function MembroPopUp({ handleClose, handleSend, setNome, setIdade, setDescricao,
                     <input className={styles.imp} value={cargo} onChange={(e) => setCargo(e.target.value)} placeholder="Cargo:" type="text" name="cargo" />
                     <input className={styles.imp} value={urlimagem} onChange={(e) => setUrlImagem(e.target.value)} placeholder="Insira o URL da imagem:" type="text" name="urlImagem" />
                 </div>
+                    <p className={styles.erro}>{errorInp}</p>
 
                 <div className={styles.buttonsContainer}>
                     {
