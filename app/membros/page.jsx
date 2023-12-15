@@ -129,7 +129,7 @@ const membroPage = () => {
 
     return (
         <>
-            {/* <Header /> */}
+            <Header /> 
 
             {
                 popUp ? (
